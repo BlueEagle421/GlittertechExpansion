@@ -173,7 +173,7 @@
     <ThingDef ParentName="USH_GlitterpanelBase">
         <defName>USH_AwareGlitterpanel</defName>
         <label>Aware glitterpanel</label>
-        <description>A powerful panel that synergizes glittertech with archotech. Its advanced foundation captures and activates the dormant AI persona core, transforming it into a functional slave. It fully automates the connected glittertech fabricator, eliminating the need for manual inspections.</description>
+        <description>A powerful synergy between glittertech and godlike archotech that captures the dormant AI persona core, transforming it into a functional slave.\n\nIt fully automates the connected fabricator, eliminating the need for manual inspections and accelerating the process, at the cost of a higher initial power draw.</description>
         <graphicData>
             <texPath>Things/Building/AwareGlitterpanel</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -189,6 +189,8 @@
         </costList>
         <comps>
             <li Class="CompProperties_Facility">
+                <USH_GlittertechDuration>-0.1</USH_GlittertechDuration>
+                <USH_GlittertechPowerStored>0.15</USH_GlittertechPowerStored>
                 <maxSimultaneous>1</maxSimultaneous>
             </li>
             <li Class="CompProperties_Power">
