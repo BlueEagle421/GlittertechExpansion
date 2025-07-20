@@ -290,7 +290,7 @@
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
-        <gestationCycles>5</gestationCycles>
+        <gestationCycles>3</gestationCycles>
         <formingTicks>2500</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
         <ingredients Inherit="false">
@@ -334,8 +334,8 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormPlasteel</defName>
-        <label>form plasteel x12</label>
-        <description>Form plasteel x12.</description>
+        <label>form plasteel x24</label>
+        <description>Form plasteel x24.</description>
         <gestationCycles>5</gestationCycles>
         <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
@@ -382,7 +382,7 @@
             </li>
         </ingredients>
         <products>
-            <Plasteel>12</Plasteel>
+            <Plasteel>24</Plasteel>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Plasteel</ThingDef>
@@ -396,8 +396,8 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormPlasteelBulk</defName>
-        <label>form plasteel x48</label>
-        <description>Form plasteel x48.</description>
+        <label>form plasteel x96</label>
+        <description>Form plasteel x96.</description>
         <gestationCycles>16</gestationCycles>
         <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
@@ -444,7 +444,7 @@
             </li>
         </ingredients>
         <products>
-            <Plasteel>48</Plasteel>
+            <Plasteel>96</Plasteel>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Plasteel</ThingDef>
