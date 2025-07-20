@@ -68,6 +68,60 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormGlittercoreBulk</defName>
+        <label>form glittercore x4</label>
+        <description>Form a glittercore x4.</description>
+        <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
+        <formingTicks>20000</formingTicks>
+        <gestationCycles>6</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>60</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </filter>
+                <count>40</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>0.8</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Glittercore>4</USH_Glittercore>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Glittercore</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>11200</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormMedicineUltratech_Bulk</defName>
         <label>form glitterworld medicine x4</label>
         <description>Form glitterworld medicine.</description>
@@ -344,7 +398,7 @@
         <defName>USH_FormPlasteelBulk</defName>
         <label>form plasteel x48</label>
         <description>Form plasteel x48.</description>
-        <gestationCycles>20</gestationCycles>
+        <gestationCycles>16</gestationCycles>
         <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
         <ingredients Inherit="false">
@@ -447,7 +501,7 @@
         <description>Turn 256 steel into 64 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-        <gestationCycles>20</gestationCycles>
+        <gestationCycles>16</gestationCycles>
         <formingTicks>3000</formingTicks>
         <ingredients Inherit="false">
 
@@ -498,7 +552,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>4</count>
+                <count>0.4</count>
             </li>
             <li>
                 <filter>
@@ -538,7 +592,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>16</count>
+                <count>0.16</count>
             </li>
             <li>
                 <filter>
