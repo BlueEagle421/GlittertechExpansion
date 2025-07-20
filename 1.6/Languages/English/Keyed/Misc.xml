@@ -23,6 +23,8 @@
   <USH_GE_WaitingForMaintenance>Waiting for manual maintenance</USH_GE_WaitingForMaintenance>
   <USH_GE_WaitingForCompletion>Waiting for manual completion</USH_GE_WaitingForCompletion>
   <USH_GE_Forming>Forming</USH_GE_Forming>
+  <USH_GE_GatheredIngredients>Gathered ingredients</USH_GE_GatheredIngredients>
+  <USH_GE_StoredPower>Power stored: {0} / {1} (will draw on start)</USH_GE_StoredPower>
 
   <USH_GE_CommandSetForBombardmentLabel>Use bombardment attack</USH_GE_CommandSetForBombardmentLabel>
   <USH_GE_CommandSetForPowerBeamLabel>Use power beam attack</USH_GE_CommandSetForPowerBeamLabel>

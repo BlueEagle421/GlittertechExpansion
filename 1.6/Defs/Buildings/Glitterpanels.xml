@@ -168,4 +168,37 @@
         </researchPrerequisites>
     </ThingDef>
 
+    <!-- Aware glitterpanel -->
+
+    <ThingDef ParentName="USH_GlitterpanelBase">
+        <defName>USH_AwareGlitterpanel</defName>
+        <label>Aware glitterpanel</label>
+        <description>A powerful panel that synergizes glittertech with archotech. Its advanced foundation captures and activates the dormant AI persona core, transforming it into a functional slave. It fully automates the connected glittertech fabricator, eliminating the need for manual inspections.</description>
+        <graphicData>
+            <texPath>Things/Building/AwareGlitterpanel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <uiIconScale>0.8</uiIconScale>
+        <uiIconOffset>(0, 0.1)</uiIconOffset>
+        <costList>
+            <Steel>40</Steel>
+            <Plasteel>20</Plasteel>
+            <AIPersonaCore>1</AIPersonaCore>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>1</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>1200</basePowerConsumption>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>USH_SkinRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
 </Defs>

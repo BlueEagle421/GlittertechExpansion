@@ -35,6 +35,16 @@ namespace USH_GE
             }
         }
 
+        private CompAffectedByFacilities _compFacilities;
+        public CompAffectedByFacilities CompFacilities
+        {
+            get
+            {
+                _compFacilities ??= this.TryGetComp<CompAffectedByFacilities>();
+                return _compFacilities;
+            }
+        }
+
         private bool _recacheGraphic = true;
         private Graphic _cachedGraphic;
 

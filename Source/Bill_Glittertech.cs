@@ -80,7 +80,6 @@ public class Bill_Glittertech : Bill_Autonomous
         boundPawn = null;
     }
 
-
     public void ForceCompleteAllCycles()
     {
         gestationCycles = recipe.gestationCycles;
@@ -96,6 +95,13 @@ public class Bill_Glittertech : Bill_Autonomous
 
     public override void BillTick()
     {
+        if (state == FormingState.Preparing && IsAutomated())
+        {
+            formingTicks = recipe.formingTicks;
+            state = FormingState.Forming;
+            return;
+        }
+
         if (suspended || state != FormingState.Forming)
             return;
 
@@ -115,11 +121,14 @@ public class Bill_Glittertech : Bill_Autonomous
         state = FormingState.Preparing;
     }
 
+    private bool IsAutomated()
+        => Fabricator.CompFacilities.LinkedFacilitiesListForReading
+            .Any(x => x.def == USH_DefOf.USH_AwareGlitterpanel);
+
     public override bool PawnAllowedToStartAnew(Pawn p)
     {
         if (State == FormingState.Gathering)
         {
-
             if (!Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
                 JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this)), null);
@@ -127,40 +136,74 @@ public class Bill_Glittertech : Bill_Autonomous
             }
 
             var facilities = GlittertechExt.requiredFacilities;
-            if (facilities != null)
+            if (facilities != null && !HasFacilities(facilities, out var missingFacility))
             {
-                CompAffectedByFacilities compAffected = Fabricator.TryGetComp<CompAffectedByFacilities>();
-                List<Thing> linkedFacilities = compAffected.LinkedFacilitiesListForReading;
-
-                for (int i = 0; i < facilities.Count; i++)
-                    if (linkedFacilities.Find(x => IsRequiredFacility(compAffected, x, facilities[i])) == null)
-                    {
-                        JobFailReason.Is("USH_GE_NoFacility".Translate(facilities[i].label), null);
-                        return false;
-                    }
+                JobFailReason.Is("USH_GE_NoFacility".Translate(missingFacility.label));
+                return false;
             }
         }
 
         return base.PawnAllowedToStartAnew(p);
     }
 
-    private bool IsRequiredFacility(CompAffectedByFacilities compAffected, Thing thing, ThingDef requiredThingDef)
+    private bool HasFacilities(List<ThingDef> toCheck, out ThingDef missingFacility)
     {
-        return thing.def == requiredThingDef && compAffected.IsFacilityActive(thing);
+        missingFacility = null;
+        CompAffectedByFacilities compAffected = Fabricator.TryGetComp<CompAffectedByFacilities>();
+
+        for (int i = 0; i < toCheck.Count; i++)
+            if (Fabricator.CompFacilities.LinkedFacilitiesListForReading
+                .Find(x => IsRequiredFacility(Fabricator.CompFacilities, x, toCheck[i])) == null)
+            {
+                missingFacility = toCheck[i];
+                return false;
+            }
+
+        return true;
     }
+
+    private bool IsRequiredFacility(CompAffectedByFacilities compAffected, Thing thing, ThingDef requiredThingDef)
+        => thing.def == requiredThingDef && compAffected.IsFacilityActive(thing);
 
     public override void AppendInspectionData(StringBuilder sb)
     {
-        if (State != FormingState.Forming && State != FormingState.Preparing)
-            return;
+        if (State is FormingState.Gathering)
+        {
+            sb.AppendLine(("USH_GE_GatheredIngredients".Translate() + ":").Colorize(Color.yellow));
+            AppendCurrentIngredientCount(sb);
+        }
 
         if (State is FormingState.Forming)
-            sb.AppendLine("USH_GE_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod(true, false, true, true, false));
+            sb.AppendLine(FormingTimeString());
 
         if (State is FormingState.Preparing)
             sb.AppendLine("USH_GE_WaitingForMaintenance".Translate());
 
-        sb.AppendLine("USH_GE_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
+        if (State is FormingState.Formed)
+            sb.AppendLine("USH_GE_WaitingForCompletion".Translate());
+
+        if (State == FormingState.Forming || State == FormingState.Preparing)
+            sb.AppendLine(RemainingCyclesString());
+    }
+
+    private string FormingTimeString()
+    {
+        string translated = "USH_GE_CurrentFormingCycle".Translate();
+
+        string timeLeft = ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod();
+
+        return translated + ": " + timeLeft;
+    }
+
+    private string RemainingCyclesString()
+    {
+        string translated = "USH_GE_RemainingFormingCycles".Translate();
+
+        string cyclesLeft = (recipe.gestationCycles - GestationCyclesCompleted).ToString();
+
+        string allCycles = recipe.gestationCycles.ToString();
+
+        return $"{translated}: {cyclesLeft} ({"OfLower".Translate()} {allCycles})";
     }
 
     public override void ExposeData()
@@ -173,4 +216,3 @@ public class Bill_Glittertech : Bill_Autonomous
             GlittertechExt = recipe.GetModExtension<ModExtension_UseGlittertechBill>();
     }
 }
-
