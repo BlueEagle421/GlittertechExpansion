@@ -189,8 +189,10 @@
         </costList>
         <comps>
             <li Class="CompProperties_Facility">
-                <USH_GlittertechDuration>-0.1</USH_GlittertechDuration>
-                <USH_GlittertechPowerStored>0.15</USH_GlittertechPowerStored>
+                <statOffsets>
+                    <USH_GlittertechDuration>-0.1</USH_GlittertechDuration>
+                    <USH_GlittertechPowerStored>0.15</USH_GlittertechPowerStored>
+                </statOffsets>
                 <maxSimultaneous>1</maxSimultaneous>
             </li>
             <li Class="CompProperties_Power">
