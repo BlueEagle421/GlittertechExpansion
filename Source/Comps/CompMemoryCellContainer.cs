@@ -72,7 +72,7 @@ public class CompMemoryCellContainer : CompThingContainer
         yield return ejectCommand;
     }
 
-    private void EjectContent()
+    public void EjectContent()
     {
         USH_DefOf.USH_Eject?.PlayOneShot(SoundInfo.InMap(parent));
         innerContainer.TryDropAll(parent.Position, parent.Map, ThingPlaceMode.Near);

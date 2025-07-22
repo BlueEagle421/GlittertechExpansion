@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -32,6 +33,14 @@ public class CompMemoryCell : ThingComp
         _expireTicks = CellProps.expireTicks;
     }
 
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+
+        if (respawningAfterLoad && _expireTicks == 0)
+            _expireTicks = ExpireTicks;
+    }
+
     public override void CompTickRare()
     {
         base.CompTickRare();
@@ -44,8 +53,13 @@ public class CompMemoryCell : ThingComp
 
     private void Expire()
     {
-        Messages.Message("USH_GE_Expired".Translate(parent.Label), new LookTargets(parent), MessageTypeDefOf.NegativeEvent);
-        EraseMemory();
+        if (parent.holdingOwner.Owner is CompMemoryCellContainer container)
+            container.EjectContent();
+        else if (parent.holdingOwner.Owner is not Map)
+            parent.holdingOwner.TryDrop(parent, ThingPlaceMode.Near, out _);
+
+        Thing newThing = EraseMemory();
+        Messages.Message("USH_GE_Expired".Translate(parent.Label), new LookTargets(newThing), MessageTypeDefOf.NegativeEvent);
     }
 
     public override string CompInspectStringExtra()
@@ -53,10 +67,7 @@ public class CompMemoryCell : ThingComp
         StringBuilder sb = new();
 
         sb.AppendLine(base.CompInspectStringExtra());
-
-        string expireTime = _expireTicks.ToStringTicksToPeriod();
-        sb.AppendLine(("USH_GE_ExpiresIn".Translate() + ": " + expireTime).Colorize(Color.yellow));
-
+        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + _expireTicks.ToStringTicksToPeriod());
         sb.AppendLine(MemoryCellData.GetInspectString());
 
         return sb.ToString().Trim();
@@ -69,7 +80,7 @@ public class CompMemoryCell : ThingComp
 
         Command_Action eraseCommand = new()
         {
-            action = EraseMemory,
+            action = () => EraseMemory(),
             defaultLabel = "USH_GE_CommandEraseMemory".Translate(),
             defaultDesc = "USH_GE_CommandEraseMemoryDesc".Translate(),
             icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EraseMemory")
@@ -92,7 +103,7 @@ public class CompMemoryCell : ThingComp
         };
     }
 
-    private void EraseMemory()
+    private Thing EraseMemory()
     {
         IntVec3 pos = parent.Position;
         Map map = parent.Map;
@@ -103,6 +114,7 @@ public class CompMemoryCell : ThingComp
         GenPlace.TryPlaceThing(newThing, pos, map, ThingPlaceMode.Near);
 
         Find.Selector.Select(newThing, playSound: false, forceDesignatorDeselect: false);
+        return newThing;
     }
 
     public override string TransformLabel(string label)
