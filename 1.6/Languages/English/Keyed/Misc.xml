@@ -51,6 +51,8 @@
 
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
 
+  <USH_GE_ExpiresIn>Expires in</USH_GE_ExpiresIn>
+  <USH_GE_Expired>{0} expired.</USH_GE_Expired>
   <USH_GE_CommandEraseMemory>Erase memory</USH_GE_CommandEraseMemory>
   <USH_GE_CommandEraseMemoryDesc>Destroy currently stored memory and allow for extracting another one.</USH_GE_CommandEraseMemoryDesc>
 
