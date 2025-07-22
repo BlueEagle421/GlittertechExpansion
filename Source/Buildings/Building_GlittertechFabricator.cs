@@ -132,17 +132,10 @@ namespace USH_GE
 
             sb.AppendLine(USH_DefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored).ToStringPercent());
 
-            Bill_Glittertech billNeedingPower = null;
-
-            if (GlitterBill != null && GlitterBill.State == FormingState.Gathering)
-                billNeedingPower = GlitterBill;
-            else if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null)
-                billNeedingPower = firstBill;
-
-            if (billNeedingPower is not null
-                && billNeedingPower.GlittertechExt is { powerNeeded: var powerNeeded }
-                && billNeedingPower.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
-                && billNeedingPower.State == FormingState.Gathering)
+            if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
+                && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
+                && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
+                && firstBill.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
                 float powerMultiplied = PowerNeededWithStat(powerNeeded);

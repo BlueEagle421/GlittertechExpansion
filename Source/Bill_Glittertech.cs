@@ -102,7 +102,7 @@ public class Bill_Glittertech : Bill_Autonomous
             return;
         }
 
-        if (suspended || state != FormingState.Forming)
+        if (suspended || state != FormingState.Forming || !Fabricator.PowerTrader.PowerOn)
             return;
 
         formingTicks -= 1f * FormingSpeedMultiplier();
@@ -169,7 +169,7 @@ public class Bill_Glittertech : Bill_Autonomous
     {
         if (State is FormingState.Gathering)
         {
-            sb.AppendLine(("USH_GE_GatheredIngredients".Translate() + ":").Colorize(Color.yellow));
+            sb.AppendLine("USH_GE_GatheredIngredients".Translate() + ":");
             AppendCurrentIngredientCount(sb);
         }
 
