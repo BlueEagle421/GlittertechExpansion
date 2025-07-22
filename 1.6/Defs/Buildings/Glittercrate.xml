@@ -12,9 +12,7 @@
       <cameraShake>1</cameraShake>
       <ticksToImpactRange>140~160</ticksToImpactRange>
     </skyfaller>
-
   </ThingDef>
-
 
   <ThingDef ParentName="CrateBase">
     <defName>USH_Glittercrate</defName>
@@ -55,16 +53,25 @@
     <root Class="ThingSetMaker_Sum">
       <resolveInOrder>true</resolveInOrder>
       <options>
+
+        <!-- high chance to drop Glitterheart -->
         <li>
-          <thingSetMaker Class="ThingSetMaker_Count">
-            <fixedParams>
-              <filter>
-                <thingDefs>
-                  <li>USH_Glitterheart</li>
-                </thingDefs>
-              </filter>
-              <countRange>1~1</countRange>
-            </fixedParams>
+          <thingSetMaker Class="ThingSetMaker_RandomOption">
+            <options>
+              <li>
+                <weight>0.75</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_Glitterheart</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~1</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+            </options>
           </thingSetMaker>
         </li>
 
@@ -93,6 +100,34 @@
                     <filter>
                       <thingDefs>
                         <li>USH_Shimmertalk</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~1</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_Shell_ADP</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~2</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_AddictionRemover</li>
                       </thingDefs>
                     </filter>
                     <countRange>1~1</countRange>
@@ -138,6 +173,20 @@
                       </thingDefs>
                     </filter>
                     <countRange>8~12</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>0.2</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_GoldenTeethReplacement</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1</countRange>
                   </fixedParams>
                 </thingSetMaker>
               </li>
