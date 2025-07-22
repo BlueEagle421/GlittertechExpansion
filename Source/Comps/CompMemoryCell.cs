@@ -57,7 +57,7 @@ public class CompMemoryCell : ThingComp
         else if (parent.holdingOwner.Owner is not Map)
             parent.holdingOwner.TryDrop(parent, ThingPlaceMode.Near, out _);
 
-        Thing newThing = EraseMemory();
+        Thing newThing = EraseMemory(false);
         Messages.Message("USH_GE_Expired".Translate(parent.Label), new LookTargets(newThing), MessageTypeDefOf.NegativeEvent);
     }
 
@@ -102,7 +102,7 @@ public class CompMemoryCell : ThingComp
         };
     }
 
-    private Thing EraseMemory()
+    private Thing EraseMemory(bool autoSelect = true)
     {
         IntVec3 pos = parent.Position;
         Map map = parent.Map;
@@ -112,7 +112,7 @@ public class CompMemoryCell : ThingComp
 
         GenPlace.TryPlaceThing(newThing, pos, map, ThingPlaceMode.Near);
 
-        Find.Selector.Select(newThing, playSound: false, forceDesignatorDeselect: false);
+        if (autoSelect) Find.Selector.Select(newThing, playSound: false, forceDesignatorDeselect: false);
         return newThing;
     }
 

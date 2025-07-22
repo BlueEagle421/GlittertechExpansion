@@ -132,29 +132,25 @@ namespace USH_GE
 
             sb.AppendLine(USH_DefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored).ToStringPercent());
 
-            if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
-                && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
-                && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
-                && firstBill.State == FormingState.Gathering)
+            Bill_Glittertech billNeedingPower = null;
+
+            if (GlitterBill != null && GlitterBill.State == FormingState.Gathering)
+                billNeedingPower = GlitterBill;
+            else if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null)
+                billNeedingPower = firstBill;
+
+            if (billNeedingPower is not null
+                && billNeedingPower.GlittertechExt is { powerNeeded: var powerNeeded }
+                && billNeedingPower.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
+                && billNeedingPower.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
                 float powerMultiplied = PowerNeededWithStat(powerNeeded);
 
-                string key = hasStoredPower
-                    ? "USH_GE_WillDraw"
-                    : "USH_GE_NoPowerStored";
-
-                var args = hasStoredPower
-                    ? new object[] { powerMultiplied, productLabel }
-                    : [productLabel, powerMultiplied];
-
-                var color = hasStoredPower
-                    ? Color.cyan
-                    : Color.red;
-
-#pragma warning disable CS0618 // Type or member is obsolete
-                sb.AppendLine(key.Translate(args).Colorize(color));
-#pragma warning restore CS0618 // Type or member is obsolete
+                if (hasStoredPower)
+                    sb.AppendLine("USH_GE_WillDraw".Translate(powerMultiplied, productLabel).Colorize(Color.cyan));
+                else
+                    sb.AppendLine("USH_GE_NoPowerStored".Translate(powerMultiplied, productLabel, StoredPower()).Colorize(Color.red));
             }
 
             if (GlitterBill is not null && GlitterBill.State is not (FormingState.Gathering or FormingState.Formed))
@@ -242,6 +238,14 @@ namespace USH_GE
             return Mathf.CeilToInt((wholeCycleTicks + currentCycleTicks) / GlitterBill.FormingSpeedMultiplier());
         }
 
+        private float StoredPower()
+        {
+            if (PowerTrader.PowerNet == null)
+                return 0;
+
+            return PowerTrader.PowerNet.CurrentStoredEnergy();
+        }
+
         public bool HasStoredPower(float powerNeeded, bool considerStats = true)
         {
             if (DebugSettings.unlimitedPower)
@@ -250,7 +254,7 @@ namespace USH_GE
             if (considerStats)
                 powerNeeded = PowerNeededWithStat(powerNeeded);
 
-            return PowerTrader.PowerNet?.CurrentStoredEnergy() >= powerNeeded;
+            return StoredPower() >= powerNeeded;
         }
 
         private void DrawPowerFromNet(float powerToDraw)
