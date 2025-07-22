@@ -592,7 +592,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>0.16</count>
+                <count>1.6</count>
             </li>
             <li>
                 <filter>
@@ -864,7 +864,15 @@
                         <li>Neurotrainers</li>
                     </categories>
                 </filter>
-                <count>2</count>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Neurotrainers</li>
+                    </categories>
+                </filter>
+                <count>1</count>
             </li>
             <li>
                 <filter>
@@ -895,6 +903,11 @@
             <categories>
                 <li>Neurotrainers</li>
             </categories>
+            <thingDefs>
+                <li>Plasteel</li>
+                <li>Silver</li>
+                <li>USH_Glitterheart</li>
+            </thingDefs>
         </fixedIngredientFilter>
         <products>
             <MechSerumResurrector>1</MechSerumResurrector>
