@@ -53,6 +53,7 @@
         <surfaceType>Item</surfaceType>
         <recipes>
             <li>USH_FormGlittercore</li>
+            <li>USH_FormGlittercoreBulk</li>
 
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
