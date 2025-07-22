@@ -102,7 +102,7 @@
             <li>
                 <label>plasteel teeth replacement</label>
                 <description>Eating and talking feels like heaven. Praise glittertech.</description>
-                <baseMoodEffect>5</baseMoodEffect>
+                <baseMoodEffect>3</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

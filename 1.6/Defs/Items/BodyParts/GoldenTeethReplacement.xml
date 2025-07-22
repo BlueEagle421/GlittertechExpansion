@@ -20,7 +20,9 @@
                     </li>
                 </capMods>
                 <statOffsets>
+                    <PawnBeauty>1</PawnBeauty>
                     <SocialImpact>0.15</SocialImpact>
+                    <TradePriceImprovement>0.1</TradePriceImprovement>
                 </statOffsets>
             </li>
         </stages>
@@ -98,7 +100,7 @@
             <li>
                 <label>golden smile</label>
                 <description>when I smile I feel prestigious.</description>
-                <baseMoodEffect>2</baseMoodEffect>
+                <baseMoodEffect>3</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>

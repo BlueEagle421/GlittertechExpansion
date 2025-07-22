@@ -48,7 +48,7 @@
             <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
         </descriptionHyperlinks>
         <costList>
-            <Gold>16</Gold>
+            <Gold>160</Gold>
             <USH_Glittercore>6</USH_Glittercore>
         </costList>
         <statBases>
