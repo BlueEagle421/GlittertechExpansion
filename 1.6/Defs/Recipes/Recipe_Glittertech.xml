@@ -17,6 +17,7 @@
         <defName>USH_FormGlittercore</defName>
         <label>form glittercore</label>
         <description>Form a glittercore.</description>
+        <jobString>Forming glittercore.</jobString>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
         <formingTicks>20000</formingTicks>
         <gestationCycles>2</gestationCycles>
@@ -71,6 +72,7 @@
         <defName>USH_FormGlittercoreBulk</defName>
         <label>form glittercore x4</label>
         <description>Form a glittercore x4.</description>
+        <jobString>Forming glittercore x4.</jobString>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
         <formingTicks>20000</formingTicks>
         <gestationCycles>6</gestationCycles>
@@ -124,7 +126,8 @@
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormMedicineUltratech_Bulk</defName>
         <label>form glitterworld medicine x4</label>
-        <description>Form glitterworld medicine.</description>
+        <description>Form glitterworld medicine x4.</description>
+        <jobString>Forming glitterworld medicine x4.</jobString>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
         <formingTicks>10000</formingTicks>
         <gestationCycles>1</gestationCycles>
@@ -171,6 +174,7 @@
         <defName>USH_FormSynthread_Bulk</defName>
         <label>form synthread x64</label>
         <description>Form synthread x64.</description>
+        <jobString>Forming synthread x64.</jobString>
         <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
         <formingTicks>10000</formingTicks>
         <gestationCycles>1</gestationCycles>
@@ -241,6 +245,7 @@
         <defName>USH_FormHyperweave_Bulk</defName>
         <label>form hyperweave x64</label>
         <description>Form hyperweave x64.</description>
+        <jobString>Forming hyperweave x64.</jobString>
         <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
         <formingTicks>18000</formingTicks>
         <gestationCycles>5</gestationCycles>
@@ -290,6 +295,7 @@
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
+        <jobString>Forming philosopher's stones x6.</jobString>
         <gestationCycles>3</gestationCycles>
         <formingTicks>2500</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
@@ -336,6 +342,7 @@
         <defName>USH_FormPlasteel</defName>
         <label>form plasteel x24</label>
         <description>Form plasteel x24.</description>
+        <jobString>Forming plasteel x24.</jobString>
         <gestationCycles>5</gestationCycles>
         <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
@@ -398,6 +405,7 @@
         <defName>USH_FormPlasteelBulk</defName>
         <label>form plasteel x96</label>
         <description>Form plasteel x96.</description>
+        <jobString>Forming plasteel x96.</jobString>
         <gestationCycles>16</gestationCycles>
         <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
@@ -621,6 +629,7 @@
         <defName>USH_FormShimmertalk</defName>
         <label>form shimmertalk</label>
         <description>Form shimmertalk.</description>
+        <jobString>Forming shimmertalk.</jobString>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
         <gestationCycles>5</gestationCycles>
         <formingTicks>5000</formingTicks>
@@ -667,6 +676,7 @@
         <defName>USH_FormAddictionRemover</defName>
         <label>form addiction remover</label>
         <description>Form addiction remover.</description>
+        <jobString>Forming addiction remover.</jobString>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
         <gestationCycles>5</gestationCycles>
         <formingTicks>5000</formingTicks>
@@ -721,6 +731,7 @@
         <defName>USH_FormGammaSerum</defName>
         <label>form gamma serum</label>
         <description>Form gamma serum.</description>
+        <jobString>Forming gamma serum.</jobString>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
         <gestationCycles>5</gestationCycles>
         <formingTicks>5000</formingTicks>
@@ -767,6 +778,7 @@
         <defName>USH_FormADPShell</defName>
         <label>form ADP shell</label>
         <description>Form ADP shell.</description>
+        <jobString>Forming ADP shell.</jobString>
         <researchPrerequisites>
             <li>Mortars</li>
             <li>USH_NeuromodifiersBasicsRes</li>
@@ -816,6 +828,7 @@
         <defName>USH_FormMemoryCellEmptyBulk</defName>
         <label>form memory cell (empty) x3</label>
         <description>Form an empty memory cell x3.</description>
+        <jobString>Forming memory cell (empty) x3.</jobString>
         <researchPrerequisite>USH_DeepMindScanningRes</researchPrerequisite>
         <formingTicks>12000</formingTicks>
         <gestationCycles>12</gestationCycles>
@@ -854,6 +867,7 @@
         <defName>USH_FormMechSerumResurrector</defName>
         <label>form resurrector mech serum</label>
         <description>Form a resurrector mech serum.</description>
+        <jobString>Forming resurrector mech serum.</jobString>
         <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
         <formingTicks>18000</formingTicks>
         <gestationCycles>20</gestationCycles>
@@ -929,6 +943,7 @@
         <defName>USH_FormMechSerumHealer</defName>
         <label>form healer mech serum x3</label>
         <description>Form healer mech serum x3.</description>
+        <jobString>Forming healer mech serum x3.</jobString>
         <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
         <formingTicks>18000</formingTicks>
         <gestationCycles>20</gestationCycles>
