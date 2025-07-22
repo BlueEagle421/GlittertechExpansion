@@ -27,6 +27,7 @@
       <useEatingSpeedStat>false</useEatingSpeedStat>
       <chairSearchRadius>0</chairSearchRadius>
     </ingestible>
+    <stackLimit>1</stackLimit>
     <statBases>
       <Mass>0.05</Mass>
       <DeteriorationRate>6</DeteriorationRate>
