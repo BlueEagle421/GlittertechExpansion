@@ -32,8 +32,11 @@
       <DeteriorationRate>6</DeteriorationRate>
       <Flammability>1.0</Flammability>
     </statBases>
+    <tickerType>Rare</tickerType>
     <comps>
-      <li Class="USH_GE.CompProperties_MemoryCell"></li>
+      <li Class="USH_GE.CompProperties_MemoryCell">
+        <expireTicks>7200000</expireTicks> <!-- 2 years -->
+      </li>
       <li Class="CompProperties_Drug">
         <listOrder>105</listOrder>
       </li>
