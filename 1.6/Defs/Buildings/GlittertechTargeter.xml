@@ -11,6 +11,8 @@
             <texPath>Things/Building/GlittertechTargeter</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(4, 4)</drawSize>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
             <damageData>
                 <rect>(0.2,0.2,0.6,0.6)</rect>
             </damageData>
@@ -21,7 +23,7 @@
         <tradeability>Sellable</tradeability>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <stealable>false</stealable>
-        <rotatable>false</rotatable>
+        <rotatable>true</rotatable>
         <size>(2,2)</size>
         <statBases>
             <MaxHitPoints>400</MaxHitPoints>
