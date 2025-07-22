@@ -65,4 +65,9 @@ public class CompMemoryCell : ThingComp
 
         Scribe_Deep.Look(ref MemoryCellData, nameof(MemoryCellData));
     }
+
+    public override bool AllowStackWith(Thing other)
+    {
+        return false;
+    }
 }
