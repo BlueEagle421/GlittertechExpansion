@@ -27,7 +27,7 @@
                 <capMods>
                     <li>
                         <capacity>BloodFiltration</capacity>
-                        <postFactor>0.85</postFactor>
+                        <postFactor>0.9</postFactor>
                     </li>
                 </capMods>
             </li>
@@ -49,11 +49,11 @@
         </statBases>
         <costList>
             <Neutroamine>120</Neutroamine>
-            <MedicineUltratech>1</MedicineUltratech>
-            <Uranium>40</Uranium>
-            <Plasteel>40</Plasteel>
-            <USH_Glittercore>2</USH_Glittercore>
-            <USH_Glitterheart>1</USH_Glitterheart>
+            <MedicineUltratech>2</MedicineUltratech>
+            <Uranium>50</Uranium>
+            <Plasteel>20</Plasteel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <USH_Glittercore>3</USH_Glittercore>
         </costList>
         <recipeMaker>
             <researchPrerequisites>
