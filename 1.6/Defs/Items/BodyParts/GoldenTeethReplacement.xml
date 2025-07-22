@@ -50,7 +50,7 @@
             <Mass>0.1</Mass>
         </statBases>
         <costList>
-            <Gold>3</Gold>
+            <Gold>30</Gold>
             <USH_Glittercore>1</USH_Glittercore>
         </costList>
         <recipeMaker>
