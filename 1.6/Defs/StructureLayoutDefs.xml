@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
     <KCSG.StructureLayoutDef Name="USH_GlitterLayoutBase" Abstract="True">
 
         <randomRotation>true</randomRotation>
@@ -9,6 +8,160 @@
         <modRequirements>
             <li>ushanka.glittertechexpansion</li>
         </modRequirements>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_GlittershipSpot</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,Turret_Sniper,.,.,.,.,.,.,.,ChunkSlagSteel,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>AncientFence,.,.,AncientRazorWire,AncientRazorWire,AncientRazorWire,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,AncientRazorWire,Column_Steel,.,.,Column_Steel,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,USH_GlittershipChunk_North,.,.,AncientRazorWire,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,AncientRazorWire,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,Column_Steel,.,.,Column_Steel,AncientRazorWire,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,AncientRazorWire,AncientRazorWire,AncientRazorWire,Turret_Autocannon,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,ChunkSlagSteel,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+            </li>
+            <li>
+                <li>AncientFence,AncientFence,AncientFence,AncientFence,AncientConcreteBarrier_North,.,.,.,.,.,.</li>
+                <li>AncientFence,HiddenConduit,.,.,.,.,.,.,.,.,.</li>
+                <li>AncientFence,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>AncientConcreteBarrier_North,.,.,.,.,.,.,.,.,.,AncientConcreteBarrier_North</li>
+                <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
+                <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
+                <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
+                <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
+                <li>.,.,.,.,.,.,.,.,.,HiddenConduit,AncientFence</li>
+                <li>.,.,.,.,.,.,.,AncientConcreteBarrier_North,AncientFence,AncientFence,AncientFence</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,AncientConcrete,AncientConcrete,.,.,.,.</li>
+            <li>.,.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,AncientConcrete,.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,.,.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,AncientConcrete,AncientConcrete,.,.,AncientConcrete,.,.,.,.,.</li>
+            <li>.,AncientConcrete,AncientConcrete,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
+        <modRequirements>
+            <li>ushanka.glittertechexpansion</li>
+        </modRequirements>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_ResearchSpot</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,Column_Steel,.,.,.,.,AncientSecurityTurret,.,.,Column_Steel,HiddenConduit</li>
+                <li>HiddenConduit,AncientSmallCrate,.,Stool_Steel_North,.,.,.,Stool_Steel_North,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,SimpleResearchBench_Steel_North,.,AncientLamp,.,SimpleResearchBench_Steel_North,.,AncientSmallCrate,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,AncientSmallCrate,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,Stool_Steel_North,AncientLamp,.,.,Stool_Steel_North,AncientLamp,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,SimpleResearchBench_Steel_North,.,.,.,SimpleResearchBench_Steel_North,ChunkLimestone,ChunkLimestone,HiddenConduit</li>
+                <li>HiddenConduit,AncientVendingMachine,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,Column_Steel,.,.,.,.,.,.,.,Column_Steel,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,HiddenConduit,.,.,.,.,.,.,.,HiddenConduit,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,HiddenConduit,.,.,.,.,.,.,.,HiddenConduit,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <roofGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,1,1,1,1,1,1,1,1,1,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </roofGrid>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_FoamSpot</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,FirefoamPopper,.,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,.,Turret_FoamTurret_Steel,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,AncientSecurityTurret,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,AncientLamp,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,Column_Steel,.,.,Column_Steel,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,Battery_North,Battery_North,.,.,Turret_FoamTurret_Steel,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,HiddenConduit,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,Turret_FoamTurret_Steel,.,Column_Steel,.,.,Column_Steel,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+            </li>
+            <li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,HiddenConduit,.,.,.,.,.,.</li>
+                <li>.,HiddenConduit,HiddenConduit,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <roofGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,1,1,1,1,.,.,.,.</li>
+            <li>.,.,.,1,1,1,1,.,.,.,.</li>
+            <li>.,.,.,1,1,1,1,.,.,.,.</li>
+            <li>.,.,.,1,1,1,1,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </roofGrid>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
     </KCSG.StructureLayoutDef>
 
     <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
@@ -400,7 +553,7 @@
     </KCSG.StructureLayoutDef>
 
     <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
-        <defName>USH_TurretsSpot</defName>
+        <defName>USH_TurretsSpotA</defName>
         <spawnConduits>false</spawnConduits>
         <layouts>
             <li>
@@ -454,6 +607,85 @@
             <li>.,AncientTile,AncientTile,AncientTile,AncientTile,.,AncientTile,AncientTile,AncientTile,AncientTile,.</li>
             <li>.,AncientTile,AncientTile,AncientTile,AncientTile,.,.,AncientTile,AncientTile,AncientTile,.</li>
             <li>.,AncientTile,AncientTile,AncientTile,AncientTile,.,.,AncientTile,AncientTile,AncientTile,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_TurretsSpotB</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,.,.,.</li>
+                <li>.,.,Sandbags_Cloth,Sandbags_Cloth,.,.,AncientSecurityTurret,Sandbags_Cloth,.,.,.</li>
+                <li>.,.,Sandbags_Cloth,Turret_Sniper,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,.</li>
+                <li>.,.,.,.,.,.,.,.,AncientSecurityTurret,Sandbags_Cloth,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,Sandbags_Cloth,Turret_MiniTurret_Steel,.,Turret_Autocannon,.,.,.,.</li>
+                <li>.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,.,.,Sandbags_Cloth,.,.</li>
+                <li>.,.,.,.,.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,AncientConcrete,AncientConcrete,.,.,.,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,AncientConcrete,AncientConcrete,.</li>
+            <li>.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.,.,.,.,.</li>
+            <li>.,.,.,AncientConcrete,AncientConcrete,AncientConcrete,.,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,.,AncientConcrete,.,.,AncientConcrete,AncientConcrete,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_TurretsSpotC</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,HiddenConduit,.,.,.,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,.,Sandbags_Cloth,Sandbags_Cloth,.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,.,Sandbags_Cloth,Turret_MiniTurret_Steel,.,.,ComponentIndustrial,Steel,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,Turret_Autocannon,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,ComponentIndustrial,Steel,.,HiddenConduit,.,Turret_MiniTurret_Steel,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,.,Sandbags_Cloth,Sandbags_Cloth,.,HiddenConduit,.,Sandbags_Cloth,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,HiddenConduit,.,HiddenConduit,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,.,.,.,.</li>
+                <li>.,.,.,HiddenConduit,.,.,.,AncientSecurityTurret,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,HiddenConduit,.,.,.,.,.</li>
+                <li>.,.,Sandbags_Cloth,AncientSecurityTurret,.,.,.,HiddenConduit,.,.,.</li>
+                <li>.,.,.,.,.,.,.,HiddenConduit,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,AncientConcrete,AncientTile,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,AncientTile,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientTile,.,.</li>
+            <li>.,.,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,AncientConcrete,AncientTile,AncientConcrete,AncientConcrete,AncientConcrete,AncientTile,AncientConcrete,.,.</li>
+            <li>.,.,AncientConcrete,AncientTile,AncientConcrete,AncientTile,AncientConcrete,AncientConcrete,AncientConcrete,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
             <li>.,.,.,.,.,.,.,.,.,.,.</li>
         </terrainGrid>
     </KCSG.StructureLayoutDef>
@@ -557,6 +789,85 @@
         </terrainGrid>
     </KCSG.StructureLayoutDef>
 
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_JunkD</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,AncientWarwalkerFoot,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,AncientWarwalkerShell,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,AncientWarwalkerClaw_North,.,.</li>
+                <li>.,.,.,.,.,.,AncientWarwalkerFoot,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
+    </KCSG.StructureLayoutDef>
+
+    <KCSG.StructureLayoutDef ParentName="USH_GlitterLayoutBase">
+        <defName>USH_JunkE</defName>
+        <spawnConduits>false</spawnConduits>
+        <layouts>
+            <li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,.,.,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,.,.,AncientBarrel,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,AncientBarrel,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,AncientBarrel,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,AncientBarrel</li>
+                <li>HiddenConduit,.,.,.,.,AncientMegaCannonBarrel_North,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,AncientBarrel,.,HiddenConduit</li>
+                <li>HiddenConduit,AncientBarrel,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,.,.,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+            </li>
+            <li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            </li>
+        </layouts>
+        <terrainGrid>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+            <li>.,.,.,.,.,.,.,.,.,.,.</li>
+        </terrainGrid>
+    </KCSG.StructureLayoutDef>
+
     <KCSG.SymbolDef>
         <defName>USH_Turret_ADP_North</defName>
         <thing>USH_Turret_ADP</thing>
@@ -600,6 +911,14 @@
     <KCSG.SymbolDef>
         <defName>USH_GlittershipChunk</defName>
         <thing>USH_GlittershipChunk</thing>
+    </KCSG.SymbolDef>
+
+    <KCSG.SymbolDef>
+        <defName>BookcaseSmall_Steel_East</defName>
+        <thing>BookcaseSmall</thing>
+        <stuffDef>Steel</stuffDef>
+        <rotation>East</rotation>
+        <thingSetMakerDef>Reward_ItemsStandard</thingSetMakerDef>
     </KCSG.SymbolDef>
 
 </Defs>

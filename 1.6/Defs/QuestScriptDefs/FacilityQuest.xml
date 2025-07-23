@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>USH_GlittertechFacility</defName>
+        <rootSelectionWeight>1</rootSelectionWeight>
+        <autoAccept>true</autoAccept>
+        <defaultChallengeRating>4</defaultChallengeRating>
+        <rootEarliestDay>60</rootEarliestDay>
+        <minRefireDays>60</minRefireDays>
+        <rootMinPoints>1000</rootMinPoints>
+        <questNameRules>
+            <rulesStrings>
+                <li>questName->Glitterworld research facility</li>
+            </rulesStrings>
+        </questNameRules>
+        <questDescriptionRules>
+            <rulesStrings>
+                <li>questDescription->An anonymous traveler has sent us a message reporting a heavily militarized (*Threat)ancient research facility(/Threat) that appears to be built around a powerful glitterworld debris. It probably came from a very distant planet. The ancients seem determined to study and defend it at all costs.\n\nThe facility is protected by:\n(*Threat)[forces_description](/Threat)\n\nIt may also be (*Threat)filled with traps and anti-mech defenses.(/Threat)</li>
+            </rulesStrings>
+        </questDescriptionRules>
+
+        <root Class="QuestNode_SubScript">
+            <def>USH_GlittertechQuestBase</def>
+            <parms>
+                <sitePartDef>USH_GlittertechFacility</sitePartDef>
+            </parms>
+            <returnVarNames>
+                <li>ancient</li>
+            </returnVarNames>
+        </root>
+    </QuestScriptDef>
+</Defs>

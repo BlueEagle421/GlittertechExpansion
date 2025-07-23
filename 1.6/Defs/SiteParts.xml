@@ -3,10 +3,10 @@
     <SitePartDef>
         <defName>USH_GlittertechOutpost</defName>
         <label>glittertech outpost</label>
-        <description>A glittertech outpost.</description>
+        <description>An ancient glittertech outpost.</description>
         <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
         <expandingIconTexture>World/GlittertechOutpost</expandingIconTexture>
-        <arrivedLetter>There is a cluster of hostile mechanoids and their combat support structures in this area.\n\nThe cluster can include artillery, turrets, combat mechanoids, and other support and defense structures.</arrivedLetter>
+        <arrivedLetter>T.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>true</wantsThreatPoints>
         <tags>
@@ -22,6 +22,35 @@
             <scaleWithQuest>true</scaleWithQuest>
             <tiledStructures>
                 <li>USH_GlittertechOutpost</li>
+            </tiledStructures>
+            <fullClear>true</fullClear>
+            <clearFogInRect>false</clearFogInRect>
+            <preventBridgeable>true</preventBridgeable>
+        </genStep>
+    </GenStepDef>
+
+    <SitePartDef>
+        <defName>USH_GlittertechFacility</defName>
+        <label>glittertech research facility</label>
+        <description>An ancient glittertech research facility.</description>
+        <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+        <expandingIconTexture>World/GlittertechOutpost</expandingIconTexture>
+        <arrivedLetter>T.</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>true</wantsThreatPoints>
+        <tags>
+            <li>USH_GlittertechFacility</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>USH_GlittertechFacility</defName>
+        <linkWithSite>USH_GlittertechFacility</linkWithSite>
+        <order>460</order>
+        <genStep Class="KCSG.GenStep_CustomStructureGen">
+            <scaleWithQuest>true</scaleWithQuest>
+            <tiledStructures>
+                <li>USH_GlittertechFacility</li>
             </tiledStructures>
             <fullClear>true</fullClear>
             <clearFogInRect>false</clearFogInRect>
