@@ -15,6 +15,7 @@ public class Building_GlittershipChunk : Building
     private IntVec3 strikeLoc = IntVec3.Invalid;
     private static readonly Material LightningMat = MatLoader.LoadMat("Weather/LightningBolt");
     private Mesh boltMesh;
+    private const int INITIAL_STRIKE_DELAY = 350;
 
     private const float STRIKE_RADIUS = 12f;
 
@@ -22,7 +23,7 @@ public class Building_GlittershipChunk : Building
     {
         base.PostMake();
 
-        _strikeTicks = _strikeTicksRange.RandomInRange;
+        _strikeTicks = INITIAL_STRIKE_DELAY;
     }
 
     protected override void Tick()
