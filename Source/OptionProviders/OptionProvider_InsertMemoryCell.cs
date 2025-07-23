@@ -60,19 +60,24 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
     {
         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
         {
-            CompMemoryCellContainer container = (target.Thing as Building).GetComp<CompMemoryCellContainer>();
-
-            if (container == null || container.Full)
-                return;
-
-            if (container.Full)
+            GiveJobToPawn(p, target, item);
+        }, null, null, null, null, null, playSoundOnAction: true, delegate (LocalTargetInfo target)
+        {
+            if (target.Thing.TryGetComp(out CompMemoryCellContainer container))
             {
-                Messages.Message("USH_SampleContainerFull".Translate(target.Thing.Named("BUILDING")), container.parent, MessageTypeDefOf.RejectInput);
-                return;
+                var report = container.CanInsert();
+                if (!report.Accepted)
+                {
+                    var msg = $"{"USH_GE_CannotInsert".Translate()}: {report.Reason.CapitalizeFirst()}"
+                              .Colorize(ColorLibrary.RedReadable);
+
+                    Widgets.MouseAttachedLabel(msg);
+                    return;
+                }
             }
 
-            GiveJobToPawn(p, target, item);
-        }, null, null, null);
+            Widgets.MouseAttachedLabel("USH_GE_CommandChooseContainer".Translate());
+        });
     }
 
     private static void GiveJobToPawn(Pawn p, LocalTargetInfo target, Thing item)

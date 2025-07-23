@@ -50,6 +50,9 @@
   <USH_GE_CommandBiocoderEjectFailEmpty>Contains nobody.</USH_GE_CommandBiocoderEjectFailEmpty>
 
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
+  <USH_GE_CannotInsert>Cannot insert</USH_GE_CannotInsert>
+  <USH_GE_ContainerFull>Container full</USH_GE_ContainerFull>
+  <USH_GE_CommandChooseContainer>Choose container</USH_GE_CommandChooseContainer>
 
   <USH_GE_ExpiresIn>Expires in</USH_GE_ExpiresIn>
   <USH_GE_Expired>{0} expired.</USH_GE_Expired>

@@ -79,6 +79,14 @@ public class CompMemoryCellContainer : CompThingContainer
         Notify_CellExtracted(null);
     }
 
+    public AcceptanceReport CanInsert()
+    {
+        if (Full)
+            return "USH_GE_ContainerFull".Translate(parent.Named("BUILDING"));
+
+        return true;
+    }
+
     public static CompMemoryCellContainer FindFor(CompMemoryCell memoryCell, Pawn traveler, bool ignoreOtherReservations = false)
     {
         CompMemoryCellContainer compContainer =
