@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <SitePartDef>
+        <defName>USH_GlittertechOutpost</defName>
+        <label>glittertech outpost</label>
+        <description>A glittertech outpost.</description>
+        <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+        <expandingIconTexture>World/GlittertechOutpost</expandingIconTexture>
+        <arrivedLetter>There is a cluster of hostile mechanoids and their combat support structures in this area.\n\nThe cluster can include artillery, turrets, combat mechanoids, and other support and defense structures.</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>true</wantsThreatPoints>
+        <tags>
+            <li>USH_GlittertechOutpost</li>
+        </tags>
+    </SitePartDef>
+
+    <GenStepDef>
+        <defName>USH_GlittertechOutpost</defName>
+        <linkWithSite>USH_GlittertechOutpost</linkWithSite>
+        <order>460</order>
+        <genStep Class="KCSG.GenStep_CustomStructureGen">
+            <scaleWithQuest>true</scaleWithQuest>
+            <tiledStructures>
+                <li>USH_GlittertechOutpost</li>
+            </tiledStructures>
+            <fullClear>true</fullClear>
+            <clearFogInRect>false</clearFogInRect>
+            <preventBridgeable>true</preventBridgeable>
+        </genStep>
+    </GenStepDef>
+</Defs>

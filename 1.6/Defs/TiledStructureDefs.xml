@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <KCSG.TiledStructureDef>
+        <defName>USH_GlittertechOutpost</defName>
+        <tilesNumber>9</tilesNumber>
+        <tilesNumberRange>4~9</tilesNumberRange>
+        <maxDistanceFromCenter>1</maxDistanceFromCenter>
+        <centerTileDefs>
+            <li>USH_CenterSpot</li>
+        </centerTileDefs>
+        <allowedTileDefs>
+            <li>
+                <def>USH_LearningSpot</def>
+                <count>0, 2</count>
+            </li>
+            <li>
+                <def>USH_StockpileSpot</def>
+                <count>1, 1</count>
+            </li>
+            <li>
+                <def>USH_SleepingSpot</def>
+                <count>0, 2</count>
+            </li>
+            <li>
+                <def>USH_PylonSpot</def>
+                <count>1, 1</count>
+            </li>
+            <li>
+                <def>USH_TraderSpot</def>
+                <count>0, 1</count>
+            </li>
+            <li>
+                <def>USH_DiningSpot</def>
+                <count>0, 2</count>
+            </li>
+            <li>
+                <def>USH_TurretsSpot</def>
+                <count>1, 1</count>
+            </li>
+            <li>
+                <def>USH_Junk</def>
+                <count>1, 3</count>
+            </li>
+        </allowedTileDefs>
+    </KCSG.TiledStructureDef>
+
+    <KCSG.TileDef>
+        <defName>USH_DiningSpot</defName>
+        <tileLayouts>
+            <li>USH_DiningSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_CenterSpot</defName>
+        <tileLayouts>
+            <li>USH_CenterSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_LearningSpot</defName>
+        <tileLayouts>
+            <li>USH_LearningSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_StockpileSpot</defName>
+        <tileLayouts>
+            <li>USH_StockpileSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_PylonSpot</defName>
+        <tileLayouts>
+            <li>USH_PylonSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_SleepingSpot</defName>
+        <tileLayouts>
+            <li>USH_SleepingSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_TraderSpot</defName>
+        <tileLayouts>
+            <li>USH_TraderSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_TurretsSpot</defName>
+        <tileLayouts>
+            <li>USH_TurretsSpot</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+    <KCSG.TileDef>
+        <defName>USH_Junk</defName>
+        <tileLayouts>
+            <li>USH_JunkA</li>
+            <li>USH_JunkB</li>
+            <li>USH_JunkC</li>
+        </tileLayouts>
+    </KCSG.TileDef>
+
+</Defs>

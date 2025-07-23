@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <QuestScriptDef>
+        <defName>USH_GlittertechQuestBase</defName>
+        <autoAccept>true</autoAccept>
+        <root Class="QuestNode_Sequence">
+            <nodes>
+                <li Class="QuestNode_FactionExists">
+                    <faction>AncientsHostile</faction>
+                    <node Class="QuestNode_Set">
+                        <name>selectionWeightAncientsHostile</name>
+                        <value>1</value>
+                    </node>
+                    <elseNode Class="QuestNode_Set">
+                        <name>selectionWeightAncientsHostile</name>
+                        <value>0</value>
+                    </elseNode>
+                </li>
+
+                <li Class="QuestNode_Sequence">
+                    <nodes>
+                        <li Class="QuestNode_Set">
+                            <name>siteFaction</name>
+                            <value>AncientsHostile</value>
+                        </li>
+
+                    </nodes>
+                    <selectionWeight>$selectionWeightAncientsHostile</selectionWeight>
+                </li>
+
+                <li Class="QuestNode_Set">
+                    <name>siteDistRange</name>
+                    <value>2~6</value>
+                </li>
+
+                <li Class="QuestNode_GetMap" />
+
+                <li Class="QuestNode_SubScript">
+                    <def>Util_AdjustPointsForDistantFight</def>
+                </li>
+                <li Class="QuestNode_GetSiteTile">
+                    <storeAs>siteTile</storeAs>
+                    <preferCloserTiles>true</preferCloserTiles>
+                </li>
+                <li Class="QuestNode_GetDefaultSitePartsParams">
+                    <tile>$siteTile</tile>
+                    <faction>$siteFaction</faction>
+                    <sitePartDefs>
+                        <li>$sitePartDef</li>
+                    </sitePartDefs>
+                    <storeSitePartsParamsAs>sitePartsParams</storeSitePartsParamsAs>
+                </li>
+                <li Class="QuestNode_Set">
+                    <name>siteFaction</name>
+                    <value>$siteFaction</value>
+                </li>
+                <li Class="QuestNode_GetSiteThreatPoints">
+                    <storeAs>sitePoints</storeAs>
+                    <sitePartsParams>$sitePartsParams</sitePartsParams>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GetDefaultRewardValueFromPoints</def>
+                </li>
+                <li Class="QuestNode_Multiply">
+                    <value1>$rewardValue</value1>
+                    <value2>3.125</value2>
+                    <storeAs>rewardValue</storeAs>
+                </li>
+                <li Class="QuestNode_SubScript">
+                    <def>Util_GenerateSite</def>
+                </li>
+                <li Class="QuestNode_SpawnWorldObjects">
+                    <worldObjects>$site</worldObjects>
+                </li>
+                <li Class="QuestNode_IsSet">
+                    <name>objectiveCompleteSignal</name>
+                    <elseNode Class="QuestNode_Set">
+                        <name>objectiveCompleteSignal</name>
+                        <value>Destroyed</value>
+                    </elseNode>
+                </li>
+                <li Class="QuestNode_Set">
+                    <name>questCompleteSignal</name>
+                    <value>site.AllEnemiesDefeated</value>
+                </li>
+                <li Class="USH_GE.QuestNode_AncientForces">
+                    <inSignal>site.MapGenerated</inSignal>
+                    <mapParent>$site</mapParent>
+                    <points>$points</points>
+                    <lord>Defend</lord>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>Initiate</inSignal>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_Signal">
+                    <inSignal>site.MapRemoved</inSignal>
+                    <inSignalDisable>$objectiveCompleteSignal</inSignalDisable>
+                    <outSignals>
+                        <li>StartTimeout</li>
+                    </outSignals>
+                </li>
+                <li Class="QuestNode_WorldObjectTimeout">
+                    <worldObject>$site</worldObject>
+                    <isQuestTimeout>true</isQuestTimeout>
+                    <delayTicks>$(randInt(12,28)*60000)</delayTicks>
+                    <inSignalEnable>StartTimeout</inSignalEnable>
+                    <inSignalDisable>site.MapGenerated</inSignalDisable>
+                    <destroyOnCleanup>true</destroyOnCleanup>
+                    <reactivatable>true</reactivatable>
+                    <node Class="QuestNode_Sequence">
+                        <nodes>
+                            <li Class="QuestNode_Letter">
+                                <label TKey="LetterLabelQuestExpired">Quest expired: [resolvedQuestName]</label>
+                                <text TKey="LetterTextQuestExpired">The [site_label] has packed up and moved on. The quest [resolvedQuestName] has expired.</text>
+                            </li>
+                            <li Class="QuestNode_End">
+                                <outcome>Fail</outcome>
+                            </li>
+                        </nodes>
+                    </node>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>$questCompleteSignal</inSignal>
+                    <outcome>Success</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+                <li Class="QuestNode_Notify_PlayerRaidedSomeone">
+                    <inSignal>$questCompleteSignal</inSignal>
+                    <getRaidersFromMapParent>$site</getRaidersFromMapParent>
+                </li>
+                <li Class="QuestNode_End">
+                    <inSignal>site.Destroyed</inSignal>
+                    <outcome>Fail</outcome>
+                    <sendStandardLetter>true</sendStandardLetter>
+                </li>
+            </nodes>
+        </root>
+    </QuestScriptDef>
+</Defs>
