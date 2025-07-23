@@ -6,9 +6,10 @@
         <description>An ancient glittertech outpost.</description>
         <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
         <expandingIconTexture>World/GlittertechOutpost</expandingIconTexture>
-        <arrivedLetter>T.</arrivedLetter>
+        <arrivedLetter>This site appears to have been occupied by ancients for a long time. They managed to gather glittertech and surround it with heavy defenses.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>true</wantsThreatPoints>
+        <gravShipsCanLandOn>true</gravShipsCanLandOn>
         <tags>
             <li>USH_GlittertechOutpost</li>
         </tags>
@@ -35,9 +36,10 @@
         <description>An ancient glittertech research facility.</description>
         <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
         <expandingIconTexture>World/GlittertechOutpost</expandingIconTexture>
-        <arrivedLetter>T.</arrivedLetter>
+        <arrivedLetter>This site appears to have been occupied by ancients for a long time. They managed to gather glittertech and surround it with heavy defenses.</arrivedLetter>
         <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
         <wantsThreatPoints>true</wantsThreatPoints>
+        <gravShipsCanLandOn>true</gravShipsCanLandOn>
         <tags>
             <li>USH_GlittertechFacility</li>
         </tags>
