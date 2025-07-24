@@ -61,6 +61,22 @@ public class CompOverclock : ThingComp
             sb.Append(overclockBuilder.ToString());
     }
 
+    public override string GetDescriptionPart()
+    {
+        StringBuilder sb = new();
+        sb.AppendLine("USH_GE_OverclockDesc".Translate());
+
+        foreach (var mod in Props.statOffsets)
+            if (!Mathf.Approximately(mod.value, 0f))
+                sb.AppendLine($"    {mod.stat.LabelCap}: {mod.stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
+
+        foreach (var mod in Props.statFactors)
+            if (!Mathf.Approximately(mod.value, 1f))
+                sb.AppendLine($"    {mod.stat.LabelCap}: {mod.stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
+
+        return sb.ToString();
+    }
+
     public override void PostExposeData()
     {
         base.PostExposeData();
