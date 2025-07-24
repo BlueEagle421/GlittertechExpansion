@@ -58,8 +58,9 @@
         <li>
           <thingSetMaker Class="ThingSetMaker_RandomOption">
             <options>
+
               <li>
-                <weight>0.75</weight>
+                <weight>1</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -71,6 +72,21 @@
                   </fixedParams>
                 </thingSetMaker>
               </li>
+
+              <li>
+                <weight>0.1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>Plasteel</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>5~15</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
             </options>
           </thingSetMaker>
         </li>
@@ -169,10 +185,38 @@
                   <fixedParams>
                     <filter>
                       <thingDefs>
+                        <li>ThrumboHorn</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~2</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
                         <li>Luciferium</li>
                       </thingDefs>
                     </filter>
                     <countRange>8~12</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>Neutroamine</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>20~60</countRange>
                   </fixedParams>
                 </thingSetMaker>
               </li>
