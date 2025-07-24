@@ -6,9 +6,10 @@
     <label>overclock hi-tech firearm</label>
     <description>Overclock a hi-tech firearm to increase it's stats.</description>
     <jobString>Overclocking firearm.</jobString>
-    <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
+    <researchPrerequisite>USH_SkinRes</researchPrerequisite>
     <formingTicks>18000</formingTicks>
     <gestationCycles>10</gestationCycles>
+    <uiIconThing>USH_PowerStored</uiIconThing>
 
     <ingredients>
       <li>
@@ -64,10 +65,11 @@
 
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseOverclockBill">
-        <powerNeeded>12500</powerNeeded>
+        <powerNeeded>10000</powerNeeded>
         <fabricatorRotationY>-35</fabricatorRotationY>
       </li>
     </modExtensions>
+
   </RecipeDef>
 
 </Defs>

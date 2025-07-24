@@ -55,6 +55,8 @@
             <li>USH_FormGlittercore</li>
             <li>USH_FormGlittercoreBulk</li>
 
+            <li>USH_OverclockGun</li>
+
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
             <li>USH_FormAddictionRemover</li>
@@ -89,7 +91,6 @@
             <li>USH_FormMechSerumResurrector</li>
             <li>USH_FormMechSerumHealer</li>
 
-            <li>USH_OverclockGun</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>

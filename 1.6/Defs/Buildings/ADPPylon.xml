@@ -103,7 +103,8 @@
             <turretBurstCooldownTime>7.5</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
-            <li>HeavyTurrets</li>
+            <li>USH_NeuromodifiersBasicsRes</li>
+            <li>USH_HeavyGlittertechRes</li>
         </researchPrerequisites>
     </ThingDef>
 
