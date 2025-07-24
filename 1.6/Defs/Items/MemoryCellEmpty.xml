@@ -23,20 +23,6 @@
     <thingCategories>
       <li>ItemsMisc</li>
     </thingCategories>
-    <comps>
-      <li Class="CompProperties_Usable">
-        <useJob>UseItem</useJob>
-        <useLabel>Use {0_label}</useLabel>
-        <useDuration>0</useDuration>
-        <warmupMote>Mote_ResurrectAbility</warmupMote>
-      </li>
-      <li Class="CompProperties_Targetable">
-        <compClass>CompTargetable_SinglePawn</compClass>
-      </li>
-      <li Class="USH_GE.CompProperties_TargetEffectMemoryCellEmpty">
-        <jobDef>USH_CloneMemory</jobDef>
-      </li>
-    </comps>
   </ThingDef>
 
   <JobDef>

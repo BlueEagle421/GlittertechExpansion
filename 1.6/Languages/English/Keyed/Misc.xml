@@ -49,6 +49,13 @@
   <USH_GE_CommandBiocoderEjectDesc>Wake up the contained bioprint host and eject them.</USH_GE_CommandBiocoderEjectDesc>
   <USH_GE_CommandBiocoderEjectFailEmpty>Contains nobody.</USH_GE_CommandBiocoderEjectFailEmpty>
 
+  <USH_GE_UseMemoryCellEmpty>Use {0}</USH_GE_UseMemoryCellEmpty>
+  <USH_GE_CannotExtract>Cannot extract</USH_GE_CannotExtract>
+  <USH_GE_NoEmotion>No emotions</USH_GE_NoEmotion>
+  <USH_GE_NoEmotion>No memories</USH_GE_NoEmotion>
+  <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
+  <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
+
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
   <USH_GE_CannotInsert>Cannot insert</USH_GE_CannotInsert>
   <USH_GE_ContainerFull>Container full</USH_GE_ContainerFull>

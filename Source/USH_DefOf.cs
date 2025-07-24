@@ -19,6 +19,7 @@ public static class USH_DefOf
     public static ThingDef USH_PowerStored;
     public static DamageDef USH_ADP;
     public static HediffDef USH_InstalledTelepadIntegrator;
+    public static JobDef USH_CloneMemory;
     public static JobDef USH_EnterBiocoder;
     public static JobDef USH_CarryToBiocoder;
     public static ThingDef USH_GlittertechTargeter;

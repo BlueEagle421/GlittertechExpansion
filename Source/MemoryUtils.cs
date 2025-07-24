@@ -7,21 +7,37 @@ using Verse;
 
 public static class MemoryUtils
 {
+    public static AcceptanceReport CanHaveMemoryExtract(this Pawn p)
+    {
+        if (p.needs.mood == null)
+            return "USH_GE_NoEmotion".Translate();
+
+        if (p.needs.mood.thoughts == null)
+            return "USH_GE_NoMemories".Translate();
+
+        if (p.needs.mood.thoughts.memories.Memories.NullOrEmpty())
+            return "USH_GE_NoMemories".Translate();
+
+        return true;
+    }
 
     public static Thought GetThoughtForExtraction(this Pawn p)
     {
+        Log.Message(p.Label);
+
         List<Thought> moodThoughts = [];
         p.needs.mood.thoughts.GetAllMoodThoughts(moodThoughts);
 
-        return moodThoughts.GetMostMoodEffecting();
+
+        return p.needs.mood.thoughts.memories.Memories.GetMostMoodEffecting();
     }
 
-    public static Thought GetMostMoodEffecting(this List<Thought> thoughts)
+    public static Thought GetMostMoodEffecting(this List<Thought_Memory> memories)
     {
-        if (!thoughts.Any())
+        if (memories.NullOrEmpty())
             return null;
 
-        return thoughts
+        return memories
             .Where(t => t.MoodOffset() != 0)
             .OrderByDescending(t => Mathf.Abs(t.MoodOffset()))
             .ThenByDescending(t => t.MoodOffset())
