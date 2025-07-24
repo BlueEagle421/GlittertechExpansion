@@ -13,7 +13,7 @@
     <ingredients>
       <li>
         <filter>
-          <customSummary>spacer ranged weapon</customSummary>
+          <customSummary>hi-tech ranged weapon</customSummary>
           <categories>
             <li>WeaponsRanged</li>
           </categories>
@@ -35,6 +35,14 @@
           </thingDefs>
         </filter>
         <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_Glittercore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
       </li>
       <li>
         <filter>
