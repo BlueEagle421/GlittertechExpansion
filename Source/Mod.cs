@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using System.Reflection;
+using HarmonyLib;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -7,25 +9,35 @@ namespace USH_GE;
 public class GE_Mod : Mod
 {
     public static GE_Settings Settings { get; private set; }
-    private static Vector2 scrollPosition = new(0f, 0f);
-    private static float totalContentHeight = 1000f;
-    private const float ScrollBarWidthMargin = 18f;
+    private static Vector2 _scrollPosition = new(0f, 0f);
+    private static float _totalContentHeight = 1000f;
+    private const float SCROLL_BAR_WIDTH_MARGIN = 18f;
 
     public GE_Mod(ModContentPack content) : base(content)
     {
+        InitHarmony();
+
         Settings = GetSettings<GE_Settings>();
     }
+
+    private void InitHarmony()
+    {
+        Harmony harmony = new("GlittertechExpansion");
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+        Log.Message("The almighty power of Harmony has been initialized by the humble mod creator BlueEagle421".Colorize(Color.cyan));
+    }
+
     public override void DoSettingsWindowContents(Rect inRect)
     {
         Rect outerRect = inRect.ContractedBy(10f);
 
-        bool scrollBarVisible = totalContentHeight > outerRect.height;
-        var scrollViewTotal = new Rect(0f, 0f, outerRect.width - (scrollBarVisible ? ScrollBarWidthMargin : 0), totalContentHeight);
-        Widgets.BeginScrollView(outerRect, ref scrollPosition, scrollViewTotal);
+        bool scrollBarVisible = _totalContentHeight > outerRect.height;
+        var scrollViewTotal = new Rect(0f, 0f, outerRect.width - (scrollBarVisible ? SCROLL_BAR_WIDTH_MARGIN : 0), _totalContentHeight);
+        Widgets.BeginScrollView(outerRect, ref _scrollPosition, scrollViewTotal);
 
         Listing_Standard listingStandard = new();
         listingStandard.Begin(new Rect(0f, 0f, scrollViewTotal.width, 9999f));
-
 
         //FormingSpeedMultiplier
         listingStandard.Label("USH_GE_FormingMultiplierSetting".Translate().Colorize(Color.cyan));
@@ -67,7 +79,7 @@ public class GE_Mod : Mod
 
         //End
         listingStandard.End();
-        totalContentHeight = listingStandard.CurHeight + 10f;
+        _totalContentHeight = listingStandard.CurHeight + 10f;
         Widgets.EndScrollView();
         base.DoSettingsWindowContents(inRect);
     }

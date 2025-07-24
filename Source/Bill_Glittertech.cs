@@ -11,7 +11,9 @@ public class ModExtension_UseGlittertechBill : DefModExtension
 {
     public int powerNeeded;
     public int fuelNeeded;
-    public float analyzerOffsetY = 0.7f;
+    public float fabricatorOffsetY = 0.75f;
+    public float fabricatorRotationY = 0;
+    public float fabricatorScale = 0.6f;
     public List<ThingDef> requiredFacilities;
 }
 
@@ -32,6 +34,36 @@ public class Bill_Glittertech : Bill_Autonomous
                 return base.BaseColor;
 
             return Color.white;
+        }
+    }
+    protected virtual Graphic InitialProductGraphic
+    {
+        get
+        {
+            if (recipe.products.NullOrEmpty())
+                return null;
+
+            return recipe.products[0].thingDef.graphic;
+        }
+    }
+    public virtual Graphic GetProductGraphic
+    {
+        get
+        {
+            Graphic result = InitialProductGraphic;
+
+            if (InitialProductGraphic == null)
+                return null;
+
+            if (result is Graphic_StackCount graphic_StackCount)
+                result = graphic_StackCount.SubGraphicForStackCount(recipe.products[0].count, recipe.products[0].thingDef);
+
+            if (result is Graphic_RandomRotated graphic_RandomRotated)
+                result = graphic_RandomRotated.SubGraphic;
+
+            result = result.GetCopy(result.drawSize * 0.6f, null);
+
+            return result;
         }
     }
 

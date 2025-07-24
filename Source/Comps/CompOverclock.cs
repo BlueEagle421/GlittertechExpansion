@@ -1,0 +1,70 @@
+using System.Collections.Generic;
+using System.Text;
+using RimWorld;
+using UnityEngine;
+using Verse;
+
+namespace USH_GE;
+
+public class CompProperties_Overclock : CompProperties
+{
+    public List<StatModifier> statFactors;
+    public List<StatModifier> statOffsets;
+    public CompProperties_Overclock() => compClass = typeof(CompOverclock);
+}
+
+public class CompOverclock : ThingComp
+{
+    public bool IsOverclocked;
+    public CompProperties_Overclock Props => (CompProperties_Overclock)props;
+
+    public override string TransformLabel(string label)
+    {
+        if (!IsOverclocked)
+            return base.TransformLabel(label);
+
+        return $"Overclocked {label.UncapitalizeFirst()}";
+    }
+
+    public override float GetStatFactor(StatDef stat)
+    {
+        if (!IsOverclocked)
+            return 1;
+
+        return 1f * Props.statFactors.GetStatFactorFromList(stat);
+    }
+
+    public override float GetStatOffset(StatDef stat)
+    {
+        if (!IsOverclocked)
+            return 0;
+
+        return Props.statOffsets.GetStatOffsetFromList(stat); ;
+    }
+
+    public override void GetStatsExplanation(StatDef stat, StringBuilder sb, string indent = "")
+    {
+        if (!IsOverclocked)
+            return;
+
+        StringBuilder overclockBuilder = new();
+
+        foreach (var mod in Props.statOffsets)
+            if (mod.stat == stat && !Mathf.Approximately(mod.value, 0f))
+                overclockBuilder.AppendLine($"{indent}Overclock: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
+
+        foreach (var mod in Props.statFactors)
+            if (mod.stat == stat && !Mathf.Approximately(mod.value, 1f))
+                overclockBuilder.AppendLine($"{indent}Overclock: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
+
+        if (overclockBuilder.Length > 0)
+            sb.Append(overclockBuilder.ToString());
+    }
+
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+
+        Scribe_Values.Look(ref IsOverclocked, "IsOverclocked");
+    }
+}

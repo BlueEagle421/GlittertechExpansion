@@ -1,6 +1,7 @@
 using HarmonyLib;
 using RimWorld.BaseGen;
-using USH_GE;
+
+namespace USH_GE;
 
 [HarmonyPatch(typeof(SymbolResolver_Interior_AncientTemple), "Resolve")]
 public static class Patch_SymbolResolver_Interior_AncientTemple_Resolve

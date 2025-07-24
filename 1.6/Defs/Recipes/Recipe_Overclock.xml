@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RecipeDef ParentName="USH_BaseGlittertechForming">
+    <defName>USH_OverclockGun</defName>
+    <label>overclock spacer gun</label>
+    <description>Overclock a spacer gun to increase it's stats.</description>
+    <jobString>Overclocking spacer gun.</jobString>
+    <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
+    <formingTicks>18000</formingTicks>
+    <gestationCycles>10</gestationCycles>
+
+    <ingredients>
+      <li>
+        <filter>
+          <customSummary>spacer ranged weapon</customSummary>
+          <categories>
+            <li>WeaponsRanged</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>60</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_Glitterheart</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+
+    <fixedIngredientFilter>
+      <allowWithComp>USH_GE.CompOverclock</allowWithComp>
+    </fixedIngredientFilter>
+
+    <defaultIngredientFilter>
+      <allowWithComp>USH_GE.CompOverclock</allowWithComp>
+    </defaultIngredientFilter>
+
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseOverclockBill">
+        <powerNeeded>12500</powerNeeded>
+        <fabricatorRotationY>-35</fabricatorRotationY>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+</Defs>
