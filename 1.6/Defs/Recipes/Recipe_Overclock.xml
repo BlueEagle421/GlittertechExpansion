@@ -3,9 +3,9 @@
 
   <RecipeDef ParentName="USH_BaseGlittertechForming">
     <defName>USH_OverclockGun</defName>
-    <label>overclock spacer gun</label>
-    <description>Overclock a spacer gun to increase it's stats.</description>
-    <jobString>Overclocking spacer gun.</jobString>
+    <label>overclock hi-tech firearm</label>
+    <description>Overclock a hi-tech firearm to increase it's stats.</description>
+    <jobString>Overclocking firearm.</jobString>
     <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
     <formingTicks>18000</formingTicks>
     <gestationCycles>10</gestationCycles>
@@ -13,7 +13,7 @@
     <ingredients>
       <li>
         <filter>
-          <customSummary>hi-tech ranged weapon</customSummary>
+          <customSummary>hi-tech firearm</customSummary>
           <categories>
             <li>WeaponsRanged</li>
           </categories>
