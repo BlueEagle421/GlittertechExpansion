@@ -10,7 +10,7 @@ public class CompProperties_Telepad : CompProperties_Interactable
 {
     public int fuelConsumption = 5;
     public HediffDef hediffDef = USH_DefOf.USH_TelepadNausea;
-    public float hediffAddChance = 0.07f;
+    public float hediffAddChance = 0.04f;
 
     public CompProperties_Telepad() => compClass = typeof(CompTelepad);
 }
