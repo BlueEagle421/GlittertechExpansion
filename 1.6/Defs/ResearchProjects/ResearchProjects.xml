@@ -135,7 +135,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_DeepMindScanningRes</defName>
         <label>Deep mind scanning</label>
-        <description>Understand the power of deep memory cloning and understand mechanisms behind complex neuromodifiers.</description>
+        <description>Understand the power of deep memory cloning and understand mechanisms behind complex neuromodifiers. The overclocking recipe will be available at the glittertech fabricator.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
             <li>USH_GlittertechAlchemyRes</li>
