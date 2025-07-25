@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittertechTargeter</defName>
         <label>orbital targeter</label>
-        <description>A heavy targeting system. It transmits coordinates to the nearest satellites and hacks them using a biocode. The ancient satellites can detect unauthorized access and block the bioprint, so it must be changed for each use with the help of a living host encased in the machine. The overheating process will kill the host during operation.\n\nThe machine has multiple attack modes.</description>
+        <description>A heavy targeting system. It transmits coordinates to the nearest satellites and hacks them using a biocode. The ancient satellites can detect unauthorized access and block the bioprint, so it must be changed for each use with the help of a living host encased in the machine. The overheating process will kill the host during operation.\n\nPossession and use of a stationary, militarized targeter is prohibited under Imperial law. The immense power and destruction it can unleash is a source of fear among nearby settlements. Firing this weapon will damage relations with neighboring factions.\n\nThe machine has multiple attack modes.</description>
         <thingClass>USH_GE.Building_Biocoder</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>
@@ -176,5 +176,10 @@
         <reportString>carrying TargetA to biocoder.</reportString>
         <casualInterruptible>false</casualInterruptible>
     </JobDef>
+
+    <HistoryEventDef>
+        <defName>USH_UsedTargeter</defName>
+        <label>used stationary orbital targeter</label>
+    </HistoryEventDef>
 
 </Defs>

@@ -1,6 +1,9 @@
 
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -175,6 +178,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
     {
         base.BeginBurst();
 
+        ChangeGoodwillNearestFactions(Map, 4, -30);
         BurnContainedPawn();
     }
 
@@ -237,6 +241,39 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 
         return null;
     }
+
+    private void ChangeGoodwillNearestFactions(Map map, int count, int goodwillChange)
+    {
+        if (map == null)
+            return;
+
+        List<Settlement> settlements = [.. Find.WorldObjects.Settlements
+            .Where(s => s.Faction != null
+                        && !s.Faction.IsPlayer
+                        && !s.Faction.def.hidden
+                        && !s.Faction.defeated)
+            .OrderBy(s => Find.WorldGrid.ApproxDistanceInTiles(map.Tile, s.Tile))];
+
+        HashSet<Faction> affectedFactions = [];
+        int affected = 0;
+
+        foreach (Settlement settlement in settlements)
+        {
+            Faction faction = settlement.Faction;
+            if (affectedFactions.Contains(faction))
+                continue;
+
+            if (!faction.TryAffectGoodwillWith(Faction.OfPlayer, goodwillChange, canSendMessage: true, true, USH_DefOf.USH_UsedTargeter))
+                continue;
+
+            affectedFactions.Add(faction);
+            affected++;
+
+            if (affected >= count)
+                break;
+        }
+    }
+
 
     //disable rendering of the turret
     protected override void DrawAt(Vector3 drawLoc, bool flip = false)

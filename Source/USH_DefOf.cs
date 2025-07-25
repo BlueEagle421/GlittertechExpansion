@@ -45,4 +45,5 @@ public static class USH_DefOf
     public static SoundDef USH_GlittershipStopped;
     public static EffecterDef USH_GlittershipChunkDestroyed;
     public static ThingDef USH_AwareGlitterpanel;
+    public static HistoryEventDef USH_UsedTargeter;
 }
