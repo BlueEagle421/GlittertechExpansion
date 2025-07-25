@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_MemoryPylon</defName>
         <label>memory pylon</label>
-        <description>A morale-boosting structure typically placed outdoors. It can store memory cells and project their contents around the area and into the minds of nearby colonists.\n\nA single cell can last indefinitely but will provide only a fraction of the original emotions.</description>
+        <description>A morale-boosting structure typically placed outdoors. It can store memory cells and project their contents around the area and into the minds of nearby colonists.\n\nA single cell can last until it expires, but will provide only a fraction of the original emotions.</description>
         <fillPercent>0.20</fillPercent>
         <graphicData>
             <texPath>Things/Building/MemoryPylon</texPath>
