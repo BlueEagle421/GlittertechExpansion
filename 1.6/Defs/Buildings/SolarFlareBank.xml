@@ -31,7 +31,7 @@
         <tickerType>Normal</tickerType>
         <comps>
             <li Class="USH_GE.CompProperties_SolarFlareBank">
-                <basePowerConsumption>-12000</basePowerConsumption>
+                <basePowerConsumption>-4500</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
                 <activeOverlayPath>Things/Building/SolarFlareBankActive</activeOverlayPath>
             </li>
