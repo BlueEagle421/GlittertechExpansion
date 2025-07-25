@@ -46,4 +46,5 @@ public static class USH_DefOf
     public static EffecterDef USH_GlittershipChunkDestroyed;
     public static ThingDef USH_AwareGlitterpanel;
     public static HistoryEventDef USH_UsedTargeter;
+    public static HediffDef USH_TelepadNausea;
 }

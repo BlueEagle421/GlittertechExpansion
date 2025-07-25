@@ -52,6 +52,7 @@
   <USH_GE_NoEmotion>No memories</USH_GE_NoEmotion>
   <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
   <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
+  <USH_GE_NauseaMsg>The sudden position change gave {PAWN} nausea</USH_GE_NauseaMsg>
 
   <USH_GE_OrderTeleportAll>Teleport everyone here</USH_GE_OrderTeleportAll>
   <USH_GE_OrderTeleportAllDesc>Teleport to this location everyone under your control with a telepad integrator implant installed.\n\nTo teleport:\n{0}</USH_GE_OrderTeleportAllDesc>

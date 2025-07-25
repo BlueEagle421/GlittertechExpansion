@@ -56,11 +56,22 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (!CanBeTeleported(toTel))
             return;
 
+        TryToGiveNausea(toTel);
+
         Interact(toTel, true);
 
         SoundDefOf.Psycast_Skip_Entry.PlayOneShot(parent);
         SkipUtility.SkipTo(toTel, parent.Position, parent.Map);
         SpawnFleckEffect(parent.Position);
+    }
+
+    private void TryToGiveNausea(Pawn p)
+    {
+        if (!Rand.Chance(0.07f))
+            return;
+
+        p.health.AddHediff(USH_DefOf.USH_TelepadNausea);
+        Messages.Message("USH_GE_NauseaMsg".Translate(p.Named("PAWN")), new LookTargets(p), MessageTypeDefOf.NegativeEvent, true);
     }
 
     private void TargetPawnToTeleport()
