@@ -11,25 +11,16 @@ public static class GameConditionManager_RegisterCondition
     private const int INTERCEPT_LETTER_DELAY = 60;
 
     [HarmonyPostfix]
-    public static void Postfix(
-        GameConditionManager __instance,
-        GameCondition cond)
+    public static void Postfix(GameConditionManager __instance, GameCondition cond)
     {
-        if (cond == null)
-            return;
-
-        if (cond.def == null)
-            return;
-
-        if (__instance == null)
+        if (cond?.def == null || __instance?.ownerMap == null)
             return;
 
         if (cond.def != IncidentDefOf.SolarFlare.gameCondition)
             return;
 
         var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
-
-        if (component.AllAvailableSolarBanks.NullOrEmpty())
+        if (component?.AllAvailableSolarBanks.NullOrEmpty() ?? true)
             return;
 
         InterceptSolarFlare(component.AllAvailableSolarBanks, cond);

@@ -22,6 +22,7 @@ namespace USH_GE
         private float _fadeTicks = FADE_DURATION_TICKS;
         private bool _lastPoweredOn = true;
         public bool PoweredOn => PowerTrader.PowerOn;
+
         private CompPowerTrader _powerTrader;
         public CompPowerTrader PowerTrader
         {
@@ -75,6 +76,8 @@ namespace USH_GE
         {
             base.PostMapInit();
             _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
+
+            CommonSenseCheck.CheckForAssemblyPresence();
         }
 
         public override void Notify_StartForming(Pawn billDoer)
@@ -136,6 +139,9 @@ namespace USH_GE
         protected override string GetInspectStringExtra()
         {
             var sb = new StringBuilder();
+
+            if (CommonSenseCheck.CheckForSetting())
+                sb.AppendLine(CommonSenseCheck.MESSAGE_CONTENT.Colorize(ColorLibrary.RedReadable));
 
             sb.AppendLine(USH_DefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored).ToStringPercent());
 
