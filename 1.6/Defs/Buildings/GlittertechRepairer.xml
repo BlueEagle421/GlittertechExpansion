@@ -22,8 +22,8 @@
         <costList>
             <Steel>260</Steel>
             <Silver>120</Silver>
-            <Plasteel>80</Plasteel>
-            <USH_Glittercore>5</USH_Glittercore>
+            <Plasteel>60</Plasteel>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <canOverlapZones>false</canOverlapZones>
         <minifiedDef>MinifiedThing</minifiedDef>

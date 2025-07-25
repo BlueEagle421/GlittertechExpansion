@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_Telepad</defName>
         <label>telepad</label>
-        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.</description>
+        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.\n\nIt needs a steady flow of neutroamine to stabilize the process.</description>
         <descriptionHyperlinks>
             <ThingDef>USH_TelepadIntegrator</ThingDef>
         </descriptionHyperlinks>
@@ -24,8 +24,9 @@
         <costList>
             <Steel>80</Steel>
             <Silver>50</Silver>
-            <Plasteel>40</Plasteel>
-            <ComponentSpacer>3</ComponentSpacer>
+            <Plasteel>25</Plasteel>
+            <Neutroamine>30</Neutroamine>
+            <ComponentSpacer>2</ComponentSpacer>
             <USH_Glittercore>3</USH_Glittercore>
         </costList>
         <canOverlapZones>false</canOverlapZones>
@@ -65,13 +66,17 @@
             <li Class="CompProperties_Refuelable">
                 <fuelConsumptionRate>22</fuelConsumptionRate>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+                <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
                 <fuelCapacity>60</fuelCapacity>
                 <fuelFilter>
                     <thingDefs>
                         <li>Neutroamine</li>
                     </thingDefs>
                 </fuelFilter>
+                <initialFuelPercent>0.5</initialFuelPercent>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+                <canEjectFuel>true</canEjectFuel>
             </li>
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Breakdownable" />

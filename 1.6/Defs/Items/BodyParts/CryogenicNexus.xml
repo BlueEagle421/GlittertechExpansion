@@ -48,8 +48,8 @@
             <Mass>0.1</Mass>
         </statBases>
         <costList>
-            <Neutroamine>120</Neutroamine>
-            <MedicineUltratech>2</MedicineUltratech>
+            <Neutroamine>60</Neutroamine>
+            <MedicineUltratech>1</MedicineUltratech>
             <Uranium>50</Uranium>
             <Plasteel>20</Plasteel>
             <ComponentSpacer>4</ComponentSpacer>

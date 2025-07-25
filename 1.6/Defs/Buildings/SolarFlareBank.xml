@@ -61,7 +61,7 @@
         <pathCost>50</pathCost>
         <fillPercent>0.5</fillPercent>
         <costList>
-            <Plasteel>180</Plasteel>
+            <Plasteel>120</Plasteel>
             <Steel>300</Steel>
             <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
             <ComponentSpacer>4</ComponentSpacer>
