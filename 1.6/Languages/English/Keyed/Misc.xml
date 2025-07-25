@@ -76,6 +76,8 @@
   <USH_GE_ADPShortCircuitDischargedEnergy>All {0} Wd of energy in the connected batteries has been discharged in an electrical explosion.</USH_GE_ADPShortCircuitDischargedEnergy>
   <USH_GE_ADPShortCircuitWasLarge>This large amount of power has created an ADP explosion of considerable size.</USH_GE_ADPShortCircuitWasLarge>
 
+  <USH_GE_OverclockDesc>It's overclocked by advanced mechanites coating designed to make the inner weapon components more efficient. Overclocking provides the following stats:</USH_GE_OverclockDesc>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>
@@ -97,7 +99,5 @@
 
   <USH_GE_LetterLabelGlittershipChunk>Glitterworld debris</USH_GE_LetterLabelGlittershipChunk>
   <USH_GE_LetterGlittershipChunk>A mysterious piece of glitterworld debris has crashed nearby.\n\nIts significant disturbance of the nearby energy field will cause frequent lightning strikes.\n\nDestroy it to extract valuable resources. But beware - it will probably defend itself.</USH_GE_LetterGlittershipChunk>
-
-  <USH_GE_OverclockDesc>It's overclocked by advanced mechanites coating meant to make inner weapon components more efficient. Overclocking provides following stats:</USH_GE_OverclockDesc>
 
 </LanguageData>

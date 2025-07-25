@@ -6,7 +6,7 @@
     <label>overclock hi-tech firearm</label>
     <description>Overclock a hi-tech firearm to increase it's stats.</description>
     <jobString>Overclocking firearm.</jobString>
-    <researchPrerequisite>USH_SkinRes</researchPrerequisite>
+    <researchPrerequisite>USH_OverclockRes</researchPrerequisite>
     <formingTicks>18000</formingTicks>
     <gestationCycles>10</gestationCycles>
     <uiIconThing>USH_PowerStored</uiIconThing>

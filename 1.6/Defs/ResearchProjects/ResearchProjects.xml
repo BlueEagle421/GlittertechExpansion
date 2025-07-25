@@ -159,15 +159,28 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_OverclockRes</defName>
+        <label>Firearms overclocking</label>
+        <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient.</description>
+        <baseCost>3000</baseCost>
+        <prerequisites>
+            <li>USH_NeuromodifiersBasicsRes</li>
+        </prerequisites>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>4.80</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SkinRes</defName>
         <label>Glitterworld ascension</label>
         <description>Learn about the great secrets of glitterworld medicine and build powerful body parts.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
             <li>USH_TeethRes</li>
+            <li>USH_OverclockRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>4.10</researchViewY>
+        <researchViewY>4.40</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
