@@ -75,7 +75,7 @@
     <ThoughtDef>
         <defName>USH_MemoryPylonThought</defName>
         <thoughtClass>USH_GE.Thought_MemoryPylon</thoughtClass>
-        <durationDays>0.24</durationDays>
+        <durationDays>1</durationDays>
         <stackLimit>3</stackLimit>
         <stages>
             <li>
