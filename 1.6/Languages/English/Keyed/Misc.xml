@@ -70,6 +70,12 @@
   <USH_GE_CommandMemoryContainerEjectDesc>Removes the memory cell from inner container and places it nearby.</USH_GE_CommandMemoryContainerEjectDesc>
   <USH_GE_CommandMemoryContainerEjectFailEmpty>Contains nothing.</USH_GE_CommandMemoryContainerEjectFailEmpty>
 
+  <USH_GE_LetterLabelADPShortCircuit>Zzzapp...</USH_GE_LetterLabelADPShortCircuit>
+  <USH_GE_ADPShortCircuit>A fault in {0} has caused a short circuit with ADP effects.</USH_GE_ADPShortCircuit>
+  <USH_GE_ADPShortCircuitStartedFire>A fault in {0} has caused a short circuit with ADP effects which started a fire.</USH_GE_ADPShortCircuitStartedFire>
+  <USH_GE_ADPShortCircuitDischargedEnergy>All {0} Wd of energy in the connected batteries has been discharged in an electrical explosion.</USH_GE_ADPShortCircuitDischargedEnergy>
+  <USH_GE_ADPShortCircuitWasLarge>This large amount of power has created an ADP explosion of considerable size.</USH_GE_ADPShortCircuitWasLarge>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>
