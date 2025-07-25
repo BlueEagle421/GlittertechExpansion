@@ -18,7 +18,7 @@ public class MapComponent_SolarFlareBank(Map map) : MapComponent(map)
 public class CompProperties_SolarFlareBank : CompProperties_Power
 {
     public int fuelConsumption = 1;
-    public int dischargeTicks = 60000 * 8; // 1 day * 8
+    public int dischargeTicks = 60000 * 6; // 1 day * 6
     public string activeOverlayPath;
     public CompProperties_SolarFlareBank() => compClass = typeof(CompSolarFlareBank);
 }
