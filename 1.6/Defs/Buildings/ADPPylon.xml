@@ -172,7 +172,6 @@
                 <addFire>true</addFire>
                 <bounceRange>9</bounceRange>
                 <maxLifetime>50</maxLifetime>
-                <impactSound>VPE_ChainBolt_Impact</impactSound>
             </li>
         </modExtensions>
     </ThingDef>
