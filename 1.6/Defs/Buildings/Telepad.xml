@@ -62,6 +62,17 @@
                 <shortCircuitInRain>true</shortCircuitInRain>
                 <basePowerConsumption>80</basePowerConsumption>
             </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>22</fuelConsumptionRate>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelCapacity>60</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Breakdownable" />
             <li Class="CompProperties_Stunnable">
