@@ -53,7 +53,7 @@
                 <statOffsets>
                     <ResearchSpeedFactor>0.04</ResearchSpeedFactor>
                 </statOffsets>
-                <maxSimultaneous>6</maxSimultaneous>
+                <maxSimultaneous>4</maxSimultaneous>
             </li>
             <li Class="USH_GE.CompProperties_PassiveRes">
                 <ticksPerResearch>250</ticksPerResearch>
