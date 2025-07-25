@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_NeuroclearConsole</defName>
         <label>Neuroclear console</label>
-        <description>A glittertech device designed to store and manage medical nanobots. These nanobots are capable of clearing residue anesthetics from designated patients after surgery, making recovery almost instantaneous, but still painless.\n\nThe nanobots require glitterworld medicine as a material source.\n\nThe device can be connected to up to three hospital beds.</description>
+        <description>A glittertech device designed to store and manage medical nanobots. These nanobots are capable of clearing residue anesthetics from designated patients after surgery, making recovery almost instantaneous, but still painless.\n\nThe nanobots require glitterworld medicine as a material source.\n\nThe device can be connected to up to six hospital beds.</description>
         <descriptionHyperlinks>
             <HediffDef>Anesthetic</HediffDef>
             <ThingDef>HospitalBed</ThingDef>
@@ -68,10 +68,6 @@
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
                 <canEjectFuel>true</canEjectFuel>
             </li>
-            <li Class="CompProperties_Facility">
-                <maxSimultaneous>3</maxSimultaneous>
-                <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
-            </li>
             <li Class="USH_GE.CompProperties_NeuroclearConsole">
                 <fuelConsumption>1</fuelConsumption>
                 <hediffDefToRemove>Anesthetic</hediffDefToRemove>
@@ -90,6 +86,10 @@
                     <canTargetMechs>false</canTargetMechs>
                     <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
                 </targetingParameters>
+            </li>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>6</maxSimultaneous>
+                <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
             </li>
         </comps>
         <placeWorkers>
