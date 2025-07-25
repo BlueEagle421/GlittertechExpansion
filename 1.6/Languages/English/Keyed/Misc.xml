@@ -36,9 +36,6 @@
   <USH_GE_SolarFlareInterceptedLabel>Solar flare intercepted</USH_GE_SolarFlareInterceptedLabel>
   <USH_GE_SolarFlareInterceptedText>Installed banks (x{0}) have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
 
-  <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
-  <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
-
   <USH_GE_EnterBiocoder>Enter biocoder chamber</USH_GE_EnterBiocoder>
   <USH_GE_CarryToBiocoder>Carry {0} to biocoder chamber</USH_GE_CarryToBiocoder>
   <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder chamber</USH_GE_CannotCarryToBiocoder>
@@ -55,6 +52,15 @@
   <USH_GE_NoEmotion>No memories</USH_GE_NoEmotion>
   <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
   <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
+
+  <USH_GE_OrderTeleportAll>Teleport everyone here</USH_GE_OrderTeleportAll>
+  <USH_GE_OrderTeleportAllDesc>Teleport to this location everyone under your control with a telepad integrator implant installed.\n\nTo teleport:\n{0}</USH_GE_OrderTeleportAllDesc>
+
+  <USH_GE_CannotTeleport>Cannot teleport</USH_GE_CannotTeleport>
+  <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
+  <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
+  <USH_GE_NoTeleportablePawns>No teleport candidates</USH_GE_NoTeleportablePawns>
+  <USH_GE_CommandChoosePawnToTeleport>Choose teleportation target</USH_GE_CommandChoosePawnToTeleport>
 
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
   <USH_GE_CannotInsert>Cannot insert</USH_GE_CannotInsert>

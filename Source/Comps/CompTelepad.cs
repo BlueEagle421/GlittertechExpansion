@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.Sound;
@@ -20,18 +21,37 @@ public class CompTelepad : CompInteractable, ITargetingSource
 {
     public CompProperties_Telepad ModuleProps => (CompProperties_Telepad)props;
     private readonly TargetingParameters TargetingParameters;
+    private List<Pawn> _teleportSequence;
 
     public CompTelepad()
     {
         TargetingParameters = new()
         {
+            canTargetPawns = true,
             canTargetSelf = false,
             canTargetBuildings = false,
-            validator = t => CanBeTeleported(t.Thing),
         };
     }
 
-    private void Teleport(Pawn toTel)
+    public override void CompTick()
+    {
+        base.CompTick();
+
+        if (!parent.IsHashIntervalTick(15))
+            return;
+
+        if (_teleportSequence.NullOrEmpty())
+            return;
+
+        Pawn toTel = _teleportSequence[0];
+
+        if (CanBeTeleported(toTel))
+            Teleport(toTel);
+
+        _teleportSequence.Remove(toTel);
+    }
+
+    private void Teleport(Pawn toTel, bool draft = false)
     {
         if (!CanBeTeleported(toTel))
             return;
@@ -48,6 +68,22 @@ public class CompTelepad : CompInteractable, ITargetingSource
         Find.Targeter.BeginTargeting(TargetingParameters, delegate (LocalTargetInfo t)
         {
             Teleport(t.Pawn);
+        }, null, null, null, null, null, playSoundOnAction: true, delegate (LocalTargetInfo t)
+        {
+            if (t.Pawn != null)
+            {
+                var report = CanBeTeleported(t.Pawn);
+                if (!report.Accepted)
+                {
+                    string msg = $"{"USH_GE_CannotTeleport".Translate()}: {report.Reason.CapitalizeFirst()}"
+                    .Colorize(ColorLibrary.RedReadable);
+
+                    Widgets.MouseAttachedLabel(msg);
+                    return;
+                }
+            }
+
+            Widgets.MouseAttachedLabel("USH_GE_CommandChoosePawnToTeleport".Translate());
         });
     }
 
@@ -81,6 +117,13 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (!parent.SpawnedOrAnyParentSpawned)
             yield break;
 
+        yield return TeleportGizmo();
+
+        yield return TeleportAllGizmo();
+    }
+
+    private Command_Action TeleportGizmo()
+    {
         Command_Action command_Action = new()
         {
             defaultLabel = "OrderActivation".Translate() + "...",
@@ -99,21 +142,49 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (!acceptanceReport.Accepted)
             command_Action.Disable(acceptanceReport.Reason.CapitalizeFirst());
 
-        yield return command_Action;
+        return command_Action;
+    }
 
+    private Command_Action TeleportAllGizmo()
+    {
+        var teleportablePawns = TeleportablePawns();
+        string toTeleport = "None".Translate();
 
-        if (DebugSettings.ShowDevGizmos && OnCooldown)
+        if (!teleportablePawns.NullOrEmpty())
+            toTeleport = string.Join(",\n", teleportablePawns.Select(x => x.Label));
+
+        Command_Action command_Action = new()
         {
-            yield return new Command_Action
+            defaultLabel = "USH_GE_OrderTeleportAll".Translate() + "...",
+            defaultDesc = "USH_GE_OrderTeleportAllDesc".Translate(toTeleport),
+            icon = UIIcon,
+            groupable = false,
+            action = delegate
             {
-                defaultLabel = "DEV: Reset cooldown",
-                action = delegate
-                {
-                    cooldownTicks = 0;
-                    CooldownEnded();
-                }
-            };
-        }
+                SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+
+                _teleportSequence = teleportablePawns;
+            }
+        };
+
+        AcceptanceReport acceptanceReport = CanInteract();
+
+        if (!acceptanceReport.Accepted)
+            command_Action.Disable(acceptanceReport.Reason.CapitalizeFirst());
+
+        if (teleportablePawns.NullOrEmpty())
+            command_Action.Disable("USH_GE_NoTeleportablePawns".Translate());
+
+        return command_Action;
+    }
+
+    private List<Pawn> TeleportablePawns()
+    {
+        var pawns = Enumerable.Concat(
+            parent.Map.mapPawns.FreeColonistsSpawned,
+            parent.Map.mapPawns.SpawnedColonyMechs);
+
+        return [.. pawns.Where(x => CanBeTeleported(x))];
     }
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)

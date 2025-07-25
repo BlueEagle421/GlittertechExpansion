@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_Telepad</defName>
         <label>telepad</label>
-        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.\n\nIt has a minimum teleportation range around itself.</description>
+        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.</description>
         <descriptionHyperlinks>
             <ThingDef>USH_TelepadIntegrator</ThingDef>
         </descriptionHyperlinks>
@@ -72,16 +72,12 @@
             </li>
             <li Class="USH_GE.CompProperties_Telepad">
                 <activeTicks>1</activeTicks>
-                <cooldownTicks>120000</cooldownTicks>
+                <cooldownTicks>0</cooldownTicks>
                 <ticksToActivate>60</ticksToActivate>
                 <jobString>teleport here</jobString>
-                <onCooldownString>cooling off</onCooldownString>
                 <activateLabelString>Teleport target</activateLabelString>
                 <activateTexPath>UI/Gizmos/Teleport</activateTexPath>
                 <requiresPower>true</requiresPower>
-                <cooldownFleck>FlashRed</cooldownFleck>
-                <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
-                <cooldownFleckScale>0.7</cooldownFleckScale>
                 <targetingParameters>
                     <canTargetBuildings>false</canTargetBuildings>
                     <canTargetAnimals>false</canTargetAnimals>
@@ -91,8 +87,8 @@
             </li>
         </comps>
         <designationHotKey>Misc3</designationHotKey>
-        <specialDisplayRadius>16.9</specialDisplayRadius>
         <uiIconScale>0.8</uiIconScale>
+        <specialDisplayRadius>2.9</specialDisplayRadius>
         <researchPrerequisites>
             <li>USH_TelepadRes</li>
         </researchPrerequisites>
