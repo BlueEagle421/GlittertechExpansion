@@ -28,7 +28,7 @@
         <uiIconScale>0.7</uiIconScale>
         <uiIconOffset>(0, 0.15)</uiIconOffset>
         <statBases>
-            <MaxHitPoints>380</MaxHitPoints>
+            <MaxHitPoints>280</MaxHitPoints>
             <Flammability>0</Flammability>
             <WorkToBuild>15000</WorkToBuild>
             <Mass>60</Mass>
