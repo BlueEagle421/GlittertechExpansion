@@ -19,7 +19,7 @@
             </shadowData>
         </graphicData>
         <rotatable>true</rotatable>
-        <uiIconScale>1.2</uiIconScale>
+        <uiIconScale>1.45</uiIconScale>
         <uiIconOffset>(0,0.2)</uiIconOffset>
         <tickerType>Normal</tickerType>
         <drawerType>MapMeshAndRealTime</drawerType>
@@ -42,7 +42,6 @@
         <minifiedDef>MinifiedThing</minifiedDef>
         <size>(1,1)</size>
         <pathCost>14</pathCost>
-        <uiOrder>2992</uiOrder>
         <specialDisplayRadius>12.9</specialDisplayRadius>
         <comps>
             <li Class="CompProperties_Flickable" />
