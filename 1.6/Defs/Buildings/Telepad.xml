@@ -10,7 +10,7 @@
         </descriptionHyperlinks>
         <graphicData>
             <texPath>Things/Building/Telepad</texPath>
-            <graphicClass>Graphic_Multi</graphicClass>
+            <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2,2)</drawSize>
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
@@ -95,6 +95,8 @@
                     <canTargetMechs>false</canTargetMechs>
                     <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
                 </targetingParameters>
+
+                <hediffDef>USH_TelepadNausea</hediffDef>
             </li>
         </comps>
         <designationHotKey>Misc3</designationHotKey>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -9,7 +10,7 @@ namespace USH_GE;
 public class CompProperties_Telepad : CompProperties_Interactable
 {
     public int fuelConsumption = 5;
-    public HediffDef hediffDef = USH_DefOf.USH_TelepadNausea;
+    public HediffDef hediffDef;
     public float hediffAddChance = 0.04f;
 
     public CompProperties_Telepad() => compClass = typeof(CompTelepad);
@@ -22,6 +23,25 @@ public class CompTelepad : CompInteractable, ITargetingSource
     private readonly TargetingParameters TargetingParameters;
     private List<Pawn> _teleportSequence;
     CompRefuelable _refuelableComp;
+
+    private Texture2D _teleportTex;
+    public Texture2D TeleportTex
+    {
+        get
+        {
+            _teleportTex ??= ContentFinder<Texture2D>.Get("UI/Gizmos/Teleport");
+            return _teleportTex;
+        }
+    }
+    private Texture2D _teleportAllTex;
+    public Texture2D TeleportAllTex
+    {
+        get
+        {
+            _teleportAllTex ??= ContentFinder<Texture2D>.Get("UI/Gizmos/TeleportAll");
+            return _teleportAllTex;
+        }
+    }
 
     public CompTelepad()
     {
@@ -153,9 +173,9 @@ public class CompTelepad : CompInteractable, ITargetingSource
     {
         Command_Action command_Action = new()
         {
-            defaultLabel = "OrderActivation".Translate() + "...",
-            defaultDesc = "OrderActivationDesc".Translate(parent.Named("THING")),
-            icon = UIIcon,
+            defaultLabel = "USH_GE_OrderTeleportHere".Translate() + "...",
+            defaultDesc = "USH_GE_OrderTeleportHereDesc".Translate(parent.Named("THING")),
+            icon = TeleportTex,
             groupable = false,
             action = delegate
             {
@@ -184,7 +204,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
         {
             defaultLabel = "USH_GE_OrderTeleportAll".Translate() + "...",
             defaultDesc = "USH_GE_OrderTeleportAllDesc".Translate(toTeleport),
-            icon = UIIcon,
+            icon = TeleportAllTex,
             groupable = false,
             action = delegate
             {
@@ -207,6 +227,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
     private List<Pawn> TeleportablePawns()
     {
+
         var pawns = Enumerable.Concat(
             parent.Map.mapPawns.FreeColonistsSpawned,
             parent.Map.mapPawns.SpawnedColonyMechs);
