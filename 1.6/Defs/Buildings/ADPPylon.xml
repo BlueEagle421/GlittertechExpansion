@@ -48,7 +48,7 @@
             <Steel>200</Steel>
             <Plasteel>60</Plasteel>
             <USH_Shell_ADP>2</USH_Shell_ADP>
-            <USH_Glittercore>6</USH_Glittercore>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
