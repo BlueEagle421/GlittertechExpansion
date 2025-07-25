@@ -95,5 +95,6 @@ public class CompNeuroclearConsole : CompInteractable
         return base.CanInteract(activateBy);
     }
 
-    public override string CompInspectStringExtra() => "USH_GE_DesensitizeCost".Translate(ModuleProps.fuelConsumption);
+    public override string CompInspectStringExtra()
+        => "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, ModuleProps.fuelConsumption);
 }

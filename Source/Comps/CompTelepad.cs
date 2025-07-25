@@ -151,7 +151,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
     public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
     {
         if (_refuelableComp.Fuel < PadProps.fuelConsumption)
-            return "NoFuel";
+            return "NoFuel".Translate();
 
         return base.CanInteract(activateBy, checkOptionalItems);
     }
@@ -234,6 +234,9 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
         return [.. pawns.Where(x => CanBeTeleported(x))];
     }
+
+    public override string CompInspectStringExtra()
+        => "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, PadProps.fuelConsumption);
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
     {

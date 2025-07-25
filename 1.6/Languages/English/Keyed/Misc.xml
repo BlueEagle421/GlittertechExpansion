@@ -6,7 +6,7 @@
 
   <USH_GE_ResPerformed>Research performed: {0}</USH_GE_ResPerformed>
 
-  <USH_GE_DesensitizeCost>Medicine needed per use: {0}</USH_GE_DesensitizeCost>
+  <USH_GE_FuelCost>{0} needed per use: {1}</USH_GE_FuelCost>
 
   <USH_GE_CurrentFormingCycle>Current forming cycle</USH_GE_CurrentFormingCycle>
   <USH_GE_RemainingFormingCycles>Forming cycles remaining</USH_GE_RemainingFormingCycles>
