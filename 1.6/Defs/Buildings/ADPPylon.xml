@@ -89,13 +89,14 @@
                         <li>USH_Glittercore</li>
                     </thingDefs>
                 </fuelFilter>
-                <fuelCapacity>6</fuelCapacity>
+                <fuelCapacity>4</fuelCapacity>
                 <fuelMultiplier>1</fuelMultiplier>
-                <initialFuelPercent>0.5</initialFuelPercent>
-                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <initialFuelPercent>1</initialFuelPercent>
+                <autoRefuelPercent>1</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
                 <minimumFueledThreshold>1</minimumFueledThreshold>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
         </comps>
         <building>
