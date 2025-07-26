@@ -23,7 +23,7 @@ public class CompOverclock : ThingComp
         if (!IsOverclocked)
             return base.TransformLabel(label);
 
-        return $"Overclocked {label.UncapitalizeFirst()}";
+        return $"{"USH_GE_Overclocked".Translate()} {label.UncapitalizeFirst()}";
     }
 
     public override float GetStatFactor(StatDef stat)
@@ -51,11 +51,11 @@ public class CompOverclock : ThingComp
 
         foreach (var mod in Props.statOffsets)
             if (mod.stat == stat && !Mathf.Approximately(mod.value, 0f))
-                overclockBuilder.AppendLine($"{indent}Overclock: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
+                overclockBuilder.AppendLine($"{indent}{"USH_GE_Overclock".Translate()}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
 
         foreach (var mod in Props.statFactors)
             if (mod.stat == stat && !Mathf.Approximately(mod.value, 1f))
-                overclockBuilder.AppendLine($"{indent}Overclock: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
+                overclockBuilder.AppendLine($"{indent}{"USH_GE_Overclock".Translate()}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
 
         if (overclockBuilder.Length > 0)
             sb.Append(overclockBuilder.ToString());

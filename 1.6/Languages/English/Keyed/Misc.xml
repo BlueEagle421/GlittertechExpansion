@@ -86,6 +86,8 @@
   <USH_GE_ADPShortCircuitDischargedEnergy>All {0} Wd of energy in the connected batteries has been discharged in an electrical explosion.</USH_GE_ADPShortCircuitDischargedEnergy>
   <USH_GE_ADPShortCircuitWasLarge>This large amount of power has created an ADP explosion of considerable size.</USH_GE_ADPShortCircuitWasLarge>
 
+  <USH_GE_Overclocked>Overclocked</USH_GE_Overclocked>
+  <USH_GE_Overclock>Overclock</USH_GE_Overclock>
   <USH_GE_OverclockDesc>It's overclocked by advanced mechanites coating designed to make the inner weapon components more efficient. Overclocking provides the following stats:</USH_GE_OverclockDesc>
 
   <!-- Settings -->
