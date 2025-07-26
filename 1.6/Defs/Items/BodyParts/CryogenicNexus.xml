@@ -6,7 +6,8 @@
     <HediffDef ParentName="USH_AddedPartGlittery">
         <defName>USH_InstalledCryogenicNexus</defName>
         <label>cryogenic nexus</label>
-        <description>An installed cryogenic nexus.</description>
+        <hediffClass>USH_GE.Hediff_CryogenicNexus</hediffClass>
+        <description>An installed cryogenic nexus.\n\nThe stability of the nexus affects its efficiency and can become harmful when it drops too low. It decreases while the user is exposed to dangerous temperatures and recharges very slowly over time under healthy conditions.</description>
         <descriptionHyperlinks>
             <ThingDef>USH_CryogenicNexus</ThingDef>
         </descriptionHyperlinks>
@@ -18,16 +19,85 @@
         </addedPartProps>
         <stages>
             <li>
+                <label>dormant</label>
                 <statFactors>
                     <Flammability>0</Flammability>
                 </statFactors>
                 <statOffsets>
-                    <ComfyTemperatureMax>60</ComfyTemperatureMax>
+                    <ComfyTemperatureMax>80</ComfyTemperatureMax>
                 </statOffsets>
                 <capMods>
                     <li>
                         <capacity>BloodFiltration</capacity>
-                        <postFactor>0.9</postFactor>
+                        <postFactor>0.95</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.1</minSeverity> <!-- this field is required, but in reality it's overwritten in code -->
+                <label>engaged</label>
+                <statFactors>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <ComfyTemperatureMax>120</ComfyTemperatureMax>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodFiltration</capacity>
+                        <postFactor>0.8</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.2</minSeverity> <!-- this field is required, but in reality it's overwritten in code -->
+                <label>unstable</label>
+                <vomitMtbDays>2</vomitMtbDays>
+                <statFactors>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <ComfyTemperatureMax>20</ComfyTemperatureMax>
+                    <ImmunityGainSpeed>-0.15</ImmunityGainSpeed>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.1</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodFiltration</capacity>
+                        <postFactor>0.6</postFactor>
+                    </li>
+                </capMods>
+            </li>
+            <li>
+                <minSeverity>0.3</minSeverity> <!-- this field is required, but in reality it's overwritten in code -->
+                <label>malicious</label>
+                <vomitMtbDays>0.25</vomitMtbDays>
+                <statFactors>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <ComfyTemperatureMax>-40</ComfyTemperatureMax>
+                    <ImmunityGainSpeed>-0.4</ImmunityGainSpeed>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>Breathing</capacity>
+                        <offset>-0.15</offset>
+                    </li>
+                    <li>
+                        <capacity>BloodFiltration</capacity>
+                        <postFactor>0.6</postFactor>
+                    </li>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <setMax>0.75</setMax>
                     </li>
                 </capMods>
             </li>
@@ -40,7 +110,7 @@
     <ThingDef ParentName="USH_GlitterworldBodyPart">
         <defName>USH_CryogenicNexus</defName>
         <label>cryogenic nexus</label>
-        <description>A glittertech heart replacement that renders the user’s blood mutated and fire‑immune. It protects all body cells and the skin from ignition, but it also lowers antibody counts and compromises the immune system, reducing blood filtration efficiency.</description>
+        <description>A glittertech heart replacement that renders the user’s blood mutated and fire‑immune. It protects all body cells and the skin from ignition, but it also lowers antibody counts and compromises the immune system, reducing blood filtration efficiency.\n\nWhile it can save lives during short-term fire exposure, it becomes highly unstable and harmful after prolonged extreme temperatures exposure.</description>
         <descriptionHyperlinks>
             <RecipeDef>USH_InstallCryogenicNexus</RecipeDef>
         </descriptionHyperlinks>
@@ -52,8 +122,8 @@
             <MedicineUltratech>1</MedicineUltratech>
             <Uranium>50</Uranium>
             <Plasteel>20</Plasteel>
-            <ComponentSpacer>4</ComponentSpacer>
-            <USH_Glittercore>3</USH_Glittercore>
+            <ComponentSpacer>1</ComponentSpacer>
+            <USH_Glittercore>2</USH_Glittercore>
         </costList>
         <recipeMaker>
             <researchPrerequisites>
