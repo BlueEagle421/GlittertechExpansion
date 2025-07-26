@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>*/FactionDef[@Name="AncientsBase"]/pawnGroupMakers/li[kindDef="Combat"]/options</xpath>
+        <value>
+            <USH_AncientGlittertechSoldier>0.25</USH_AncientGlittertechSoldier>
+        </value>
+    </Operation>
+</Patch>

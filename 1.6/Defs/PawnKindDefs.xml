@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <PawnKindDef>
+        <defName>USH_AncientGlittertechSoldier</defName>
+        <label>overclocked soldier</label>
+        <race>Human</race>
+        <combatPower>150</combatPower>
+        <defaultFactionDef>AncientsHostile</defaultFactionDef>
+        <backstoryCryptosleepCommonality>1</backstoryCryptosleepCommonality>
+        <chemicalAddictionChance>0.08</chemicalAddictionChance>
+        <apparelMoney>5000~10000</apparelMoney>
+        <apparelTags>
+            <li>IndustrialBasic</li>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryBasic</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+            <li>BeltDefensePop</li>
+        </apparelTags>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+        <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+        <weaponMoney>1500~3500</weaponMoney>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <techHediffsMoney>2000~4000</techHediffsMoney>
+        <techHediffsTags>
+            <li>Advanced</li>
+            <li>AdvancedWeapon</li>
+        </techHediffsTags>
+        <techHediffsRequired>
+            <li MayRequire="Ludeon.RimWorld.Royalty">DeathAcidifier</li>
+        </techHediffsRequired>
+        <techHediffsChance>0.40</techHediffsChance>
+        <combatEnhancingDrugsChance>0.5</combatEnhancingDrugsChance>
+        <combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
+        <biocodeWeaponChance>0</biocodeWeaponChance>
+        <requiredWorkTags>
+            <li>Violent</li>
+        </requiredWorkTags>
+        <initialWillRange>4~6</initialWillRange>
+        <initialResistanceRange>17~26</initialResistanceRange>
+        <skills>
+            <li>
+                <skill>Shooting</skill>
+                <range>8~12</range>
+            </li>
+        </skills>
+        <disallowedTraits>
+            <li>Brawler</li>
+        </disallowedTraits>
+    </PawnKindDef>
+
+</Defs>
