@@ -92,22 +92,6 @@ public class CompOverclock : ThingComp
         };
     }
 
-    public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
-    {
-        foreach (Gizmo gizmo in base.CompGetWornGizmosExtra())
-            yield return gizmo;
-
-        if (!DebugSettings.ShowDevGizmos)
-            yield break;
-
-
-        yield return new Command_Action
-        {
-            action = () => IsOverclocked = !IsOverclocked,
-            defaultLabel = "Toggle overclock"
-        };
-    }
-
     public override void PostExposeData()
     {
         base.PostExposeData();
