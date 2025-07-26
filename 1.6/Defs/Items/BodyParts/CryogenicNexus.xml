@@ -122,7 +122,7 @@
             <MedicineUltratech>1</MedicineUltratech>
             <Uranium>50</Uranium>
             <Plasteel>20</Plasteel>
-            <ComponentSpacer>1</ComponentSpacer>
+            <ComponentSpacer>4</ComponentSpacer>
             <USH_Glittercore>2</USH_Glittercore>
         </costList>
         <recipeMaker>
