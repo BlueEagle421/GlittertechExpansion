@@ -6,7 +6,7 @@ namespace USH_GE;
 
 [HarmonyPatch(typeof(StunHandler), nameof(StunHandler.Notify_DamageApplied))]
 [HarmonyPatch(typeof(StunHandler), nameof(StunHandler.Notify_DamageApplied))]
-public static class StunHandler_Notify_DamageApplied_Patch
+public static class Patch_StunHandler_Notify_DamageApplied
 {
     private static readonly AccessTools.FieldRef<StunHandler, bool> stunFromEMPField =
         AccessTools.FieldRefAccess<StunHandler, bool>("stunFromEMP");

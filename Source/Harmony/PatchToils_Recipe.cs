@@ -8,7 +8,7 @@ using Verse.AI;
 namespace USH_GE;
 
 [HarmonyPatch(typeof(Bill_Medical), nameof(Bill_Medical.Notify_IterationCompleted))]
-public static class Toils_Recipe_Patch
+public static class Patch_Bill_Medical_Notify_IterationCompleted
 {
     [HarmonyPostfix]
     static void Postfix(Bill_Medical __instance, Pawn billDoer, List<Thing> ingredients)

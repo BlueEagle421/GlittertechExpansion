@@ -6,7 +6,7 @@ using Verse;
 namespace USH_GE;
 
 [HarmonyPatch(typeof(DefOfHelper), nameof(DefOfHelper.RebindAllDefOfs))]
-public static class DefOfHelper_RebindAllDefOfs_Patch
+public static class Patch_DefOfHelper_RebindAllDefOfs
 {
     static void Postfix(bool earlyTryMode)
     {

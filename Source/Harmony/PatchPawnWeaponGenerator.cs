@@ -6,7 +6,7 @@ namespace USH_GE;
 
 
 [HarmonyPatch(typeof(PawnWeaponGenerator), nameof(PawnWeaponGenerator.TryGenerateWeaponFor))]
-public static class PawnWeaponGenerator_TryGenerateWeaponFor_Patch
+public static class Patch_PawnWeaponGenerator_TryGenerateWeaponFor
 {
     private const float OVERCLOCK_CHANCE = 0.08f;
     public static void Postfix(Pawn pawn, PawnGenerationRequest request)

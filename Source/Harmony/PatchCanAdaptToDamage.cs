@@ -5,7 +5,7 @@ using Verse;
 namespace USH_GE;
 
 [HarmonyPatch(typeof(StunHandler), "CanAdaptToDamage")]
-static class StunHandler_CanAdaptToDamage_Patch
+static class Patch_StunHandler_CanAdaptToDamage
 {
     static bool Prefix(DamageDef def, ref bool __result)
     {

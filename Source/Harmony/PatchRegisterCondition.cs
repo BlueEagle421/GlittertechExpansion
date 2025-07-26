@@ -6,7 +6,7 @@ using Verse;
 namespace USH_GE;
 
 [HarmonyPatch(typeof(GameConditionManager), nameof(GameConditionManager.RegisterCondition))]
-public static class GameConditionManager_RegisterCondition
+public static class Patch_GameConditionManager_RegisterCondition
 {
     private const int INTERCEPT_LETTER_DELAY = 60;
 

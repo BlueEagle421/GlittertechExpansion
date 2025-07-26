@@ -5,7 +5,7 @@ using Verse;
 namespace USH_GE;
 
 [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill), [typeof(RecipeDef), typeof(Precept_ThingStyle)])]
-public static class BillUtility_MakeNewBill_Patch
+public static class Patch_BillUtility_MakeNewBill
 {
     [HarmonyPrefix]
     public static bool Prefix(RecipeDef recipe, Precept_ThingStyle precept, ref Bill __result)
