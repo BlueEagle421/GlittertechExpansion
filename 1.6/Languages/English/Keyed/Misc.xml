@@ -20,6 +20,11 @@
   <USH_GE_PowerNeed>Needs power stored: </USH_GE_PowerNeed>
   <USH_GE_FormingDuration>Total forming duration</USH_GE_FormingDuration>
 
+  <USH_GE_NoRoom>Not placed in a room.</USH_GE_NoRoom>
+  <USH_GE_RoomTooBig>The room area is bigger then {0}.</USH_GE_RoomTooBig>
+  <USH_GE_RoomUnroofed>The room is not fully roofed.</USH_GE_RoomUnroofed>
+  <USH_GE_NoAnesthesia>No nearby pawns under anesthesia.</USH_GE_NoAnesthesia>
+
   <USH_GE_WaitingForMaintenance>Waiting for manual maintenance</USH_GE_WaitingForMaintenance>
   <USH_GE_WaitingForCompletion>Waiting for manual completion</USH_GE_WaitingForCompletion>
   <USH_GE_Forming>Forming</USH_GE_Forming>
