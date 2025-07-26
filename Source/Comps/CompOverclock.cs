@@ -61,6 +61,7 @@ public class CompOverclock : ThingComp
             sb.Append(overclockBuilder.ToString());
     }
 
+
     public override string GetDescriptionPart()
     {
         StringBuilder sb = new();
@@ -75,6 +76,36 @@ public class CompOverclock : ThingComp
                 sb.AppendLine($"    {mod.stat.LabelCap}: {mod.stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
 
         return sb.ToString();
+    }
+    public override IEnumerable<Gizmo> CompGetGizmosExtra()
+    {
+        foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+            yield return gizmo;
+
+        if (!DebugSettings.ShowDevGizmos)
+            yield break;
+
+        yield return new Command_Action
+        {
+            action = () => IsOverclocked = !IsOverclocked,
+            defaultLabel = "Toggle overclock"
+        };
+    }
+
+    public override IEnumerable<Gizmo> CompGetWornGizmosExtra()
+    {
+        foreach (Gizmo gizmo in base.CompGetWornGizmosExtra())
+            yield return gizmo;
+
+        if (!DebugSettings.ShowDevGizmos)
+            yield break;
+
+
+        yield return new Command_Action
+        {
+            action = () => IsOverclocked = !IsOverclocked,
+            defaultLabel = "Toggle overclock"
+        };
     }
 
     public override void PostExposeData()

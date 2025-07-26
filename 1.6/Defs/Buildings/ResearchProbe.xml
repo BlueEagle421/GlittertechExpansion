@@ -96,4 +96,17 @@
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
+    <IncidentDef>
+        <defName>USH_OverclockIncident</defName>
+        <label>overclocked gun malfunction</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>USH_GE.IncidentWorker_OverclockIncident</workerClass>
+        <baseChance>1.0</baseChance>
+        <minRefireDays>14</minRefireDays>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+    </IncidentDef>
+
 </Defs>
