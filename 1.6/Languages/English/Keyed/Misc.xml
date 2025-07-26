@@ -20,6 +20,9 @@
   <USH_GE_PowerNeed>Needs power stored: </USH_GE_PowerNeed>
   <USH_GE_FormingDuration>Total forming duration</USH_GE_FormingDuration>
 
+  <USH_GE_CommandAutoUsage>Toggle automatic usage</USH_GE_CommandAutoUsage>
+  <USH_GE_CommandAutoUsageDesc>If enabled the doctor will automatically activate the machine after completing medical bills on a patient.</USH_GE_CommandAutoUsageDesc>
+
   <USH_GE_NoRoom>Not placed in a room.</USH_GE_NoRoom>
   <USH_GE_RoomTooBig>The room area is bigger then {0}.</USH_GE_RoomTooBig>
   <USH_GE_RoomUnroofed>The room is not fully roofed.</USH_GE_RoomUnroofed>

@@ -19,9 +19,9 @@ public class PlaceWorker_NeuroclearConsole : PlaceWorker
         if (!room.ProperRoom)
             return;
 
-        Color egesColor = WillWork(room, def) ? ColorLibrary.BabyBlue : Color.red;
+        Color edgesColor = WillWork(room, def) ? ColorLibrary.BabyBlue : Color.red;
 
-        GenDraw.DrawFieldEdges([.. room.Cells], egesColor, null);
+        GenDraw.DrawFieldEdges([.. room.Cells], edgesColor, null);
     }
 
     private bool WillWork(Room room, ThingDef thingDef)
@@ -52,15 +52,26 @@ public class CompProperties_NeuroclearConsole : CompProperties_Interactable
 
 public class CompNeuroclearConsole : CompInteractable
 {
-    Map _currentMap;
     CompRefuelable _refuelableComp;
+
+    public bool AutoUse => _autoUse;
+    private bool _autoUse = true;
+
+    private Texture2D _allowTex;
+    public Texture2D IconAllow
+    {
+        get
+        {
+            _allowTex ??= ContentFinder<Texture2D>.Get("UI/Gizmos/DesensitizeAuto");
+            return _allowTex;
+        }
+    }
 
     public CompProperties_NeuroclearConsole ModuleProps => (CompProperties_NeuroclearConsole)props;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        _currentMap = parent.Map;
         _refuelableComp = parent.GetComp<CompRefuelable>();
     }
 
@@ -107,7 +118,7 @@ public class CompNeuroclearConsole : CompInteractable
                 SpawnFleckEffect(cell);
     }
 
-    private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, _currentMap, ModuleProps.fleckDef, Rand.Range(0.8f, 1.25f));
+    private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, parent.Map, ModuleProps.fleckDef, Rand.Range(0.8f, 1.25f));
 
     private void PlaySoundEffect() => ModuleProps.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
 
@@ -119,11 +130,28 @@ public class CompNeuroclearConsole : CompInteractable
         List<Pawn> result = [];
 
         foreach (var cell in RoomCells)
-            foreach (Thing thing in _currentMap.thingGrid.ThingsAt(cell))
+            foreach (Thing thing in parent.Map.thingGrid.ThingsAt(cell))
                 if (thing is Pawn pawn)
                     result.Add(pawn);
 
         return result;
+    }
+
+    public override IEnumerable<Gizmo> CompGetGizmosExtra()
+    {
+        foreach (var gizmo in base.CompGetGizmosExtra())
+            yield return gizmo;
+
+        Command_Toggle commandToggle = new()
+        {
+            icon = IconAllow,
+            isActive = () => _autoUse,
+            defaultLabel = "USH_GE_CommandAutoUsage".Translate(),
+            defaultDesc = "USH_GE_CommandAutoUsageDesc".Translate(),
+            toggleAction = () => _autoUse = !_autoUse,
+        };
+
+        yield return commandToggle;
     }
 
     public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
@@ -150,4 +178,11 @@ public class CompNeuroclearConsole : CompInteractable
 
     public override string CompInspectStringExtra()
         => "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, ModuleProps.fuelConsumption);
+
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+
+        Scribe_Values.Look(ref _autoUse, nameof(_autoUse));
+    }
 }
