@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <MentalStateDef ParentName="WanderPsychotic">
+        <defName>USH_ConfusedWandering</defName>
+        <label>wandering in confusion</label>
+        <recoveryMessage>{0} is no longer wandering in a confused state.</recoveryMessage>
+        <beginLetterLabel>confusion</beginLetterLabel>
+        <beginLetter>The prolonged, in-depth analysis of mysterious glitterworld technologies has broken down {0}, who is now wandering in a confused state.\n\n{0} is now neurotically mumbling mathematical equations and describing phenomena beyond human comprehension both excited and terrified of what might be discoverd.</beginLetter>
+        <beginLetterDef>NegativeEvent</beginLetterDef>
+        <baseInspectLine>Mental state: Confused wandering</baseInspectLine>
+        <tale>MentalStateGaveUp</tale>
+    </MentalStateDef>
+
+</Defs>

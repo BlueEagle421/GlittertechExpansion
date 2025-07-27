@@ -49,4 +49,6 @@ public static class USH_DefOf
     public static HediffDef USH_TelepadNausea;
     public static ThingDef USH_NeuroclearConsole;
     public static PawnKindDef USH_AncientGlittertechSoldier;
+    public static ResearchTabDef USH_GlittertechExpansion;
+    public static MentalStateDef USH_ConfusedWandering;
 }

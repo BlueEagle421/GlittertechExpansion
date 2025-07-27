@@ -92,7 +92,7 @@
         </targetTags>
         <workerClass>USH_GE.IncidentWorker_ADPShortCircuit</workerClass>
         <baseChance>1.0</baseChance>
-        <minRefireDays>14</minRefireDays>
+        <minRefireDays>12</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
@@ -106,6 +106,19 @@
         <workerClass>USH_GE.IncidentWorker_OverclockIncident</workerClass>
         <baseChance>1.0</baseChance>
         <minRefireDays>14</minRefireDays>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+    </IncidentDef>
+
+    <IncidentDef>
+        <defName>USH_ConfusionIncident</defName>
+        <label>confused wandering</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>USH_GE.IncidentWorker_ConfusedWandering</workerClass>
+        <baseChance>1.5</baseChance>
+        <minRefireDays>10</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
