@@ -95,6 +95,9 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
     private void TryToGiveNausea(Pawn p)
     {
+        if (!p.RaceProps.IsFlesh)
+            return;
+
         if (!Rand.Chance(0.07f))
             return;
 

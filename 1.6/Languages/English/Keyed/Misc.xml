@@ -60,7 +60,7 @@
   <USH_GE_NoEmotion>No memories</USH_GE_NoEmotion>
   <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
   <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
-  <USH_GE_NauseaMsg>The sudden position change gave {PAWN} nausea</USH_GE_NauseaMsg>
+  <USH_GE_NauseaMsg>The sudden position change gave {PAWN} telepad nausea</USH_GE_NauseaMsg>
 
   <USH_GE_OrderTeleportHere>Teleport target</USH_GE_OrderTeleportHere>
   <USH_GE_OrderTeleportHereDesc>Choose a target to teleport here</USH_GE_OrderTeleportHereDesc>
