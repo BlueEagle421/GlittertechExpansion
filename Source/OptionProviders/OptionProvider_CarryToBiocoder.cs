@@ -56,13 +56,6 @@ public sealed class FloatMenuOptionProvider_CarryToBiocoder : FloatMenuOptionPro
     {
         option = null;
 
-        if (target.IsPrisoner && !target.Downed)
-        {
-            string message = "USH_GE_PrisonerNotDowned".Translate();
-            option = CreateDisabledOption(baseLabel, message, target, carrier);
-            return true;
-        }
-
         if (target.IsQuestLodger())
         {
             string message = "BiocoderGuestsNotAllowed".Translate();
