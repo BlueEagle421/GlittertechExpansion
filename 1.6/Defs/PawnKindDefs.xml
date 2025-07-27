@@ -31,12 +31,12 @@
             <li>AdvancedWeapon</li>
         </techHediffsTags>
         <techHediffsRequired>
-            <li MayRequire="Ludeon.RimWorld.Royalty">DeathAcidifier</li>
+            <li>DeathAcidifier</li>
         </techHediffsRequired>
         <techHediffsChance>0.40</techHediffsChance>
         <combatEnhancingDrugsChance>0.5</combatEnhancingDrugsChance>
         <combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
-        <biocodeWeaponChance>0</biocodeWeaponChance>
+        <biocodeWeaponChance>0.55</biocodeWeaponChance>
         <requiredWorkTags>
             <li>Violent</li>
         </requiredWorkTags>
