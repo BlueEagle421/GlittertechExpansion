@@ -238,6 +238,15 @@ public class Bill_Glittertech : Bill_Autonomous
         return $"{translated}: {cyclesLeft} ({"OfLower".Translate()} {allCycles})";
     }
 
+
+    public override Bill Clone()
+    {
+        Bill_Glittertech obj = (Bill_Glittertech)base.Clone();
+        obj.GlittertechExt = GlittertechExt;
+
+        return obj;
+    }
+
     public override void ExposeData()
     {
         base.ExposeData();
