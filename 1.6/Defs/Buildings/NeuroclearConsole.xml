@@ -108,10 +108,10 @@
             <drawSize>(2.5,2.5)</drawSize>
         </graphicData>
         <altitudeLayer>MoteOverhead</altitudeLayer>
-        <fadeInTime>0.15</fadeInTime>
-        <solidTime>1</solidTime>
-        <fadeOutTime>1.2</fadeOutTime>
-        <growthRate>0.025</growthRate>
+        <fadeInTime>0.50</fadeInTime>
+        <solidTime>6</solidTime>
+        <fadeOutTime>3.2</fadeOutTime>
+        <growthRate>0.04</growthRate>
     </FleckDef>
 
 </Defs>
