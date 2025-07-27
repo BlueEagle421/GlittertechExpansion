@@ -23,11 +23,14 @@ public class MapComponent_RepairManager(Map map) : MapComponent(map)
         _ticksPassed++;
 
         if (_ticksPassed >= TICK_CHECK_INTERVAL)
-        {
-            ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer);
-            repairers.ForEach(x => x.TryToStartRepairing());
-            _ticksPassed = 0;
-        }
+            UpdateRepairables();
+    }
+
+    public void UpdateRepairables()
+    {
+        ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer);
+        repairers.ForEach(x => x.TryToStartRepairing());
+        _ticksPassed = 0;
     }
 
     public void RemoveRepaired(Thing thing)
@@ -84,13 +87,15 @@ public class CompGlittertechRepairer : ThingComp
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
-        Manager.Register(this);
 
         _compStunnable = parent.GetComp<CompStunnable>();
         _compPower = parent.GetComp<CompPowerTrader>();
         _compGlower = parent.GetComp<CompGlower>();
 
         RepairStopped();
+
+        Manager.Register(this);
+        Manager.UpdateRepairables();
     }
 
     public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -178,6 +183,9 @@ public class CompGlittertechRepairer : ThingComp
         _repairEffecter = null;
 
         _isRepairing = false;
+        _currentlyRepairing = null;
+
+        Manager.UpdateRepairables();
     }
 
     public override string CompInspectStringExtra()
