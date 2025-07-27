@@ -13,8 +13,8 @@
   <USH_GE_FormingCycles>Forming cycles</USH_GE_FormingCycles>
 
   <USH_GE_WillDraw>Will draw {0} W stored power to start forming {1}</USH_GE_WillDraw>
-  <USH_GE_NoPowerStored>Missing {0} W (has {2} W) stored power for {1}</USH_GE_NoPowerStored>
-  <USH_GE_NoPowerStoredShort>Missing {0} W stored power</USH_GE_NoPowerStoredShort>
+  <USH_GE_NoPowerStored>Needs {0} W (has {2} W) stored power for {1}</USH_GE_NoPowerStored>
+  <USH_GE_NoPowerStoredShort>Needs {0} W (has {1} W) stored power</USH_GE_NoPowerStoredShort>
   <USH_GE_NoFacility>Missing active {0}</USH_GE_NoFacility>
   <USH_GE_FormTimeTotal>Total forming time left: {0}</USH_GE_FormTimeTotal>
   <USH_GE_PowerNeed>Needs power stored: </USH_GE_PowerNeed>

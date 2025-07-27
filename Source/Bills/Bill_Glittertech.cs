@@ -163,7 +163,7 @@ public class Bill_Glittertech : Bill_Autonomous
         {
             if (!Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
-                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this)), null);
+                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this), Fabricator.StoredPower()), null);
                 return false;
             }
 

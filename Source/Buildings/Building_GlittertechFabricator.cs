@@ -270,8 +270,11 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
         return Mathf.CeilToInt((wholeCycleTicks + currentCycleTicks) / GlitterBill.FormingSpeedMultiplier());
     }
 
-    private float StoredPower()
+    public float StoredPower()
     {
+        if (DebugSettings.unlimitedPower)
+            return 99999;
+
         if (PowerTrader.PowerNet == null)
             return 0;
 
@@ -280,9 +283,6 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
     public bool HasStoredPower(float powerNeeded, bool considerStats = true)
     {
-        if (DebugSettings.unlimitedPower)
-            return true;
-
         if (considerStats)
             powerNeeded = PowerNeededWithStat(powerNeeded);
 
