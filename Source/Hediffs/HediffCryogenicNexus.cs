@@ -48,4 +48,11 @@ public class Hediff_CryogenicNexus : Hediff_Implant
             > 0 => 1,
             _ => 0
         };
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+
+        Scribe_Values.Look(ref _instability, nameof(_instability));
+    }
 }
