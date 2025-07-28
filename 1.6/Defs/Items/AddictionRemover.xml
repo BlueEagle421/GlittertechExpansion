@@ -53,7 +53,8 @@
     <defaultLabelColor>(0.572, 0.678, 0.686)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
     <initialSeverity>0.1</initialSeverity>
-    <maxSeverity>0.8</maxSeverity>
+    <maxSeverity>1</maxSeverity>
+    <lethalSeverity>-1</lethalSeverity>
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">

@@ -4,7 +4,7 @@
   <ThingDef ParentName="DrugBase">
     <defName>USH_GammaSerum</defName>
     <label>gamma serum</label>
-    <description>A glittertech neuromodifier capable of tuning brain waves, making the target more susceptible to manipulation. With enough time, it can crack even the most stubborn minds. It will make unwilling prisoners loyal, recruitable, and ready to accept any beliefs.\n\nPerfect for extracting Zion Mainframe codes.</description>
+    <description>A glittertech neuromodifier capable of tuning brain waves, making the target more susceptible to manipulation. With enough time, it can crack even the most stubborn minds making unwilling prisoners loyal, recruitable, and ready to accept any beliefs.\nThe process can sometimes be dangerous for the target and leave permanent brain damage.\n\nPerfect for extracting Zion Mainframe codes.</description>
     <graphicData>
       <texPath>Things/Item/GammaSerum</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -48,16 +48,17 @@
     <defName>USH_GammaSerumHediff</defName>
     <label>gamma serum</label>
     <labelNoun>a gamma serum</labelNoun>
-    <description>Gamma serum chemicals in the bloodstream. Renders the brain susceptible to manipulation.</description>
+    <description>Gamma serum chemicals in the bloodstream slowly making the brain more susceptible to manipulation.</description>
     <hediffClass>Hediff_High</hediffClass>
     <defaultLabelColor>(0.572, 0.678, 0.686)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
     <initialSeverity>0.1</initialSeverity>
     <maxSeverity>1</maxSeverity>
+    <lethalSeverity>-1</lethalSeverity>
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-0.8</severityPerDay>
+        <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
       <li Class="USH_GE.HediffCompProperties_GammaSerum">
@@ -65,11 +66,13 @@
     </comps>
     <stages>
       <li>
+        <label>working</label>
+        <vomitMtbDays>0.25</vomitMtbDays>
         <restFallFactor>1.6</restFallFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <offset>-0.45</offset>
+            <offset>-0.25</offset>
           </li>
         </capMods>
       </li>

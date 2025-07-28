@@ -100,6 +100,12 @@
   <USH_GE_Overclock>Overclock</USH_GE_Overclock>
   <USH_GE_OverclockDesc>Overclocked by advanced mechanites coating designed to make the inner weapon components more efficient.\n\nWeapons with this powerful yet unstable mechanism are known to sporadically combust.\n\nOverclocking provides the following stats:</USH_GE_OverclockDesc>
 
+  <USH_GE_GammaSerumFail>Gamma serum failed to persuade {PAWN}. The process continues</USH_GE_GammaSerumFail>
+  <USH_GE_GammaSerumFailHarm>Gamma serum failed to persuade {PAWN} and caused minor brain damage. The process continues</USH_GE_GammaSerumFailHarm>
+  <USH_GE_GammaSerumFailFinal>Gamma serum injected to {PAWN} stopped working without success</USH_GE_GammaSerumFailFinal>
+  <USH_GE_GammaSerumSuccess>Gamma serum outcome</USH_GE_GammaSerumSuccess>
+  <USH_GE_GammaSerumSuccessDesc>Gamma serum has successfully cracked {PAWN} who will now accept anything he's told.</USH_GE_GammaSerumSuccessDesc>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>
