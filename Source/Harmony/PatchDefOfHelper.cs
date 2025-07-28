@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
@@ -13,9 +14,26 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
         if (earlyTryMode)
             return;
 
-        foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
-            if (def.IsRangedWeapon && def.techLevel >= TechLevel.Spacer)
-                (def.comps ??= []).Add(PropertiesToAdd);
+        try
+        {
+            foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
+            {
+
+                try
+                {
+                    if (def.IsRangedWeapon && def.techLevel >= TechLevel.Spacer)
+                        (def.comps ??= []).Add(PropertiesToAdd);
+                }
+                catch (Exception innerEx)
+                {
+                    Log.Warning($"[Glittertech Expansion] while adding overclock comp failed to patch ThingDef '{def.defName}': {innerEx}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warning($"[Glittertech Expansion] unexpected error in RebindAllDefOfs postfix. The overclock feature is disabled: {ex}");
+        }
     }
 
     private static CompProperties_Overclock PropertiesToAdd
