@@ -4,8 +4,9 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
-using USH_GE;
 using Verse;
+
+namespace USH_GE;
 
 public static class NeutroamineRecipeDefGenerator
 {
