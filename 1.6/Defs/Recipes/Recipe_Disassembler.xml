@@ -6,7 +6,7 @@
         <label>disassemble mechanoid</label>
         <description>Disassemble a dead mechanoid to extract multiple valuable resources.</description>
         <jobString>Disassembling mechanoid.</jobString>
-        <workAmount>300</workAmount>
+        <workAmount>600</workAmount>
         <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
         <specialProducts> <!-- doubled products -->
             <li>Butchery</li>
