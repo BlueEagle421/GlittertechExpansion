@@ -11,6 +11,9 @@ public static class Patch_PawnWeaponGenerator_TryGenerateWeaponFor
     private const float OVERCLOCK_CHANCE = 0.08f;
     public static void Postfix(Pawn pawn, PawnGenerationRequest request)
     {
+        if (request.Faction == null || request.Faction.IsPlayer)
+            return;
+
         if (pawn?.equipment?.Primary is not ThingWithComps thing)
             return;
 
