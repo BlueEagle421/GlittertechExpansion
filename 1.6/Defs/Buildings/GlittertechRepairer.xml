@@ -81,7 +81,7 @@
         <uiIconOffset>(0, 0.2)</uiIconOffset>
         <specialDisplayRadius>8.9</specialDisplayRadius>
         <researchPrerequisites>
-            <li>USH_GlittertechUtilitiesRes</li>
+            <li>USH_MolecularDisassemblerRes</li>
         </researchPrerequisites>
     </ThingDef>
 

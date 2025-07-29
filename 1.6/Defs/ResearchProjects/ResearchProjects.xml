@@ -86,7 +86,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_MolecularDisassemblerRes</defName>
         <label>Nanotech precision</label>
-        <description>Learn about dissasembling mechanoid technology with perfect accuracy.</description>
+        <description>Learn how to harness powerful nanotechnology to disassemble mechanoids with pinpoint accuracy and fortify your surroundings.</description>
         <baseCost>4000</baseCost>
         <prerequisites>
             <li>USH_GlittertechUtilitiesRes</li>
