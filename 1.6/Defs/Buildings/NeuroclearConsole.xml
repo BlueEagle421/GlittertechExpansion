@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_NeuroclearConsole</defName>
         <label>Neuroclear console</label>
-        <description>A glittertech device designed to store and manage medical nanobots. These nanobots are capable of clearing residue anesthetics from designated patients after surgery, making recovery almost instantaneous, but still painless.\n\nThe nanobots require glitterworld medicine as a material source.\n\nThe device can be connected to up to six hospital beds.</description>
+        <description>A glittertech device designed to store and manage medical nanobots. These nanobots are capable of clearing residue anesthetics from all patients in room after surgery, making recovery almost instantaneous, but still painless.\n\nThe nanobots require glitterworld medicine as a material source.</description>
         <descriptionHyperlinks>
             <HediffDef>Anesthetic</HediffDef>
             <ThingDef>HospitalBed</ThingDef>
