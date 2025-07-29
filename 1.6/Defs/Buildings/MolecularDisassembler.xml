@@ -4,7 +4,7 @@
     <ThingDef ParentName="BenchBase">
         <defName>USH_MolecularDisassembler</defName>
         <label>molecular disassembler</label>
-        <description>A workstation for dismantling dead mechanoids with atomic precision. Mechanoid remains processed using this technology will yield triple the usual products. Mechanoid slag will also yield plasteel.</description>
+        <description>A workstation for dismantling dead mechanoids with atomic precision. Mechanoid remains processed using this technology will yield double the usual products. Mechanoid slag will also yield plasteel.</description>
         <thingClass>Building_WorkTable</thingClass>
         <graphicData>
             <texPath>Things/Building/MolecularDisassembler/MolecularDisassembler</texPath>

@@ -11,7 +11,6 @@
         <specialProducts> <!-- tripled products -->
             <li>Butchery</li>
             <li>Butchery</li>
-            <li>Butchery</li>
         </specialProducts>
     </RecipeDef>
 
@@ -20,7 +19,7 @@
         <label>disassemble mechanoid chunk</label>
         <description>Use powerful glittertech to extract steel and plasteel from mechanoid slag chunks.</description>
         <jobString>Disassembling mechanoid slag.</jobString>
-        <workAmount>400</workAmount>
+        <workAmount>600</workAmount>
         <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
         <workSkill>Crafting</workSkill>
         <efficiencyStat>ButcheryMechanoidEfficiency</efficiencyStat>
@@ -36,7 +35,7 @@
             </li>
         </ingredients>
         <products>
-            <Steel>15</Steel>
+            <Steel>10</Steel>
             <Plasteel>2</Plasteel>
         </products>
         <fixedIngredientFilter>
