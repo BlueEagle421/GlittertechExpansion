@@ -47,7 +47,7 @@
         </statBases>
         <size>(1,1)</size>
         <designationCategory>Production</designationCategory>
-        <uiOrder>2100</uiOrder>
+        <uiOrder>2520</uiOrder>
         <passability>PassThroughOnly</passability>
         <pathCost>50</pathCost>
         <surfaceType>Item</surfaceType>
