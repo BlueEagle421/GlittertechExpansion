@@ -19,7 +19,7 @@ public static class NeutroamineRecipeDefGenerator
     private static IEnumerable<RecipeDef> BeginRecipesGeneration(bool hotReload = false)
     {
         List<RecipeDef> result = [];
-        Log.Message(string.Join(", ", NeutroamineRecipes));
+
         try
         {
             result = DefsFromNeutroamineItems(NeutroamineRecipes, hotReload);
