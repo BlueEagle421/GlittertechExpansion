@@ -8,7 +8,7 @@
         <jobString>Disassembling mechanoid.</jobString>
         <workAmount>300</workAmount>
         <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
-        <specialProducts> <!-- tripled products -->
+        <specialProducts> <!-- doubled products -->
             <li>Butchery</li>
             <li>Butchery</li>
         </specialProducts>
