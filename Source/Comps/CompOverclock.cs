@@ -64,6 +64,9 @@ public class CompOverclock : ThingComp
 
     public override string GetDescriptionPart()
     {
+        if (!IsOverclocked)
+            return string.Empty;
+
         StringBuilder sb = new();
         sb.AppendLine("USH_GE_OverclockDesc".Translate());
 
