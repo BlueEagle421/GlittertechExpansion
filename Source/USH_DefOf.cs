@@ -51,4 +51,11 @@ public static class USH_DefOf
     public static PawnKindDef USH_AncientGlittertechSoldier;
     public static ResearchTabDef USH_GlittertechExpansion;
     public static MentalStateDef USH_ConfusedWandering;
+    public static ThingDef Neutroamine;
+    public static ThingDef USH_NeutroamineExtractor;
+    public static StatDef DrugSynthesisSpeed;
+    public static EffecterDef Cook;
+    public static SoundDef Recipe_Drug;
+    public static ResearchProjectDef USH_GlittertechUtilitiesRes;
+
 }

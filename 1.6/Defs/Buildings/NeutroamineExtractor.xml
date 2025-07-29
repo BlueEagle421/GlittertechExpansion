@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BenchBase">
+        <defName>USH_NeutroamineExtractor</defName>
+        <label>neutroamine extractor</label>
+        <description>A workstation for dismantling dead mechanoids with atomic precision. Mechanoid remains processed using this technology will yield triple the usual products. Mechanoid slag will also yield plasteel.</description>
+        <thingClass>Building_WorkTable</thingClass>
+        <graphicData>
+            <texPath>Things/Building/NeutroamineExtractor/NeutroamineExtractor</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <castEdgeShadows>true</castEdgeShadows>
+        <staticSunShadowHeight>0.20</staticSunShadowHeight>
+        <costList>
+            <Steel>50</Steel>
+            <Plasteel>15</Plasteel>
+            <Neutroamine>10</Neutroamine>
+            <ComponentSpacer>2</ComponentSpacer>
+            <USH_Glittercore>1</USH_Glittercore>
+        </costList>
+        <altitudeLayer>Building</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+            <WorkTableWorkSpeedFactor>1.5</WorkTableWorkSpeedFactor>
+            <WorkToBuild>3000</WorkToBuild>
+            <MaxHitPoints>80</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Cleanliness>-2</Cleanliness>
+        </statBases>
+        <size>(1,1)</size>
+        <designationCategory>Production</designationCategory>
+        <uiOrder>2520</uiOrder>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>350</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(73,123,138,0)</glowColor>
+            </li>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>ToolCabinet</li>
+                </linkableFacilities>
+            </li>
+            <li Class="CompProperties_Breakdownable" />
+        </comps>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+        </building>
+        <constructEffect>ConstructMetal</constructEffect>
+        <researchPrerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </researchPrerequisites>
+        <uiIconScale>0.7</uiIconScale>
+        <uiIconOffset>(0, 0.05)</uiIconOffset>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <WorkGiverDef>
+        <defName>USH_DoBillsNeutroamineExtractor</defName>
+        <label>make things at neutroamine extractor</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Smithing</workType>
+        <priorityInType>70</priorityInType>
+        <fixedBillGiverDefs>
+            <li>USH_NeutroamineExtractor</li>
+        </fixedBillGiverDefs>
+        <verb>work</verb>
+        <gerund>working at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs> 
