@@ -88,7 +88,7 @@ public static class NeutroamineRecipeDefGenerator
 
         recipeDef.label = GetRecipeLabel(def, originalCount);
 
-        recipeDef.jobString = $"Extracting neutroamine from {def.label}";
+        recipeDef.jobString = "USH_GE_NeutroamineJobString".Translate(def.label);
         recipeDef.modContentPack = USH_DefOf.USH_GlittertechFabrication.modContentPack;
 
         SetProductsAndIngredients(
@@ -117,7 +117,7 @@ public static class NeutroamineRecipeDefGenerator
 
         recipeDef.researchPrerequisites = [USH_DefOf.USH_GlittertechUtilitiesRes];
 
-        recipeDef.description = $"Extract x{countToExtract} neutroamine from {def.label} x{originalCount}";
+        recipeDef.description = "USH_GE_NeutroamineRecipeDesc".Translate(countToExtract, originalCount, def.label);
         recipeDef.descriptionHyperlinks = [USH_DefOf.Neutroamine];
 
         return recipeDef;
@@ -125,7 +125,7 @@ public static class NeutroamineRecipeDefGenerator
 
     private static string GetRecipeLabel(ThingDef def, int originalCount)
     {
-        string recipeLabel = $"Extract neutroamine from {def.label}";
+        string recipeLabel = "USH_GE_NeutroamineRecipeLabel".Translate(def.label);
         if (originalCount > 1)
             recipeLabel += $" x{originalCount}";
 

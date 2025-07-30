@@ -165,13 +165,14 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
             defaultLabel = "USH_GE_CommandUpgradeEject".Translate(),
             defaultDesc = "USH_GE_CommandUpgradeEjectDesc".Translate(),
             hotKey = KeyBindingDefOf.Misc8,
-            icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectMemoryCell")
+            icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectUpgrade")
         };
 
         if (ContainedThing == null)
             ejectCommand.Disable("USH_GE_CommandUpgradeEjectFailEmpty".Translate());
 
-        yield return ejectCommand;
+        if (IsOverclocked)
+            yield return ejectCommand;
 
         if (!DebugSettings.ShowDevGizmos)
             yield break;
@@ -215,7 +216,12 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     }
 
     public override string CompInspectStringExtra()
-        => "USH_GE_UpgradeSlot".Translate() + ": " + GetUpgradeInspectString();
+    {
+        if (!IsOverclocked)
+            return string.Empty;
+
+        return "USH_GE_UpgradeSlot".Translate() + ": " + GetUpgradeInspectString();
+    }
 
     private string GetUpgradeInspectString()
         => UpgradeLens == null ? ((string)"USH_GE_Empty".Translate()) : UpgradeLens.Props.upgradeLabel.CapitalizeFirst();

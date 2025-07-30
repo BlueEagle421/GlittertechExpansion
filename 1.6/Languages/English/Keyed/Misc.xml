@@ -87,6 +87,10 @@
   <USH_GE_CommandMemoryContainerEjectDesc>Removes the memory cell from inner container and places it nearby.</USH_GE_CommandMemoryContainerEjectDesc>
   <USH_GE_CommandMemoryContainerEjectFailEmpty>Contains nothing.</USH_GE_CommandMemoryContainerEjectFailEmpty>
 
+  <USH_GE_CommandUpgradeEject>Eject upgrade lens</USH_GE_CommandUpgradeEject>
+  <USH_GE_CommandUpgradeEjectDesc>Removes the lens instructions from mechanites coating and places them in a socket on the ground.</USH_GE_CommandUpgradeEjectDesc>
+  <USH_GE_CommandUpgradeEjectFailEmpty>No upgrade lens.</USH_GE_CommandUpgradeEjectFailEmpty>
+
   <USH_GE_LetterLabelADPShortCircuit>Zzzapp...</USH_GE_LetterLabelADPShortCircuit>
   <USH_GE_ADPShortCircuit>A fault in {0} has caused a short circuit with ADP effects.</USH_GE_ADPShortCircuit>
   <USH_GE_ADPShortCircuitStartedFire>A fault in {0} has caused a short circuit with ADP effects which started a fire.</USH_GE_ADPShortCircuitStartedFire>
@@ -114,6 +118,10 @@
   <USH_GE_NotOverclocked>Not overclocked</USH_GE_NotOverclocked>
   <USH_GE_UpgradeSlot>Upgrade slot</USH_GE_UpgradeSlot>
   <USH_GE_Empty>Empty</USH_GE_Empty>
+
+  <USH_GE_NeutroamineJobString>Extracting neutroamine from {0}</USH_GE_NeutroamineJobString>
+  <USH_GE_NeutroamineRecipeLabel>Extract neutroamine from {0}</USH_GE_NeutroamineRecipeLabel>
+  <USH_GE_NeutroamineRecipeDesc>Extract (neutroamine x{0}) from ({2} x{1})</USH_GE_NeutroamineRecipeDesc>
 
   <!-- Settings -->
 
