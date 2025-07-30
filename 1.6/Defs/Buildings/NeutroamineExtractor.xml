@@ -4,7 +4,7 @@
     <ThingDef ParentName="BenchBase">
         <defName>USH_NeutroamineExtractor</defName>
         <label>neutroamine extractor</label>
-        <description>A workstation for dismantling dead mechanoids with atomic precision. Mechanoid remains processed using this technology will yield triple the usual products. Mechanoid slag will also yield plasteel.</description>
+        <description>An advanced workstation designed for the mass extraction of neutramine from various manufactured goods. The process is destructive to the primary ingredients, leaving behind only the chemical through the use of glittertech material fission.</description>
         <thingClass>Building_WorkTable</thingClass>
         <graphicData>
             <texPath>Things/Building/NeutroamineExtractor/NeutroamineExtractor</texPath>
