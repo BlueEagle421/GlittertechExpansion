@@ -7,4 +7,10 @@
         <reportString>inserting TargetA to TargetB.</reportString>
     </JobDef>
 
+    <JobDef>
+        <defName>USH_InsertOverclockUpgrade</defName>
+        <driverClass>USH_GE.JobDriver_InsertOverclockUpgrade</driverClass>
+        <reportString>inserting TargetA to TargetB.</reportString>
+    </JobDef>
+
 </Defs>

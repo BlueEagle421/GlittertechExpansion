@@ -30,6 +30,7 @@ public static class USH_DefOf
     public static HediffDef USH_MemoryNegativeHigh;
     public static ThingDef USH_MemoryPylon;
     public static JobDef USH_InsertMemoryCell;
+    public static JobDef USH_InsertOverclockUpgrade;
     public static ThoughtDef USH_MemoryPylonThought;
     public static SoundDef USH_ExtractMemory;
     public static SoundDef USH_Eject;

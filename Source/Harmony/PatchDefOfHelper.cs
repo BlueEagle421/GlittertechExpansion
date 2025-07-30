@@ -39,6 +39,8 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
     private static CompProperties_Overclock PropertiesToAdd
         => new()
         {
+            drawContainedThing = false,
+            drawStackLabel = false,
             statFactors = StatFactors,
             statOffsets = StatOffsets
         };
