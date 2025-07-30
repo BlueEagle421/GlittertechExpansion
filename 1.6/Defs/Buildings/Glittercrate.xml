@@ -87,6 +87,34 @@
                 </thingSetMaker>
               </li>
 
+              <li>
+                <weight>0.1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>Steel</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>60~100</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>0.1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>Neutroamine</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>30~50</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
             </options>
           </thingSetMaker>
         </li>
