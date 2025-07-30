@@ -24,7 +24,7 @@
 
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeDamage</defName>
-        <label>upgrade lens (damage)</label>
+        <label>upgrade lens (power)</label>
         <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a damage boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeDamage</texPath>
@@ -32,7 +32,7 @@
         </graphicData>
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
-                <upgradeLabel>damage</upgradeLabel>
+                <upgradeLabel>power</upgradeLabel>
                 <statOffsets>
                     <RangedWeapon_DamageMultiplier>0.12</RangedWeapon_DamageMultiplier>
                 </statOffsets>
@@ -42,7 +42,7 @@
 
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeRange</defName>
-        <label>upgrade lens (range)</label>
+        <label>upgrade lens (spotting)</label>
         <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a range boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeRange</texPath>
@@ -50,7 +50,7 @@
         </graphicData>
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
-                <upgradeLabel>range</upgradeLabel>
+                <upgradeLabel>spotting</upgradeLabel>
                 <statOffsets>
                     <RangedWeapon_RangeMultiplier>0.2</RangedWeapon_RangeMultiplier>
                 </statOffsets>
@@ -60,7 +60,7 @@
 
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeSpeed</defName>
-        <label>upgrade lens (haste)</label>
+        <label>upgrade lens (quickdraw)</label>
         <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a cooldown and warmup time reduction.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeSpeed</texPath>
@@ -68,7 +68,7 @@
         </graphicData>
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
-                <upgradeLabel>haste</upgradeLabel>
+                <upgradeLabel>quickdraw</upgradeLabel>
                 <statOffsets>
                     <RangedWeapon_WarmupMultiplier>-0.16</RangedWeapon_WarmupMultiplier>
                     <RangedWeapon_Cooldown>-0.28</RangedWeapon_Cooldown>
@@ -95,7 +95,7 @@
 
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeArmor</defName>
-        <label>upgrade lens (armor penetration)</label>
+        <label>upgrade lens (piercing)</label>
         <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants an armor penetration boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeArmor</texPath>
@@ -103,7 +103,7 @@
         </graphicData>
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
-                <upgradeLabel>armor penetration</upgradeLabel>
+                <upgradeLabel>piercing</upgradeLabel>
                 <statOffsets>
                     <RangedWeapon_ArmorPenetrationMultiplier>0.24</RangedWeapon_ArmorPenetrationMultiplier>
                 </statOffsets>

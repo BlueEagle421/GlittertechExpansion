@@ -48,9 +48,9 @@
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeDamage</defName>
-    <label>form upgrade lens (damage)</label>
-    <description>Form an upgrade lens (damage).</description>
-    <jobString>Forming an upgrade lens (damage).</jobString>
+    <label>form upgrade lens (power)</label>
+    <description>Form an upgrade lens (power).</description>
+    <jobString>Forming an upgrade lens (power).</jobString>
     <ingredients>
       <li>
         <filter>
@@ -68,9 +68,9 @@
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeRange</defName>
-    <label>form upgrade lens (range)</label>
-    <description>Form an upgrade lens (range).</description>
-    <jobString>Forming an upgrade lens (range).</jobString>
+    <label>form upgrade lens (spotting)</label>
+    <description>Form an upgrade lens (spotting).</description>
+    <jobString>Forming an upgrade lens (spotting).</jobString>
     <ingredients>
       <li>
         <filter>
@@ -88,9 +88,9 @@
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeSpeed</defName>
-    <label>form upgrade lens (haste)</label>
-    <description>Form an upgrade lens (haste).</description>
-    <jobString>Forming an upgrade lens (haste).</jobString>
+    <label>form upgrade lens (quickdraw)</label>
+    <description>Form an upgrade lens (quickdraw).</description>
+    <jobString>Forming an upgrade lens (quickdraw).</jobString>
     <ingredients>
       <li>
         <filter>
@@ -128,9 +128,9 @@
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeArmor</defName>
-    <label>form upgrade lens (armor penetration)</label>
-    <description>Form an upgrade lens (armor penetration).</description>
-    <jobString>Forming an upgrade lens (armor penetration).</jobString>
+    <label>form upgrade lens (piercing)</label>
+    <description>Form an upgrade lens (piercing).</description>
+    <jobString>Forming an upgrade lens (piercing).</jobString>
     <ingredients>
       <li>
         <filter>
