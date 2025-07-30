@@ -217,6 +217,9 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
     {
+        if (!IsOverclocked)
+            yield break;
+
         StatCategoryDef categoryDef = StatCategoryDefOf.Weapon_Ranged;
 
         string desc = UpgradeLens == null ?
