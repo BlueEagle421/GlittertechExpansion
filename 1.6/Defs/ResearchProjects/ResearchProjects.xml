@@ -135,7 +135,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_DeepMindScanningRes</defName>
         <label>Deep mind scanning</label>
-        <description>Understand the power of deep memory cloning and understand mechanisms behind complex neuromodifiers. The overclocking recipe will be available at the glittertech fabricator.</description>
+        <description>Understand the power of deep memory cloning and understand mechanisms behind complex neuromodifiers.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
             <li>USH_GlittertechAlchemyRes</li>
@@ -161,7 +161,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_OverclockRes</defName>
         <label>Firearms overclocking</label>
-        <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient.\n\nWeapons with this powerful yet unstable coating are known to sporadically combust.</description>
+        <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient.\n\nWeapons with this powerful yet unstable coating are known to sporadically combust.\n\nThe overclocking recipe will be available at the glittertech fabricator.</description>
         <baseCost>3000</baseCost>
         <prerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>

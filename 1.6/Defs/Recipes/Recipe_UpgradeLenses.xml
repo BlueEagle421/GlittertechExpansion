@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_UpgradeLensRecipeBase" ParentName="USH_BaseGlittertechForming" Abstract="True">
+    <formingTicks>40000</formingTicks>
+    <gestationCycles>6</gestationCycles>
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseGlittertechBill">
+        <powerNeeded>12000</powerNeeded>
+      </li>
+    </modExtensions>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Silver</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </filter>
+        <count>25</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>4</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neurotrainer_Shooting</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <researchPrerequisite>USH_OverclockRes</researchPrerequisite>
+  </ThingDef>
+
+  <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
+    <defName>USH_FormUpgradeDamage</defName>
+    <label>form upgrade lens (damage)</label>
+    <description>Form a upgrade lens (damage).</description>
+    <jobString>Forming a upgrade lens (damage).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Luciferium</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+    </ingredients>
+    <products>
+      <USH_UpgradeDamage>1</USH_UpgradeDamage>
+    </products>
+  </RecipeDef>
+
+</Defs>

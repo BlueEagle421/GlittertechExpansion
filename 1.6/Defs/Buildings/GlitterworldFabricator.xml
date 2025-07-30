@@ -55,8 +55,6 @@
             <li>USH_FormGlittercore</li>
             <li>USH_FormGlittercoreBulk</li>
 
-            <li>USH_OverclockGun</li>
-
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
             <li>USH_FormAddictionRemover</li>
@@ -64,6 +62,9 @@
             <li>USH_FormShimmertalk</li>
             <li>USH_FormGammaSerum</li>
             <li>USH_FormADPShell</li>
+
+            <li>USH_OverclockGun</li>
+            <li>USH_FormUpgradeDamage</li>
 
             <li>USH_FormSynthread_Bulk</li>
             <li>USH_FormHyperweave_Bulk</li>
