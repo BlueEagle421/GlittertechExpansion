@@ -106,6 +106,15 @@
   <USH_GE_GammaSerumSuccess>Gamma serum outcome</USH_GE_GammaSerumSuccess>
   <USH_GE_GammaSerumSuccessDesc>Gamma serum has successfully cracked {PAWN} who will now accept anything he's told.</USH_GE_GammaSerumSuccessDesc>
 
+  <USH_GE_CommandChooseFirearm>Choose overclocked firearm</USH_GE_CommandChooseFirearm>
+  <USH_GE_NotOverclockable>Not overclockable</USH_GE_NotOverclockable>
+  <USH_GE_CannotInstall>Cannot install</USH_GE_CannotInstall>
+  <USH_GE_InstallUpgrade>Install {0} on firearm</USH_GE_InstallUpgrade>
+  <USH_GE_SlotTaken>Upgrade slot occupied</USH_GE_SlotTaken>
+  <USH_GE_NotOverclocked>Not overclocked</USH_GE_NotOverclocked>
+  <USH_GE_UpgradeSlot>Upgrade slot</USH_GE_UpgradeSlot>
+  <USH_GE_Empty>Empty</USH_GE_Empty>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>

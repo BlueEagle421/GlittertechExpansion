@@ -8,9 +8,9 @@
     </JobDef>
 
     <JobDef>
-        <defName>USH_InsertOverclockUpgrade</defName>
-        <driverClass>USH_GE.JobDriver_InsertOverclockUpgrade</driverClass>
-        <reportString>inserting TargetA to TargetB.</reportString>
+        <defName>USH_InstallOverclockUpgrade</defName>
+        <driverClass>USH_GE.JobDriver_InstallOverclockUpgrade</driverClass>
+        <reportString>installing TargetA on TargetB.</reportString>
     </JobDef>
 
 </Defs>

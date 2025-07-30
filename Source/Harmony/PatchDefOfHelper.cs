@@ -39,8 +39,7 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
     private static CompProperties_Overclock PropertiesToAdd
         => new()
         {
-            drawContainedThing = false,
-            drawStackLabel = false,
+            insertedSoundDefName = "USH_InsertMemoryCell",
             statFactors = StatFactors,
             statOffsets = StatOffsets
         };

@@ -44,11 +44,11 @@ public class OptionProvider_InsertOverclockUpgrade : FloatMenuOptionProvider
         if (!clickedThing.TryGetComp(out CompOverclockUpgrade compOverclockUpgrade))
             yield break;
 
-        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_GE_InsertMemoryCell".Translate(clickedThing.Label), delegate
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(
+            "USH_GE_InstallUpgrade".Translate(clickedThing.Label), delegate
             {
                 CreateInsertJobTargeter(context.FirstSelectedPawn, clickedThing);
             }), context.FirstSelectedPawn, new LocalTargetInfo(clickedThing));
-
     }
 
     private static void CreateInsertJobTargeter(Pawn p, Thing item)
@@ -56,28 +56,46 @@ public class OptionProvider_InsertOverclockUpgrade : FloatMenuOptionProvider
         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
         {
             GiveJobToPawn(p, target, item);
-        }, null, null, null, null, null, playSoundOnAction: true, delegate (LocalTargetInfo target)
+        }, null, null, null, null, null, playSoundOnAction: true, OnGuiAction);
+    }
+
+    private static void OnGuiAction(LocalTargetInfo target)
+    {
+        if (target == null)
         {
-            if (target.Thing.TryGetComp(out CompOverclock compOverclock))
-            {
-                var report = compOverclock.CanInsert();
-                if (!report.Accepted)
-                {
-                    var msg = $"{"USH_GE_CannotInsert".Translate()}: {report.Reason.CapitalizeFirst()}"
-                              .Colorize(ColorLibrary.RedReadable);
+            Widgets.MouseAttachedLabel("USH_GE_CommandChooseFirearm".Translate());
+            return;
+        }
 
-                    Widgets.MouseAttachedLabel(msg);
-                    return;
-                }
-            }
+        if (!target.Thing.TryGetComp(out CompOverclock compOverclock))
+        {
+            var msg = $"{"USH_GE_CannotInstall".Translate()}: {"USH_GE_NotOverclockable".Translate()}"
+                .Colorize(ColorLibrary.RedReadable);
 
-            Widgets.MouseAttachedLabel("USH_GE_CommandChooseContainer".Translate());
-        });
+            Widgets.MouseAttachedLabel(msg);
+            return;
+        }
+
+        var report = compOverclock.CanInstall();
+        if (!report.Accepted)
+        {
+            var msg = $"{"USH_GE_CannotInstall".Translate()}: {report.Reason.CapitalizeFirst()}"
+                      .Colorize(ColorLibrary.RedReadable);
+
+            Widgets.MouseAttachedLabel(msg);
+        }
     }
 
     private static void GiveJobToPawn(Pawn p, LocalTargetInfo target, Thing item)
     {
-        Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertOverclockUpgrade, item, target.Thing, target.Thing.Position);
+        if (!target.Thing.TryGetComp(out CompOverclock compOverclock))
+            return;
+
+        var report = compOverclock.CanInstall();
+        if (!report.Accepted)
+            return;
+
+        Job job = JobMaker.MakeJob(USH_DefOf.USH_InstallOverclockUpgrade, item, target.Thing, target.Thing.Position);
         job.count = 1;
         p.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
     }

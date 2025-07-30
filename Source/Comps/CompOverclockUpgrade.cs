@@ -6,22 +6,21 @@ namespace USH_GE;
 
 public class CompProperties_OverclockUpgrade : CompProperties
 {
+    public string upgradeLabel;
+    public bool preventsIncidents;
     public List<StatModifier> statFactors;
     public List<StatModifier> statOffsets;
+    public List<StatModifierQuality> statFactorsQuality = [];
+    public List<StatModifierQuality> statOffsetsQuality = [];
     public CompProperties_OverclockUpgrade() => compClass = typeof(CompOverclockUpgrade);
-
 }
 
 public class CompOverclockUpgrade : ThingComp
 {
     public CompProperties_OverclockUpgrade Props => (CompProperties_OverclockUpgrade)props;
 
-    private CompQuality _compQuality;
-
-    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
+    public override void PostSpawnSetup(bool respawningAfterLoad)
     {
-        base.PostDeSpawn(map, mode);
-
-        _compQuality = parent.GetComp<CompQuality>();
+        base.PostSpawnSetup(respawningAfterLoad);
     }
 }

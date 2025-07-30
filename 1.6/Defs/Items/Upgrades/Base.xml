@@ -35,6 +35,10 @@
                 <compClass>CompQuality</compClass>
             </li>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
+                <upgradeLabel>damage</upgradeLabel>
+                <statOffsets>
+                    <RangedWeapon_DamageMultiplier>0.15</RangedWeapon_DamageMultiplier>
+                </statOffsets>
             </li>
         </comps>
     </ThingDef>

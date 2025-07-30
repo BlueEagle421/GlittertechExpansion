@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -7,15 +9,15 @@ using Verse.Sound;
 
 namespace USH_GE;
 
-public class CompProperties_Overclock : CompProperties_ThingContainer
+public class CompProperties_Overclock : CompProperties
 {
-    public SoundDef insertedSoundDef;
-    public List<StatModifier> statFactors;
-    public List<StatModifier> statOffsets;
+    public string insertedSoundDefName;
+    public List<StatModifier> statFactors = [];
+    public List<StatModifier> statOffsets = [];
     public CompProperties_Overclock() => compClass = typeof(CompOverclock);
 }
 
-public class CompOverclock : ThingComp, IThingHolder
+public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
 {
     public bool IsOverclocked;
     public CompProperties_Overclock OverclockProps => (CompProperties_Overclock)props;
@@ -30,28 +32,17 @@ public class CompOverclock : ThingComp, IThingHolder
         get
         {
             if (innerContainer.Count != 0)
-            {
                 return innerContainer[0];
-            }
+
             return null;
         }
     }
 
-    public ThingOwner SearchableContents => innerContainer;
+    private SoundDef _insertedSoundDef;
 
     public CompOverclock()
     {
         innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
-    }
-
-    public ThingOwner GetDirectlyHeldThings()
-    {
-        return innerContainer;
-    }
-
-    public void GetChildHolders(List<IThingHolder> outChildren)
-    {
-        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
     }
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -74,7 +65,12 @@ public class CompOverclock : ThingComp, IThingHolder
         if (!IsOverclocked)
             return 1;
 
-        return 1f * OverclockProps.statFactors.GetStatFactorFromList(stat);
+        float result = OverclockProps.statFactors.GetStatFactorFromList(stat);
+
+        if (ContainedCellComp != null)
+            result *= ContainedCellComp.Props.statFactors.GetStatFactorFromList(stat);
+
+        return 1f * result;
     }
 
     public override float GetStatOffset(StatDef stat)
@@ -82,7 +78,12 @@ public class CompOverclock : ThingComp, IThingHolder
         if (!IsOverclocked)
             return 0;
 
-        return OverclockProps.statOffsets.GetStatOffsetFromList(stat); ;
+        float result = OverclockProps.statOffsets.GetStatOffsetFromList(stat);
+
+        if (ContainedCellComp != null)
+            result += ContainedCellComp.Props.statOffsets.GetStatOffsetFromList(stat);
+
+        return result;
     }
 
     public override void GetStatsExplanation(StatDef stat, StringBuilder sb, string indent = "")
@@ -102,6 +103,34 @@ public class CompOverclock : ThingComp, IThingHolder
 
         if (overclockBuilder.Length > 0)
             sb.Append(overclockBuilder.ToString());
+
+        GetUpgradeStatsExplanation(stat, sb, indent);
+    }
+
+    private void GetUpgradeStatsExplanation(StatDef stat, StringBuilder sb, string indent = "")
+    {
+        if (!IsOverclocked)
+            return;
+
+        if (ContainedCellComp == null)
+            return;
+
+        string upgradePrefix = $"{indent}{ContainedCellComp.parent.Label.CapitalizeFirst()}";
+
+        StringBuilder upgradeBuilder = new();
+
+        if (!ContainedCellComp.Props.statOffsets.NullOrEmpty())
+            foreach (var mod in ContainedCellComp.Props.statOffsets)
+                if (mod.stat == stat && !Mathf.Approximately(mod.value, 0f))
+                    upgradeBuilder.AppendLine($"{upgradePrefix}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
+
+        if (!ContainedCellComp.Props.statFactors.NullOrEmpty())
+            foreach (var mod in ContainedCellComp.Props.statFactors)
+                if (mod.stat == stat && !Mathf.Approximately(mod.value, 1f))
+                    upgradeBuilder.AppendLine($"{upgradePrefix}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
+
+        if (upgradeBuilder.Length > 0)
+            sb.Append(upgradeBuilder.ToString());
     }
 
 
@@ -134,14 +163,14 @@ public class CompOverclock : ThingComp, IThingHolder
         Command_Action ejectCommand = new()
         {
             action = EjectContent,
-            defaultLabel = "USH_GE_CommandMemoryContainerEject".Translate(),
-            defaultDesc = "USH_GE_CommandMemoryContainerEjectDesc".Translate(),
+            defaultLabel = "USH_GE_CommandUpgradeEject".Translate(),
+            defaultDesc = "USH_GE_CommandUpgradeEjectDesc".Translate(),
             hotKey = KeyBindingDefOf.Misc8,
             icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectMemoryCell")
         };
 
         if (ContainedThing == null)
-            ejectCommand.Disable("USH_GE_CommandMemoryContainerEjectFailEmpty".Translate());
+            ejectCommand.Disable("USH_GE_CommandUpgradeEjectFailEmpty".Translate());
 
         yield return ejectCommand;
 
@@ -162,34 +191,43 @@ public class CompOverclock : ThingComp, IThingHolder
         Notify_UpgradeExtracted(null);
     }
 
-    public void Notify_UpgradeInserted(Pawn doer)
+    public void Notify_UpgradeInstalled(Pawn doer)
     {
         _cellComp = ContainedThing?.TryGetComp<CompOverclockUpgrade>();
 
-        SoundDef insertedSoundDef = OverclockProps.insertedSoundDef;
-        insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
+        _insertedSoundDef = DefDatabase<SoundDef>.GetNamedSilentFail(OverclockProps.insertedSoundDefName);
+        _insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
     }
 
     public void Notify_UpgradeExtracted(Pawn doer)
     {
-
+        _cellComp = null;
     }
 
-    public AcceptanceReport CanInsert()
+    public AcceptanceReport CanInstall()
     {
         if (ContainedCellComp != null)
-            return "USH_GE_ContainerFull".Translate(parent.Named("BUILDING"));
+            return "USH_GE_SlotTaken".Translate();
 
         if (!IsOverclocked)
-            return "Not overclocked";
+            return "USH_GE_NotOverclocked".Translate();
 
         return true;
     }
 
     public override string CompInspectStringExtra()
-    {
-        return "Contents".Translate() + ": " + (ContainedCellComp == null ? ((string)"Nothing".Translate()) : ContainedCellComp.parent.LabelCap);
-    }
+        => "USH_GE_UpgradeSlot".Translate() + ": " + GetUpgradeInspectString();
+
+    private string GetUpgradeInspectString()
+        => ContainedCellComp == null ? ((string)"USH_GE_Empty".Translate()) : ContainedCellComp.Props.upgradeLabel.CapitalizeFirst();
+
+    public ThingOwner GetDirectlyHeldThings()
+        => innerContainer;
+
+    public void GetChildHolders(List<IThingHolder> outChildren)
+        => ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+
+    public ThingOwner SearchableContents => innerContainer;
 
     public override void PostExposeData()
     {

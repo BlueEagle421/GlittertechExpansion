@@ -1,4 +1,3 @@
-using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -6,7 +5,7 @@ using Verse.Sound;
 
 namespace USH_GE;
 
-public class JobDriver_InsertOverclockUpgrade : JobDriver
+public class JobDriver_InstallOverclockUpgrade : JobDriver
 {
     private Thing TargetItem => job.GetTarget(TargetIndex.A).Thing;
     private ThingWithComps TargetGun => job.GetTarget(TargetIndex.B).Thing as ThingWithComps;
@@ -42,7 +41,7 @@ public class JobDriver_InsertOverclockUpgrade : JobDriver
         void OnDeposited()
         {
             TargetItem.def.soundDrop.PlayOneShot(pawn);
-            TargetGun.GetComp<CompOverclock>().Notify_UpgradeInserted(pawn);
+            TargetGun.GetComp<CompOverclock>().Notify_UpgradeInstalled(pawn);
         }
 
         yield return Toils_Haul.DepositHauledThingInContainer(TargetIndex.B, TargetIndex.A, OnDeposited);
