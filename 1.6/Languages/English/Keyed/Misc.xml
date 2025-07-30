@@ -98,7 +98,7 @@
 
   <USH_GE_Overclocked>Overclocked</USH_GE_Overclocked>
   <USH_GE_Overclock>Overclock</USH_GE_Overclock>
-  <USH_GE_OverclockDesc>Overclocked by advanced mechanites coating designed to make the inner weapon components more efficient.\n\nWeapons with this powerful yet unstable mechanism are known to sporadically combust.\n\nOverclocking provides the following stats:</USH_GE_OverclockDesc>
+  <USH_GE_OverclockDesc>Overclocked by advanced mechanites coating designed to make the inner weapon components more efficient.\n\nWeapons with this powerful yet unstable mechanism are known to sporadically combust unless they're stabilized by upgrades or their user is non-flammable.\n\nOverclocking provides the following stats:</USH_GE_OverclockDesc>
 
   <USH_GE_GammaSerumFail>Gamma serum failed to persuade {PAWN}. The process continues</USH_GE_GammaSerumFail>
   <USH_GE_GammaSerumFailHarm>Gamma serum failed to persuade {PAWN} and caused minor brain damage. The process continues</USH_GE_GammaSerumFailHarm>

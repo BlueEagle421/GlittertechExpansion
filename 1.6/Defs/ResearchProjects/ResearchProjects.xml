@@ -161,7 +161,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_OverclockRes</defName>
         <label>Firearms overclocking</label>
-        <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient.\n\nWeapons with this powerful yet unstable coating are known to sporadically combust.\n\nThe overclocking recipe will be available at the glittertech fabricator.</description>
+        <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient and form additional upgrades.\n\nWeapons with this powerful yet unstable mechanism are known to sporadically combust unless they're stabilized by upgrades or their user is non-flammable.\n\nThe overclocking recipe will be available at the glittertech fabricator.</description>
         <baseCost>3000</baseCost>
         <prerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>

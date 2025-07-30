@@ -23,10 +23,11 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     public CompProperties_Overclock OverclockProps => (CompProperties_Overclock)props;
 
     private CompOverclockUpgrade _cellComp;
-    public CompOverclockUpgrade ContainedCellComp => _cellComp;
+    public CompOverclockUpgrade UpgradeLens => _cellComp;
 
     protected ThingOwner innerContainer;
     public bool HasAnyContents => innerContainer.Count > 0;
+    public bool BlocksSelfIgnite => UpgradeLens != null && UpgradeLens.Props.preventsIncidents;
     public Thing ContainedThing
     {
         get
@@ -67,8 +68,8 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
 
         float result = OverclockProps.statFactors.GetStatFactorFromList(stat);
 
-        if (ContainedCellComp != null)
-            result *= ContainedCellComp.Props.statFactors.GetStatFactorFromList(stat);
+        if (UpgradeLens != null)
+            result *= UpgradeLens.Props.statFactors.GetStatFactorFromList(stat);
 
         return 1f * result;
     }
@@ -80,8 +81,8 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
 
         float result = OverclockProps.statOffsets.GetStatOffsetFromList(stat);
 
-        if (ContainedCellComp != null)
-            result += ContainedCellComp.Props.statOffsets.GetStatOffsetFromList(stat);
+        if (UpgradeLens != null)
+            result += UpgradeLens.Props.statOffsets.GetStatOffsetFromList(stat);
 
         return result;
     }
@@ -112,20 +113,20 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
         if (!IsOverclocked)
             return;
 
-        if (ContainedCellComp == null)
+        if (UpgradeLens == null)
             return;
 
-        string upgradePrefix = $"{indent}{ContainedCellComp.parent.Label.CapitalizeFirst()}";
+        string upgradePrefix = $"{indent}{UpgradeLens.parent.Label.CapitalizeFirst()}";
 
         StringBuilder upgradeBuilder = new();
 
-        if (!ContainedCellComp.Props.statOffsets.NullOrEmpty())
-            foreach (var mod in ContainedCellComp.Props.statOffsets)
+        if (!UpgradeLens.Props.statOffsets.NullOrEmpty())
+            foreach (var mod in UpgradeLens.Props.statOffsets)
                 if (mod.stat == stat && !Mathf.Approximately(mod.value, 0f))
                     upgradeBuilder.AppendLine($"{upgradePrefix}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Offset)}");
 
-        if (!ContainedCellComp.Props.statFactors.NullOrEmpty())
-            foreach (var mod in ContainedCellComp.Props.statFactors)
+        if (!UpgradeLens.Props.statFactors.NullOrEmpty())
+            foreach (var mod in UpgradeLens.Props.statFactors)
                 if (mod.stat == stat && !Mathf.Approximately(mod.value, 1f))
                     upgradeBuilder.AppendLine($"{upgradePrefix}: {stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor)}");
 
@@ -206,7 +207,7 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
 
     public AcceptanceReport CanInstall()
     {
-        if (ContainedCellComp != null)
+        if (UpgradeLens != null)
             return "USH_GE_SlotTaken".Translate();
 
         if (!IsOverclocked)
@@ -219,7 +220,7 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
         => "USH_GE_UpgradeSlot".Translate() + ": " + GetUpgradeInspectString();
 
     private string GetUpgradeInspectString()
-        => ContainedCellComp == null ? ((string)"USH_GE_Empty".Translate()) : ContainedCellComp.Props.upgradeLabel.CapitalizeFirst();
+        => UpgradeLens == null ? ((string)"USH_GE_Empty".Translate()) : UpgradeLens.Props.upgradeLabel.CapitalizeFirst();
 
     public ThingOwner GetDirectlyHeldThings()
         => innerContainer;

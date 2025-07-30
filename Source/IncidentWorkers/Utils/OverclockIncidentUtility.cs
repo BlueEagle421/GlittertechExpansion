@@ -15,22 +15,40 @@ public static class OverclockIncidentUtility
 
             foreach (Pawn pawn in pawns)
             {
-                if (pawn?.equipment?.Primary is not ThingWithComps thing)
+                if (!CanAffectPawn(pawn, out ThingWithComps overclockedGun))
                     continue;
 
-                if (!thing.TryGetComp(out CompOverclock compOverclock))
-                    continue;
-
-                if (!compOverclock.IsOverclocked)
-                    continue;
-
-                yield return (pawn, thing);
+                yield return (pawn, overclockedGun);
             }
         }
         finally { }
     }
 
-    public static void DoOverclockIncident(Pawn pawn, ThingWithComps gun)
+    public static bool CanAffectPawn(Pawn pawn, out ThingWithComps overclockedGun)
+    {
+        overclockedGun = null;
+
+        if (pawn?.equipment?.Primary is not ThingWithComps thing)
+            return false;
+
+        if (pawn.health?.hediffSet?.HasHediff(USH_DefOf.USH_InstalledCryogenicNexus) == true)
+            return false;
+
+        if (!thing.TryGetComp(out CompOverclock compOverclock))
+            return false;
+
+        if (!compOverclock.IsOverclocked)
+            return false;
+
+        if (compOverclock.BlocksSelfIgnite)
+            return false;
+
+        overclockedGun = thing;
+
+        return true;
+    }
+
+    public static void DoOverclockIncident(Pawn pawn, ThingWithComps gun, int letterDelay = 0)
     {
         GenExplosion.DoExplosion(pawn.Position, pawn.Map, 5.9f, DamageDefOf.Flame, null);
 
@@ -41,7 +59,12 @@ public static class OverclockIncidentUtility
             "USH_GE_LetterLabelOverclockIncident".Translate(),
             "USH_GE_OverclockIncident".Translate(gun.Label.UncapitalizeFirst()),
             LetterDefOf.NegativeEvent,
-            new TargetInfo(pawn.Position, pawn.Map)
+            new TargetInfo(pawn.Position, pawn.Map),
+            null,
+            null,
+            null,
+            null,
+            letterDelay
         );
     }
 }
