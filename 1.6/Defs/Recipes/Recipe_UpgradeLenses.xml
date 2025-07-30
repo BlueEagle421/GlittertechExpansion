@@ -2,11 +2,11 @@
 <Defs>
 
   <ThingDef Name="USH_UpgradeLensRecipeBase" ParentName="USH_BaseGlittertechForming" Abstract="True">
-    <formingTicks>40000</formingTicks>
+    <formingTicks>20000</formingTicks>
     <gestationCycles>6</gestationCycles>
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseGlittertechBill">
-        <powerNeeded>12000</powerNeeded>
+        <powerNeeded>8000</powerNeeded>
       </li>
     </modExtensions>
     <ingredients>
@@ -49,8 +49,8 @@
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeDamage</defName>
     <label>form upgrade lens (damage)</label>
-    <description>Form a upgrade lens (damage).</description>
-    <jobString>Forming a upgrade lens (damage).</jobString>
+    <description>Form an upgrade lens (damage).</description>
+    <jobString>Forming an upgrade lens (damage).</jobString>
     <ingredients>
       <li>
         <filter>
@@ -63,6 +63,102 @@
     </ingredients>
     <products>
       <USH_UpgradeDamage>1</USH_UpgradeDamage>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
+    <defName>USH_FormUpgradeRange</defName>
+    <label>form upgrade lens (range)</label>
+    <description>Form an upgrade lens (range).</description>
+    <jobString>Forming an upgrade lens (range).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicEye</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <USH_UpgradeRange>1</USH_UpgradeRange>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
+    <defName>USH_FormUpgradeSpeed</defName>
+    <label>form upgrade lens (cooldown)</label>
+    <description>Form an upgrade lens (cooldown).</description>
+    <jobString>Forming an upgrade lens (cooldown).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WakeUp</li>
+          </thingDefs>
+        </filter>
+        <count>16</count>
+      </li>
+    </ingredients>
+    <products>
+      <USH_UpgradeSpeed>1</USH_UpgradeSpeed>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
+    <defName>USH_FormUpgradeStability</defName>
+    <label>form upgrade lens (stability)</label>
+    <description>Form an upgrade lens (stability).</description>
+    <jobString>Forming an upgrade lens (stability).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_CryogenicNexus</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <USH_UpgradeStability>1</USH_UpgradeStability>
+    </products>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
+    <defName>USH_FormUpgradeArmor</defName>
+    <label>form upgrade lens (armor penetration)</label>
+    <description>Form an upgrade lens (armor penetration).</description>
+    <jobString>Forming an upgrade lens (armor penetration).</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ReinforcedBarrel</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>80</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentSpacer</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <products>
+      <USH_UpgradeArmor>1</USH_UpgradeArmor>
     </products>
   </RecipeDef>
 
