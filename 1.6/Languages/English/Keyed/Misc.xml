@@ -139,7 +139,10 @@
   <USH_GE_PylonMultiplierSettingDesc>Mood offset from memory pylon thoughts will be multiplied by {0}.</USH_GE_PylonMultiplierSettingDesc>
 
   <USH_GE_SkinSetting>Disable changing skin color</USH_GE_SkinSetting>
-  <USH_GE_SkinSettingDesc>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingDesc>
+  <USH_GE_SkinSettingDesc>If this setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingDesc>
+
+  <USH_GE_NeutroamineSetting>Doubled neutroamine extraction ingredients</USH_GE_NeutroamineSetting>
+  <USH_GE_NeutroamineSettingDesc>If this setting is enabled the extraction recipes will require doubled ingredients. If you find the extractor building OP for your playthrough, that's the place to make it right. Requires game restart.</USH_GE_NeutroamineSettingDesc>
 
   <USH_GE_ResetSettings>Reset options to default</USH_GE_ResetSettings>
 

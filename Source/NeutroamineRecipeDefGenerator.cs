@@ -126,8 +126,14 @@ public static class NeutroamineRecipeDefGenerator
     private static string GetRecipeLabel(ThingDef def, int originalCount)
     {
         string recipeLabel = "USH_GE_NeutroamineRecipeLabel".Translate(def.label);
-        if (originalCount > 1)
-            recipeLabel += $" x{originalCount}";
+
+        int ingredientCount = originalCount;
+
+        if (GE_Mod.Settings.DoubleNeutroamineCost.Value)
+            ingredientCount *= 2;
+
+        if (ingredientCount > 1)
+            recipeLabel += $" x{ingredientCount}";
 
         return recipeLabel;
     }
@@ -144,7 +150,12 @@ public static class NeutroamineRecipeDefGenerator
 
         toModify.products = [new ThingDefCountClass() { thingDef = USH_DefOf.Neutroamine, count = countToExtract }];
 
-        toModify.ingredients = [ForThingDef(def, originalCount)];
+        int countMultiplier = 1;
+
+        if (GE_Mod.Settings.DoubleNeutroamineCost.Value)
+            countMultiplier = 2;
+
+        toModify.ingredients = [ForThingDef(def, originalCount * countMultiplier)];
     }
 
     private static readonly ConstructorInfo _ctor = AccessTools.Constructor(typeof(IngredientCount));

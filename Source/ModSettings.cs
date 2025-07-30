@@ -10,6 +10,7 @@ public class GE_Settings : ModSettings
     public Setting<float> PositiveMoodMultiplier = new(0.5f);
     public Setting<float> NegativeMoodMultiplier = new(1f);
     public Setting<float> PylonMoodMultiplier = new(0.25f);
+    public Setting<bool> DoubleNeutroamineCost = new(false);
     public Setting<bool> ChangeSkinColor = new(true);
 
     private static Vector2 _scrollPosition = new(0f, 0f);
@@ -22,6 +23,7 @@ public class GE_Settings : ModSettings
         PositiveMoodMultiplier.ToDefault();
         NegativeMoodMultiplier.ToDefault();
         PylonMoodMultiplier.ToDefault();
+        DoubleNeutroamineCost.ToDefault();
         ChangeSkinColor.ToDefault();
     }
 
@@ -32,6 +34,7 @@ public class GE_Settings : ModSettings
         PositiveMoodMultiplier.ExposeData(nameof(PositiveMoodMultiplier));
         NegativeMoodMultiplier.ExposeData(nameof(NegativeMoodMultiplier));
         PylonMoodMultiplier.ExposeData(nameof(PylonMoodMultiplier));
+        DoubleNeutroamineCost.ExposeData(nameof(DoubleNeutroamineCost));
         ChangeSkinColor.ExposeData(nameof(ChangeSkinColor));
     }
 
@@ -73,6 +76,11 @@ public class GE_Settings : ModSettings
         listingStandard.Label("USH_GE_PylonMultiplierSettingDesc".Translate(pylonSliderValue.ToStringPercent()));
         PylonMoodMultiplier.Value = pylonSliderValue;
 
+        //DoubleNeutroamineCost
+        listingStandard.Label("\n");
+        listingStandard.CheckboxLabeled("USH_GE_NeutroamineSetting".Translate().Colorize(Color.cyan), ref DoubleNeutroamineCost.Value);
+        listingStandard.Label("USH_GE_NeutroamineSettingDesc".Translate());
+
         //ChangeSkinColor
         listingStandard.Label("\n");
         listingStandard.CheckboxLabeled("USH_GE_SkinSetting".Translate().Colorize(Color.cyan), ref ChangeSkinColor.Value);
@@ -88,7 +96,6 @@ public class GE_Settings : ModSettings
         listingStandard.End();
         _totalContentHeight = listingStandard.CurHeight + 10f;
         Widgets.EndScrollView();
-        //base.DoSettingsWindowContents(inRect);
     }
 
     public class Setting<T>(T defaultValue)
