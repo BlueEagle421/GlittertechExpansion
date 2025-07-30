@@ -54,6 +54,9 @@
       <Neurotrainer_Shooting>1</Neurotrainer_Shooting>
     </products>
     <researchPrerequisite>USH_CombatSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Shooting>8</Shooting>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -65,6 +68,9 @@
       <Neurotrainer_Melee>1</Neurotrainer_Melee>
     </products>
     <researchPrerequisite>USH_CombatSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Melee>8</Melee>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -76,6 +82,9 @@
       <Neurotrainer_Construction>1</Neurotrainer_Construction>
     </products>
     <researchPrerequisite>USH_EngineeringSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Construction>8</Construction>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -87,6 +96,9 @@
       <Neurotrainer_Mining>1</Neurotrainer_Mining>
     </products>
     <researchPrerequisite>USH_EngineeringSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Mining>8</Mining>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -98,6 +110,9 @@
       <Neurotrainer_Cooking>1</Neurotrainer_Cooking>
     </products>
     <researchPrerequisite>USH_SurvivalSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Cooking>8</Cooking>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -109,6 +124,9 @@
       <Neurotrainer_Plants>1</Neurotrainer_Plants>
     </products>
     <researchPrerequisite>USH_SurvivalSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Plants>8</Plants>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -120,6 +138,9 @@
       <Neurotrainer_Animals>1</Neurotrainer_Animals>
     </products>
     <researchPrerequisite>USH_SurvivalSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Animals>8</Animals>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -131,6 +152,9 @@
       <Neurotrainer_Crafting>1</Neurotrainer_Crafting>
     </products>
     <researchPrerequisite>USH_EngineeringSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Crafting>8</Crafting>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -142,6 +166,9 @@
       <Neurotrainer_Artistic>1</Neurotrainer_Artistic>
     </products>
     <researchPrerequisite>USH_IntellectualSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Artistic>8</Artistic>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -153,6 +180,9 @@
       <Neurotrainer_Medicine>1</Neurotrainer_Medicine>
     </products>
     <researchPrerequisite>USH_IntellectualSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Medicine>8</Medicine>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -164,6 +194,9 @@
       <Neurotrainer_Social>1</Neurotrainer_Social>
     </products>
     <researchPrerequisite>USH_IntellectualSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Social>8</Social>
+    </skillRequirements>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
@@ -175,6 +208,9 @@
       <Neurotrainer_Intellectual>1</Neurotrainer_Intellectual>
     </products>
     <researchPrerequisite>USH_IntellectualSkilltrainersRes</researchPrerequisite>
+    <skillRequirements>
+      <Intellectual>8</Intellectual>
+    </skillRequirements>
   </RecipeDef>
 
 
