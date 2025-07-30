@@ -88,9 +88,9 @@
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
     <defName>USH_FormUpgradeSpeed</defName>
-    <label>form upgrade lens (cooldown)</label>
-    <description>Form an upgrade lens (cooldown).</description>
-    <jobString>Forming an upgrade lens (cooldown).</jobString>
+    <label>form upgrade lens (haste)</label>
+    <description>Form an upgrade lens (haste).</description>
+    <jobString>Forming an upgrade lens (haste).</jobString>
     <ingredients>
       <li>
         <filter>

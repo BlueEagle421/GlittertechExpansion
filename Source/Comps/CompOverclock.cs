@@ -215,6 +215,23 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
         return true;
     }
 
+    public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
+    {
+        StatCategoryDef categoryDef = StatCategoryDefOf.Weapon_Ranged;
+
+        string desc = UpgradeLens == null ?
+            "USH_GE_SocketEmptyDesc".Translate() : UpgradeLens.parent.def.description;
+
+        yield return new StatDrawEntry(
+            categoryDef,
+            "USH_GE_UpgradeSlot".Translate(),
+            GetUpgradeInspectString(),
+            desc,
+            1104
+        );
+    }
+
+
     public override string CompInspectStringExtra()
     {
         if (!IsOverclocked)

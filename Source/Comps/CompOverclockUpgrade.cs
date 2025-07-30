@@ -11,8 +11,6 @@ public class CompProperties_OverclockUpgrade : CompProperties
     public bool preventsIncidents;
     public List<StatModifier> statFactors;
     public List<StatModifier> statOffsets;
-    public List<StatModifierQuality> statFactorsQuality = [];
-    public List<StatModifierQuality> statOffsetsQuality = [];
     public CompProperties_OverclockUpgrade() => compClass = typeof(CompOverclockUpgrade);
 }
 
@@ -27,11 +25,6 @@ public class CompOverclockUpgrade : ThingComp
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
     {
-        StringBuilder stringBuilder = new();
-        stringBuilder.AppendLine("Stat_ThingUniqueWeaponTrait_Desc".Translate());
-        stringBuilder.AppendLine();
-        List<StatModifier> allMods = [];
-
         StatCategoryDef categoryDef = StatCategoryDefOf.EquippedStatOffsets;
 
         if (!Props.statOffsets.NullOrEmpty())
@@ -40,6 +33,7 @@ public class CompOverclockUpgrade : ThingComp
                 string content = mod.stat.Worker.ValueToString(mod.value, finalized: false, ToStringNumberSense.Factor);
                 yield return new StatDrawEntry(categoryDef, mod.stat.LabelCap, content, mod.stat.description, 1104);
             }
+
         if (!Props.statFactors.NullOrEmpty())
             foreach (var mod in Props.statFactors)
             {

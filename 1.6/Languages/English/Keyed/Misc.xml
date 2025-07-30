@@ -118,6 +118,7 @@
   <USH_GE_NotOverclocked>Not overclocked</USH_GE_NotOverclocked>
   <USH_GE_UpgradeSlot>Upgrade slot</USH_GE_UpgradeSlot>
   <USH_GE_Empty>Empty</USH_GE_Empty>
+  <USH_GE_SocketEmptyDesc>An empty upgrade socket for providing the mechanites coating with additional instructions.</USH_GE_SocketEmptyDesc>
 
   <USH_GE_NeutroamineJobString>Extracting neutroamine from {0}</USH_GE_NeutroamineJobString>
   <USH_GE_NeutroamineRecipeLabel>Extract neutroamine from {0}</USH_GE_NeutroamineRecipeLabel>
