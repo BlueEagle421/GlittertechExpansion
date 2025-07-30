@@ -49,6 +49,11 @@ public class Hediff_CryogenicNexus : Hediff_Implant
             _ => 0
         };
 
+    public void ResetInstability()
+    {
+        _instability = 0;
+    }
+
     public override void ExposeData()
     {
         base.ExposeData();

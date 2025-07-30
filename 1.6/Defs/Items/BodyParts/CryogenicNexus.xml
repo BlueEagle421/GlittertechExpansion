@@ -166,4 +166,46 @@
         </incompatibleWithHediffTags>
     </RecipeDef>
 
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>USH_StabilizeCryogenicNexus</defName>
+        <label>stabilize cryogenic nexus</label>
+        <description>This medical operation stabilizes a cryogenic nexus. It's capable of stabilizing on it's own, but depending on instability amount it can take up to few days.</description>
+        <workerClass>USH_GE.Recipe_StabilizeCryogenicNexus</workerClass>
+        <jobString>Stabilizing cryogenic nexus.</jobString>
+        <workAmount>4500</workAmount>
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <isViolation>false</isViolation>
+        <targetsBodyPart>false</targetsBodyPart>
+        <successfullyRemovedHediffMessage>{0} has successfully stabilized {1}'s cryogenic nexus.</successfullyRemovedHediffMessage>
+        <skillRequirements>
+            <Medicine>8</Medicine>
+        </skillRequirements>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>5</count>
+            </li>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Medicine</li>
+                    </categories>
+                </filter>
+                <count>3</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Medicine</li>
+            </categories>
+            <disallowedThingDefs>
+                <li>MedicineHerbal</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+
 </Defs>

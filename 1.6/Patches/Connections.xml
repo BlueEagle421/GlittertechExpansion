@@ -6,6 +6,13 @@
 		<value>
 			<li>USH_ResearchProbe</li>
 		</value>
+
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "Human"]/recipes</xpath>
+		<value>
+			<li>USH_StabilizeCryogenicNexus</li>
+		</value>
 	</Operation>
 
 </Patch>

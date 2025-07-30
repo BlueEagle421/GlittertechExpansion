@@ -57,5 +57,6 @@ public static class USH_DefOf
     public static EffecterDef Cook;
     public static SoundDef Recipe_Drug;
     public static ResearchProjectDef USH_GlittertechUtilitiesRes;
+    public static HediffDef USH_InstalledCryogenicNexus;
 
 }
