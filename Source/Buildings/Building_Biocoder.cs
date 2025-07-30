@@ -178,7 +178,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
     {
         base.BeginBurst();
 
-        ChangeGoodwillNearestFactions(Map, 4, -30);
+        ChangeGoodwillNearestFactions(Map, 5, -35);
         BurnContainedPawn();
     }
 
