@@ -90,8 +90,8 @@
         <defName>USH_DoBillsNeutroamineExtractor</defName>
         <label>make things at neutroamine extractor</label>
         <giverClass>WorkGiver_DoBill</giverClass>
-        <workType>Smithing</workType>
-        <priorityInType>70</priorityInType>
+        <workType>Crafting</workType>
+        <priorityInType>85</priorityInType>
         <fixedBillGiverDefs>
             <li>USH_NeutroamineExtractor</li>
         </fixedBillGiverDefs>

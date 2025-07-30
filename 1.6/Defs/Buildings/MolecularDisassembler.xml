@@ -88,7 +88,7 @@
         <label>make things at molecular disassembler</label>
         <giverClass>WorkGiver_DoBill</giverClass>
         <workType>Smithing</workType>
-        <priorityInType>70</priorityInType>
+        <priorityInType>95</priorityInType>
         <fixedBillGiverDefs>
             <li>USH_MolecularDisassembler</li>
         </fixedBillGiverDefs>

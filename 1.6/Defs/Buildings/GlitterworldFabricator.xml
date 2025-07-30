@@ -148,7 +148,7 @@
         <label>make things at glittertech fabricator</label>
         <giverClass>WorkGiver_DoBill</giverClass>
         <workType>Smithing</workType>
-        <priorityInType>250</priorityInType>
+        <priorityInType>350</priorityInType>
         <fixedBillGiverDefs>
             <li>USH_GlittertechFabricator</li>
         </fixedBillGiverDefs>
