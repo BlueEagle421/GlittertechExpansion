@@ -184,10 +184,10 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>Plasteel</li>
+                        <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
-                <count>5</count>
+                <count>1</count>
             </li>
             <li>
                 <filter>
