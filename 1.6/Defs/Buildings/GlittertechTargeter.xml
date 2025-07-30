@@ -50,7 +50,7 @@
             <li Class="CompProperties_Interactable">
                 <compClass>USH_GE.CompGlittertechTargeter</compClass>
                 <activeTicks>1</activeTicks>
-                <cooldownTicks>720000</cooldownTicks> <!-- 12 days -->
+                <cooldownTicks>1440000</cooldownTicks> <!-- 24 days -->
                 <ticksToActivate>60</ticksToActivate>
                 <jobString>activate</jobString>
                 <onCooldownString>cooling off</onCooldownString>
@@ -77,9 +77,8 @@
         <passability>PassThroughOnly</passability>
         <pathCost>50</pathCost>
         <fillPercent>0.4</fillPercent>
-        <hasTooltip>true</hasTooltip>
         <costList>
-            <Plasteel>120</Plasteel>
+            <Plasteel>180</Plasteel>
             <Steel>250</Steel>
             <ReinforcedBarrel>4</ReinforcedBarrel>
             <ComponentSpacer>6</ComponentSpacer>
