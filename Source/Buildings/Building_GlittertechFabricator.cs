@@ -291,6 +291,9 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
     private void DrawPowerFromNet(float powerToDraw)
     {
+        if (PowerTrader.PowerNet == null)
+            return;
+
         foreach (CompPowerBattery battery in PowerTrader.PowerNet.batteryComps)
         {
             if (powerToDraw >= battery.StoredEnergy)
