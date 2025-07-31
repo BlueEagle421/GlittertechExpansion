@@ -57,9 +57,19 @@
 
     <fixedIngredientFilter>
       <allowWithComp>USH_GE.CompOverclock</allowWithComp>
+      <disallowedSpecialFilters>
+        <li>USH_AllowOverclocked</li>
+      </disallowedSpecialFilters>
     </fixedIngredientFilter>
 
     <defaultIngredientFilter>
+      <categories>
+        <li>WeaponsRanged</li>
+        <li>WeaponsUnique</li>
+      </categories>
+      <disallowedCategories>
+        <li>Grenades</li>
+      </disallowedCategories>
       <allowWithComp>USH_GE.CompOverclock</allowWithComp>
     </defaultIngredientFilter>
 
@@ -71,5 +81,16 @@
     </modExtensions>
 
   </RecipeDef>
+
+  <SpecialThingFilterDef>
+    <defName>USH_AllowOverclocked</defName>
+    <label>allow overclocked firearms</label>
+    <description>Allow overclocked guns.</description>
+    <parentCategory>Weapons</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <configurable>false</configurable>
+    <saveKey>allowOverclocked</saveKey>
+    <workerClass>USH_GE.SpecialThingFilterWorker_Overclocked</workerClass>
+  </SpecialThingFilterDef>
 
 </Defs>
