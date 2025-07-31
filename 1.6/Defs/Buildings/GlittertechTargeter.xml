@@ -98,6 +98,7 @@
             <turretBurstWarmupTime>0</turretBurstWarmupTime>
             <isPlayerEjectable>true</isPlayerEjectable>
         </building>
+        <resourcesFractionWhenDeconstructed>0.25</resourcesFractionWhenDeconstructed>
         <placeWorkers>
             <li>PlaceWorker_NotUnderRoof</li>
         </placeWorkers>
