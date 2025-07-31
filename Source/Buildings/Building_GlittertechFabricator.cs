@@ -237,7 +237,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
         if (WaitingForManualInspection)
         {
-            float bobSpeedDivideBy = 220f;
+            float bobSpeedDivideBy = 350f;
             float minAlpha = 0.25f;
             alpha *= Mathf.Max(minAlpha, Mathf.Abs(Mathf.Sin(FULL_OSCILLATION * GenTicks.TicksGame / bobSpeedDivideBy)));
         }
