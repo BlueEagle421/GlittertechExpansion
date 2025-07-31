@@ -40,15 +40,14 @@
 
     <ThingDef ParentName="UnfinishedBase">
         <defName>USH_UnfinishedHealthItemGlitter</defName>
-        <label>unfinished glitterworld replacement</label>
-        <description>An glitterworld replacement.</description>
+        <label>unfinished glittertech body part</label>
+        <description>An unfinished glittertech body part.</description>
         <statBases>
             <Flammability>0.5</Flammability>
         </statBases>
         <graphicData>
-            <texPath>Things/Item/GlitterworldHealthItem</texPath>
+            <texPath>Things/Item/GlitterworldHealthItemUnfinished</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <color>(170,205,213)</color>
         </graphicData>
         <stuffCategories Inherit="false" />
     </ThingDef>
