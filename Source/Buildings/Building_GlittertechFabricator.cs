@@ -18,9 +18,15 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
     private static readonly Material FormingCycleBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.98f, 0.46f, 0f), false);
     private static readonly Material FormingCycleUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0f, 0f, 0f, 0f), false);
     private EffecterHandler _electricEffecterHandler;
+    private const float FULL_OSCILLATION = Mathf.PI * 2f;
     private const float FADE_DURATION_TICKS = 300f;
     private float _fadeTicks = FADE_DURATION_TICKS;
     private bool _lastPoweredOn = true;
+
+    private float _lastZPos;
+    private float _bobTicks = 0f;
+    private int _lastLocGlobalTick = GenTicks.TicksGame;
+
     public bool PoweredOn => PowerTrader.PowerOn;
 
     private CompPowerTrader _powerTrader;
@@ -201,13 +207,23 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
         float bobHeight = 0.04f;
         float bobSpeedDivideBy = 300f;
-        float fullOscillation = (float)Math.PI * 2f;
         float yOffset = .02f;
 
         result.y += yOffset;
         result.z += GlitterBill.GlittertechExt.fabricatorOffsetY;
-        result.z += Mathf.Sin(fullOscillation * GenTicks.TicksGame / bobSpeedDivideBy) * bobHeight;
 
+        int currentTick = GenTicks.TicksGame;
+        int deltaTicks = currentTick - _lastLocGlobalTick;
+        _lastLocGlobalTick = currentTick;
+
+        if (!WaitingForManualInspection)
+            _bobTicks += deltaTicks;
+
+
+        float angle = _bobTicks * FULL_OSCILLATION / bobSpeedDivideBy;
+        _lastZPos = Mathf.Sin(angle) * bobHeight;
+
+        result.z += _lastZPos;
         return result;
     }
 
@@ -219,8 +235,19 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
             ? Mathf.Lerp(0f, 1f, t)
             : Mathf.Lerp(1f, 0f, t);
 
+        if (WaitingForManualInspection)
+        {
+            float bobSpeedDivideBy = 220f;
+            float minAlpha = 0.25f;
+            alpha *= Mathf.Max(minAlpha, Mathf.Abs(Mathf.Sin(FULL_OSCILLATION * GenTicks.TicksGame / bobSpeedDivideBy)));
+        }
+
         return alpha;
     }
+
+    private bool WaitingForManualInspection
+        => GlitterBill != null
+            && (GlitterBill.State == FormingState.Preparing || GlitterBill.State == FormingState.Formed);
 
     private Material GetFormingThingMat()
     {
