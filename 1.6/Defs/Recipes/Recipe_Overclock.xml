@@ -56,19 +56,19 @@
     </ingredients>
 
     <fixedIngredientFilter>
-      <allowWithComp>USH_GE.CompOverclock</allowWithComp>
       <disallowedSpecialFilters>
         <li>USH_AllowOverclocked</li>
       </disallowedSpecialFilters>
+      <allowWithComp>USH_GE.CompOverclock</allowWithComp>
     </fixedIngredientFilter>
 
     <defaultIngredientFilter>
       <categories>
         <li>WeaponsRanged</li>
-        <li>WeaponsUnique</li>
       </categories>
       <disallowedCategories>
         <li>Grenades</li>
+        <li>WeaponsUnique</li>
       </disallowedCategories>
       <allowWithComp>USH_GE.CompOverclock</allowWithComp>
     </defaultIngredientFilter>

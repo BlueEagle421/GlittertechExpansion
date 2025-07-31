@@ -65,7 +65,6 @@
         </grains>
         <volumeRange>28</volumeRange>
         <pitchRange>0.8~1.2</pitchRange>
-        <distRange>0~51.86047</distRange>
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>
@@ -84,7 +83,6 @@
         </grains>
         <volumeRange>18</volumeRange>
         <pitchRange>0.8~1.2</pitchRange>
-        <distRange>0~51.86047</distRange>
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>
