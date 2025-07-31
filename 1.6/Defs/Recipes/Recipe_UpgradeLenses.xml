@@ -115,10 +115,18 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_CryogenicNexus</li>
+            <li>Neutroamine</li>
           </thingDefs>
         </filter>
-        <count>1</count>
+        <count>50</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Uranium</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
       </li>
     </ingredients>
     <products>
