@@ -10,6 +10,7 @@ namespace USH_GE;
 
 public static class NeutroamineRecipeDefGenerator
 {
+    private static HashSet<string> _addedRecipesDefNames = [];
     public static IEnumerable<RecipeDef> ImpliedRecipeDefs(bool hotReload = false)
     {
         foreach (RecipeDef item in BeginRecipesGeneration(hotReload))
@@ -49,7 +50,10 @@ public static class NeutroamineRecipeDefGenerator
 
             try
             {
-                result.Add(CreateRecipeDefFromNeutroamineItem(product.thingDef, recipe, hotReload));
+                var toAdd = CreateRecipeDefFromNeutroamineItem(product.thingDef, recipe, hotReload);
+
+                if (toAdd != null)
+                    result.Add(toAdd);
             }
             catch (Exception e)
             {
@@ -86,17 +90,22 @@ public static class NeutroamineRecipeDefGenerator
         RecipeDef recipeDef = hotReload ? (DefDatabase<RecipeDef>.GetNamed(defName, errorOnFail: false) ?? new RecipeDef()) : new RecipeDef();
         recipeDef.defName = defName;
 
-        recipeDef.label = GetRecipeLabel(def, originalCount);
-
-        recipeDef.jobString = "USH_GE_NeutroamineJobString".Translate(def.label);
-        recipeDef.modContentPack = USH_DefOf.USH_GlittertechFabrication.modContentPack;
+        int ingredientsCount = GetIngredientsCount(originalCount);
 
         SetProductsAndIngredients(
             def,
-            originalCount,
+            ingredientsCount,
             originalRecipe,
             ref recipeDef,
             out int countToExtract);
+
+        recipeDef.label = GetRecipeLabel(def, ingredientsCount, countToExtract);
+
+        if (_addedRecipesDefNames.Contains(recipeDef.defName))
+            return null;
+
+        recipeDef.jobString = "USH_GE_NeutroamineJobString".Translate(def.label);
+        recipeDef.modContentPack = USH_DefOf.USH_GlittertechFabrication.modContentPack;
 
         int workPerNeutroamine = 720;
         recipeDef.workAmount = countToExtract * workPerNeutroamine;
@@ -120,17 +129,23 @@ public static class NeutroamineRecipeDefGenerator
         recipeDef.description = "USH_GE_NeutroamineRecipeDesc".Translate(countToExtract, originalCount, def.label);
         recipeDef.descriptionHyperlinks = [USH_DefOf.Neutroamine];
 
+        _addedRecipesDefNames.Add(recipeDef.defName);
         return recipeDef;
     }
 
-    private static string GetRecipeLabel(ThingDef def, int originalCount)
+    private static int GetIngredientsCount(int originalCount)
     {
-        string recipeLabel = "USH_GE_NeutroamineRecipeLabel".Translate(def.label);
-
         int ingredientCount = originalCount;
 
         if (GE_Mod.Settings.DoubleNeutroamineCost.Value)
             ingredientCount *= 2;
+
+        return ingredientCount;
+    }
+
+    private static string GetRecipeLabel(ThingDef def, int ingredientCount, int toExtract)
+    {
+        string recipeLabel = "USH_GE_NeutroamineRecipeLabel".Translate(def.label, toExtract);
 
         if (ingredientCount > 1)
             recipeLabel += $" x{ingredientCount}";
@@ -140,7 +155,7 @@ public static class NeutroamineRecipeDefGenerator
 
     private static void SetProductsAndIngredients(
         ThingDef def,
-        int originalCount,
+        int ingredientCount,
         RecipeDef originalRecipe,
         ref RecipeDef toModify,
         out int countToExtract)
@@ -150,12 +165,7 @@ public static class NeutroamineRecipeDefGenerator
 
         toModify.products = [new ThingDefCountClass() { thingDef = USH_DefOf.Neutroamine, count = countToExtract }];
 
-        int countMultiplier = 1;
-
-        if (GE_Mod.Settings.DoubleNeutroamineCost.Value)
-            countMultiplier = 2;
-
-        toModify.ingredients = [ForThingDef(def, originalCount * countMultiplier)];
+        toModify.ingredients = [ForThingDef(def, ingredientCount)];
     }
 
     private static readonly ConstructorInfo _ctor = AccessTools.Constructor(typeof(IngredientCount));

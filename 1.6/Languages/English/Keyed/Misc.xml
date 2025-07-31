@@ -121,7 +121,7 @@
   <USH_GE_SocketEmptyDesc>An empty upgrade socket for providing the mechanites coating with additional instructions.</USH_GE_SocketEmptyDesc>
 
   <USH_GE_NeutroamineJobString>Extracting neutroamine from {0}</USH_GE_NeutroamineJobString>
-  <USH_GE_NeutroamineRecipeLabel>Extract neutroamine from {0}</USH_GE_NeutroamineRecipeLabel>
+  <USH_GE_NeutroamineRecipeLabel>Extract neutroamine x{1} from {0}</USH_GE_NeutroamineRecipeLabel>
   <USH_GE_NeutroamineRecipeDesc>Extract (neutroamine x{0}) from ({2} x{1})</USH_GE_NeutroamineRecipeDesc>
 
   <!-- Settings -->
