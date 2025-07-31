@@ -101,7 +101,6 @@
         </grains>
         <volumeRange>25</volumeRange>
         <sustainLoop>False</sustainLoop>
-        <distRange>15~40</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -119,7 +118,6 @@
         </grains>
         <volumeRange>36</volumeRange>
         <sustainLoop>False</sustainLoop>
-        <distRange>15~40</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -137,7 +135,6 @@
         </grains>
         <volumeRange>20</volumeRange>
         <sustainLoop>False</sustainLoop>
-        <distRange>15~40</distRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -158,7 +155,6 @@
           </li>
         </grains>
         <volumeRange>38</volumeRange>
-        <distRange>15~40</distRange>
       </li>
     </subSounds>
   </SoundDef>
