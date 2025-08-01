@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -10,6 +11,7 @@ namespace USH_GE;
 
 public static class NeutroamineRecipeDefGenerator
 {
+    private static Regex _disallowedCharRegex;
     private static HashSet<string> _addedRecipesDefNames = [];
     public static IEnumerable<RecipeDef> ImpliedRecipeDefs(bool hotReload = false)
     {
@@ -19,6 +21,8 @@ public static class NeutroamineRecipeDefGenerator
 
     private static IEnumerable<RecipeDef> BeginRecipesGeneration(bool hotReload = false)
     {
+        GetDisallowedChars();
+
         List<RecipeDef> result = [];
 
         try
@@ -32,6 +36,19 @@ public static class NeutroamineRecipeDefGenerator
 
         foreach (var recipeDef in result)
             yield return recipeDef;
+    }
+
+    private static void GetDisallowedChars()
+    {
+        try
+        {
+            var fi = AccessTools.Field(typeof(Def), "DisallowedLabelCharsRegex");
+            _disallowedCharRegex = (Regex)fi.GetValue(null);
+        }
+        catch (Exception ex)
+        {
+            Log.Warning($"[Glittertech Expansion] failed to load DisallowedLabelCharsRegex: {ex}");
+        }
     }
 
     private static List<RecipeDef> DefsFromNeutroamineItems(List<RecipeDef> recipes, bool hotReload = false)
@@ -100,6 +117,9 @@ public static class NeutroamineRecipeDefGenerator
             out int countToExtract);
 
         recipeDef.label = GetRecipeLabel(def, ingredientsCount, countToExtract);
+
+        if (_disallowedCharRegex.IsMatch(recipeDef.label))
+            return null;
 
         if (_addedRecipesDefNames.Contains(recipeDef.defName))
             return null;
