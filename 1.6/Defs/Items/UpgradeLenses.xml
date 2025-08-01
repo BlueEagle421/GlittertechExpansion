@@ -69,6 +69,7 @@
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
                 <upgradeLabel>quickdraw</upgradeLabel>
+                <burstShotSpeedMultiplier>1.35</burstShotSpeedMultiplier>
                 <statOffsets>
                     <RangedWeapon_WarmupMultiplier>-0.16</RangedWeapon_WarmupMultiplier>
                     <RangedWeapon_Cooldown>-0.28</RangedWeapon_Cooldown>

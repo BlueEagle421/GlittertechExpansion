@@ -13,30 +13,6 @@
       <li>
         <filter>
           <thingDefs>
-            <li>Silver</li>
-          </thingDefs>
-        </filter>
-        <count>4</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>Plasteel</li>
-          </thingDefs>
-        </filter>
-        <count>25</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>MedicineUltratech</li>
-          </thingDefs>
-        </filter>
-        <count>4</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
             <li>Neurotrainer_Shooting</li>
           </thingDefs>
         </filter>
@@ -155,14 +131,6 @@
           </thingDefs>
         </filter>
         <count>80</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ComponentSpacer</li>
-          </thingDefs>
-        </filter>
-        <count>2</count>
       </li>
     </ingredients>
     <products>

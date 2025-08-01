@@ -124,6 +124,9 @@
   <USH_GE_NeutroamineRecipeLabel>Extract neutroamine x{1} from {0}</USH_GE_NeutroamineRecipeLabel>
   <USH_GE_NeutroamineRecipeDesc>Extract (neutroamine x{0}) from ({2} x{1})</USH_GE_NeutroamineRecipeDesc>
 
+  <USH_GE__BurstShotSpeedMultiplier>Fire rate multiplier</USH_GE__BurstShotSpeedMultiplier>
+  <USH_GE__BurstShotSpeedMultiplierDesc>A multiplier applied to this weapon's time between shots.</USH_GE__BurstShotSpeedMultiplierDesc>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>
