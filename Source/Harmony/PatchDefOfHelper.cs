@@ -21,7 +21,7 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
 
                 try
                 {
-                    if (def.IsRangedWeapon && def.techLevel >= TechLevel.Spacer)
+                    if (ShouldBeOverclockable(def))
                         (def.comps ??= []).Add(PropertiesToAdd);
                 }
                 catch (Exception innerEx)
@@ -34,6 +34,23 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
         {
             Log.Warning($"[Glittertech Expansion] unexpected error in RebindAllDefOfs postfix. The overclock feature is disabled: {ex}");
         }
+    }
+
+    private static bool ShouldBeOverclockable(ThingDef def)
+    {
+        if (!def.IsRangedWeapon)
+            return false;
+
+        if (def.techLevel < TechLevel.Spacer)
+            return false;
+
+        if (ModLister.OdysseyInstalled && def.thingCategories.Contains(ThingCategoryDefOf.WeaponsUnique))
+            return false;
+
+        if (def.thingCategories.Contains(USH_DefOf.Grenades))
+            return false;
+
+        return true;
     }
 
     private static CompProperties_Overclock PropertiesToAdd

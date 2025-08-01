@@ -66,10 +66,6 @@
       <categories>
         <li>WeaponsRanged</li>
       </categories>
-      <disallowedCategories>
-        <li>Grenades</li>
-        <li>WeaponsUnique</li>
-      </disallowedCategories>
       <allowWithComp>USH_GE.CompOverclock</allowWithComp>
     </defaultIngredientFilter>
 

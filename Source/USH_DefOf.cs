@@ -59,4 +59,5 @@ public static class USH_DefOf
     public static SoundDef Recipe_Drug;
     public static ResearchProjectDef USH_GlittertechUtilitiesRes;
     public static HediffDef USH_InstalledCryogenicNexus;
+    public static ThingCategoryDef Grenades;
 }
