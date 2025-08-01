@@ -13,7 +13,9 @@ public sealed class FloatMenuOptionProvider_CarryToBiocoder : FloatMenuOptionPro
 
     protected override FloatMenuOption GetSingleOptionFor(Pawn targetPawn, FloatMenuContext context)
     {
-        if (targetPawn.IsPlayerControlled && !targetPawn.Downed)
+        if (targetPawn.Faction != Faction.OfPlayer
+            && targetPawn.GuestStatus != GuestStatus.Prisoner
+            && !targetPawn.Downed)
             return null;
 
         if (!CanReserveAndReachTarget(context.FirstSelectedPawn, targetPawn))
