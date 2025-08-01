@@ -53,6 +53,18 @@ public class QuestNode_AncientForces : QuestNode
         var slate = QuestGen.slate;
         var site = mapParent.GetValue(slate);
         var tile = site.Tile;
+
+        var allForces = Enumerable.Concat(HandleAncientForces(slate, tile, site), HandleMechForces(slate, tile, site));
+
+        QuestGen.AddQuestDescriptionRules(
+        [
+            new Rule_String("forces_description",
+                PawnUtility.PawnKindsToLineList(allForces, "  - ", ColoredText.ThreatColor))
+        ]);
+    }
+
+    private IEnumerable<PawnKindDef> HandleAncientForces(Slate slate, int tile, MapParent site)
+    {
         var parms = new PawnGroupMakerParms_Saveable
         {
             groupKind = PawnGroupKindDefOf.Combat,
@@ -73,11 +85,34 @@ public class QuestNode_AncientForces : QuestNode
             lord = lord.GetValue(slate) ?? QuestNode_MakeLord.LordJobType.Defend
         });
 
-        QuestGen.AddQuestDescriptionRules(new List<Rule>
+        return PawnGroupMakerUtility.GeneratePawnKindsExample(parms);
+    }
+
+    private IEnumerable<PawnKindDef> HandleMechForces(Slate slate, int tile, MapParent site)
+    {
+        float basePoints = points.GetValue(slate) * (pointsFactor.GetValue(slate) ?? 1f);
+        float mechPoints = basePoints * 0.5f;
+
+        var parms = new PawnGroupMakerParms_Saveable
         {
-            new Rule_String("forces_description",
-                PawnUtility.PawnKindsToLineList(PawnGroupMakerUtility.GeneratePawnKindsExample(parms), "  - ", ColoredText.ThreatColor))
+            groupKind = PawnGroupKindDefOf.Combat,
+            faction = Faction.OfMechanoids,
+            points = mechPoints,
+            generateFightersOnly = true,
+            inhabitants = true,
+            tile = tile,
+            seed = Gen.HashCombineInt(Find.World.info.Seed, tile)
+        };
+
+        QuestGen.quest.AddPart(new QuestPart_SpawnForces
+        {
+            inSignal = QuestGenUtility.HardcodedSignalWithQuestID(inSignal.GetValue(slate)) ?? slate.Get<string>("inSignal"),
+            mapParent = site,
+            parms = parms,
+            lord = lord.GetValue(slate) ?? QuestNode_MakeLord.LordJobType.Defend
         });
+
+        return PawnGroupMakerUtility.GeneratePawnKindsExample(parms);
     }
 
     protected override bool TestRunInt(Slate slate) => points.GetValue(slate) > 0f;
@@ -99,8 +134,12 @@ public class QuestPart_SpawnForces : QuestPart
             var forces = PawnGroupMakerUtility.GeneratePawns(parms).ToList();
             Rand.PushState(Gen.HashCombineInt(Find.World.info.Seed, mapParent.Tile));
             foreach (var pawn in forces)
+            {
+                pawn.SetFaction(Faction.OfAncientsHostile);
                 if (CellFinder.TryFindRandomCellNear(map.Center, map, 16, x => x.Standable(map), out var cell))
                     GenSpawn.Spawn(pawn, cell, map);
+            }
+
             LordMaker.MakeNewLord(Faction.OfAncientsHostile, lord switch
             {
                 QuestNode_MakeLord.LordJobType.Assault => new LordJob_AssaultColony(Faction.OfAncientsHostile, false, false, false, true, false),
