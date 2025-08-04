@@ -40,6 +40,9 @@
     <products>
       <USH_UpgradeDamage>1</USH_UpgradeDamage>
     </products>
+    <descriptionHyperlinks>
+      <ThingDef>USH_UpgradeDamage</ThingDef>
+    </descriptionHyperlinks>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
@@ -60,6 +63,9 @@
     <products>
       <USH_UpgradeRange>1</USH_UpgradeRange>
     </products>
+    <descriptionHyperlinks>
+      <ThingDef>USH_UpgradeRange</ThingDef>
+    </descriptionHyperlinks>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
@@ -80,6 +86,9 @@
     <products>
       <USH_UpgradeSpeed>1</USH_UpgradeSpeed>
     </products>
+    <descriptionHyperlinks>
+      <ThingDef>USH_UpgradeSpeed</ThingDef>
+    </descriptionHyperlinks>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
@@ -108,6 +117,9 @@
     <products>
       <USH_UpgradeStability>1</USH_UpgradeStability>
     </products>
+    <descriptionHyperlinks>
+      <ThingDef>USH_UpgradeStability</ThingDef>
+    </descriptionHyperlinks>
   </RecipeDef>
 
   <RecipeDef ParentName="USH_UpgradeLensRecipeBase">
@@ -136,6 +148,9 @@
     <products>
       <USH_UpgradeArmor>1</USH_UpgradeArmor>
     </products>
+    <descriptionHyperlinks>
+      <ThingDef>USH_UpgradeArmor</ThingDef>
+    </descriptionHyperlinks>
   </RecipeDef>
 
 </Defs>
