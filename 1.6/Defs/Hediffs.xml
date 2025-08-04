@@ -5,6 +5,7 @@
         <defName>USH_PostMemoryExtraction</defName>
         <label>memory extraction</label>
         <description>Weakened brain tissue caused by memory extraction that will safely regenerate over time.</description>
+        <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
         <comps>
             <li Class="HediffCompProperties_Disappears">
                 <showRemainingTime>true</showRemainingTime>
