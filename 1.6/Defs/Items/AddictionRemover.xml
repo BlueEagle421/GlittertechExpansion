@@ -4,7 +4,7 @@
   <ThingDef ParentName="DrugBase">
     <defName>USH_AddictionRemover</defName>
     <label>addiction remover</label>
-    <description>A spacer device designed for use on intoxicated patients. Using a high dose of chemicals and targeted neurotransmitters, it is capable of restoring an addicted mind to a peaceful state. It’s a trusted companion of glitterworld aristocracy and hard drug enthusiasts alike.</description>
+    <description>An advanced device designed for use on intoxicated patients. Using a high dose of chemicals and targeted neurotransmitters, it is capable of restoring an addicted mind to a peaceful state.\n\nIt’s a trusted companion of glitterworld aristocracy and hard drug enthusiasts alike.</description>
     <graphicData>
       <texPath>Things/Item/AddictionRemover</texPath>
       <graphicClass>Graphic_Single</graphicClass>

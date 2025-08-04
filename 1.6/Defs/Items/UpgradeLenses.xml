@@ -25,7 +25,7 @@
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeDamage</defName>
         <label>upgrade lens (power)</label>
-        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a damage boost.</description>
+        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating.\n\nThis variant grants a damage boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeDamage</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -43,7 +43,7 @@
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeRange</defName>
         <label>upgrade lens (spotting)</label>
-        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a range boost.</description>
+        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating.\n\nThis variant grants a range boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeRange</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -61,7 +61,7 @@
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeSpeed</defName>
         <label>upgrade lens (quickdraw)</label>
-        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants a cooldown and warmup time reduction.</description>
+        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating.\n\nThis variant grants a cooldown and warmup time reduction.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeSpeed</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -81,7 +81,7 @@
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeStability</defName>
         <label>upgrade lens (stability)</label>
-        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant prevents the firearm from spontaneous and post mortem ignition.</description>
+        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating.\n\nThis variant prevents the firearm from spontaneous and post mortem ignition.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeStability</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -97,7 +97,7 @@
     <ThingDef ParentName="USH_UpgradeBase">
         <defName>USH_UpgradeArmor</defName>
         <label>upgrade lens (piercing)</label>
-        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating. This variant grants an armor penetration boost.</description>
+        <description>A glittertech socket containing specialized instructions for mechanites within the overclocked firearm coating.\n\nThis variant grants an armor penetration boost.</description>
         <graphicData>
             <texPath>Things/Item/UpgradeArmor</texPath>
             <graphicClass>Graphic_Single</graphicClass>

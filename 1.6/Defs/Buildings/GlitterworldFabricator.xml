@@ -4,7 +4,7 @@
     <ThingDef ParentName="BenchBase">
         <defName>USH_GlittertechFabricator</defName>
         <label>glittertech fabricator</label>
-        <description>An advanced workstation filled with medicine-based mechanites capable of recreating glitterworld technology. While the advanced processors can handle most of the procedure by themselves, occasional human supervision is still necessary to manually guide the internal computer. Only then the machine can finish a recipe.\n\nIt requires a significant amount of power stored in batteries to initiate the long process of recipe formation.</description>
+        <description>An advanced workstation filled with medicine-based mechanites capable of recreating glitterworld technology. While the advanced processors can handle most of the procedure by themselves, occasional human supervision is still necessary to manually guide the internal computer.\n\nIt requires a significant amount of power stored in batteries to initiate the long process of recipe formation.</description>
         <thingClass>USH_GE.Building_GlittertechFabricator</thingClass>
         <graphicData>
             <texPath>Things/Building/GlittertechFabricator</texPath>

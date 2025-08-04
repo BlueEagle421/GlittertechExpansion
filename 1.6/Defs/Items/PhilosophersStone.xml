@@ -4,8 +4,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>USH_PhilosophersStone</defName>
     <label>philosopher's stone</label>
-    <description>Is your life gray and dim? Paint it gold and change your view in a snap of a finger!
-      \nAn advanced device used for glitterworld alchemy. It is capable of changing the atomic structure of objects, especially when it comes to steel and gold. It is extremely easy to use, but harder to craft. This device has caused a rampant riot of robberies ever since aristocrats used it to satisfy their royal preferences, while the poor found it an opportunity to improve their standard of living.</description>
+    <description>An advanced device capable of changing the atomic structure of objects. It is extremely easy to use, but harder to craft. This device has caused a rampant riot of robberies ever since aristocrats used it to satisfy their royal preferences, while the poor found it an opportunity to improve their standard of living.</description>
     <graphicData>
       <texPath>Things/Item/PhilosophersStone</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
