@@ -60,7 +60,7 @@
             <options>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -74,7 +74,7 @@
               </li>
 
               <li>
-                <weight>0.1</weight>
+                <weight>0.15</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -88,7 +88,7 @@
               </li>
 
               <li>
-                <weight>0.1</weight>
+                <weight>0.15</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -102,7 +102,7 @@
               </li>
 
               <li>
-                <weight>0.1</weight>
+                <weight>0.15</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -124,7 +124,7 @@
             <options>
 
               <li>
-                <weight>1</weight>
+                <weight>0.7</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -138,7 +138,7 @@
               </li>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -152,7 +152,7 @@
               </li>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -166,7 +166,7 @@
               </li>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -180,7 +180,7 @@
               </li>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -194,7 +194,7 @@
               </li>
 
               <li>
-                <weight>1</weight>
+                <weight>0.5</weight>
                 <thingSetMaker Class="ThingSetMaker_Count">
                   <fixedParams>
                     <filter>
@@ -245,6 +245,20 @@
                       </thingDefs>
                     </filter>
                     <countRange>20~60</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>Gold</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>20~30</countRange>
                   </fixedParams>
                 </thingSetMaker>
               </li>
