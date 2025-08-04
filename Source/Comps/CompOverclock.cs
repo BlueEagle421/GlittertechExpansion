@@ -258,6 +258,7 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     {
         base.PostExposeData();
 
+        Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         Scribe_Values.Look(ref IsOverclocked, "IsOverclocked");
     }
 }
