@@ -34,7 +34,7 @@
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
                 <upgradeLabel>power</upgradeLabel>
                 <statOffsets>
-                    <RangedWeapon_DamageMultiplier>0.12</RangedWeapon_DamageMultiplier>
+                    <RangedWeapon_DamageMultiplier>0.15</RangedWeapon_DamageMultiplier>
                 </statOffsets>
             </li>
         </comps>
@@ -69,7 +69,7 @@
         <comps>
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
                 <upgradeLabel>quickdraw</upgradeLabel>
-                <burstShotSpeedMultiplier>1.35</burstShotSpeedMultiplier>
+                <burstShotSpeedMultiplier>1.25</burstShotSpeedMultiplier>
                 <statOffsets>
                     <RangedWeapon_WarmupMultiplier>-0.16</RangedWeapon_WarmupMultiplier>
                     <RangedWeapon_Cooldown>-0.28</RangedWeapon_Cooldown>
@@ -106,7 +106,7 @@
             <li Class="USH_GE.CompProperties_OverclockUpgrade">
                 <upgradeLabel>piercing</upgradeLabel>
                 <statOffsets>
-                    <RangedWeapon_ArmorPenetrationMultiplier>0.24</RangedWeapon_ArmorPenetrationMultiplier>
+                    <RangedWeapon_ArmorPenetrationMultiplier>0.25</RangedWeapon_ArmorPenetrationMultiplier>
                 </statOffsets>
             </li>
         </comps>
