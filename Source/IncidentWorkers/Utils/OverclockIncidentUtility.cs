@@ -31,7 +31,7 @@ public static class OverclockIncidentUtility
         if (pawn?.equipment?.Primary is not ThingWithComps thing)
             return false;
 
-        if (pawn.health?.hediffSet?.HasHediff(USH_DefOf.USH_InstalledCryogenicNexus) == true)
+        if (Mathf.Approximately(pawn.GetStatValue(StatDefOf.Flammability), 0f))
             return false;
 
         if (!thing.TryGetComp(out CompOverclock compOverclock))

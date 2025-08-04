@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef ParentName="DiseaseBase">
+        <defName>USH_PostMemoryExtraction</defName>
+        <label>memory extraction</label>
+        <description>Weakened brain tissue caused by memory extraction that will safely regenerate over time.</description>
+        <comps>
+            <li Class="HediffCompProperties_Disappears">
+                <showRemainingTime>true</showRemainingTime>
+            </li>
+        </comps>
+        <stages>
+            <li></li>
+        </stages>
+    </HediffDef>
+
+</Defs>

@@ -39,7 +39,9 @@ public class FloatMenuOptionProvider_MemoryCellEmpty : FloatMenuOptionProvider
     {
         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
         {
-            GiveJobToPawn(p, target, item);
+            if (target.Pawn is Pawn pTarget && pTarget.CanHaveMemoryExtract())
+                GiveJobToPawn(p, target, item);
+
         }, null, null, null, null, null, playSoundOnAction: true, delegate (LocalTargetInfo target)
         {
             if (target.Pawn is Pawn pTarget)

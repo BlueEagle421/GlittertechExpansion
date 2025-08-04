@@ -51,5 +51,7 @@ public class JobDriver_CloneMemory : JobDriver
 
         MemoryUtils.CreateNewMemoryCell(PawnToSampleFrom.Map, [.. PawnToSampleFrom.CellsAdjacent8WayAndInside()], thought);
         MemoryCell.SplitOff(1).Destroy(DestroyMode.Vanish);
+
+        MemoryUtils.CreatePostExtractionHediff(PawnToSampleFrom, thought as Thought_Memory);
     }
 }

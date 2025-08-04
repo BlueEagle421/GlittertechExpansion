@@ -18,6 +18,9 @@ public static class MemoryUtils
         if (p.needs.mood.thoughts.memories.Memories.NullOrEmpty())
             return "USH_GE_NoMemories".Translate();
 
+        if (p.health.hediffSet.HasHediff(USH_DefOf.USH_PostMemoryExtraction))
+            return "USH_GE_RecentExtraction".Translate();
+
         return true;
     }
 
@@ -81,6 +84,17 @@ public static class MemoryUtils
 
         GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
     }
+
+    public static void CreatePostExtractionHediff(Pawn p, Thought_Memory memory)
+    {
+        int targetTickDuration = memory.DurationTicks - memory.age;
+
+        HediffDef def = USH_DefOf.USH_PostMemoryExtraction;
+
+        Hediff created = p.health.AddHediff(def);
+        created.TryGetComp<HediffComp_Disappears>().SetDuration(targetTickDuration);
+    }
+
 
     public static float MoodOffsetForClonedMemory(Pawn p, MemoryCellData cellData)
     {

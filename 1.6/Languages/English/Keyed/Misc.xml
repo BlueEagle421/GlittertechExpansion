@@ -56,7 +56,8 @@
   <USH_GE_UseMemoryCellEmpty>Use {0}</USH_GE_UseMemoryCellEmpty>
   <USH_GE_CannotExtract>Cannot extract</USH_GE_CannotExtract>
   <USH_GE_NoEmotion>No emotions</USH_GE_NoEmotion>
-  <USH_GE_NoEmotion>No memories</USH_GE_NoEmotion>
+  <USH_GE_NoMemories>No memories</USH_GE_NoMemories>
+  <USH_GE_RecentExtraction>Too weak from recent extraction</USH_GE_RecentExtraction>
   <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
   <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
   <USH_GE_NauseaMsg>The sudden position change gave {PAWN} telepad nausea</USH_GE_NauseaMsg>
