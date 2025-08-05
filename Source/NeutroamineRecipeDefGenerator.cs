@@ -11,12 +11,16 @@ namespace USH_GE;
 
 public static class NeutroamineRecipeDefGenerator
 {
+    private static HashSet<string> _omittedDefNames = [];
     private static Regex _disallowedCharRegex;
     private static HashSet<string> _addedRecipesDefNames = [];
     public static IEnumerable<RecipeDef> ImpliedRecipeDefs(bool hotReload = false)
     {
         foreach (RecipeDef item in BeginRecipesGeneration(hotReload))
             yield return item;
+
+        if (!_omittedDefNames.NullOrEmpty())
+            Log.Message("[Glittertech Expansion] Recipe defs omitted for neutroamine extraction: " + string.Join(", ", _omittedDefNames));
     }
 
     private static IEnumerable<RecipeDef> BeginRecipesGeneration(bool hotReload = false)
@@ -57,11 +61,9 @@ public static class NeutroamineRecipeDefGenerator
 
         foreach (var recipe in recipes)
         {
-            var report = CanGenerateFromRecipe(recipe, out var product);
-
-            if (!report)
+            if (!CanGenerateFromRecipe(recipe, out var product))
             {
-                Log.Warning($"[Glittertech Expansion] Recipe '{recipe.defName}' {report.Reason}");
+                _omittedDefNames.Add(recipe.defName);
                 continue;
             }
 
@@ -72,26 +74,26 @@ public static class NeutroamineRecipeDefGenerator
                 if (toAdd != null)
                     result.Add(toAdd);
             }
-            catch (Exception e)
+            catch
             {
-                Log.Warning($"[Glittertech Expansion] Failed to patch ThingDef '{product.thingDef.defName}': {e}");
+                _omittedDefNames.Add(recipe.defName);
             }
         }
 
         return result;
     }
 
-    private static AcceptanceReport CanGenerateFromRecipe(RecipeDef recipe, out ThingDefCountClass product)
+    private static bool CanGenerateFromRecipe(RecipeDef recipe, out ThingDefCountClass product)
     {
         product = null;
 
         if (recipe.products.NullOrEmpty())
-            return "has no products";
+            return false;
 
         product = recipe.products[0];
 
         if (product.thingDef == null)
-            return "has a null product or thingDef";
+            return false;
 
         return true;
     }

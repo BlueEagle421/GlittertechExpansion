@@ -9,6 +9,8 @@ namespace USH_GE;
 [HarmonyPatch(typeof(DefOfHelper), nameof(DefOfHelper.RebindAllDefOfs))]
 public static class Patch_DefOfHelper_RebindAllDefOfs
 {
+    private static HashSet<string> _omittedDefNames = [];
+
     static void Postfix(bool earlyTryMode)
     {
         if (earlyTryMode)
@@ -16,23 +18,30 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
 
         try
         {
-            foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
-            {
-
-                try
-                {
-                    if (ShouldBeOverclockable(def))
-                        (def.comps ??= []).Add(PropertiesToAdd);
-                }
-                catch (Exception innerEx)
-                {
-                    Log.Warning($"[Glittertech Expansion] while adding overclock comp failed to patch ThingDef '{def.defName}': {innerEx}");
-                }
-            }
+            PatchAllDefs();
         }
         catch (Exception ex)
         {
             Log.Warning($"[Glittertech Expansion] unexpected error in RebindAllDefOfs postfix. The overclock feature is disabled: {ex}");
+        }
+
+        if (!_omittedDefNames.NullOrEmpty())
+            Log.Message("[Glittertech Expansion] Thing defs omitted for overclocking: " + string.Join(", ", _omittedDefNames));
+    }
+
+    private static void PatchAllDefs()
+    {
+        foreach (var def in DefDatabase<ThingDef>.AllDefsListForReading)
+        {
+            try
+            {
+                if (ShouldBeOverclockable(def))
+                    (def.comps ??= []).Add(PropertiesToAdd);
+            }
+            catch
+            {
+                _omittedDefNames.Add(def.defName);
+            }
         }
     }
 
