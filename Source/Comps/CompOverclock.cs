@@ -48,6 +48,8 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
+        innerContainer ??= new ThingOwner<Thing>(this, oneStackOnly: false);
+
         _cellComp = ContainedThing?.TryGetComp<CompOverclockUpgrade>();
     }
 
@@ -257,6 +259,12 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     public override void PostExposeData()
     {
         base.PostExposeData();
+
+        if ((Scribe.mode == LoadSaveMode.LoadingVars || Scribe.mode == LoadSaveMode.ResolvingCrossRefs)
+            && innerContainer == null)
+        {
+            innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
+        }
 
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
         Scribe_Values.Look(ref IsOverclocked, "IsOverclocked");
