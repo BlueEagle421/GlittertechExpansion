@@ -13,14 +13,6 @@
       <li>
         <filter>
           <thingDefs>
-            <li>Silver</li>
-          </thingDefs>
-        </filter>
-        <count>6</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
             <li>ThrumboHorn</li>
           </thingDefs>
         </filter>
