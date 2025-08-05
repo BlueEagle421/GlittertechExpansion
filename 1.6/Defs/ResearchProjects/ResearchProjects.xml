@@ -162,7 +162,7 @@
         <defName>USH_OverclockRes</defName>
         <label>Firearms overclocking</label>
         <description>Learn how to overclock inner weapon components with an advanced mechanites coating designed to make firearms more efficient and form additional upgrades.\n\nWeapons with this powerful yet unstable mechanism are known to sporadically combust unless they're stabilized by upgrades or their user is non-flammable.\n\nThe overclocking recipe will be available at the glittertech fabricator.</description>
-        <baseCost>3000</baseCost>
+        <baseCost>5000</baseCost>
         <prerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
@@ -174,7 +174,7 @@
         <defName>USH_SkinRes</defName>
         <label>Glitterworld ascension</label>
         <description>Learn about the great secrets of glitterworld medicine and build powerful body parts.</description>
-        <baseCost>6000</baseCost>
+        <baseCost>7000</baseCost>
         <prerequisites>
             <li>USH_TeethRes</li>
             <li>USH_OverclockRes</li>

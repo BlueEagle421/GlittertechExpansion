@@ -3,7 +3,7 @@
 
     <HediffDef ParentName="DiseaseBase">
         <defName>USH_PostMemoryExtraction</defName>
-        <label>memory extraction</label>
+        <label>post memory extraction</label>
         <description>Weakened brain tissue caused by memory extraction that will safely regenerate over time.</description>
         <defaultLabelColor>(1, 1, 1)</defaultLabelColor>
         <comps>

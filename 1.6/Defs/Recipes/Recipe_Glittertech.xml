@@ -792,7 +792,7 @@
                         <li>Shell_EMP</li>
                     </thingDefs>
                 </filter>
-                <count>3</count>
+                <count>2</count>
             </li>
             <li>
                 <filter>
@@ -899,14 +899,6 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>Silver</li>
-                    </thingDefs>
-                </filter>
-                <count>14</count>
-            </li>
-            <li>
-                <filter>
-                    <thingDefs>
                         <li>USH_Glitterheart</li>
                     </thingDefs>
                 </filter>
@@ -970,7 +962,7 @@
                         <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
-                <count>2</count>
+                <count>1</count>
             </li>
         </ingredients>
         <products>
