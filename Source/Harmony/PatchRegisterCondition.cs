@@ -1,29 +1,30 @@
 using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
 namespace USH_GE;
 
-[HarmonyPatch(typeof(GameConditionManager), nameof(GameConditionManager.RegisterCondition))]
+[HarmonyPatch(typeof(MapEvents), nameof(MapEvents.Notify_GameConditionAdded))]
 public static class Patch_GameConditionManager_RegisterCondition
 {
     private const int INTERCEPT_LETTER_DELAY = 60;
 
     [HarmonyPostfix]
-    public static void Postfix(GameConditionManager __instance, GameCondition cond)
+    public static void Postfix(MapEvents __instance, GameCondition condition)
     {
-        if (cond?.def == null || __instance?.ownerMap == null)
+        if (condition?.def == null || __instance?.map == null)
             return;
 
-        if (cond.def != IncidentDefOf.SolarFlare.gameCondition)
+        if (condition.def != IncidentDefOf.SolarFlare.gameCondition)
             return;
 
-        var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
+        var component = __instance.map.GetComponent<MapComponent_SolarFlareBank>();
         if (component?.AllAvailableSolarBanks.NullOrEmpty() ?? true)
             return;
 
-        InterceptSolarFlare(component.AllAvailableSolarBanks, cond);
+        InterceptSolarFlare(component.AllAvailableSolarBanks, condition);
     }
 
     private static void InterceptSolarFlare(List<CompSolarFlareBank> allBankComps, GameCondition condition)
@@ -34,6 +35,8 @@ public static class Patch_GameConditionManager_RegisterCondition
         string text = "USH_GE_SolarFlareInterceptedText".Translate(allBankComps.Count);
 
         condition.End();
-        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, null, INTERCEPT_LETTER_DELAY);
+
+        var targets = new LookTargets(allBankComps.Select(x => x.parent));
+        Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, targets, null, null, null, null, INTERCEPT_LETTER_DELAY);
     }
 }
