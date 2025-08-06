@@ -50,23 +50,28 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
         }
     }
 
-    private bool _recacheMaterial = true;
-    private Material _cachedMaterial;
-    public Material FormingMaterial
+    private readonly MaterialPropertyBlock _matProps = new();
+    private Material _sharedMatCached;
+    public Material SharedFormingMaterial
     {
         get
         {
-            if (_cachedMaterial == null || _recacheMaterial)
+            if (_sharedMatCached == null)
             {
-                if (GlitterBill == null)
-                    return null;
-
-                Graphic graphic = GlitterBill.GetProductGraphic;
-                graphic = graphic.GetCopy(graphic.drawSize * GlitterBill.GlittertechExt.fabricatorScale, null);
-                _cachedMaterial = MaterialPool.MatFrom(graphic.path, ShaderDatabase.Transparent);
+                _sharedMatCached = MaterialPool.MatFrom(GetGraphicForForming.path, ShaderDatabase.Transparent);
             }
+            return _sharedMatCached;
+        }
+    }
 
-            return _cachedMaterial;
+    private Graphic GetGraphicForForming
+    {
+        get
+        {
+            Graphic graphic = GlitterBill.GetProductGraphic;
+            graphic = graphic.GetCopy(graphic.drawSize * GlitterBill.GlittertechExt.fabricatorScale, null);
+
+            return graphic;
         }
     }
 
@@ -100,7 +105,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
         SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
 
-        _recacheMaterial = true;
+        _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(GetGraphicForForming.path));
     }
 
     public override void Notify_FormingCompleted()
@@ -191,14 +196,15 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
         if (activeBill == null || activeBill.State == FormingState.Gathering)
             return;
 
-        if (FormingMaterial == null)
+        if (SharedFormingMaterial == null)
             return;
 
-        Material mat = GetFormingThingMat();
+        _matProps.SetColor("_Color", new Color(1, 1, 1, GetFormingThingAlpha()));
+        Material mat = SharedFormingMaterial;
         Mesh mesh = MeshPool.GridPlane(Vector2.one * GlitterBill.GlittertechExt.fabricatorScale);
         Quaternion quat = Quaternion.Euler(new(0, GlitterBill.GlittertechExt.fabricatorRotationY, 0));
 
-        Graphics.DrawMesh(mesh, GetFormingThingLoc(drawLoc), quat, mat, 0);
+        Graphics.DrawMesh(mesh, GetFormingThingLoc(drawLoc), quat, mat, 0, null, 0, _matProps);
     }
 
     private Vector3 GetFormingThingLoc(Vector3 drawLoc)
@@ -229,6 +235,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
     private float GetFormingThingAlpha()
     {
+        float m = 0.5f;
         float t = _fadeTicks / FADE_DURATION_TICKS;
 
         float alpha = _lastPoweredOn
@@ -242,22 +249,14 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
             alpha *= Mathf.Max(minAlpha, Mathf.Abs(Mathf.Sin(FULL_OSCILLATION * GenTicks.TicksGame / bobSpeedDivideBy)));
         }
 
-        return alpha;
+        return alpha * m;
     }
 
     private bool WaitingForManualInspection
         => GlitterBill != null
             && (GlitterBill.State == FormingState.Preparing || GlitterBill.State == FormingState.Formed);
 
-    private Material GetFormingThingMat()
-    {
-        float alphaMax = 0.5f;
-        float alpha = GetFormingThingAlpha();
 
-        FormingMaterial.color = new Color(1f, 1f, 1f, alpha * alphaMax);
-
-        return FormingMaterial;
-    }
 
     private void DrawBar(Vector3 drawLoc)
     {

@@ -13,6 +13,7 @@
             <texPath>Things/Building/ADPChainPylon</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(3, 3)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
             <drawRotated>false</drawRotated>
             <damageData>
                 <rect>(0.2,0.2,0.2,0.2)</rect>
@@ -21,7 +22,7 @@
                 <volume>(0.8,0.35,0.8)</volume>
             </shadowData>
         </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <stealable>false</stealable>
         <rotatable>true</rotatable>
         <size>(1,1)</size>

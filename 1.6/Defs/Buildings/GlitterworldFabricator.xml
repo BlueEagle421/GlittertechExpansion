@@ -10,6 +10,7 @@
             <texPath>Things/Building/GlittertechFabricator</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(5,5)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
             <shadowData>
