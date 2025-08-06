@@ -4,21 +4,19 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_MemoryPylon</defName>
         <label>memory pylon</label>
-        <description>A morale-boosting structure typically placed outdoors. It can store memory cells and project their contents around the area and into the minds of nearby colonists.\n\nA single cell can last until it expires, but will provide only a fraction of the original emotions.</description>
+        <description>A morale-boosting structure that can store memory cells and project their contents around the area and into the minds of nearby colonists.\n\nA single cell can last until it expires, but will provide only a fraction of the original emotions.</description>
         <fillPercent>0.20</fillPercent>
         <graphicData>
             <texPath>Things/Building/MemoryPylon</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(1.5,3.5)</drawSize>
             <addTopAltitudeBias>true</addTopAltitudeBias>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
             <shadowData>
                 <volume>(0.3, 0.7, 0.3)</volume>
-                <offset>(0, 0, -0)</offset>
+                <offset>(0, 0, 0)</offset>
             </shadowData>
         </graphicData>
-        <rotatable>true</rotatable>
+        <rotatable>false</rotatable>
         <uiIconScale>1.45</uiIconScale>
         <uiIconOffset>(0,0.2)</uiIconOffset>
         <tickerType>Normal</tickerType>
