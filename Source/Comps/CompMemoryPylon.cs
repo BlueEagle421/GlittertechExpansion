@@ -53,7 +53,7 @@ public class CompMemoryPylon : ThingComp
     }
 
     private const int TICK_CHECK_INTERVAL = 60;
-    private const float Z_OFFSET = .018292684f;
+    private const float Z_OFFSET = .018f;
     private const float GLOW_MULTIPLIER = 0.45f;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)

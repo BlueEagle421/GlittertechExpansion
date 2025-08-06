@@ -51,6 +51,8 @@ public class CompProperties_GlittertechRepairer : CompProperties
 
 public class CompGlittertechRepairer : ThingComp
 {
+    private const float Z_OFFSET = .018f;
+
     public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
 
     private MapComponent_RepairManager Manager =>
@@ -77,6 +79,17 @@ public class CompGlittertechRepairer : ThingComp
         }
     }
 
+    private Material _sharedMatCached;
+    public Material SharedOverlayMaterial
+    {
+        get
+        {
+            _sharedMatCached ??= MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
+
+            return _sharedMatCached;
+        }
+    }
+
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
@@ -100,6 +113,9 @@ public class CompGlittertechRepairer : ThingComp
     public void TryToStartRepairing()
     {
         if (Manager.ToRepair.Count == 0)
+            return;
+
+        if (!CanRepair())
             return;
 
         _currentlyRepairing = Manager.ToRepair.Find(CanRepairThing);
@@ -179,6 +195,28 @@ public class CompGlittertechRepairer : ThingComp
         _currentlyRepairing = null;
 
         Manager.UpdateRepairables();
+    }
+
+    public override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+        base.DrawAt(drawLoc, flip);
+
+        DrawActiveOverlay(drawLoc);
+    }
+
+    private void DrawActiveOverlay(Vector3 drawLoc)
+    {
+        if (!_isRepairing)
+            return;
+
+        Vector3 loc = drawLoc;
+        loc += parent.def.graphicData.drawOffset;
+        loc.y += Z_OFFSET;
+
+        Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
+        Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
+
+        Graphics.DrawMesh(mesh, loc, quat, SharedOverlayMaterial, 0);
     }
 
     public override string CompInspectStringExtra()
