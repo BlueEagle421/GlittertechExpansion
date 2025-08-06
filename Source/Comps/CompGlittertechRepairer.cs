@@ -53,15 +53,8 @@ public class CompGlittertechRepairer : ThingComp
 {
     public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
 
-    private MapComponent_RepairManager _cachedManager;
-    private MapComponent_RepairManager Manager
-    {
-        get
-        {
-            _cachedManager ??= parent.Map.GetComponent<MapComponent_RepairManager>();
-            return _cachedManager;
-        }
-    }
+    private MapComponent_RepairManager Manager =>
+        parent.Map.GetComponent<MapComponent_RepairManager>();
 
     private bool _isRepairing;
     private Thing _currentlyRepairing;
