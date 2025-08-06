@@ -16,7 +16,6 @@
             </rubbleShrapnelCountRange>
             <ticksToImpactRange>60~100</ticksToImpactRange>
         </skyfaller>
-
     </ThingDef>
 
     <ThingDef ParentName="BuildingBase">
@@ -52,12 +51,12 @@
         <killedLeavings>
             <Plasteel>15</Plasteel>
             <ComponentSpacer>2</ComponentSpacer>
-            <USH_Glitterheart>4</USH_Glitterheart>
+            <USH_Glitterheart>3</USH_Glitterheart>
         </killedLeavings>
         <costList>
             <ComponentSpacer>4</ComponentSpacer>
             <Plasteel>30</Plasteel>
-            <USH_Glitterheart>8</USH_Glitterheart>
+            <USH_Glitterheart>6</USH_Glitterheart>
         </costList>
         <building>
             <claimable>false</claimable>
