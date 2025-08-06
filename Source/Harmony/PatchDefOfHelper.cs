@@ -9,7 +9,7 @@ namespace USH_GE;
 [HarmonyPatch(typeof(DefOfHelper), nameof(DefOfHelper.RebindAllDefOfs))]
 public static class Patch_DefOfHelper_RebindAllDefOfs
 {
-    private static HashSet<string> _omittedDefNames = [];
+    private static readonly HashSet<string> _omittedDefNames = [];
 
     static void Postfix(bool earlyTryMode)
     {

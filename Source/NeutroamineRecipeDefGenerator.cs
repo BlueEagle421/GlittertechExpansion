@@ -11,9 +11,9 @@ namespace USH_GE;
 
 public static class NeutroamineRecipeDefGenerator
 {
-    private static HashSet<string> _omittedDefNames = [];
+    private static readonly HashSet<string> _omittedDefNames = [];
+    private static readonly HashSet<string> _addedRecipesDefNames = [];
     private static Regex _disallowedCharRegex;
-    private static HashSet<string> _addedRecipesDefNames = [];
     public static IEnumerable<RecipeDef> ImpliedRecipeDefs(bool hotReload = false)
     {
         foreach (RecipeDef item in BeginRecipesGeneration(hotReload))

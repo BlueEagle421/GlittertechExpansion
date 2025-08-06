@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -19,11 +18,6 @@ public class CompProperties_OverclockUpgrade : CompProperties
 public class CompOverclockUpgrade : ThingComp
 {
     public CompProperties_OverclockUpgrade Props => (CompProperties_OverclockUpgrade)props;
-
-    public override void PostSpawnSetup(bool respawningAfterLoad)
-    {
-        base.PostSpawnSetup(respawningAfterLoad);
-    }
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats()
     {
