@@ -2,7 +2,7 @@ using UnityEngine;
 using Verse;
 namespace USH_GE;
 
-public class Hediff_CryogenicNexus : Hediff_Implant
+public class Hediff_CryogenicNexus : Hediff_AddedPart
 {
     private float _instability;
     public float Instability
