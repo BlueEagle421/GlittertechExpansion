@@ -61,8 +61,6 @@ public class Bill_Glittertech : Bill_Autonomous
             if (result is Graphic_RandomRotated graphic_RandomRotated)
                 result = graphic_RandomRotated.SubGraphic;
 
-            result = result.GetCopy(result.drawSize * GlittertechExt.fabricatorScale, null);
-
             return result;
         }
     }

@@ -40,24 +40,15 @@ public class CompMemoryPylon : ThingComp
         }
     }
 
-    private Material _cachedOverlayPositiveMat;
-    private Material OverlayPositiveMaterial
+    private readonly MaterialPropertyBlock _matProps = new();
+    private Material _sharedMatCached;
+    public Material SharedOverlayMaterial
     {
         get
         {
-            _cachedOverlayPositiveMat ??= MaterialPool.MatFrom(PylonProps.activeOverlayPositivePath, ShaderDatabase.Transparent);
+            _sharedMatCached ??= MaterialPool.MatFrom(PylonProps.activeOverlayPositivePath, ShaderDatabase.Transparent);
 
-            return _cachedOverlayPositiveMat;
-        }
-    }
-    private Material _cachedOverlayNegativeMat;
-    private Material OverlayNegativeMaterial
-    {
-        get
-        {
-            _cachedOverlayNegativeMat ??= MaterialPool.MatFrom(PylonProps.activeOverlayNegativePath, ShaderDatabase.Transparent);
-
-            return _cachedOverlayNegativeMat;
+            return _sharedMatCached;
         }
     }
 
@@ -122,6 +113,9 @@ public class CompMemoryPylon : ThingComp
 
         CreatePylonMemoriesInRadius();
 
+        string texPath = isPositive ? PylonProps.activeOverlayPositivePath : PylonProps.activeOverlayNegativePath;
+        _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(texPath));
+
         _isWorkingNow = true;
     }
 
@@ -178,10 +172,7 @@ public class CompMemoryPylon : ThingComp
         Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
         Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
 
-        bool isPositive = _compContainer.ContainedCellComp.MemoryCellData.IsPositive();
-        Material mat = isPositive ? OverlayPositiveMaterial : OverlayNegativeMaterial;
-
-        Graphics.DrawMesh(mesh, loc, quat, mat, 0);
+        Graphics.DrawMesh(mesh, loc, quat, SharedOverlayMaterial, 0, null, 0, _matProps);
     }
 
     private void CreatePylonMemoriesInRadius()

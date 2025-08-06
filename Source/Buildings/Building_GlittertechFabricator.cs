@@ -56,24 +56,13 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
     {
         get
         {
-            if (_sharedMatCached == null)
-            {
-                _sharedMatCached = MaterialPool.MatFrom(GetGraphicForForming.path, ShaderDatabase.Transparent);
-            }
+            _sharedMatCached ??= MaterialPool.MatFrom(GlitterBill.GetProductGraphic.path, ShaderDatabase.Transparent);
+
             return _sharedMatCached;
         }
     }
 
-    private Graphic GetGraphicForForming
-    {
-        get
-        {
-            Graphic graphic = GlitterBill.GetProductGraphic;
-            graphic = graphic.GetCopy(graphic.drawSize * GlitterBill.GlittertechExt.fabricatorScale, null);
 
-            return graphic;
-        }
-    }
 
     public CompOverclock OverclockingGun => innerContainer.Select(t => t.TryGetComp<CompOverclock>()).FirstOrDefault();
 
@@ -105,7 +94,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
 
         SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
 
-        _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(GetGraphicForForming.path));
+        _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(GlitterBill.GetProductGraphic.path));
     }
 
     public override void Notify_FormingCompleted()

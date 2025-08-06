@@ -178,9 +178,11 @@
             <texPath>Things/Building/AwareGlitterpanel</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2,2)</drawSize>
+            <addTopAltitudeBias>true</addTopAltitudeBias>
         </graphicData>
         <uiIconScale>0.8</uiIconScale>
         <uiIconOffset>(0, 0.1)</uiIconOffset>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <costList>
             <Steel>40</Steel>
             <Plasteel>20</Plasteel>
