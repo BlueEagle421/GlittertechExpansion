@@ -11,7 +11,7 @@
         </graphicData>
         <tradeability>Sellable</tradeability>
         <statBases>
-            <MarketValue>350</MarketValue>
+            <MarketValue>355</MarketValue>
         </statBases>
         <comps>
             <li Class="CompProperties_Explosive">
