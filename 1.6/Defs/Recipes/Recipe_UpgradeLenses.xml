@@ -18,6 +18,14 @@
         </filter>
         <count>1</count>
       </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>3.5</count>
+      </li>
     </ingredients>
     <researchPrerequisite>USH_OverclockRes</researchPrerequisite>
   </ThingDef>

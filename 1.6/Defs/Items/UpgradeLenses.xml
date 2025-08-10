@@ -71,8 +71,8 @@
                 <upgradeLabel>quickdraw</upgradeLabel>
                 <burstShotSpeedMultiplier>1.25</burstShotSpeedMultiplier>
                 <statOffsets>
-                    <RangedWeapon_WarmupMultiplier>-0.16</RangedWeapon_WarmupMultiplier>
-                    <RangedWeapon_Cooldown>-0.28</RangedWeapon_Cooldown>
+                    <RangedWeapon_WarmupMultiplier>-0.15</RangedWeapon_WarmupMultiplier>
+                    <RangedWeapon_Cooldown>-0.15</RangedWeapon_Cooldown>
                 </statOffsets>
             </li>
         </comps>

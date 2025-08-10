@@ -846,8 +846,8 @@
             <li>Mortars</li>
             <li>USH_NeuromodifiersBasicsRes</li>
         </researchPrerequisites>
-        <gestationCycles>7</gestationCycles>
-        <formingTicks>5000</formingTicks>
+        <gestationCycles>2</gestationCycles>
+        <formingTicks>18000</formingTicks>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -855,7 +855,7 @@
                         <li>Shell_EMP</li>
                     </thingDefs>
                 </filter>
-                <count>2</count>
+                <count>3</count>
             </li>
             <li>
                 <filter>
@@ -871,7 +871,7 @@
                         <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
-                <count>2</count>
+                <count>1</count>
             </li>
         </ingredients>
         <products>
