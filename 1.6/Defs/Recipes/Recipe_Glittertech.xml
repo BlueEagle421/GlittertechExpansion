@@ -25,10 +25,20 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentSpacer</li>
+                        <li>ComponentIndustrial</li>
                     </thingDefs>
                 </filter>
-                <count>1</count>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <customSummary>protein</customSummary>
+                    <categories>
+                        <li>MeatRaw</li>
+                        <li>AnimalProductRaw</li>
+                    </categories>
+                </filter>
+                <count>90</count>
             </li>
             <li>
                 <filter>
@@ -55,6 +65,26 @@
                 <count>0.2</count>
             </li>
         </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>MeatRaw</li>
+                <li>AnimalProductRaw</li>
+            </categories>
+            <disallowedThingDefs>
+                <li>Milk</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <categories>
+                <li>Foods</li>
+            </categories>
+            <disallowedCategories>
+                <li>EggsFertilized</li>
+            </disallowedCategories>
+            <disallowedThingDefs>
+                <li>InsectJelly</li>
+            </disallowedThingDefs>
+        </defaultIngredientFilter>
         <products>
             <USH_Glittercore>1</USH_Glittercore>
         </products>
@@ -76,14 +106,27 @@
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
         <formingTicks>20000</formingTicks>
         <gestationCycles>6</gestationCycles>
+        <skillRequirements>
+            <Intellectual>8</Intellectual>
+        </skillRequirements>
         <ingredients Inherit="false">
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentSpacer</li>
+                        <li>ComponentIndustrial</li>
                     </thingDefs>
                 </filter>
-                <count>4</count>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <customSummary>protein</customSummary>
+                    <categories>
+                        <li>MeatRaw</li>
+                        <li>AnimalProductRaw</li>
+                    </categories>
+                </filter>
+                <count>360</count>
             </li>
             <li>
                 <filter>
@@ -110,6 +153,26 @@
                 <count>0.8</count>
             </li>
         </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>MeatRaw</li>
+                <li>AnimalProductRaw</li>
+            </categories>
+            <disallowedThingDefs>
+                <li>Milk</li>
+            </disallowedThingDefs>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <categories>
+                <li>Foods</li>
+            </categories>
+            <disallowedCategories>
+                <li>EggsFertilized</li>
+            </disallowedCategories>
+            <disallowedThingDefs>
+                <li>InsectJelly</li>
+            </disallowedThingDefs>
+        </defaultIngredientFilter>
         <products>
             <USH_Glittercore>4</USH_Glittercore>
         </products>
@@ -143,7 +206,7 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentIndustrial</li>
+                        <li>ComponentSpacer</li>
                     </thingDefs>
                 </filter>
                 <count>1</count>
