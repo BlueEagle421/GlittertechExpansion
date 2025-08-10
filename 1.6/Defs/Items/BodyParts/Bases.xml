@@ -19,6 +19,10 @@
             <DeteriorationRate>0</DeteriorationRate>
         </statBases>
         <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
                 <li>FabricationBench</li>
             </recipeUsers>
