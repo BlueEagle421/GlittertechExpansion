@@ -48,23 +48,16 @@ public static class OverclockIncidentUtility
         return true;
     }
 
-    public static void DoOverclockIncident(Pawn pawn, ThingWithComps gun, int letterDelay = 0)
+    public static void DoOverclockIncident(Pawn pawn, ThingWithComps gun)
     {
-        GenExplosion.DoExplosion(pawn.Position, pawn.Map, 5.9f, DamageDefOf.Flame, null);
+        if (Mathf.Approximately(pawn.GetStatValue(StatDefOf.Flammability), 0f))
+            return;
 
-        if (!Mathf.Approximately(pawn.GetStatValue(StatDefOf.Flammability), 0f))
-            HealthUtility.DamageUntilDowned(pawn, false, DamageDefOf.Burn);
+        GenExplosion.DoExplosion(pawn.Position, pawn.Map, 3.9f, DamageDefOf.Flame, null);
+        GenExplosion.DoExplosion(pawn.Position, pawn.Map, 5.9f, USH_DefOf.USH_ADP, null);
 
-        Find.LetterStack.ReceiveLetter(
-            "USH_GE_LetterLabelOverclockIncident".Translate(),
-            "USH_GE_OverclockIncident".Translate(gun.Label.UncapitalizeFirst()),
-            LetterDefOf.NegativeEvent,
-            new TargetInfo(pawn.Position, pawn.Map),
-            null,
-            null,
-            null,
-            null,
-            letterDelay
-        );
+        HealthUtility.DamageUntilDowned(pawn, false, DamageDefOf.Burn);
+
+        Messages.Message("USH_GE_OverclockIncidentShort".Translate(gun.Label), gun, MessageTypeDefOf.NegativeEvent, true);
     }
 }

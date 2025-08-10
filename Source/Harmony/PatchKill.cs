@@ -12,6 +12,6 @@ public static class Patch_Pawn_Kill
         if (!OverclockIncidentUtility.CanAffectPawn(__instance, out ThingWithComps overclockedGun))
             return;
 
-        OverclockIncidentUtility.DoOverclockIncident(__instance, overclockedGun, 6);
+        OverclockIncidentUtility.DoOverclockIncident(__instance, overclockedGun);
     }
 }
