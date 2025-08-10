@@ -10,6 +10,9 @@
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
         <tradeability>Sellable</tradeability>
+        <statBases>
+            <MarketValue>350</MarketValue>
+        </statBases>
         <comps>
             <li Class="CompProperties_Explosive">
                 <explosiveRadius>23.9</explosiveRadius>
