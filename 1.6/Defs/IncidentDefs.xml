@@ -36,7 +36,7 @@
         </targetTags>
         <workerClass>USH_GE.IncidentWorker_ConfusedWandering</workerClass>
         <baseChance>1.5</baseChance>
-        <minRefireDays>10</minRefireDays>
+        <minRefireDays>16</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
