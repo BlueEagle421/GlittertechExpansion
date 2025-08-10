@@ -61,4 +61,5 @@ public static class USH_DefOf
     public static HediffDef USH_InstalledCryogenicNexus;
     public static ThingCategoryDef Grenades;
     public static HediffDef USH_PostMemoryExtraction;
+    public static ThoughtDef USH_Enlightenment;
 }

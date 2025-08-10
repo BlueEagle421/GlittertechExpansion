@@ -3,6 +3,7 @@
 
     <MentalStateDef ParentName="WanderPsychotic">
         <defName>USH_ConfusedWandering</defName>
+        <stateClass>USH_GE.MentalState_ConfusedWandering</stateClass>
         <label>wandering in confusion</label>
         <recoveryMessage>{0} is no longer wandering in a confused state.</recoveryMessage>
         <beginLetterLabel>confusion</beginLetterLabel>
@@ -11,9 +12,6 @@
         <baseInspectLine>Mental state: Confused wandering</baseInspectLine>
         <tale>MentalStateGaveUp</tale>
         <stopsJobs>true</stopsJobs>
-        <prisonersCanDo>false</prisonersCanDo>
-        <moodRecoveryThought>USH_Enlightenment</moodRecoveryThought>
-        <blockNormalThoughts>true</blockNormalThoughts>
     </MentalStateDef>
 
     <ThoughtDef>
@@ -24,8 +22,8 @@
         <stages>
             <li>
                 <label>enlightenment</label>
-                <description>I feel ready to start uncovering the glittertech secrets again with a clear mind. It felt good to finally unbottle my doubts.</description>
-                <baseMoodEffect>40</baseMoodEffect>
+                <description>I feel ready to start uncovering the glittertech secrets again with a clear mind.</description>
+                <baseMoodEffect>8</baseMoodEffect>
             </li>
         </stages>
     </ThoughtDef>
