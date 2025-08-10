@@ -10,6 +10,24 @@
         <beginLetterDef>NegativeEvent</beginLetterDef>
         <baseInspectLine>Mental state: Confused wandering</baseInspectLine>
         <tale>MentalStateGaveUp</tale>
+        <stopsJobs>true</stopsJobs>
+        <prisonersCanDo>false</prisonersCanDo>
+        <moodRecoveryThought>USH_Enlightenment</moodRecoveryThought>
+        <blockNormalThoughts>true</blockNormalThoughts>
     </MentalStateDef>
+
+    <ThoughtDef>
+        <defName>USH_Enlightenment</defName>
+        <durationDays>3</durationDays>
+        <stackLimit>5</stackLimit>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>enlightenment</label>
+                <description>I feel ready to start uncovering the glittertech secrets again with a clear mind. It felt good to finally unbottle my doubts.</description>
+                <baseMoodEffect>40</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
 
 </Defs>
