@@ -17,7 +17,7 @@
   <ThingDef ParentName="CrateBase">
     <defName>USH_Glittercrate</defName>
     <label>glitterworld crate</label>
-    <description>An ancient glitterworld container full of valuables.</description>
+    <description>Aa glitterworld container likely filled with preserved valuables. Probably used by ancient smugglers or scavengers trying to hide their loot. </description>
     <graphicData>
       <texPath>Things/Building/Glittercrate_Closed</texPath>
       <graphicClass>Graphic_Single</graphicClass>
