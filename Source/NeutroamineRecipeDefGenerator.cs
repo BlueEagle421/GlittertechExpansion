@@ -35,7 +35,7 @@ public static class NeutroamineRecipeDefGenerator
         }
         catch (Exception ex)
         {
-            Log.Warning($"[Glittertech Expansion] unexpected error in NeutroamineRecipeDefGenerator: {ex}");
+            Log.Warning($"[Glittertech Expansion] unexpected error in NeutroamineRecipeDefGenerator. {GE_Mod.THIRD_PARTY_MOD_MSG}: {ex}");
         }
 
         foreach (var recipeDef in result)
@@ -51,7 +51,7 @@ public static class NeutroamineRecipeDefGenerator
         }
         catch (Exception ex)
         {
-            Log.Warning($"[Glittertech Expansion] failed to load DisallowedLabelCharsRegex: {ex}");
+            Log.Warning($"[Glittertech Expansion] failed to load DisallowedLabelCharsRegex. {GE_Mod.THIRD_PARTY_MOD_MSG}: {ex}");
         }
     }
 
@@ -182,7 +182,7 @@ public static class NeutroamineRecipeDefGenerator
         ref RecipeDef toModify,
         out int countToExtract)
     {
-        var originalIngredient = originalRecipe.ingredients.Find(x => FilterContainsNeutroamine(x.filter));
+        var originalIngredient = originalRecipe.ingredients.Find(x => FilterContainsNeutroamine(originalRecipe, x.filter));
         countToExtract = (int)originalIngredient.GetBaseCount();
 
         toModify.products = [new ThingDefCountClass() { thingDef = USH_DefOf.Neutroamine, count = countToExtract }];
@@ -211,17 +211,29 @@ public static class NeutroamineRecipeDefGenerator
 
     private static List<RecipeDef> NeutroamineRecipes
     => [.. DefDatabase<RecipeDef>.AllDefs
-            .Where(x =>
-                !x.products.NullOrEmpty() &&
-                x.ingredients.Any(x => FilterContainsNeutroamine(x.filter)))];
+            .Where(recipe =>
+                !recipe.products.NullOrEmpty() &&
+                recipe.ingredients.Any(ing => FilterContainsNeutroamine(recipe, ing.filter)))];
 
-    private static bool FilterContainsNeutroamine(ThingFilter filter)
+    private static bool FilterContainsNeutroamine(RecipeDef recipeDef, ThingFilter filter)
     {
+        if (filter == null) return false;
+
         if (filter.AllowedThingDefs.Contains(USH_DefOf.Neutroamine))
             return true;
 
-        if (filter.ToString() == "neutroamine")
+        if (filter.AllowedThingDefs.Any(td => td?.defName?.Equals("Neutroamine", StringComparison.OrdinalIgnoreCase) == true))
             return true;
+
+        try
+        {
+            if (filter.ToString() == "neutroamine")
+                return true;
+        }
+        catch
+        {
+            _omittedDefNames.Add(recipeDef.defName);
+        }
 
         return false;
     }
