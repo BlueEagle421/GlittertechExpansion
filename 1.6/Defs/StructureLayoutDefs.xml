@@ -31,7 +31,7 @@
                 <li>AncientFence,AncientFence,AncientFence,AncientFence,AncientConcreteBarrier_North,.,.,.,.,.,.</li>
                 <li>AncientFence,HiddenConduit,.,.,.,.,.,.,.,.,.</li>
                 <li>AncientFence,.,.,.,.,.,.,.,.,.,.</li>
-                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,.</li>
                 <li>AncientConcreteBarrier_North,.,.,.,.,.,.,.,.,.,AncientConcreteBarrier_North</li>
                 <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
                 <li>.,.,.,.,.,.,.,.,.,.,AncientFence</li>
@@ -564,9 +564,9 @@
                 <li>HiddenConduit,.,.,.,.,.,.,.,AncientRazorWire,.,HiddenConduit</li>
                 <li>HiddenConduit,.,.,.,.,.,.,.,AncientWheel,AncientRazorWire,HiddenConduit</li>
                 <li>HiddenConduit,Column_Steel,.,.,Column_Steel,.,.,.,.,.,HiddenConduit</li>
-                <li>HiddenConduit,.,Battery_North,Battery_North,.,.,.,Turret_Autocannon,.,Sandbags_Cloth,.</li>
+                <li>HiddenConduit,HiddenConduit,Battery_North,Battery_North,.,.,.,Turret_Autocannon,.,Sandbags_Cloth,HiddenConduit</li>
                 <li>HiddenConduit,.,.,.,AncientLamp,.,.,.,.,Sandbags_Cloth,HiddenConduit</li>
-                <li>HiddenConduit,HiddenConduit,.,.,Column_Steel,AncientShoppingCart,.,Sandbags_Cloth,Sandbags_Cloth,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,HiddenConduit,Column_Steel,AncientShoppingCart,.,Sandbags_Cloth,Sandbags_Cloth,HiddenConduit,HiddenConduit</li>
                 <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
             </li>
             <li>
@@ -616,17 +616,17 @@
         <spawnConduits>false</spawnConduits>
         <layouts>
             <li>
-                <li>.,.,.,.,.,.,.,.,.,.,.</li>
-                <li>.,.,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,.,.,.</li>
-                <li>.,.,Sandbags_Cloth,Sandbags_Cloth,.,.,AncientSecurityTurret,Sandbags_Cloth,.,.,.</li>
-                <li>.,.,Sandbags_Cloth,Turret_Sniper,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,.</li>
-                <li>.,.,.,.,.,.,.,.,AncientSecurityTurret,Sandbags_Cloth,.</li>
-                <li>.,.,.,.,.,.,.,.,.,.,.</li>
-                <li>.,.,.,Sandbags_Cloth,Turret_MiniTurret_Steel,.,Turret_Autocannon,.,.,.,.</li>
-                <li>.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,.,.,Sandbags_Cloth,.,.</li>
-                <li>.,.,.,.,.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,.</li>
-                <li>.,.,.,.,.,.,.,.,.,.,.</li>
-                <li>.,.,.,.,.,.,.,.,.,.,.</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,.,Sandbags_Cloth,Sandbags_Cloth,.,.,AncientSecurityTurret,Sandbags_Cloth,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,Sandbags_Cloth,Turret_Sniper,.,.,.,Sandbags_Cloth,Sandbags_Cloth,Sandbags_Cloth,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,AncientSecurityTurret,Sandbags_Cloth,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,Sandbags_Cloth,Turret_MiniTurret_Steel,.,Turret_Autocannon,.,.,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,Sandbags_Cloth,Sandbags_Cloth,.,.,.,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,.,.,.,.,.,.,Sandbags_Cloth,Sandbags_Cloth,.,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,.,.,.,.,.,.,.,HiddenConduit,HiddenConduit</li>
+                <li>HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit,HiddenConduit</li>
             </li>
         </layouts>
         <terrainGrid>
