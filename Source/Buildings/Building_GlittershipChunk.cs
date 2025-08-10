@@ -10,7 +10,7 @@ public class Building_GlittershipChunk : Building
 {
     private Effecter _effecter;
     private Sustainer _sustainer;
-    private IntRange _strikeTicksRange = new(2500 * 2, 2500 * 6); //2 hours, 12 hours
+    private IntRange _strikeTicksRange = new(2500 * 2, 2500 * 4); //2 hours, 4 hours
     private int _strikeTicks, _strikeAge, _strikeDuration;
     private IntVec3 strikeLoc = IntVec3.Invalid;
     private static readonly Material LightningMat = MatLoader.LoadMat("Weather/LightningBolt");
@@ -62,15 +62,17 @@ public class Building_GlittershipChunk : Building
         _strikeAge = 0;
         _strikeDuration = Rand.Range(15, 60);
         SoundDefOf.Thunder_OffMap.PlayOneShotOnCamera(map);
+
         if (!strikeLoc.IsValid)
-        {
             strikeLoc = CellFinderLoose.RandomCellWith(sq => sq.Standable(map) && !map.roofGrid.Roofed(sq), map);
-        }
+
         boltMesh = LightningBoltMeshPool.RandomBoltMesh;
+
         if (!strikeLoc.Fogged(map))
         {
             GenExplosion.DoExplosion(strikeLoc, map, 1.9f, DamageDefOf.Flame, null);
             Vector3 loc = strikeLoc.ToVector3Shifted();
+
             for (int num = 0; num < 4; num++)
             {
                 FleckMaker.ThrowSmoke(loc, map, 1.5f);
@@ -78,6 +80,7 @@ public class Building_GlittershipChunk : Building
                 FleckMaker.ThrowLightningGlow(loc, map, 1.5f);
             }
         }
+
         SoundInfo info = SoundInfo.InMap(new TargetInfo(strikeLoc, map));
         SoundDefOf.Thunder_OnMap.PlayOneShot(info);
     }
