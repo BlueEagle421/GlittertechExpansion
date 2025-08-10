@@ -23,7 +23,7 @@
         </targetTags>
         <workerClass>USH_GE.IncidentWorker_OverclockIncident</workerClass>
         <baseChance>1.0</baseChance>
-        <minRefireDays>14</minRefireDays>
+        <minRefireDays>8</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
@@ -36,7 +36,7 @@
         </targetTags>
         <workerClass>USH_GE.IncidentWorker_ConfusedWandering</workerClass>
         <baseChance>1.5</baseChance>
-        <minRefireDays>18</minRefireDays>
+        <minRefireDays>10</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
     </IncidentDef>
 
