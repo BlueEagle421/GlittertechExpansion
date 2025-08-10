@@ -25,10 +25,10 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentIndustrial</li>
+                        <li>ComponentSpacer</li>
                     </thingDefs>
                 </filter>
-                <count>2</count>
+                <count>1</count>
             </li>
             <li>
                 <filter>
@@ -80,10 +80,10 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentIndustrial</li>
+                        <li>ComponentSpacer</li>
                     </thingDefs>
                 </filter>
-                <count>8</count>
+                <count>4</count>
             </li>
             <li>
                 <filter>
