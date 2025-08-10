@@ -99,7 +99,7 @@
   <USH_GE_ADPShortCircuitWasLarge>This large amount of power has created an ADP explosion of considerable size.</USH_GE_ADPShortCircuitWasLarge>
 
   <USH_GE_LetterLabelOverclockIncident>Hssss...</USH_GE_LetterLabelOverclockIncident>
-  <USH_GE_OverclockIncident>A fault in {0} has caused the weapon to overheat and release flammable chemicals.</USH_GE_OverclockIncident>
+  <USH_GE_OverclockIncident>A sudden, aggressive mechanites movement in {0}’s overclocked coating has caused the weapon to overheat and release flammable chemicals.</USH_GE_OverclockIncident>
 
   <USH_GE_Overclocked>Overclocked</USH_GE_Overclocked>
   <USH_GE_Overclock>Overclock</USH_GE_Overclock>
