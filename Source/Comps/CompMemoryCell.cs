@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -6,45 +7,61 @@ using Verse;
 
 namespace USH_GE;
 
-public class CompProperties_MemoryCell : CompProperties
+public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
 {
-    public int expireTicks;
-
-    public CompProperties_MemoryCell()
-    {
-        compClass = typeof(CompMemoryCell);
-    }
-}
-
-public class CompMemoryCell : ThingComp
-{
+    public int expireTicks = 7200000; //to do: add MemoryCellModExtension
     public MemoryCellData MemoryCellData;
-    public CompProperties_MemoryCell CellProps => (CompProperties_MemoryCell)props;
 
     private const int TICK_RARE = 250;
-    private int _expireTicks;
-    public int ExpireTicks => _expireTicks;
+    private float _expireTicks;
+    public float ExpireTicksLeft
+    {
+        get => _expireTicks;
+        set
+        {
+            _expireTicks = Mathf.Max(0, value);
+
+            if (Mathf.Approximately(_expireTicks, 0f)) Expire();
+        }
+    }
+
+    private float _expireTimeMultiplier = 1f;
+    public float ExpireTimeMultiplier
+    {
+        get => _expireTimeMultiplier;
+        set => Mathf.Max(0f, value);
+    }
+
+    protected BillStack _billStack;
+    public BillStack BillStack => _billStack;
+    public IEnumerable<IntVec3> IngredientStackCells
+        => [GenAdj.CellsAdjacent8Way(this).Where(x => x.Walkable(Map)).RandomElement()];
+
+    public MemoryCell()
+    {
+        _billStack = new BillStack(this);
+    }
+
+    public override void SpawnSetup(Map map, bool respawningAfterLoad)
+    {
+        base.SpawnSetup(map, respawningAfterLoad);
+
+        foreach (Bill item in _billStack)
+            item.ValidateSettings();
+    }
 
     public override void PostPostMake()
     {
         base.PostPostMake();
 
-        _expireTicks = CellProps.expireTicks;
+        _expireTicks = expireTicks;
     }
 
-    public override void PostSpawnSetup(bool respawningAfterLoad)
+    public override void TickRare()
     {
-        base.PostSpawnSetup(respawningAfterLoad);
+        base.TickRare();
 
-        if (respawningAfterLoad && _expireTicks == 0)
-            _expireTicks = ExpireTicks;
-    }
-
-    public override void CompTickRare()
-    {
-        base.CompTickRare();
-
-        _expireTicks -= TICK_RARE;
+        _expireTicks -= TICK_RARE * _expireTimeMultiplier;
 
         if (_expireTicks < 0)
             Expire();
@@ -52,29 +69,29 @@ public class CompMemoryCell : ThingComp
 
     private void Expire()
     {
-        if (parent.holdingOwner.Owner is CompMemoryCellContainer container)
+        if (holdingOwner.Owner is CompMemoryCellContainer container)
             container.EjectContent();
-        else if (parent.holdingOwner.Owner is not Map)
-            parent.holdingOwner.TryDrop(parent, ThingPlaceMode.Near, out _);
+        else if (holdingOwner.Owner is not Map map)
+            holdingOwner.TryDrop(this, ThingPlaceMode.Near, out _);
 
         Thing newThing = EraseMemory(false);
-        Messages.Message("USH_GE_Expired".Translate(parent.Label), new LookTargets(newThing), MessageTypeDefOf.NegativeEvent);
+        Messages.Message("USH_GE_Expired".Translate(Label), new LookTargets(newThing), MessageTypeDefOf.NegativeEvent);
     }
 
-    public override string CompInspectStringExtra()
+    public override string GetInspectString()
     {
         StringBuilder sb = new();
 
-        sb.AppendLine(base.CompInspectStringExtra());
-        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + _expireTicks.ToStringTicksToPeriod());
+        sb.AppendLine(base.GetInspectString());
+        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks * _expireTimeMultiplier)).ToStringTicksToPeriod());
         sb.AppendLine(MemoryCellData.GetInspectString());
 
         return sb.ToString().Trim();
     }
 
-    public override IEnumerable<Gizmo> CompGetGizmosExtra()
+    public override IEnumerable<Gizmo> GetGizmos()
     {
-        foreach (Gizmo gizmo in base.CompGetGizmosExtra())
+        foreach (Gizmo gizmo in base.GetGizmos())
             yield return gizmo;
 
         Command_Action eraseCommand = new()
@@ -91,7 +108,7 @@ public class CompMemoryCell : ThingComp
 
         yield return new Command_Action
         {
-            action = () => _expireTicks = CellProps.expireTicks,
+            action = () => _expireTicks = expireTicks,
             defaultLabel = "DEV: Reset expire time"
         };
 
@@ -104,9 +121,10 @@ public class CompMemoryCell : ThingComp
 
     private Thing EraseMemory(bool autoSelect = true)
     {
-        IntVec3 pos = parent.Position;
-        Map map = parent.Map;
-        parent.Destroy();
+        IntVec3 pos = Position;
+        Map map = Map;
+
+        Destroy();
 
         var newThing = ThingMaker.MakeThing(USH_DefOf.USH_MemoryCellEmpty);
 
@@ -116,20 +134,33 @@ public class CompMemoryCell : ThingComp
         return newThing;
     }
 
-    public override string TransformLabel(string label)
-    {
-        string moodOffset = MemoryCellData.moodOffset.ToString();
-        string colorizedMood = moodOffset.Colorize(MemoryUtils.GetThoughtColor(MemoryCellData.IsPositive()));
-        return $"{label} ({colorizedMood})";
-    }
+    // public override string TransformLabel(string label)
+    // {
+    //     string moodOffset = MemoryCellData.moodOffset.ToString();
+    //     string colorizedMood = moodOffset.Colorize(MemoryUtils.GetThoughtColor(MemoryCellData.IsPositive()));
+    //     return $"{label} ({colorizedMood})";
+    // }
 
-    public override void PostExposeData()
+    public override void ExposeData()
     {
-        base.PostExposeData();
+        base.ExposeData();
 
+        Scribe_Deep.Look(ref _billStack, nameof(_billStack), this);
+        Scribe_Values.Look(ref _expireTimeMultiplier, nameof(_expireTimeMultiplier));
         Scribe_Values.Look(ref _expireTicks, nameof(_expireTicks));
         Scribe_Deep.Look(ref MemoryCellData, nameof(MemoryCellData));
     }
 
-    public override bool AllowStackWith(Thing other) => false;
+    public override bool CanStackWith(Thing other) => false;
+    public bool CurrentlyUsableForBills() => true;
+    public bool UsableForBillsAfterFueling() => true;
+    public void Notify_BillDeleted(Bill bill) { }
+    public void UsedThisTick() { }
+
+    public struct MemoryModData
+    {
+        public string label;
+        public int count;
+        public int maxCount;
+    }
 }

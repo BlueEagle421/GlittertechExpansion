@@ -129,6 +129,8 @@
   <USH_GE__BurstShotSpeedMultiplier>Fire rate multiplier</USH_GE__BurstShotSpeedMultiplier>
   <USH_GE__BurstShotSpeedMultiplierDesc>A multiplier applied to this weapon's time between shots.</USH_GE__BurstShotSpeedMultiplierDesc>
 
+  <USH_GE_ModsTab>Modify</USH_GE_ModsTab>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>

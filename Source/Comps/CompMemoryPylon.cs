@@ -88,7 +88,7 @@ public class CompMemoryPylon : ThingComp
 
         if (_compContainer.Full)
         {
-            string expireTime = _compContainer.ContainedCellComp.ExpireTicks.ToStringTicksToPeriod();
+            string expireTime = ((int)_compContainer.ContainedCellComp.ExpireTicksLeft).ToStringTicksToPeriod();
 
             sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + expireTime);
             sb.AppendLine(_compContainer.ContainedCellComp.MemoryCellData.GetInspectString());

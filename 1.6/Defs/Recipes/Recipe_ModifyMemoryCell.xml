@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="USH_ModifyCellRecipeBase" Abstract="True">
+    <label>modify memory</label>
+    <description>Modify a memory.</description>
+    <jobString>Modifying memory.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>600</workAmount>
+    <!-- <researchPrerequisite>USH_DeepMindScanningRes</researchPrerequisite> -->
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_MemoryCellEmpty</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+  </ThingDef>
+
+  <RecipeDef ParentName="USH_ModifyCellRecipeBase">
+    <defName>USH_ModifyCellAmplify</defName>
+    <label>amplify mood</label>
+    <description>Multiplies memory mood offset by 125%.</description>
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseModifyCellBill">
+        <label>amplify</label>
+        <maxCount>2</maxCount>
+        <multiplyMoodBy>1.25</multiplyMoodBy>
+      </li>
+    </modExtensions>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WakeUp</li>
+          </thingDefs>
+        </filter>
+        <count>8</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_ModifyCellRecipeBase">
+    <defName>USH_ModifyCellPostpone</defName>
+    <label>postpone expiration</label>
+    <description>Postpones expiration time by another quadrum.</description>
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseModifyCellBill">
+        <label>postpone expiration</label>
+        <maxCount>3</maxCount>
+        <addExpireTime>3600000</addExpireTime>
+      </li>
+    </modExtensions>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Gold</li>
+          </thingDefs>
+        </filter>
+        <count>40</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_Glittercore</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+  <RecipeDef ParentName="USH_ModifyCellRecipeBase">
+    <defName>USH_ModifyCellReduceRate</defName>
+    <label>reduce expiration rate</label>
+    <description>Reduces expiration rate to 50%.</description>
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseModifyCellBill">
+        <label>reduce expiration rate</label>
+        <maxCount>1</maxCount>
+      </li>
+    </modExtensions>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MechSerumHealer</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+  </RecipeDef>
+
+</Defs>

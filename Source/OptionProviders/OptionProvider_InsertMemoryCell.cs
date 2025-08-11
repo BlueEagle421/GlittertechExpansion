@@ -40,7 +40,7 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
 
     public override IEnumerable<FloatMenuOption> GetOptionsFor(Thing clickedThing, FloatMenuContext context)
     {
-        if (!clickedThing.TryGetComp(out CompMemoryCell memoryCell))
+        if (clickedThing is not MemoryCell memoryCell)
             yield break;
 
         CompMemoryCellContainer containerComp =

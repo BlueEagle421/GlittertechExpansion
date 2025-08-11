@@ -17,8 +17,8 @@ public class CompProperties_MemoryCellContainer : CompProperties_ThingContainer
 public class CompMemoryCellContainer : CompThingContainer
 {
     public CompProperties_MemoryCellContainer PropsSampleContainer => (CompProperties_MemoryCellContainer)props;
-    private CompMemoryCell _cellComp;
-    public CompMemoryCell ContainedCellComp => _cellComp;
+    private MemoryCell _cellComp;
+    public MemoryCell ContainedCellComp => _cellComp;
 
     public Action OnInserted, OnExtracted;
 
@@ -26,17 +26,17 @@ public class CompMemoryCellContainer : CompThingContainer
     {
         base.PostSpawnSetup(respawningAfterLoad);
 
-        _cellComp = ContainedThing?.TryGetComp<CompMemoryCell>();
+        _cellComp = (MemoryCell)ContainedThing;
     }
 
     public override string CompInspectStringExtra()
     {
-        return "Contents".Translate() + ": " + (ContainedCellComp == null ? ((string)"Nothing".Translate()) : ContainedCellComp.parent.LabelCap);
+        return "Contents".Translate() + ": " + (ContainedCellComp == null ? ((string)"Nothing".Translate()) : ContainedCellComp.LabelCap);
     }
 
     public virtual void Notify_CellInserted(Pawn doer)
     {
-        _cellComp = ContainedThing?.TryGetComp<CompMemoryCell>();
+        _cellComp = (MemoryCell)ContainedThing;
 
         SoundDef insertedSoundDef = PropsSampleContainer.insertedSoundDef;
         insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
@@ -87,12 +87,12 @@ public class CompMemoryCellContainer : CompThingContainer
         return true;
     }
 
-    public static CompMemoryCellContainer FindFor(CompMemoryCell memoryCell, Pawn traveler, bool ignoreOtherReservations = false)
+    public static CompMemoryCellContainer FindFor(MemoryCell memoryCell, Pawn traveler, bool ignoreOtherReservations = false)
     {
         CompMemoryCellContainer compContainer =
         GenClosest.ClosestThingReachable(
-            memoryCell.parent.PositionHeld,
-            memoryCell.parent.MapHeld,
+            memoryCell.PositionHeld,
+            memoryCell.MapHeld,
             ThingRequest.ForDef(USH_DefOf.USH_MemoryPylon),
             PathEndMode.InteractionCell,
             TraverseParms.For(traveler),
@@ -102,7 +102,7 @@ public class CompMemoryCellContainer : CompThingContainer
 
         bool Validator(Thing x) =>
             x.TryGetComp(out CompMemoryCellContainer comp)
-            && comp.Accepts(memoryCell.parent)
+            && comp.Accepts(memoryCell)
             && traveler.CanReserve(comp.parent, 1, -1, null, ignoreOtherReservations
         );
 

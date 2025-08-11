@@ -4,6 +4,8 @@
   <!-- bases -->
 
   <ThingDef Name="USH_MemoryCellBase" ParentName="DrugBase" Abstract="True">
+    <thingClass>USH_GE.MemoryCell</thingClass>
+
     <techLevel>Ultra</techLevel>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -28,6 +30,14 @@
       <chairSearchRadius>0</chairSearchRadius>
     </ingestible>
     <stackLimit>1</stackLimit>
+    <inspectorTabs>
+      <li>USH_GE.ITab_MemoryCellMods</li>
+    </inspectorTabs>
+    <recipes>
+      <li>USH_ModifyCellAmplify</li>
+      <li>USH_ModifyCellPostpone</li>
+      <li>USH_ModifyCellReduceRate</li>
+    </recipes>
     <statBases>
       <Mass>0.05</Mass>
       <DeteriorationRate>6</DeteriorationRate>
@@ -35,9 +45,6 @@
     </statBases>
     <tickerType>Rare</tickerType>
     <comps>
-      <li Class="USH_GE.CompProperties_MemoryCell">
-        <expireTicks>7200000</expireTicks> <!-- 2 years -->
-      </li>
       <li Class="CompProperties_Drug">
         <listOrder>105</listOrder>
       </li>
@@ -60,6 +67,24 @@
       <li Class="USH_GE.HediffCompProperties_MemoryCell"></li>
     </comps>
   </HediffDef>
+
+  <WorkGiverDef>
+    <defName>USH_DoBillsMemoryCell</defName>
+    <label>modify memory</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Smithing</workType>
+    <priorityInType>100</priorityInType>
+    <fixedBillGiverDefs>
+      <li>USH_MemoryCellPositive</li>
+      <li>USH_MemoryCellNegative</li>
+    </fixedBillGiverDefs>
+    <verb>modify</verb>
+    <gerund>modifying</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
 
   <!-- positive -->
 

@@ -10,7 +10,7 @@ public class IngestionOutcomeDoer_GiveHediffMemoryCell : IngestionOutcomeDoer_Gi
     {
         Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
         hediff.TryGetComp<HediffCompMemoryCell>().MemoryCellData =
-            ingested.TryGetComp<CompMemoryCell>().MemoryCellData;
+            ((MemoryCell)ingested).MemoryCellData;
 
         float effect = severity <= 0f ? hediffDef.initialSeverity : severity;
 

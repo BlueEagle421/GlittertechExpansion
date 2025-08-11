@@ -80,7 +80,7 @@ public static class MemoryUtils
 
         var thing = ThingMaker.MakeThing(thingDef);
         thing.stackCount = 1;
-        thing.TryGetComp<CompMemoryCell>().MemoryCellData = thought.ToCellData();
+        ((MemoryCell)thing).MemoryCellData = thought.ToCellData();
 
         GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
     }
