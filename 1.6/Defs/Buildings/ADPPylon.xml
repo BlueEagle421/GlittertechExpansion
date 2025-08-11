@@ -132,7 +132,7 @@
         <verbs>
             <li>
                 <verbClass>Verb_Shoot</verbClass>
-                <defaultProjectile>VPE_ChainBolt</defaultProjectile>
+                <defaultProjectile>USH_ADP_ChainBolt</defaultProjectile>
                 <warmupTime>0</warmupTime>
                 <minRange>1.9</minRange>
                 <range>23.9</range>
@@ -145,12 +145,12 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>VPE_ChainBolt</defName>
+        <defName>USH_ADP_ChainBolt</defName>
         <label>ADP chain bolt</label>
         <thingClass>VEF.Weapons.TeslaProjectile</thingClass>
         <drawOffscreen>true</drawOffscreen>
         <graphicData>
-            <texPath>Effects/Staticlord/ChainBolt</texPath>
+            <texPath>Effects/ADPPylon/Bolt</texPath>
             <graphicClass>Graphic_Flicker</graphicClass>
             <shaderType>TransparentPostLight</shaderType>
         </graphicData>
