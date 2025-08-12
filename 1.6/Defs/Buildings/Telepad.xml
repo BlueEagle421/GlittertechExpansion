@@ -68,7 +68,7 @@
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
                 <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
-                <fuelCapacity>60</fuelCapacity>
+                <fuelCapacity>30</fuelCapacity>
                 <fuelFilter>
                     <thingDefs>
                         <li>Neutroamine</li>
@@ -87,6 +87,7 @@
                 </affectedDamageDefs>
             </li>
             <li Class="USH_GE.CompProperties_Telepad">
+                <fuelConsumption>2</fuelConsumption>
                 <activeTicks>1</activeTicks>
                 <cooldownTicks>0</cooldownTicks>
                 <ticksToActivate>60</ticksToActivate>
