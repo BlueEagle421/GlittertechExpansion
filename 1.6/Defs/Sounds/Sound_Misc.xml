@@ -53,6 +53,24 @@
   </SoundDef>
 
   <SoundDef>
+    <defName>USH_GlitterFabricationStart</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GlitterFabricationStart</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20~22</volumeRange>
+        <pitchRange>0.96~1.04</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
     <defName>USH_AbsorbMemoryCell</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>

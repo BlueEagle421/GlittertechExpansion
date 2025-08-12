@@ -92,7 +92,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
         if (Spawned && Map != null)
             _electricEffecterHandler.StartMaintaining(360, GlitterBill.GlittertechExt.fabricatorOffsetY);
 
-        SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
+        USH_DefOf.USH_GlitterFabricationStart.PlayOneShot(this);
 
         _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(GlitterBill.GetProductGraphic.path));
     }

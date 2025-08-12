@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledMemoryCasing</defName>
+        <label>internal memory casing</label>
+        <hediffClass>USH_GE.Hediff_MemoryCasing</hediffClass>
+        <description>An installed internal memory casing.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_MemoryCasing</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_MemoryCasing</spawnThingOnRemoved>
+        <tags>
+            <li>USH_MemoryCasingTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_MemoryCasing</defName>
+        <label>internal memory casing</label>
+        <description>A nano-container meant to instill subconscious images into the user's mind sourced from the contained memory cell.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallMemoryCasing</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <MedicineUltratech>2</MedicineUltratech>
+            <Plasteel>15</Plasteel>
+            <USH_Glittercore>2</USH_Glittercore>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>USH_DeepMindScanningRes</li>
+            </researchPrerequisites>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallMemoryCasing</defName>
+        <label>install internal memory casing</label>
+        <description>Install a internal memory casing.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_MemoryCasing</ThingDef>
+            <HediffDef>USH_InstalledMemoryCasing</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing internal memory casing.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_MemoryCasing</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_MemoryCasing</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledMemoryCasing</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_MemoryCasingTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+</Defs>

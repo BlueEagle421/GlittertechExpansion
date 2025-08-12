@@ -43,12 +43,6 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
         if (clickedThing is not MemoryCell memoryCell)
             yield break;
 
-        CompMemoryCellContainer containerComp =
-        CompMemoryCellContainer.FindFor(memoryCell, context.FirstSelectedPawn);
-
-        if (containerComp == null)
-            yield break;
-
         yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_GE_InsertMemoryCell".Translate(clickedThing.Label), delegate
             {
                 CreateInsertJobTargeter(context.FirstSelectedPawn, clickedThing);

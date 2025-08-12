@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.AI;
 using Verse.Sound;
 
 namespace USH_GE;
@@ -85,31 +84,5 @@ public class CompMemoryCellContainer : CompThingContainer
             return "USH_GE_ContainerFull".Translate(parent.Named("BUILDING"));
 
         return true;
-    }
-
-    public static CompMemoryCellContainer FindFor(MemoryCell memoryCell, Pawn traveler, bool ignoreOtherReservations = false)
-    {
-        CompMemoryCellContainer compContainer =
-        GenClosest.ClosestThingReachable(
-            memoryCell.PositionHeld,
-            memoryCell.MapHeld,
-            ThingRequest.ForDef(USH_DefOf.USH_MemoryPylon),
-            PathEndMode.InteractionCell,
-            TraverseParms.For(traveler),
-            9999f,
-            Validator)
-            .TryGetComp<CompMemoryCellContainer>();
-
-        bool Validator(Thing x) =>
-            x.TryGetComp(out CompMemoryCellContainer comp)
-            && comp.Accepts(memoryCell)
-            && traveler.CanReserve(comp.parent, 1, -1, null, ignoreOtherReservations
-        );
-
-        if (compContainer != null)
-            return compContainer;
-
-
-        return null;
     }
 }
