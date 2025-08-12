@@ -87,7 +87,7 @@
                 <outOfFuelMessage>Needs new core</outOfFuelMessage>
                 <fuelFilter>
                     <thingDefs>
-                        <li>USH_Glittercore</li>
+                        <li>ComponentSpacer</li>
                     </thingDefs>
                 </fuelFilter>
                 <fuelCapacity>4</fuelCapacity>
