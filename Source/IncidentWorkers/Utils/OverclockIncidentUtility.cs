@@ -34,6 +34,9 @@ public static class OverclockIncidentUtility
         if (Mathf.Approximately(pawn.GetStatValue(StatDefOf.Flammability), 0f))
             return false;
 
+        if (pawn.health?.hediffSet?.HasHediff(USH_DefOf.USH_InstalledGlitterlink) == true)
+            return false;
+
         if (!thing.TryGetComp(out CompOverclock compOverclock))
             return false;
 

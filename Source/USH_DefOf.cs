@@ -61,4 +61,5 @@ public static class USH_DefOf
     public static SoundDef USH_GlittertechFabricatorStart;
     public static SoundDef USH_GlittertechFabricatorInsert;
     public static HediffDef USH_InstalledMemoryProjector;
+    public static HediffDef USH_InstalledGlitterlink;
 }
