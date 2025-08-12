@@ -54,7 +54,7 @@
             <li Class="USH_GE.CompProperties_MemoryCellContainer">
                 <drawContainedThing>false</drawContainedThing>
                 <drawStackLabel>false</drawStackLabel>
-                <insertedSoundDef>USH_InsertMemoryCell</insertedSoundDef>
+                <insertedSoundDef>USH_Insert</insertedSoundDef>
             </li>
             <li Class="USH_GE.CompProperties_MemoryPylon">
                 <activeOverlayPositivePath>Things/Building/MemoryPylonOverlayPositive</activeOverlayPositivePath>

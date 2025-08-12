@@ -88,10 +88,10 @@ public class CompMemoryPylon : ThingComp
 
         if (_compContainer.Full)
         {
-            string expireTime = ((int)_compContainer.ContainedCellComp.ExpireTicksLeft).ToStringTicksToPeriod();
+            string expireTime = ((int)_compContainer.ContainedCell.ExpireTicksLeft).ToStringTicksToPeriod();
 
             sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + expireTime);
-            sb.AppendLine(_compContainer.ContainedCellComp.MemoryCellData.GetInspectString());
+            sb.AppendLine(_compContainer.ContainedCell.MemoryCellData.GetInspectString());
         }
 
         return sb.ToTaggedString().Trim();
@@ -105,7 +105,7 @@ public class CompMemoryPylon : ThingComp
         if (!CanWork())
             return;
 
-        bool isPositive = _compContainer.ContainedCellComp.MemoryCellData.IsPositive();
+        bool isPositive = _compContainer.ContainedCell.MemoryCellData.IsPositive();
         _compGlower.GlowColor = ColorInt.FromHdrColor(
             MemoryUtils.GetThoughtColor(isPositive) * GLOW_MULTIPLIER);
 
@@ -195,7 +195,7 @@ public class CompMemoryPylon : ThingComp
     private void CreatePylonMemory(Pawn p)
     {
         Thought_MemoryPylon toGive = ThoughtMaker.MakeThought(USH_DefOf.USH_MemoryPylonThought) as Thought_MemoryPylon;
-        toGive.MemoryCellData = _compContainer.ContainedCellComp.MemoryCellData;
+        toGive.MemoryCellData = _compContainer.ContainedCell.MemoryCellData;
         toGive.SourceThing = parent;
 
         p.needs.mood.thoughts.memories.TryGainMemory(toGive);
@@ -228,7 +228,7 @@ public class CompMemoryPylon : ThingComp
 
     private bool CanWork()
     {
-        if (_compContainer.ContainedCellComp == null)
+        if (_compContainer.ContainedCell == null)
             return false;
 
         if (!_compPower.PowerOn)

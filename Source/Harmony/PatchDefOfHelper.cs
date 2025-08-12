@@ -65,7 +65,7 @@ public static class Patch_DefOfHelper_RebindAllDefOfs
     private static CompProperties_Overclock PropertiesToAdd
         => new()
         {
-            insertedSoundDefName = "USH_InsertMemoryCell",
+            insertedSoundDefName = "USH_Insert",
             statFactors = StatFactors,
             statOffsets = StatOffsets
         };

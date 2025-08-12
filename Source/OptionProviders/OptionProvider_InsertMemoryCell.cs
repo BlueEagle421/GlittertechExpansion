@@ -19,20 +19,16 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
     {
         targetingParameters = new TargetingParameters
         {
-            canTargetPawns = false,
+            canTargetPawns = true,
             canTargetItems = false,
             canTargetBuildings = true,
             validator = new Predicate<TargetInfo>(TargetValidator)
         };
     }
 
-
     private static bool TargetValidator(TargetInfo target)
     {
-        if (target.Thing is not Building building)
-            return false;
-
-        if (building.TryGetComp<CompMemoryCellContainer>() == null)
+        if (!target.Thing.TryGetIMemoryCellHolder(out _))
             return false;
 
         return true;
@@ -43,23 +39,25 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
         if (clickedThing is not MemoryCell memoryCell)
             yield break;
 
-        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_GE_InsertMemoryCell".Translate(clickedThing.Label), delegate
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("USH_GE_InsertMemoryCell".Translate(memoryCell.Label), delegate
             {
-                CreateInsertJobTargeter(context.FirstSelectedPawn, clickedThing);
-            }), context.FirstSelectedPawn, new LocalTargetInfo(clickedThing));
+                CreateInsertJobTargeter(context.FirstSelectedPawn, memoryCell);
+            }), context.FirstSelectedPawn, new LocalTargetInfo(memoryCell));
 
     }
 
-    private static void CreateInsertJobTargeter(Pawn p, Thing item)
+    private static void CreateInsertJobTargeter(Pawn p, MemoryCell memoryCell)
     {
         Find.Targeter.BeginTargeting(targetingParameters, delegate (LocalTargetInfo target)
         {
-            GiveJobToPawn(p, target, item);
+            target.Thing.TryGetIMemoryCellHolder(out IMemoryCellHolder cellHolder);
+            GiveJobToPawn(p, cellHolder, memoryCell);
+
         }, null, null, null, null, null, playSoundOnAction: true, delegate (LocalTargetInfo target)
         {
-            if (target.Thing.TryGetComp(out CompMemoryCellContainer container))
+            if (target.Thing.TryGetIMemoryCellHolder(out IMemoryCellHolder cellHolder))
             {
-                var report = container.CanInsert();
+                var report = cellHolder.CanInsertCell(memoryCell);
                 if (!report.Accepted)
                 {
                     var msg = $"{"USH_GE_CannotInsert".Translate()}: {report.Reason.CapitalizeFirst()}"
@@ -74,11 +72,9 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
         });
     }
 
-    private static void GiveJobToPawn(Pawn p, LocalTargetInfo target, Thing item)
+    private static void GiveJobToPawn(Pawn p, IMemoryCellHolder targetCellHolder, MemoryCell memoryCell)
     {
-        Building targetBuilding = target.Thing as Building;
-
-        Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertMemoryCell, item, targetBuilding, targetBuilding.InteractionCell);
+        Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertMemoryCell, memoryCell, targetCellHolder.SourceThing, targetCellHolder.InsertPos);
         job.count = 1;
         p.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
     }

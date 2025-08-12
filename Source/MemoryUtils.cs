@@ -112,12 +112,31 @@ public static class MemoryUtils
     }
 
     private static bool CanEnjoyNegativeMemory(Pawn p, MemoryCellData cellData)
-    {
-        return ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef);
-    }
+        => ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef);
+
 
     public static Color GetThoughtColor(bool positive)
+        => positive ? NeedsCardUtility.MoodColor : NeedsCardUtility.MoodColorNegative;
+
+
+    public static bool TryGetIMemoryCellHolder(this Thing thing, out IMemoryCellHolder memoryCellHolder)
     {
-        return positive ? NeedsCardUtility.MoodColor : NeedsCardUtility.MoodColorNegative;
+        memoryCellHolder = null;
+
+        if (thing is ThingWithComps thingWithComps && thingWithComps.AllComps
+            .Find(x => x is IMemoryCellHolder cellHolder) is IMemoryCellHolder fromComp)
+        {
+            memoryCellHolder = fromComp;
+            return true;
+        }
+
+        if (thing is Pawn pawn && pawn.health?.hediffSet?.hediffs?
+            .Find(x => x is IMemoryCellHolder cellHolder) is IMemoryCellHolder fromHediff)
+        {
+            memoryCellHolder = fromHediff;
+            return true;
+        }
+
+        return false;
     }
 }

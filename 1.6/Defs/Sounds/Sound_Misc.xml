@@ -125,7 +125,7 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>USH_InsertMemoryCell</defName>
+    <defName>USH_Insert</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>

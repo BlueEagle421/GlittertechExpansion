@@ -6,10 +6,7 @@ namespace USH_GE;
 [DefOf]
 public static class USH_DefOf
 {
-    static USH_DefOf()
-    {
-        DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
-    }
+    static USH_DefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
 
     public static EffecterDef USH_ElectricForming;
     public static EffecterDef USH_ElectricResearchProbe;
@@ -33,6 +30,7 @@ public static class USH_DefOf
     public static JobDef USH_InstallOverclockUpgrade;
     public static ThoughtDef USH_MemoryPylonThought;
     public static SoundDef USH_ExtractMemory;
+    public static SoundDef USH_Insert;
     public static SoundDef USH_Eject;
     public static EffecterDef USH_GlittershipChunkPulse;
     public static ResearchProjectDef USH_GlittertechFabrication;

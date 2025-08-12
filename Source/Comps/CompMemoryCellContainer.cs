@@ -13,13 +13,17 @@ public class CompProperties_MemoryCellContainer : CompProperties_ThingContainer
     public CompProperties_MemoryCellContainer() => compClass = typeof(CompMemoryCellContainer);
 }
 
-public class CompMemoryCellContainer : CompThingContainer
+public class CompMemoryCellContainer : CompThingContainer, IMemoryCellHolder
 {
     public CompProperties_MemoryCellContainer PropsSampleContainer => (CompProperties_MemoryCellContainer)props;
     private MemoryCell _cellComp;
-    public MemoryCell ContainedCellComp => _cellComp;
+    public MemoryCell ContainedCell => _cellComp;
+
+    public Thing SourceThing => parent;
+    public IntVec3 InsertPos => parent.InteractionCell;
 
     public Action OnInserted, OnExtracted;
+    public ThingOwner MemoryCellOwner => innerContainer;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
@@ -30,10 +34,10 @@ public class CompMemoryCellContainer : CompThingContainer
 
     public override string CompInspectStringExtra()
     {
-        return "Contents".Translate() + ": " + (ContainedCellComp == null ? ((string)"Nothing".Translate()) : ContainedCellComp.LabelCap);
+        return "Contents".Translate() + ": " + (ContainedCell == null ? ((string)"Nothing".Translate()) : ContainedCell.LabelCap);
     }
 
-    public virtual void Notify_CellInserted(Pawn doer)
+    public virtual void Notify_CellInserted(MemoryCell memoryCell, Pawn doer)
     {
         _cellComp = (MemoryCell)ContainedThing;
 
@@ -78,7 +82,7 @@ public class CompMemoryCellContainer : CompThingContainer
         Notify_CellExtracted(null);
     }
 
-    public AcceptanceReport CanInsert()
+    public AcceptanceReport CanInsertCell(MemoryCell memoryCell)
     {
         if (Full)
             return "USH_GE_ContainerFull".Translate(parent.Named("BUILDING"));

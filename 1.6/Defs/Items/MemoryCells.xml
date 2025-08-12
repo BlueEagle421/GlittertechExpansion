@@ -90,7 +90,7 @@
 
   <ThingDef ParentName="USH_MemoryCellBase">
     <defName>USH_MemoryCellPositive</defName>
-    <label>memory cell (positive)</label>
+    <label>memory cell</label>
     <description>A pleasant memory image for everyone to enjoy. It creates a subconscious portrayal of past situations that may surface in dreams or as mild lucid hallucinations. Reliving someone’s memory makes the user more outgoing and open to sharing their experiences with the memory cell.</description>
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellPositive</texPath>
@@ -144,7 +144,7 @@
 
   <ThingDef ParentName="USH_MemoryCellBase">
     <defName>USH_MemoryCellNegative</defName>
-    <label>memory cell (negative)</label>
+    <label>memory cell</label>
     <description>A sweet treat for all twisted minds. Absorbing a negative memory will drastically lower a regular user’s mood, depending on the intensity of the cloned pain, but it will have the opposite effect on desensitized individuals.\n\nPsychopaths may enjoy reliving loss, while sadists delight in pain.</description>
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellNegative</texPath>
