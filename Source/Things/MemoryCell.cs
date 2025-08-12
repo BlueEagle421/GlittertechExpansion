@@ -106,7 +106,7 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
 
         sb.AppendLine(base.GetInspectString());
         sb.AppendLine("USH_GE_ExpireRate".Translate() + ": " + ExpireTimeMultiplier.ToStringPercent());
-        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks / ExpireTimeMultiplier)).ToStringTicksToPeriod());
+        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ExpireTimeString());
         sb.AppendLine(MemoryCellData.GetInspectString());
 
         if (!_modDataMap.NullOrEmpty())
@@ -117,6 +117,8 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
 
         return sb.ToString().Trim();
     }
+
+    public string ExpireTimeString() => ((int)(_expireTicks / ExpireTimeMultiplier)).ToStringTicksToPeriod();
 
     public override IEnumerable<Gizmo> GetGizmos()
     {

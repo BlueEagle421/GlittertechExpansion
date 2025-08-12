@@ -23,8 +23,6 @@ public static class USH_DefOf
     public static ThingDef USH_MemoryCellEmpty;
     public static ThingDef USH_MemoryCellPositive;
     public static ThingDef USH_MemoryCellNegative;
-    public static HediffDef USH_MemoryPositiveHigh;
-    public static HediffDef USH_MemoryNegativeHigh;
     public static ThingDef USH_MemoryPylon;
     public static JobDef USH_InsertMemoryCell;
     public static JobDef USH_InstallOverclockUpgrade;
@@ -62,4 +60,5 @@ public static class USH_DefOf
     public static ThoughtDef USH_Enlightenment;
     public static SoundDef USH_GlittertechFabricatorStart;
     public static SoundDef USH_GlittertechFabricatorInsert;
+    public static HediffDef USH_InstalledMemoryProjector;
 }

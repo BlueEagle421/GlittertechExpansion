@@ -3,33 +3,21 @@
 
   <!-- bases -->
 
-  <ThingDef Name="USH_MemoryCellBase" ParentName="DrugBase" Abstract="True">
+  <ThingDef Name="USH_MemoryCellBase" Abstract="True">
     <thingClass>USH_GE.MemoryCell</thingClass>
-
     <techLevel>Ultra</techLevel>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <category>Item</category>
+    <drawerType>MapMeshOnly</drawerType>
+    <useHitPoints>true</useHitPoints>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <selectable>true</selectable>
     <tradeability>Sellable</tradeability>
     <rotatable>false</rotatable>
-    <ingestible>
-      <joyKind>Chemical</joyKind>
-      <joy>0.10</joy>
-      <drugCategory>Medical</drugCategory>
-      <foodType>Processed</foodType>
-      <baseIngestTicks>120</baseIngestTicks>
-      <ingestSound>USH_AbsorbMemoryCell</ingestSound>
-      <ingestHoldOffsetStanding>
-        <northDefault>
-          <offset>(0.18,0,0)</offset>
-        </northDefault>
-      </ingestHoldOffsetStanding>
-      <ingestCommandString>Absorb {0}</ingestCommandString>
-      <ingestReportString>Absorbing {0}.</ingestReportString>
-      <useEatingSpeedStat>false</useEatingSpeedStat>
-      <chairSearchRadius>0</chairSearchRadius>
-    </ingestible>
     <stackLimit>1</stackLimit>
+    <altitudeLayer>Item</altitudeLayer>
     <inspectorTabs>
       <li>USH_GE.ITab_MemoryCellMods</li>
     </inspectorTabs>
@@ -39,34 +27,20 @@
       <li>USH_ModifyCellReduceRate</li>
     </recipes>
     <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
       <Mass>0.05</Mass>
       <DeteriorationRate>6</DeteriorationRate>
       <Flammability>1.0</Flammability>
+      <Beauty>-4</Beauty>
     </statBases>
+    <resourceReadoutPriority>Last</resourceReadoutPriority>
+    <drawGUIOverlay>true</drawGUIOverlay>
     <tickerType>Rare</tickerType>
+    <alwaysHaulable>true</alwaysHaulable>
     <comps>
-      <li Class="CompProperties_Drug">
-        <listOrder>105</listOrder>
-      </li>
+      <li Class="CompProperties_Forbiddable" />
     </comps>
   </ThingDef>
-
-  <HediffDef Name="USH_MemoryHediffBase" Abstract="True">
-    <description>The side effects of subconscious image of someone's memory. It can appear in dreams or as a lucid hallucination.</description>
-    <hediffClass>Hediff_High</hediffClass>
-    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
-    <scenarioCanAdd>true</scenarioCanAdd>
-    <maxSeverity>1.0</maxSeverity>
-    <lethalSeverity>-1</lethalSeverity>
-    <isBad>false</isBad>
-    <comps>
-      <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-0.16</severityPerDay>
-        <showHoursToRecover>true</showHoursToRecover>
-      </li>
-      <li Class="USH_GE.HediffCompProperties_MemoryCell"></li>
-    </comps>
-  </HediffDef>
 
   <WorkGiverDef>
     <defName>USH_DoBillsMemoryCell</defName>
@@ -95,50 +69,8 @@
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellPositive</texPath>
     </graphicData>
-    <ingestible>
-      <outcomeDoers>
-        <li Class="USH_GE.IngestionOutcomeDoer_GiveHediffMemoryCell">
-          <hediffDef>USH_MemoryPositiveHigh</hediffDef>
-          <severity>1</severity>
-        </li>
-      </outcomeDoers>
-    </ingestible>
   </ThingDef>
 
-  <HediffDef ParentName="USH_MemoryHediffBase">
-    <defName>USH_MemoryPositiveHigh</defName>
-    <label>positive memory recall</label>
-    <stages>
-      <li>
-        <opinionOfOthersFactor>1.1</opinionOfOthersFactor>
-        <capMods>
-          <li>
-            <capacity>Consciousness</capacity>
-            <offset>0.05</offset>
-          </li>
-          <li>
-            <capacity>Talking</capacity>
-            <offset>0.08</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-  </HediffDef>
-
-  <ThoughtDef>
-    <defName>USH_MemoryPositiveCellThought</defName>
-    <workerClass>ThoughtWorker_Hediff</workerClass>
-    <thoughtClass>USH_GE.Thought_ClonedMemoryPositive</thoughtClass>
-    <hediff>USH_MemoryPositiveHigh</hediff>
-    <validWhileDespawned>true</validWhileDespawned>
-    <stages>
-      <li>
-        <label>Reliving positive memory</label>
-        <description>None</description> <!-- controlled by code-->
-        <baseMoodEffect>0</baseMoodEffect> <!-- controlled by code-->
-      </li>
-    </stages>
-  </ThoughtDef>
 
   <!-- negative -->
 
@@ -149,49 +81,7 @@
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellNegative</texPath>
     </graphicData>
-    <ingestible>
-      <outcomeDoers>
-        <li Class="USH_GE.IngestionOutcomeDoer_GiveHediffMemoryCell">
-          <hediffDef>USH_MemoryNegativeHigh</hediffDef>
-          <severity>1</severity>
-        </li>
-      </outcomeDoers>
-    </ingestible>
   </ThingDef>
 
-  <HediffDef ParentName="USH_MemoryHediffBase">
-    <defName>USH_MemoryNegativeHigh</defName>
-    <label>negative memory recall</label>
-    <stages>
-      <li>
-        <opinionOfOthersFactor>0.95</opinionOfOthersFactor>
-        <capMods>
-          <li>
-            <capacity>Consciousness</capacity>
-            <offset>0.03</offset>
-          </li>
-          <li>
-            <capacity>Talking</capacity>
-            <offset>-0.1</offset>
-          </li>
-        </capMods>
-      </li>
-    </stages>
-  </HediffDef>
-
-  <ThoughtDef>
-    <defName>USH_MemoryNegativeCellThought</defName>
-    <workerClass>ThoughtWorker_Hediff</workerClass>
-    <thoughtClass>USH_GE.Thought_ClonedMemoryNegative</thoughtClass>
-    <hediff>USH_MemoryNegativeHigh</hediff>
-    <validWhileDespawned>true</validWhileDespawned>
-    <stages>
-      <li>
-        <label>Reliving negative memory</label>
-        <description>None</description> <!-- controlled by code-->
-        <baseMoodEffect>0</baseMoodEffect> <!-- controlled by code-->
-      </li>
-    </stages>
-  </ThoughtDef>
 
 </Defs>

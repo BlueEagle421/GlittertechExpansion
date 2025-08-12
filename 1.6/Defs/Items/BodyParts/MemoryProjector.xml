@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledMemoryProjector</defName>
+        <label>memory projector</label>
+        <hediffClass>USH_GE.Hediff_MemoryProjector</hediffClass>
+        <description>An installed memory projector.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_MemoryProjector</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_MemoryProjector</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.05</offset>
+                    </li>
+                    <li>
+                        <capacity>Talking</capacity>
+                        <offset>0.1</offset>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <tags>
+            <li>USH_MemoryProjectorTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThoughtDef>
+        <defName>USH_MemoryPositiveCellThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <thoughtClass>USH_GE.Thought_ClonedMemory</thoughtClass>
+        <hediff>USH_InstalledMemoryProjector</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>Reliving memory</label>
+                <description>I can see it in my dreams and in lucid hallucinations.</description>
+                <baseMoodEffect>0</baseMoodEffect> <!-- controlled by code-->
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_MemoryProjector</defName>
+        <label>memory projector</label>
+        <description>A nano-container meant to instill subconscious images into the user's mind sourced from the contained memory cell.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallMemoryProjector</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <MedicineUltratech>2</MedicineUltratech>
+            <Plasteel>15</Plasteel>
+            <USH_Glittercore>2</USH_Glittercore>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisites>
+                <li>USH_DeepMindScanningRes</li>
+            </researchPrerequisites>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallMemoryProjector</defName>
+        <label>install memory projector</label>
+        <description>Install a memory projector.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_MemoryProjector</ThingDef>
+            <HediffDef>USH_InstalledMemoryProjector</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing memory projector.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_MemoryProjector</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_MemoryProjector</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledMemoryProjector</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_MemoryProjectorTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+</Defs>

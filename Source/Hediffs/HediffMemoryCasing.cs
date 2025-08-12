@@ -6,7 +6,7 @@ using Verse;
 using Verse.Sound;
 namespace USH_GE;
 
-public class Hediff_MemoryCasing : Hediff_Implant, IThingHolder, ISearchableContents, IMemoryCellHolder
+public class Hediff_MemoryProjector : Hediff_Implant, IThingHolder, ISearchableContents, IMemoryCellHolder
 {
     public ThingOwner innerContainer;
     public Thing ContainedThing
@@ -29,7 +29,7 @@ public class Hediff_MemoryCasing : Hediff_Implant, IThingHolder, ISearchableCont
     private int _deltaTicksPassed;
     private const int TICK_RARE = 250;
 
-    public Hediff_MemoryCasing()
+    public Hediff_MemoryProjector()
     {
         innerContainer = new ThingOwner<Thing>(this);
     }
@@ -53,6 +53,16 @@ public class Hediff_MemoryCasing : Hediff_Implant, IThingHolder, ISearchableCont
         USH_DefOf.USH_Insert?.PlayOneShot(SoundInfo.InMap(pawn));
     }
 
+    public override string Label
+    {
+        get
+        {
+            string postfix = ContainedCell == null ? "" : " (working)";
+
+            return base.Label + postfix;
+        }
+    }
+
     public override string Description
     {
         get
@@ -63,12 +73,7 @@ public class Hediff_MemoryCasing : Hediff_Implant, IThingHolder, ISearchableCont
             sb.AppendLine("Contents".Translate() + ": " + (ContainedCell == null ? ((string)"Nothing".Translate()) : ContainedCell.LabelCap));
 
             if (ContainedCell != null)
-            {
-                string expireTime = ((int)ContainedCell.ExpireTicksLeft).ToStringTicksToPeriod();
-
-                sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + expireTime);
-                sb.AppendLine(ContainedCell.MemoryCellData.GetInspectString());
-            }
+                sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ContainedCell.ExpireTimeString());
 
             return base.Description + '\n' + sb.ToString();
         }
@@ -89,8 +94,6 @@ public class Hediff_MemoryCasing : Hediff_Implant, IThingHolder, ISearchableCont
 
     public override IEnumerable<Gizmo> GetGizmos()
     {
-
-
         foreach (Gizmo gizmo in base.GetGizmos())
             yield return gizmo;
 

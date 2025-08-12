@@ -3,7 +3,7 @@ using Verse;
 
 namespace USH_GE;
 
-public abstract class Thought_ClonedMemory : Thought_Situational
+public class Thought_ClonedMemory : Thought_Situational
 {
     private MemoryCellData? _cachedMemoryCellData;
     private MemoryCellData? MemoryCellData
@@ -12,8 +12,8 @@ public abstract class Thought_ClonedMemory : Thought_Situational
         {
             if (_cachedMemoryCellData == null)
             {
-                Hediff relevantHediff = pawn.health.hediffSet.GetFirstHediffOfDef(RelevantHediffDef);
-                _cachedMemoryCellData = relevantHediff.TryGetComp<HediffCompMemoryCell>().MemoryCellData;
+                Hediff relevantHediff = pawn.health.hediffSet.GetFirstHediffOfDef(USH_DefOf.USH_InstalledMemoryProjector);
+                _cachedMemoryCellData = (relevantHediff as Hediff_MemoryProjector).ContainedCell.MemoryCellData;
             }
 
             return _cachedMemoryCellData;
@@ -31,16 +31,5 @@ public abstract class Thought_ClonedMemory : Thought_Situational
     }
 
     public override float MoodOffset() => ClonedMoodOffset.Value;
-    public override string Description => MemoryCellData.Value.GetInspectString();
-    protected abstract HediffDef RelevantHediffDef { get; }
-}
-
-public class Thought_ClonedMemoryPositive : Thought_ClonedMemory
-{
-    protected override HediffDef RelevantHediffDef => USH_DefOf.USH_MemoryPositiveHigh;
-}
-
-public class Thought_ClonedMemoryNegative : Thought_ClonedMemory
-{
-    protected override HediffDef RelevantHediffDef => USH_DefOf.USH_MemoryNegativeHigh;
+    public override string Description => base.Description + "\n\n" + MemoryCellData.Value.GetInspectString();
 }
