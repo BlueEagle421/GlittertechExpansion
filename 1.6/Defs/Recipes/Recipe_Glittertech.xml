@@ -19,7 +19,7 @@
         <description>Form a glittercore.</description>
         <jobString>Forming glittercore.</jobString>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
-        <formingTicks>20000</formingTicks>
+        <formingTicks>12000</formingTicks>
         <gestationCycles>2</gestationCycles>
         <ingredients Inherit="false">
             <li>
@@ -63,7 +63,7 @@
         </descriptionHyperlinks>
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
-                <powerNeeded>2800</powerNeeded>
+                <powerNeeded>1100</powerNeeded>
             </li>
         </modExtensions>
     </RecipeDef>
@@ -74,7 +74,7 @@
         <description>Form a glittercore x4.</description>
         <jobString>Forming glittercore x4.</jobString>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
-        <formingTicks>20000</formingTicks>
+        <formingTicks>12000</formingTicks>
         <gestationCycles>6</gestationCycles>
         <skillRequirements>
             <Intellectual>8</Intellectual>
@@ -121,7 +121,7 @@
         </descriptionHyperlinks>
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
-                <powerNeeded>11200</powerNeeded>
+                <powerNeeded>4400</powerNeeded>
             </li>
         </modExtensions>
     </RecipeDef>
@@ -725,7 +725,7 @@
         </descriptionHyperlinks>
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
-                <powerNeeded>2600</powerNeeded>
+                <powerNeeded>1800</powerNeeded>
             </li>
         </modExtensions>
     </RecipeDef>
@@ -861,7 +861,7 @@
         </descriptionHyperlinks>
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
-                <powerNeeded>5600</powerNeeded>
+                <powerNeeded>3200</powerNeeded>
             </li>
         </modExtensions>
     </RecipeDef>
@@ -936,9 +936,9 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormMechSerumHealer</defName>
-        <label>form healer mech serum x3</label>
-        <description>Form healer mech serum x3.</description>
-        <jobString>Forming healer mech serum x3.</jobString>
+        <label>form healer mech serum x4</label>
+        <description>Form healer mech serum x4.</description>
+        <jobString>Forming healer mech serum x4.</jobString>
         <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
         <formingTicks>18000</formingTicks>
         <gestationCycles>20</gestationCycles>
@@ -969,14 +969,14 @@
             </li>
         </ingredients>
         <products>
-            <MechSerumHealer>3</MechSerumHealer>
+            <MechSerumHealer>4</MechSerumHealer>
         </products>
         <descriptionHyperlinks>
             <ThingDef>MechSerumHealer</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
-                <powerNeeded>14000</powerNeeded>
+                <powerNeeded>12000</powerNeeded>
                 <requiredFacilities>
                     <li>USH_NeuralGlitterpanel</li>
                 </requiredFacilities>
