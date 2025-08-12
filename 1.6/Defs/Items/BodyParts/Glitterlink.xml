@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Glitterlink -->
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledGlitterlink</defName>
+        <label>glitterlink</label>
+        <description>An installed glitterlink.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Glitterlink</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_Glitterlink</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <statOffsets>
+                    <ResearchSpeed>0.15</ResearchSpeed>
+                    <MedicalTendSpeed>0.1</MedicalTendSpeed>
+                    <MedicalTendQuality>0.1</MedicalTendQuality>
+                    <SocialImpact>0.1</SocialImpact>
+                    <HackingSpeed>0.4</HackingSpeed>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
+                    <ToxicResistance>0.3</ToxicResistance>
+                </statOffsets>
+            </li>
+        </stages>
+        <tags>
+            <li>USH_GlitterlinkTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_Glitterlink</defName>
+        <label>glitterlink</label>
+        <description>An almost conscious processor meant to generate unique codes that allow linking to the nearby energy field enhancing user's mental capabilities. On glitterworld it's used to identify citizens and missing the personal code is considered a serious violation of the law.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallGlitterlink</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <SubcoreRegular MayRequire="Ludeon.RimWorld.Biotech">1</SubcoreRegular>
+            <USH_MemoryCellEmpty>1</USH_MemoryCellEmpty>
+            <Plasteel>25</Plasteel>
+            <USH_Glittercore>4</USH_Glittercore>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>USH_SkinRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallGlitterlink</defName>
+        <label>install glitterlink</label>
+        <description>Install a glitterlink.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Glitterlink</ThingDef>
+            <HediffDef>USH_InstalledGlitterlink</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing glitterlink.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glitterlink</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_Glitterlink</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Brain</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledGlitterlink</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_GlitterlinkTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+</Defs>
