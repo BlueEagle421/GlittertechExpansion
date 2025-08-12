@@ -92,7 +92,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
         if (Spawned && Map != null)
             _electricEffecterHandler.StartMaintaining(360, GlitterBill.GlittertechExt.fabricatorOffsetY);
 
-        USH_DefOf.USH_GlitterFabricationStart.PlayOneShot(this);
+        USH_DefOf.USH_GlittertechFabricatorStart.PlayOneShot(this);
 
         _matProps.SetTexture("_MainTex", ContentFinder<Texture2D>.Get(GlitterBill.GetProductGraphic.path));
     }
@@ -119,6 +119,7 @@ public class Building_GlittertechFabricator : Building_WorkTableAutonomous
     {
         base.Notify_HauledTo(hauler, thing, count);
 
+        USH_DefOf.USH_GlittertechFabricatorInsert.PlayOneShot(this);
         thing.def.soundDrop.PlayOneShot(this);
     }
 

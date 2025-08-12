@@ -62,5 +62,6 @@ public static class USH_DefOf
     public static ThingCategoryDef Grenades;
     public static HediffDef USH_PostMemoryExtraction;
     public static ThoughtDef USH_Enlightenment;
-    public static SoundDef USH_GlitterFabricationStart;
+    public static SoundDef USH_GlittertechFabricatorStart;
+    public static SoundDef USH_GlittertechFabricatorInsert;
 }

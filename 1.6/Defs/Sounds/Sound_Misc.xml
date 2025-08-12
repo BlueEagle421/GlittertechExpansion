@@ -53,14 +53,32 @@
   </SoundDef>
 
   <SoundDef>
-    <defName>USH_GlitterFabricationStart</defName>
+    <defName>USH_GlittertechFabricatorInsert</defName>
     <context>MapOnly</context>
     <maxSimultaneous>1</maxSimultaneous>
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Clip">
-            <clipPath>Misc/GlitterFabricationStart</clipPath>
+            <clipPath>Misc/GlittertechFabricatorInsert</clipPath>
+          </li>
+        </grains>
+        <volumeRange>5~7</volumeRange>
+        <pitchRange>0.95~1.06</pitchRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_GlittertechFabricatorStart</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GlittertechFabricatorStart</clipPath>
           </li>
         </grains>
         <volumeRange>20~22</volumeRange>
