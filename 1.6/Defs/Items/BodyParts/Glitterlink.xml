@@ -32,7 +32,7 @@
     <ThingDef ParentName="USH_GlitterworldBodyPart">
         <defName>USH_Glitterlink</defName>
         <label>glitterlink</label>
-        <description>An almost conscious processor meant to generate unique codes that allow linking to the nearby energy field enhancing user's mental capabilities. On glitterworld it's used to identify citizens and missing the personal code is considered a serious violation of the law.</description>
+        <description>An almost-conscious processor designed to generate unique codes that link to the nearby energy field, enhancing the user's mental capabilities. On glitterworlds, it is used to identify citizens, and lacking a personal code is considered a serious violation of the law.</description>
         <descriptionHyperlinks>
             <RecipeDef>USH_InstallGlitterlink</RecipeDef>
         </descriptionHyperlinks>
@@ -82,5 +82,19 @@
             <li>USH_GlitterlinkTag</li>
         </incompatibleWithHediffTags>
     </RecipeDef>
+
+    <ThoughtDef>
+        <defName>USH_GlitterlinkThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>USH_InstalledGlitterlink</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>glitterlink</label>
+                <description>I feel like I'm part of something greater.</description>
+                <baseMoodEffect>3</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
 
 </Defs>
