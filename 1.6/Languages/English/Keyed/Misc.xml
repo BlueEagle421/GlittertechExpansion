@@ -79,10 +79,13 @@
   <USH_GE_ContainerFull>Container full</USH_GE_ContainerFull>
   <USH_GE_CommandChooseContainer>Choose container</USH_GE_CommandChooseContainer>
 
+  <USH_GE_ExpireRate>Expiration rate</USH_GE_ExpireRate>
   <USH_GE_ExpiresIn>Expires in</USH_GE_ExpiresIn>
   <USH_GE_Expired>{0} expired.</USH_GE_Expired>
+  <USH_GE_InstalledMods>Installed modifiers</USH_GE_InstalledMods>
+  <USH_GE_MaxInstalledMods>Maximum modifiers of this type reached</USH_GE_MaxInstalledMods>
   <USH_GE_CommandEraseMemory>Erase memory</USH_GE_CommandEraseMemory>
-  <USH_GE_CommandEraseMemoryDesc>Destroy currently stored memory and allow for extracting another one.</USH_GE_CommandEraseMemoryDesc>
+  <USH_GE_CommandEraseMemoryDesc>Destroy currently stored memory with all it's modifiers and allow for extracting another one.</USH_GE_CommandEraseMemoryDesc>
 
   <USH_GE_CommandMemoryContainerEject>Eject contained cell</USH_GE_CommandMemoryContainerEject>
   <USH_GE_CommandMemoryContainerEjectDesc>Removes the memory cell from inner container and places it nearby.</USH_GE_CommandMemoryContainerEjectDesc>

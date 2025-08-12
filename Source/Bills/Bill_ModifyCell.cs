@@ -55,7 +55,7 @@ public class Bill_ModifyCell : Bill_Production
     {
         if (MemoryCell.GetInstalledModCount(CellExt) >= CellExt.maxCount)
         {
-            JobFailReason.Is("Maximum modifiers of this type reached".Translate());
+            JobFailReason.Is("USH_GE_MaxInstalledMods".Translate());
             return false;
         }
 

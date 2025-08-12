@@ -105,13 +105,13 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
         StringBuilder sb = new();
 
         sb.AppendLine(base.GetInspectString());
-        sb.AppendLine("Expiration rate".Translate() + ": " + ExpireTimeMultiplier.ToStringPercent());
+        sb.AppendLine("USH_GE_ExpireRate".Translate() + ": " + ExpireTimeMultiplier.ToStringPercent());
         sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks / ExpireTimeMultiplier)).ToStringTicksToPeriod());
         sb.AppendLine(MemoryCellData.GetInspectString());
 
         if (!_modDataMap.NullOrEmpty())
         {
-            sb.AppendLine("Installed modifiers:");
+            sb.AppendLine("USH_GE_InstalledMods".Translate() + ":");
             _modDataMap.Values.ToList().ForEach(x => sb.AppendLine("  - " + x.ToString()));
         }
 
