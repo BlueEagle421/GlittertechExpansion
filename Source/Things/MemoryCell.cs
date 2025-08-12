@@ -35,7 +35,7 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
     public float ExpireTimeMultiplier
     {
         get => _expireTimeMultiplier;
-        set => Mathf.Max(0f, value);
+        set => _expireTimeMultiplier = Mathf.Max(0f, value);
     }
 
     protected BillStack _billStack;
@@ -83,7 +83,7 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
     {
         base.TickRare();
 
-        ExpireTicksLeft -= TICK_RARE * _expireTimeMultiplier;
+        ExpireTicksLeft -= TICK_RARE * ExpireTimeMultiplier;
 
         if (ExpireTicksLeft < 0)
             Expire();
@@ -105,7 +105,8 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
         StringBuilder sb = new();
 
         sb.AppendLine(base.GetInspectString());
-        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks * _expireTimeMultiplier)).ToStringTicksToPeriod());
+        sb.AppendLine("Expiration rate".Translate() + ": " + ExpireTimeMultiplier.ToStringPercent());
+        sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks / ExpireTimeMultiplier)).ToStringTicksToPeriod());
         sb.AppendLine(MemoryCellData.GetInspectString());
 
         if (!_modDataMap.NullOrEmpty())

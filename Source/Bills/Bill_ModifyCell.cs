@@ -11,6 +11,7 @@ public class ModExtension_UseModifyCellBill : DefModExtension
     public int maxCount = -1;
     public float multiplyMoodBy = 1f;
     public float addExpireTime = 0;
+    public float setExpireTimeMultiplier = -1f;
 
     public virtual void Notify_InstalledOnCell(MemoryCell memoryCell)
     {
@@ -19,18 +20,10 @@ public class ModExtension_UseModifyCellBill : DefModExtension
 
         memoryCell.ExpireTicksLeft += addExpireTime;
 
+        if (!Mathf.Approximately(setExpireTimeMultiplier, -1f))
+            memoryCell.ExpireTimeMultiplier = setExpireTimeMultiplier;
+
         memoryCell.Notify_ModInstalled(this);
-    }
-}
-
-public class ModExtension_UseModifyCellBillMultiplier : ModExtension_UseModifyCellBill
-{
-    public float setExpireTimeMultiplier = 1f;
-    public override void Notify_InstalledOnCell(MemoryCell memoryCell)
-    {
-        base.Notify_InstalledOnCell(memoryCell);
-
-        memoryCell.ExpireTimeMultiplier = setExpireTimeMultiplier;
     }
 }
 

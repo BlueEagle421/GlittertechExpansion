@@ -88,7 +88,7 @@
     <label>reduce memory expiration rate</label>
     <description>Reduces memory expiration rate to 50%.</description>
     <modExtensions>
-      <li Class="USH_GE.ModExtension_UseModifyCellBillMultiplier">
+      <li Class="USH_GE.ModExtension_UseModifyCellBill">
         <label>reduced expiration rate</label>
         <maxCount>1</maxCount>
         <setExpireTimeMultiplier>0.5</setExpireTimeMultiplier>
