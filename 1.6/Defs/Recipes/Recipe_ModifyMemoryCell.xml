@@ -9,7 +9,6 @@
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>600</workAmount>
-    <!-- <researchPrerequisite>USH_DeepMindScanningRes</researchPrerequisite> -->
     <ingredients>
       <li>
         <filter>
@@ -24,11 +23,11 @@
 
   <RecipeDef ParentName="USH_ModifyCellRecipeBase">
     <defName>USH_ModifyCellAmplify</defName>
-    <label>amplify mood</label>
+    <label>amplify memory mood offset</label>
     <description>Multiplies memory mood offset by 125%.</description>
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseModifyCellBill">
-        <label>amplify</label>
+        <label>amplified mood offset</label>
         <maxCount>2</maxCount>
         <multiplyMoodBy>1.25</multiplyMoodBy>
       </li>
@@ -55,13 +54,13 @@
 
   <RecipeDef ParentName="USH_ModifyCellRecipeBase">
     <defName>USH_ModifyCellPostpone</defName>
-    <label>postpone expiration</label>
-    <description>Postpones expiration time by another quadrum.</description>
+    <label>postpone memory expiration date</label>
+    <description>Postpones memory expiration time by a half a year.</description>
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseModifyCellBill">
-        <label>postpone expiration</label>
+        <label>postponed expiration date</label>
         <maxCount>3</maxCount>
-        <addExpireTime>3600000</addExpireTime>
+        <addExpireTime>1800000</addExpireTime>
       </li>
     </modExtensions>
     <ingredients>
@@ -86,12 +85,13 @@
 
   <RecipeDef ParentName="USH_ModifyCellRecipeBase">
     <defName>USH_ModifyCellReduceRate</defName>
-    <label>reduce expiration rate</label>
-    <description>Reduces expiration rate to 50%.</description>
+    <label>reduce memory expiration rate</label>
+    <description>Reduces memory expiration rate to 50%.</description>
     <modExtensions>
-      <li Class="USH_GE.ModExtension_UseModifyCellBill">
-        <label>reduce expiration rate</label>
+      <li Class="USH_GE.ModExtension_UseModifyCellBillMultiplier">
+        <label>reduced expiration rate</label>
         <maxCount>1</maxCount>
+        <setExpireTimeMultiplier>0.5</setExpireTimeMultiplier>
       </li>
     </modExtensions>
     <ingredients>
@@ -101,7 +101,7 @@
             <li>MechSerumHealer</li>
           </thingDefs>
         </filter>
-        <count>2</count>
+        <count>1</count>
       </li>
     </ingredients>
   </RecipeDef>

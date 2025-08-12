@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RimWorld;
@@ -11,6 +12,11 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
 {
     public int expireTicks = 7200000; //to do: add MemoryCellModExtension
     public MemoryCellData MemoryCellData;
+    private Dictionary<string, MemoryModData> _modDataMap =
+        new(StringComparer.OrdinalIgnoreCase);
+
+    private List<string> _exposeList1;
+    private List<MemoryModData> _exposeList2;
 
     private const int TICK_RARE = 250;
     private float _expireTicks;
@@ -42,6 +48,22 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
         _billStack = new BillStack(this);
     }
 
+    public virtual void Notify_ModInstalled(ModExtension_UseModifyCellBill modExt)
+    {
+        if (_modDataMap.TryGetValue(modExt.label, out var entry))
+            entry.count++;
+        else
+            _modDataMap[modExt.label] = new MemoryModData
+            {
+                label = modExt.label,
+                count = 1,
+                maxCount = modExt.maxCount
+            };
+    }
+
+    public int GetInstalledModCount(ModExtension_UseModifyCellBill modExt)
+        => _modDataMap.TryGetValue(modExt.label, out var entry) ? entry.count : 0;
+
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
@@ -54,16 +76,16 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
     {
         base.PostPostMake();
 
-        _expireTicks = expireTicks;
+        ExpireTicksLeft = expireTicks;
     }
 
     public override void TickRare()
     {
         base.TickRare();
 
-        _expireTicks -= TICK_RARE * _expireTimeMultiplier;
+        ExpireTicksLeft -= TICK_RARE * _expireTimeMultiplier;
 
-        if (_expireTicks < 0)
+        if (ExpireTicksLeft < 0)
             Expire();
     }
 
@@ -85,6 +107,12 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
         sb.AppendLine(base.GetInspectString());
         sb.AppendLine("USH_GE_ExpiresIn".Translate() + ": " + ((int)(_expireTicks * _expireTimeMultiplier)).ToStringTicksToPeriod());
         sb.AppendLine(MemoryCellData.GetInspectString());
+
+        if (!_modDataMap.NullOrEmpty())
+        {
+            sb.AppendLine("Installed modifiers:");
+            _modDataMap.Values.ToList().ForEach(x => sb.AppendLine("  - " + x.ToString()));
+        }
 
         return sb.ToString().Trim();
     }
@@ -134,18 +162,24 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
         return newThing;
     }
 
-    // public override string TransformLabel(string label)
-    // {
-    //     string moodOffset = MemoryCellData.moodOffset.ToString();
-    //     string colorizedMood = moodOffset.Colorize(MemoryUtils.GetThoughtColor(MemoryCellData.IsPositive()));
-    //     return $"{label} ({colorizedMood})";
-    // }
+    public override string Label
+    {
+        get
+        {
+            string moodOffset = MemoryCellData.moodOffset.ToString();
+            string colorizedMood = moodOffset.Colorize(MemoryUtils.GetThoughtColor(MemoryCellData.IsPositive()));
+            return $"{base.Label} ({colorizedMood})";
+        }
+    }
 
     public override void ExposeData()
     {
         base.ExposeData();
 
         Scribe_Deep.Look(ref _billStack, nameof(_billStack), this);
+
+        Scribe_Collections.Look(ref _modDataMap, nameof(_modDataMap), LookMode.Value, LookMode.Deep, ref _exposeList1, ref _exposeList2);
+
         Scribe_Values.Look(ref _expireTimeMultiplier, nameof(_expireTimeMultiplier));
         Scribe_Values.Look(ref _expireTicks, nameof(_expireTicks));
         Scribe_Deep.Look(ref MemoryCellData, nameof(MemoryCellData));
@@ -157,10 +191,21 @@ public class MemoryCell : ThingWithComps, IBillGiver, IBillGiverWithTickAction
     public void Notify_BillDeleted(Bill bill) { }
     public void UsedThisTick() { }
 
-    public struct MemoryModData
+    private class MemoryModData() : IExposable
     {
         public string label;
         public int count;
         public int maxCount;
+
+        public void ExposeData()
+        {
+            Scribe_Values.Look(ref label, nameof(label));
+            Scribe_Values.Look(ref count, nameof(count));
+            Scribe_Values.Look(ref maxCount, nameof(maxCount));
+        }
+
+        public override string ToString()
+            => $"{label} x{count}" + (maxCount == -1 ? "" : $" (max {maxCount})");
     }
+
 }

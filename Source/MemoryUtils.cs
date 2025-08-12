@@ -80,7 +80,11 @@ public static class MemoryUtils
 
         var thing = ThingMaker.MakeThing(thingDef);
         thing.stackCount = 1;
-        ((MemoryCell)thing).MemoryCellData = thought.ToCellData();
+
+        MemoryCell createdCell = (MemoryCell)thing;
+
+        createdCell.MemoryCellData = thought.ToCellData();
+        createdCell.ExpireTicksLeft = thought.DurationTicks * 5;
 
         GenPlace.TryPlaceThing(thing, cell, map, ThingPlaceMode.Near);
     }
