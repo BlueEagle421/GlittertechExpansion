@@ -12,9 +12,10 @@
     <ingredients>
       <li>
         <filter>
-          <thingDefs>
-            <li>Neurotrainer_Shooting</li>
-          </thingDefs>
+          <customSummary>neurotrainer</customSummary>
+          <categories>
+            <li>Neurotrainers</li>
+          </categories>
         </filter>
         <count>1</count>
       </li>
@@ -27,6 +28,14 @@
         <count>3.5</count>
       </li>
     </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Neurotrainers</li>
+      </categories>
+      <thingDefs>
+        <li>Gold</li>
+      </thingDefs>
+    </fixedIngredientFilter>
     <researchPrerequisite>USH_OverclockRes</researchPrerequisite>
   </ThingDef>
 

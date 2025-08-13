@@ -877,6 +877,7 @@
         <ingredients>
             <li>
                 <filter>
+                    <customSummary>neurotrainer</customSummary>
                     <categories>
                         <li>Neurotrainers</li>
                     </categories>
@@ -885,6 +886,7 @@
             </li>
             <li>
                 <filter>
+                    <customSummary>neurotrainer</customSummary>
                     <categories>
                         <li>Neurotrainers</li>
                     </categories>
