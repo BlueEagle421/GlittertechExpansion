@@ -13,13 +13,19 @@
         <spawnThingOnRemoved>USH_Glitterlink</spawnThingOnRemoved>
         <stages>
             <li>
+                <capMods>
+                    <li>
+                        <capacity>Consciousness</capacity>
+                        <offset>0.1</offset>
+                    </li>
+                </capMods>
                 <statOffsets>
                     <ResearchSpeed>0.15</ResearchSpeed>
-                    <MedicalTendSpeed>0.1</MedicalTendSpeed>
-                    <MedicalTendQuality>0.1</MedicalTendQuality>
                     <SocialImpact>0.1</SocialImpact>
                     <HackingSpeed>0.4</HackingSpeed>
-                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.4</VacuumResistance>
+                    <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+                    <GlobalLearningFactor>0.2</GlobalLearningFactor>
+                    <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.45</VacuumResistance>
                     <ToxicResistance>0.35</ToxicResistance>
                 </statOffsets>
             </li>
