@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using RimWorld;
 using Verse;
 
@@ -5,31 +8,49 @@ namespace USH_GE;
 
 public class Thought_ClonedMemory : Thought_Situational
 {
-    private MemoryCellData? _cachedMemoryCellData;
-    private MemoryCellData? MemoryCellData
+    private Hediff_MemoryProjector _cachedRelevantHediff;
+    private Hediff_MemoryProjector RelevantHediff
     {
         get
         {
-            if (_cachedMemoryCellData == null)
-            {
-                Hediff relevantHediff = pawn.health.hediffSet.GetFirstHediffOfDef(USH_DefOf.USH_InstalledMemoryProjector);
-                _cachedMemoryCellData = (relevantHediff as Hediff_MemoryProjector).ContainedCell.MemoryCellData;
-            }
+            _cachedRelevantHediff ??= pawn.health?.hediffSet?
+                .GetFirstHediffOfDef(USH_DefOf.USH_InstalledMemoryProjector) as Hediff_MemoryProjector;
 
-            return _cachedMemoryCellData;
+            return _cachedRelevantHediff;
         }
     }
 
-    private float? _cachedClonedMoodOffset;
-    private float? ClonedMoodOffset
+    private MemoryCellData MemoryCellData => RelevantHediff.ContainedCell.MemoryCellData;
+
+    private IEnumerable<MemoryMoodMultiplier> AllMultipliers
+        => MemoryUtils.PawnMoodMultipliers(pawn, MemoryCellData);
+
+    public override float MoodOffset()
+    {
+        if (RelevantHediff.ContainedCell == null)
+            return 0;
+
+        float m = AllMultipliers.Aggregate(1f, (acc, m) => acc * m.value);
+        return MemoryCellData.moodOffset * m;
+    }
+
+    public override string Description
     {
         get
         {
-            _cachedClonedMoodOffset ??= MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData.Value);
-            return _cachedClonedMoodOffset;
+            StringBuilder sb = new();
+
+            sb.AppendLine(base.Description);
+
+            sb.AppendLine();
+            sb.AppendLine("USH_GE_MoodMultipliers".Translate() + ":");
+            sb.AppendLine(MemoryUtils.FormatMoodMultipliers(AllMultipliers));
+
+            sb.AppendLine(MemoryCellData.GetInspectString());
+
+            return sb.ToString().Trim();
         }
     }
 
-    public override float MoodOffset() => ClonedMoodOffset.Value;
-    public override string Description => base.Description + "\n\n" + MemoryCellData.Value.GetInspectString();
+    public override bool VisibleInNeedsTab => RelevantHediff.ContainedCell != null;
 }

@@ -38,3 +38,9 @@ public struct MemoryCellData : IExposable
         Scribe_Defs.Look(ref thoughtDef, nameof(thoughtDef));
     }
 }
+
+public struct MemoryMoodMultiplier
+{
+    public string desc;
+    public float value;
+}

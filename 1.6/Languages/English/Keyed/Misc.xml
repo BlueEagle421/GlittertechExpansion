@@ -134,6 +134,11 @@
 
   <USH_GE_ModsTab>Modify</USH_GE_ModsTab>
 
+  <USH_GE_MoodMultipliers>Mood multipliers</USH_GE_MoodMultipliers>
+  <USH_GE_PositiveMem>Positive memory</USH_GE_PositiveMem>
+  <USH_GE_NegativeEnjoyer>Negative memory enjoyer</USH_GE_NegativeEnjoyer>
+  <USH_GE_MemPylon>Memory pylon</USH_GE_MemPylon>
+
   <!-- Settings -->
 
   <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>

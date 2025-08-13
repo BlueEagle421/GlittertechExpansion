@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -18,18 +23,44 @@ public class Thought_MemoryPylon : Thought_Memory
 
     public ThingWithComps SourceThing;
     public MemoryCellData MemoryCellData;
-
-    private float? _cachedClonedMoodOffset;
-    private float? PylonMoodOffset
+    public override string Description
     {
         get
         {
-            _cachedClonedMoodOffset ??= MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData) * GE_Mod.Settings.PylonMoodMultiplier.Value;
-            return _cachedClonedMoodOffset;
+            StringBuilder sb = new();
+
+            sb.AppendLine(def.stages[0].description);
+
+            sb.AppendLine();
+            sb.AppendLine("USH_GE_MoodMultipliers".Translate() + ":");
+            sb.AppendLine(MemoryUtils.FormatMoodMultipliers(AllMultipliers));
+
+            sb.AppendLine(MemoryCellData.GetInspectString());
+
+            return sb.ToString().Trim();
         }
     }
-    public override string Description => def.stages[0].description;
-    public override float MoodOffset() => PylonMoodOffset.Value;
+
+    private IEnumerable<MemoryMoodMultiplier> AllMultipliers
+    {
+        get
+        {
+            foreach (var entry in MemoryUtils.PawnMoodMultipliers(pawn, MemoryCellData))
+                yield return entry;
+
+            yield return new()
+            {
+                desc = "USH_GE_MemPylon".Translate(),
+                value = GE_Mod.Settings.PylonMoodMultiplier.Value,
+            };
+        }
+    }
+
+    public override float MoodOffset()
+    {
+        float m = AllMultipliers.Aggregate(1f, (acc, m) => acc * m.value);
+        return MemoryCellData.moodOffset * m;
+    }
     public override bool TryMergeWithExistingMemory(out bool showBubble)
     {
         showBubble = false;

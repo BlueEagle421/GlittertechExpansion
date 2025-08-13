@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using RimWorld;
 using UnityEngine;
 using USH_GE;
@@ -99,25 +100,49 @@ public static class MemoryUtils
         created.TryGetComp<HediffComp_Disappears>().SetDuration(targetTickDuration);
     }
 
-
-    public static float MoodOffsetForClonedMemory(Pawn p, MemoryCellData cellData)
+    public static IEnumerable<MemoryMoodMultiplier> PawnMoodMultipliers(Pawn p, MemoryCellData cellData)
     {
+        yield return new()
+        {
+            desc = StatDefOf.PsychicSensitivity.LabelCap,
+            value = p.GetStatValue(StatDefOf.PsychicSensitivity)
+        };
+
         if (cellData.IsPositive())
-            return cellData.moodOffset * GE_Mod.Settings.PositiveMoodMultiplier.Value;
+        {
+            yield return new()
+            {
+                desc = "USH_GE_PositiveMem".Translate(),
+                value = GE_Mod.Settings.PositiveMoodMultiplier.Value
+            };
 
-        if (CanEnjoyNegativeMemory(p, cellData))
-            return -cellData.moodOffset * GE_Mod.Settings.NegativeMoodMultiplier.Value;
+            yield break;
+        }
 
-        return cellData.moodOffset;
+        string msg = ThoughtUtility.ThoughtNullifiedMessage(p, cellData.thoughtDef);
+        if (msg != "")
+            yield return new()
+            {
+                desc = msg,
+                value = -GE_Mod.Settings.NegativeMoodMultiplier.Value
+            };
+    }
+
+    public static string FormatMoodMultipliers(IEnumerable<MemoryMoodMultiplier> multipliers)
+    {
+        StringBuilder sb = new();
+
+        foreach (var entry in multipliers)
+            sb.AppendLine($"  - {entry.desc}: {entry.value.ToStringPercent()}");
+
+        return sb.ToString();
     }
 
     private static bool CanEnjoyNegativeMemory(Pawn p, MemoryCellData cellData)
-        => ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef);
-
+        => p.story.traits.IsThoughtDisallowed(cellData.thoughtDef);
 
     public static Color GetThoughtColor(bool positive)
         => positive ? NeedsCardUtility.MoodColor : NeedsCardUtility.MoodColorNegative;
-
 
     public static bool TryGetIMemoryCellHolder(this Thing thing, out IMemoryCellHolder memoryCellHolder)
     {
