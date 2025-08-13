@@ -44,7 +44,7 @@
         </tags>
     </HediffDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_PlasteelSkinReplacement</defName>
         <label>plasteel skin replacement</label>
         <description>An advanced plasteel skin prothesis with crystalline atomic structure. It's full of glittertech medical cells making it soft in touch, flexible, and extremely durable.</description>

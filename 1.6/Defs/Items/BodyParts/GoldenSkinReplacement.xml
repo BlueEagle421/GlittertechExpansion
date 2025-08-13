@@ -40,7 +40,7 @@
         </tags>
     </HediffDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_GoldenSkinReplacement</defName>
         <label>golden skin replacement</label>
         <description>Full body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>

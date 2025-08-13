@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef Name="USH_GlitterworldBodyPart" ParentName="BodyPartBase" Abstract="True">
+    <ThingDef Name="USH_GlittertechBodyPartBase" ParentName="BodyPartBase" Abstract="True">
         <techLevel>Ultra</techLevel>
         <tradeTags>
             <li>GlitterworldParts</li>
@@ -35,11 +35,8 @@
         </recipeMaker>
     </ThingDef>
 
-    <HediffDef Name="USH_AddedPartGlittery" ParentName="ImplantHediffBase" Abstract="True">
+    <HediffDef Name="USH_GlittertechImplantBase" ParentName="ImplantHediffBase" Abstract="True">
         <defaultLabelColor>(244,210,131)</defaultLabelColor>
-        <addedPartProps>
-            <partEfficiency>1</partEfficiency>
-        </addedPartProps>
     </HediffDef>
 
     <ThingDef ParentName="UnfinishedBase">

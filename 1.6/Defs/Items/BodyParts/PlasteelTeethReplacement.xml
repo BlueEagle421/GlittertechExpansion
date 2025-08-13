@@ -4,7 +4,7 @@
 
     <!--Plasteel teeth replacement-->
 
-    <HediffDef ParentName="USH_AddedPartGlittery">
+    <HediffDef ParentName="USH_GlittertechImplantBase">
         <defName>USH_InstalledPlasteelTeethReplacement</defName>
         <label>plasteel teeth replacement</label>
         <description>An installed plasteel teeth replacement.</description>
@@ -40,7 +40,7 @@
         </tags>
     </HediffDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_PlasteelTeethReplacement</defName>
         <label>plasteel teeth replacement</label>
         <description>An advanced tooth replacement that improves everyday quality of life. Each tooth contains a microprocessor that adjusts to the wearer’s needs and comfort.</description>

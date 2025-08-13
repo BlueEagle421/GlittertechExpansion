@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <HediffDef ParentName="USH_AddedPartGlittery">
+    <HediffDef ParentName="USH_GlittertechImplantBase">
         <defName>USH_InstalledMemoryProjector</defName>
         <label>memory projector</label>
         <hediffClass>USH_GE.Hediff_MemoryProjector</hediffClass>
@@ -44,7 +44,7 @@
         </stages>
     </ThoughtDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_MemoryProjector</defName>
         <label>memory projector</label>
         <description>A nano-container meant to instill subconscious images into the user's mind sourced from the contained memory cell.</description>

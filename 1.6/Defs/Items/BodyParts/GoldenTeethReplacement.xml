@@ -3,7 +3,7 @@
 
     <!--Golden teeth replacement-->
 
-    <HediffDef ParentName="USH_AddedPartGlittery">
+    <HediffDef ParentName="USH_GlittertechImplantBase">
         <defName>USH_InstalledGoldenTeethReplacement</defName>
         <label>golden teeth replacement</label>
         <description>An installed golden teeth replacement.</description>
@@ -39,7 +39,7 @@
         </tags>
     </HediffDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_GoldenTeethReplacement</defName>
         <label>golden teeth replacement</label>
         <description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>

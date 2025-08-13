@@ -3,7 +3,7 @@
 
     <!-- Telepad integrator -->
 
-    <HediffDef ParentName="USH_AddedPartGlittery">
+    <HediffDef ParentName="USH_GlittertechImplantBase">
         <defName>USH_InstalledCryogenicNexus</defName>
         <label>cryogenic nexus</label>
         <hediffClass>USH_GE.Hediff_CryogenicNexus</hediffClass>
@@ -107,7 +107,7 @@
         </tags>
     </HediffDef>
 
-    <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_CryogenicNexus</defName>
         <label>cryogenic nexus</label>
         <description>A glittertech heart replacement that renders the user’s blood mutated and fire‑immune. It protects all body cells and the skin from ignition, but it also lowers antibody counts and compromises the immune system, reducing blood filtration efficiency.\n\nWhile it can save lives during short-term fire exposure, it becomes highly unstable and harmful after prolonged extreme temperatures exposure.</description>
