@@ -65,23 +65,21 @@
   <ThingDef ParentName="USH_MemoryCellBase">
     <defName>USH_MemoryCellPositive</defName>
     <label>memory cell</label>
-    <description>A pleasant memory image for everyone to enjoy. It creates a subconscious portrayal of past situations that may surface in dreams or as mild lucid hallucinations. Reliving someone’s memory makes the user more outgoing and open to sharing their experiences with the memory cell.</description>
+    <description>A pleasant memory image for everyone to enjoy. It creates a subconscious portrayal of past situations that may surface in dreams or as mild lucid hallucinations. Reliving someone’s memory makes the user more outgoing and open to sharing their experiences with the memory cell.\n\nThis device can be inside various machines.</description>
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellPositive</texPath>
     </graphicData>
   </ThingDef>
-
 
   <!-- negative -->
 
   <ThingDef ParentName="USH_MemoryCellBase">
     <defName>USH_MemoryCellNegative</defName>
     <label>memory cell</label>
-    <description>A sweet treat for all twisted minds. Absorbing a negative memory will drastically lower a regular user’s mood, depending on the intensity of the cloned pain, but it will have the opposite effect on desensitized individuals.\n\nPsychopaths may enjoy reliving loss, while sadists delight in pain.</description>
+    <description>A sweet treat for all twisted minds. Reliving a negative memory will drastically lower a regular user’s mood, depending on the intensity of the cloned pain, but it will have the opposite effect on desensitized individuals.\n\nPsychopaths may enjoy reliving loss, while sadists delight in pain.\n\nThis device can be inside various machines.</description>
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellNegative</texPath>
     </graphicData>
   </ThingDef>
-
 
 </Defs>
