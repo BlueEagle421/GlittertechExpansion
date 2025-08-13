@@ -10,13 +10,14 @@ public class ModExtension_UseModifyCellBill : DefModExtension
     public string label;
     public int maxCount = -1;
     public float multiplyMoodBy = 1f;
+    public float maxMood = 45;
     public float addExpireTime = 0;
     public float setExpireTimeMultiplier = -1f;
 
     public virtual void Notify_InstalledOnCell(MemoryCell memoryCell)
     {
         memoryCell.MemoryCellData.moodOffset =
-            (int)Mathf.Round(memoryCell.MemoryCellData.moodOffset * multiplyMoodBy);
+            (int)Mathf.Round(Mathf.Min(memoryCell.MemoryCellData.moodOffset * multiplyMoodBy, maxMood));
 
         memoryCell.ExpireTicksLeft += addExpireTime;
 

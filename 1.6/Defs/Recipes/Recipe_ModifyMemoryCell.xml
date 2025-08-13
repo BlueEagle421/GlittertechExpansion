@@ -24,7 +24,7 @@
   <RecipeDef ParentName="USH_ModifyCellRecipeBase">
     <defName>USH_ModifyCellAmplify</defName>
     <label>amplify memory mood offset</label>
-    <description>Multiplies memory mood offset by 125%.</description>
+    <description>Multiplies memory mood offset by 125%. Caps at a maximum mood offset of 45.</description>
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseModifyCellBill">
         <label>amplified mood offset</label>
