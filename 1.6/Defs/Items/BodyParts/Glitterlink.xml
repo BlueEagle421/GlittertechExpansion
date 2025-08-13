@@ -20,6 +20,7 @@
                     </li>
                 </capMods>
                 <statOffsets>
+                    <USH_DrugToleranceGainRate>-0.6</USH_DrugToleranceGainRate>
                     <ResearchSpeed>0.15</ResearchSpeed>
                     <SocialImpact>0.1</SocialImpact>
                     <HackingSpeed>0.4</HackingSpeed>
