@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <WeaponTraitDef MayRequire="Ludeon.RimWorld.Odyssey">
+        <defName>USH_ADPRounds</defName>
+        <label>ADP rounds</label>
+        <description>This weapon fires rounds with embedded ADP capacitors, which will temporarily disable electronics and mechanoids without them ever adapting to this damage type</description>
+        <commonality>1</commonality>
+        <weaponCategory>BulletFiring</weaponCategory>
+        <exclusionTags>
+            <li>AmmoType</li>
+            <li>Color</li>
+        </exclusionTags>
+        <forcedColor>UniqueWeapon_EMP</forcedColor>
+        <extraDamages>
+            <li>
+                <def>USH_ADP</def>
+                <amount>4</amount>
+            </li>
+        </extraDamages>
+        <statOffsets>
+            <MarketValue>150</MarketValue>
+        </statOffsets>
+        <traitAdjectives>
+            <li>ADP</li>
+            <li>electric</li>
+            <li>shocking</li>
+            <li>sparky</li>
+            <li>zapping</li>
+        </traitAdjectives>
+    </WeaponTraitDef>
+
+</Defs>
