@@ -24,7 +24,7 @@
                 <capMods>
                     <li>
                         <capacity>Moving</capacity>
-                        <postFactor>1.25</postFactor>
+                        <postFactor>1.15</postFactor>
                     </li>
                 </capMods>
             </li>
