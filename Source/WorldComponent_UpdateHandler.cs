@@ -37,7 +37,7 @@ public class WorldComponent_UpdateHandler(World world) : WorldComponent(world)
 
     private void DoUpdateLetter()
     {
-        string content = "Hi!\n\nThis message can be discarded if you’re not using any memory cells.\n\nThe Glittertech Expansion mod has just received a chunky update.\nUnfortunately, due to a massive overhaul of the memory cell mechanics, you may see a couple of red errors in the console. These should be harmless, but to suppress them entirely, all extracted memories in cells must be erased.\nI’m sorry for the inconvenience, but I hope the new mechanics will be worth it!\n\nEnjoy your playthrough!\n\n~Mod author";
+        string content = "Hi!\n\nThis message can be discarded if you’re not using any memory cells.\n\nThe Glittertech Expansion mod has just received a chunky update.\nUnfortunately, due to a massive overhaul of the memory cell mechanics, you may see a couple of red errors in the console. These should be harmless, but to suppress them entirely, all extracted memories in cells must be destroyed. It can be done with a debug mode and the \'kill\' command.\nI’m sorry for the inconvenience, but I hope the new mechanics will be worth it!\n\nEnjoy your playthrough!\n\n~Mod author";
         Find.LetterStack.ReceiveLetter("Glittertech Expansion Update", content, LetterDefOf.NeutralEvent);
 
         _didLetter = true;
