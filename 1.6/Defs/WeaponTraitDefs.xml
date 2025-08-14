@@ -15,11 +15,11 @@
         <extraDamages>
             <li>
                 <def>USH_ADP</def>
-                <amount>4</amount>
+                <amount>6</amount>
             </li>
         </extraDamages>
         <statOffsets>
-            <MarketValue>150</MarketValue>
+            <MarketValue>175</MarketValue>
         </statOffsets>
         <traitAdjectives>
             <li>ADP</li>
