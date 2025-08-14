@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Reflection;
+using HarmonyLib;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -15,6 +18,8 @@ public class WorldComponent_UpdateHandler(World world) : WorldComponent(world)
 
         if (_didLetter)
             return;
+
+        RemoveCellsFromPolicies();
 
         _passedTicks++;
 
@@ -47,6 +52,32 @@ public class WorldComponent_UpdateHandler(World world) : WorldComponent(world)
                 return true;
 
         return false;
+    }
+
+
+
+    private void RemoveCellsFromPolicies()
+    {
+        try
+        {
+            foreach (var policy in Current.Game.drugPolicyDatabase.AllPolicies)
+                FixPolicy(policy);
+        }
+        catch
+        {
+
+        }
+    }
+
+    private void FixPolicy(DrugPolicy policy)
+    {
+        FieldInfo fi = AccessTools.Field(typeof(DrugPolicy), "entriesInt");
+
+        var list = fi.GetValue(policy) as List<DrugPolicyEntry>;
+
+        List<ThingDef> toRemove = [USH_DefOf.USH_MemoryCellPositive, USH_DefOf.USH_MemoryCellNegative];
+
+        list.RemoveAll(x => toRemove.Contains(x.drug));
     }
 
     public override void ExposeData()
