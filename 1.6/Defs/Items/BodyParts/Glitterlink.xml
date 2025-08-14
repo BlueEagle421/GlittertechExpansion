@@ -21,10 +21,8 @@
                 </capMods>
                 <statOffsets>
                     <USH_DrugToleranceGainRate>-0.6</USH_DrugToleranceGainRate>
-                    <ResearchSpeed>0.15</ResearchSpeed>
                     <SocialImpact>0.1</SocialImpact>
                     <HackingSpeed>0.4</HackingSpeed>
-                    <WorkSpeedGlobal>0.15</WorkSpeedGlobal>
                     <GlobalLearningFactor>0.2</GlobalLearningFactor>
                     <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.45</VacuumResistance>
                     <ToxicResistance>0.35</ToxicResistance>
@@ -39,7 +37,7 @@
     <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_Glitterlink</defName>
         <label>glitterlink</label>
-        <description>An almost-conscious processor designed to generate unique codes that link to the nearby energy field, enhancing the user's mental capabilities. Similarly to cryogenic nexus it allows safe handling of overclocked weapons.\n\nOn glitterworlds, it is used to identify citizens, and lacking a personal code is considered a serious violation of the law.</description>
+        <description>An almost-conscious processor designed to generate unique codes that link to the nearby energy field, enhancing the user's mental capabilities and making the mind more resistant to various environmental dangers. Similarly to cryogenic nexus it allows safe handling of overclocked weapons.\n\nOn glitterworlds, it is used to identify citizens, and lacking a personal code is considered a serious violation of the law.</description>
         <descriptionHyperlinks>
             <RecipeDef>USH_InstallGlitterlink</RecipeDef>
         </descriptionHyperlinks>
