@@ -18,6 +18,8 @@ public class CompPassiveRes : ThingComp
     CompPowerTrader _powerTraderComp;
     CompFacility _facilityComp;
 
+    public CompPowerTrader PowerTraderComp => _powerTraderComp;
+
     public CompProperties_PassiveRes Props => (CompProperties_PassiveRes)props;
 
     private EffecterHandler electricEffecterHandler;

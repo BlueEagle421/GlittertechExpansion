@@ -20,18 +20,11 @@ public static class ADPShortCircuitUtility
             {
                 if (thing is not Building building) continue;
 
-                var powerComp = building.PowerComp;
-                if (powerComp == null) continue;
+                if (building.TryGetComp(out CompPowerTrader powerTrader) && !powerTrader.PowerOn) continue;
 
-                var powerNet = powerComp.PowerNet;
-                if (!_tmpPowerNetHasActivePowerSource.TryGetValue(powerNet, out bool hasSource))
-                {
-                    hasSource = powerNet.HasActivePowerSource;
-                    _tmpPowerNetHasActivePowerSource[powerNet] = hasSource;
-                }
+                if (building.TryGetComp(out CompFlickable compFlickable) && !compFlickable.SwitchIsOn) continue;
 
-                if (hasSource)
-                    yield return building;
+                yield return building;
             }
         }
         finally
