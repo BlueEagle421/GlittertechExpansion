@@ -146,10 +146,10 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>ComponentSpacer</li>
+                        <li>Synthread</li>
                     </thingDefs>
                 </filter>
-                <count>1</count>
+                <count>12</count>
             </li>
             <li>
                 <filter>
@@ -212,7 +212,7 @@
                         <li>Neutroamine</li>
                     </thingDefs>
                 </filter>
-                <count>16</count>
+                <count>8</count>
             </li>
             <li>
                 <filter>
