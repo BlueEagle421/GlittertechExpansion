@@ -94,6 +94,9 @@ public class CompPassiveRes : ThingComp
 
     private AcceptanceReport ResearchReport()
     {
+        if (parent is MinifiedThing)
+            return false;
+
         if (_powerTraderComp != null && !_powerTraderComp.PowerOn)
             return false;
 
