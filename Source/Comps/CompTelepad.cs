@@ -42,6 +42,15 @@ public class CompTelepad : CompInteractable, ITargetingSource
             return _teleportAllTex;
         }
     }
+    private Texture2D _teleportPlanetTex;
+    public Texture2D TeleportPlanetTex
+    {
+        get
+        {
+            _teleportPlanetTex ??= ContentFinder<Texture2D>.Get("UI/Gizmos/TeleportPlanet");
+            return _teleportPlanetTex;
+        }
+    }
 
     public CompTelepad()
     {
@@ -129,7 +138,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
         });
     }
 
-    private AcceptanceReport CanBeTeleported(Thing t)
+    private AcceptanceReport CanBeTeleported(Thing t, bool distanceCheck = true)
     {
         if (t is not Pawn p)
             return false;
@@ -137,7 +146,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USH_DefOf.USH_InstalledTelepadIntegrator))
             return "USH_GE_MissingIntegrator".Translate();
 
-        if (t.Position.InHorDistOf(parent.Position, parent.def.specialDisplayRadius))
+        if (distanceCheck && t.Position.InHorDistOf(parent.Position, parent.def.specialDisplayRadius))
             return "USH_GE_TooClose".Translate();
 
         if (t.Faction != parent.Faction)
@@ -156,7 +165,12 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (_refuelableComp.Fuel < PadProps.fuelConsumption)
             return "NoFuel".Translate();
 
-        return base.CanInteract(activateBy, checkOptionalItems);
+        var baseReport = base.CanInteract(activateBy, checkOptionalItems);
+
+        if (!baseReport.Accepted && baseReport.Reason == "CannotReach".Translate())
+            return true;
+
+        return baseReport;
     }
 
     public override IEnumerable<Gizmo> CompGetGizmosExtra()
@@ -170,6 +184,8 @@ public class CompTelepad : CompInteractable, ITargetingSource
         yield return TeleportGizmo();
 
         yield return TeleportAllGizmo();
+
+        yield return TeleportPlanetGizmo();
     }
 
     private Command_Action TeleportGizmo()
@@ -197,11 +213,11 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
     private Command_Action TeleportAllGizmo()
     {
-        var teleportablePawns = TeleportablePawns();
+        var teleportablePawns = TeleportablePawns(true);
         string toTeleport = "None".Translate();
 
         if (!teleportablePawns.NullOrEmpty())
-            toTeleport = string.Join(",\n", teleportablePawns.Select(x => x.Label));
+            toTeleport = string.Join(",\n", teleportablePawns.Select(x => x.Name.ToStringFull));
 
         Command_Action command_Action = new()
         {
@@ -214,6 +230,11 @@ public class CompTelepad : CompInteractable, ITargetingSource
                 SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
 
                 _teleportSequence = teleportablePawns;
+            },
+            onHover = delegate
+            {
+                foreach (Pawn p in teleportablePawns)
+                    GenDraw.DrawLineBetween(parent.DrawPos, p.DrawPos);
             }
         };
 
@@ -228,15 +249,61 @@ public class CompTelepad : CompInteractable, ITargetingSource
         return command_Action;
     }
 
-    private List<Pawn> TeleportablePawns()
+    private Command_Action TeleportPlanetGizmo()
     {
+        var teleportablePawns = TeleportablePlanetPawns();
+        string toTeleport = "None".Translate();
 
-        var pawns = Enumerable.Concat(
-            parent.Map.mapPawns.FreeColonistsSpawned,
-            parent.Map.mapPawns.SpawnedColonyMechs);
+        if (!teleportablePawns.NullOrEmpty())
+            toTeleport = string.Join(",\n", teleportablePawns.Select(x => x.Name.ToStringFull));
 
-        return [.. pawns.Where(x => CanBeTeleported(x))];
+        Command_Action command_Action = new()
+        {
+            defaultLabel = "USH_GE_OrderTeleportPlanet".Translate() + "...",
+            defaultDesc = "USH_GE_OrderTeleportPlanetDesc".Translate(toTeleport),
+            icon = TeleportPlanetTex,
+            groupable = false,
+            action = delegate
+            {
+                List<FloatMenuOption> options = [];
+                foreach (Pawn p in teleportablePawns)
+                {
+                    string text = p.Name.ToStringFull;
+                    options.Add(new FloatMenuOption(text, delegate
+                    {
+                        Teleport(p);
+                    }));
+                }
+                Find.WindowStack.Add(new FloatMenu(options));
+            }
+        };
+
+        AcceptanceReport acceptanceReport = CanInteract();
+
+        if (!acceptanceReport.Accepted)
+            command_Action.Disable(acceptanceReport.Reason.CapitalizeFirst());
+
+        if (teleportablePawns.NullOrEmpty())
+            command_Action.Disable("USH_GE_NoTeleportablePawns".Translate());
+
+        return command_Action;
     }
+
+    private List<Pawn> TeleportablePawns(bool distanceCheck)
+    {
+        List<Pawn> result = [];
+
+        foreach (Map map in Find.Maps)
+        {
+            result.AddRange(map.mapPawns.FreeColonistsSpawned);
+            result.AddRange(map.mapPawns.SpawnedColonyMechs);
+        }
+
+        return [.. result.Where(x => CanBeTeleported(x, distanceCheck))];
+    }
+
+    private List<Pawn> TeleportablePlanetPawns()
+        => [.. TeleportablePawns(false).Where(x => x.Map != parent.Map)];
 
     public override string CompInspectStringExtra()
         => "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, PadProps.fuelConsumption);

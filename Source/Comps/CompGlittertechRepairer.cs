@@ -29,7 +29,7 @@ public class MapComponent_RepairManager(Map map) : MapComponent(map)
 
     public void UpdateRepairables()
     {
-        ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer) ?? new List<Thing>();
+        ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer) ?? [];
 
         var repairersClone = repairers.ToList();
 
