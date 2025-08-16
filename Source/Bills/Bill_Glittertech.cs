@@ -155,6 +155,15 @@ public class Bill_Glittertech : Bill_Autonomous
         => Fabricator.CompFacilities.LinkedFacilitiesListForReading
             .Any(x => x.def == USH_DefOf.USH_AwareGlitterpanel);
 
+    public override bool ShouldDoNow()
+    {
+        if (repeatMode == BillRepeatModeDefOf.TargetCount
+            && State is FormingState.Formed || State is FormingState.Preparing)
+            return true;
+
+        return base.ShouldDoNow();
+    }
+
     public override bool PawnAllowedToStartAnew(Pawn p)
     {
         if (State == FormingState.Gathering)
