@@ -44,6 +44,7 @@ public static class USH_DefOf
     public static ThingDef USH_AwareGlitterpanel;
     public static HistoryEventDef USH_UsedTargeter;
     public static HediffDef USH_TelepadNausea;
+    public static HediffDef USH_TelepadComa;
     public static ThingDef USH_NeuroclearConsole;
     public static PawnKindDef USH_AncientGlittertechSoldier;
     public static ResearchTabDef USH_GlittertechExpansion;

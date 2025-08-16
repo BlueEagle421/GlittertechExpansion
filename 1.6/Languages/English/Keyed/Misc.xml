@@ -60,7 +60,7 @@
   <USH_GE_RecentExtraction>Too weak from recent extraction</USH_GE_RecentExtraction>
   <USH_GE_WillExtract>Will extract</USH_GE_WillExtract>
   <USH_GE_CommandChoosePawnToExtract>Choose extraction target</USH_GE_CommandChoosePawnToExtract>
-  <USH_GE_NauseaMsg>The sudden position change gave {PAWN} telepad nausea</USH_GE_NauseaMsg>
+
 
   <USH_GE_OrderTeleportHere>Teleport target</USH_GE_OrderTeleportHere>
   <USH_GE_OrderTeleportHereDesc>Choose a target to teleport here</USH_GE_OrderTeleportHereDesc>
@@ -68,14 +68,17 @@
   <USH_GE_OrderTeleportAll>Teleport everyone here</USH_GE_OrderTeleportAll>
   <USH_GE_OrderTeleportAllDesc>Teleport to this location everyone under your control with a telepad integrator implant installed.\n\nTo teleport:\n{0}</USH_GE_OrderTeleportAllDesc>
 
-  <USH_GE_OrderTeleportPlanet>Teleport distant creature</USH_GE_OrderTeleportPlanet>
-  <USH_GE_OrderTeleportPlanetDesc>Teleport to this location a selected creature from a different map with a telepad integrator implant installed.\n\nCan teleport:\n{0}</USH_GE_OrderTeleportPlanetDesc>
+  <USH_GE_OrderTeleportPlanet>Teleport distant target</USH_GE_OrderTeleportPlanet>
+  <USH_GE_OrderTeleportPlanetDesc>Teleport to this location a selected target from a different map with a telepad integrator implant installed.\n\nLong-range teleportation will put non-mechanical beings into a telepad coma with duration based on distance.</USH_GE_OrderTeleportPlanetDesc>
 
   <USH_GE_CannotTeleport>Cannot teleport</USH_GE_CannotTeleport>
   <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
   <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
   <USH_GE_NoTeleportablePawns>No teleport candidates</USH_GE_NoTeleportablePawns>
   <USH_GE_CommandChoosePawnToTeleport>Choose teleportation target</USH_GE_CommandChoosePawnToTeleport>
+
+  <USH_GE_NauseaMsg>The sudden position change gave {PAWN} telepad nausea</USH_GE_NauseaMsg>
+  <USH_GE_ComaMsg>Coma duration: {0}</USH_GE_ComaMsg>
 
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
   <USH_GE_CannotInsert>Cannot insert</USH_GE_CannotInsert>

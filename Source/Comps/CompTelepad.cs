@@ -102,6 +102,34 @@ public class CompTelepad : CompInteractable, ITargetingSource
         SpawnFleckEffect(parent.Position);
     }
 
+    private void TryGiveComa(Pawn p, float distance)
+    {
+        int duration = ComaDuration(p, distance);
+
+        if (duration == 0)
+            return;
+
+        Hediff added = p.health.AddHediff(USH_DefOf.USH_TelepadComa);
+
+        if (added.TryGetComp(out HediffComp_Disappears compDisappears))
+            compDisappears.SetDuration(duration);
+    }
+
+    private int ComaDuration(Pawn p, float distance)
+    {
+        float ticksPerTile = 2500; // 1 hour
+        float maxTicks = 60000 * 8; // 8 days
+        float safeDistance = 3;
+
+        if (distance < safeDistance)
+            return 0;
+
+        if (!p.RaceProps.IsFlesh)
+            return 0;
+
+        return Mathf.RoundToInt(Mathf.Min(distance * ticksPerTile, maxTicks));
+    }
+
     private void TryToGiveNausea(Pawn p)
     {
         if (!p.RaceProps.IsFlesh)
@@ -252,15 +280,11 @@ public class CompTelepad : CompInteractable, ITargetingSource
     private Command_Action TeleportPlanetGizmo()
     {
         var teleportablePawns = TeleportablePlanetPawns();
-        string toTeleport = "None".Translate();
-
-        if (!teleportablePawns.NullOrEmpty())
-            toTeleport = string.Join(",\n", teleportablePawns.Select(x => x.Name.ToStringFull));
 
         Command_Action command_Action = new()
         {
             defaultLabel = "USH_GE_OrderTeleportPlanet".Translate() + "...",
-            defaultDesc = "USH_GE_OrderTeleportPlanetDesc".Translate(toTeleport),
+            defaultDesc = "USH_GE_OrderTeleportPlanetDesc".Translate(),
             icon = TeleportPlanetTex,
             groupable = false,
             action = delegate
@@ -268,10 +292,25 @@ public class CompTelepad : CompInteractable, ITargetingSource
                 List<FloatMenuOption> options = [];
                 foreach (Pawn p in teleportablePawns)
                 {
+                    float distance = 0;
+                    try
+                    {
+                        distance = Find.WorldGrid.TraversalDistanceBetween(parent.Map.Tile, p.Map.Tile);
+                    }
+                    catch { }
+
                     string text = p.Name.ToStringFull;
+
+                    int comaDuration = ComaDuration(p, distance);
+
+                    if (comaDuration > 0)
+                        text += $" ({"USH_GE_ComaMsg".Translate(comaDuration.ToStringTicksToPeriod()
+                            .Colorize(ColorLibrary.RedReadable))})";
+
                     options.Add(new FloatMenuOption(text, delegate
                     {
                         Teleport(p);
+                        TryGiveComa(p, distance);
                     }));
                 }
                 Find.WindowStack.Add(new FloatMenu(options));
