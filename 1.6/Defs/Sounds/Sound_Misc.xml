@@ -29,7 +29,7 @@
             <clipPath>Misc/Desensitize</clipPath>
           </li>
         </grains>
-        <volumeRange>8</volumeRange>
+        <volumeRange>7</volumeRange>
         <pitchRange>0.9152174~1.042391</pitchRange>
       </li>
     </subSounds>
@@ -81,7 +81,7 @@
             <clipPath>Misc/GlittertechFabricatorStart</clipPath>
           </li>
         </grains>
-        <volumeRange>20~22</volumeRange>
+        <volumeRange>16~18</volumeRange>
         <pitchRange>0.96~1.04</pitchRange>
         <sustainLoop>False</sustainLoop>
       </li>
@@ -190,7 +190,7 @@
             <clipPath>Misc/GlittershipAmbience</clipPath>
           </li>
         </grains>
-        <volumeRange>38</volumeRange>
+        <volumeRange>30</volumeRange>
       </li>
     </subSounds>
   </SoundDef>
