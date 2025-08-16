@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -28,15 +29,25 @@ public class MapComponent_RepairManager(Map map) : MapComponent(map)
 
     public void UpdateRepairables()
     {
-        ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer);
-        repairers.ForEach(x => x.TryToStartRepairing());
+        ToRepair = map.listerBuildingsRepairable.RepairableBuildings(Faction.OfPlayer) ?? new List<Thing>();
+
+        var repairersClone = repairers.ToList();
+
+        repairers.RemoveAll(r => r == null || r.parent == null || r.parent.Map != map);
+
+        foreach (var r in repairersClone)
+            if (r != null && r.parent != null && r.parent.Map == map)
+                r.TryToStartRepairing();
+
         _ticksPassed = 0;
     }
 
     public void RemoveRepaired(Thing thing)
     {
-        ToRepair.Remove(thing);
-        repairers.ForEach(x => x.TryToStartRepairing());
+        if (thing != null) ToRepair.Remove(thing);
+
+        foreach (var r in repairers.ToList())
+            r?.TryToStartRepairing();
     }
 }
 
@@ -100,8 +111,8 @@ public class CompGlittertechRepairer : ThingComp
 
         RepairStopped();
 
-        Manager.Register(this);
-        Manager.UpdateRepairables();
+        Manager?.Register(this);
+        Manager?.UpdateRepairables();
     }
 
     public override void PostDestroy(DestroyMode mode, Map previousMap)
