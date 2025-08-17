@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_ResearchProbe</defName>
         <label>research probe</label>
-        <description>A machine meant to calculate and conduct complex simulations often used by glitterworld research facilities.\n\nIt conducts passive research on its own.\n\Complex simulations can sometimes overload and cause an energy discharge.\n\nNote that it must be connected to a research bench in order to work.</description>
+        <description>A machine meant to calculate and conduct complex simulations often used by glitterworld research facilities.\n\nIt conducts passive research on its own.\nComplex simulations can sometimes overload and cause an energy discharge.\n\nNote that it must be connected to a research bench in order to work.</description>
         <graphicData>
             <texPath>Things/Building/ResearchProbe</texPath>
             <graphicClass>Graphic_Single</graphicClass>
