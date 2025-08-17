@@ -36,7 +36,7 @@
         <techHediffsChance>0.40</techHediffsChance>
         <combatEnhancingDrugsChance>0.5</combatEnhancingDrugsChance>
         <combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
-        <biocodeWeaponChance>0.55</biocodeWeaponChance>
+        <biocodeWeaponChance>0.85</biocodeWeaponChance>
         <requiredWorkTags>
             <li>Violent</li>
         </requiredWorkTags>
