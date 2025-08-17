@@ -5,7 +5,7 @@
         <value>
             <li Class="ThinkNode_ConditionalMentalStates">
                 <states>
-                    <li>USH_ConfusedWandering</li>
+                    <li>USH_PerplexedWandering</li>
                 </states>
                 <subNodes>
                     <li Class="ThinkNode_PrioritySorter">

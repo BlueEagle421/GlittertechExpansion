@@ -28,13 +28,13 @@
     </IncidentDef>
 
     <IncidentDef>
-        <defName>USH_ConfusionIncident</defName>
+        <defName>USH_PerplexIncident</defName>
         <label>confused wandering</label>
         <category>Misc</category>
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
-        <workerClass>USH_GE.IncidentWorker_ConfusedWandering</workerClass>
+        <workerClass>USH_GE.IncidentWorker_PerplexWandering</workerClass>
         <baseChance>1.5</baseChance>
         <minRefireDays>8</minRefireDays>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>

@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace USH_GE;
 
-public static class ConfusionIncidentUtility
+public static class PerplexIncidentUtility
 {
     public static IEnumerable<Pawn> GetResearchers(Map map)
     {
@@ -33,6 +32,6 @@ public static class ConfusionIncidentUtility
 
     public static void DoConfusionIncident(Pawn pawn)
     {
-        pawn.mindState.mentalStateHandler.TryStartMentalState(USH_DefOf.USH_ConfusedWandering);
+        pawn.mindState.mentalStateHandler.TryStartMentalState(USH_DefOf.USH_PerplexedWandering);
     }
 }
