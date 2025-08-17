@@ -130,7 +130,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
     private int ComaDuration(Pawn p, float distance)
     {
-        float ticksPerTile = 2500; // 1 hour
+        float ticksPerTile = 1250; // Half an hour
         float maxTicks = 60000 * 8; // 8 days
         float safeDistance = 3;
 
