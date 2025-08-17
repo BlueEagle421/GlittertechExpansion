@@ -19,7 +19,7 @@
     <ThingDef ParentName="USH_GlittertechBodyPartBase">
         <defName>USH_TelepadIntegrator</defName>
         <label>telepad integrator</label>
-        <description>A simple implant designed to tune the user’s brain waves to accept sudden and artificial translocations. It prevents teleportation sickness and establishes a link to the telepad.</description>
+        <description>A simple tracking device designed to tune the user’s brain waves to accept sudden translocations. It establishes a link to a telepad.</description>
         <descriptionHyperlinks>
             <RecipeDef>USH_InstallTelepadIntegrator</RecipeDef>
         </descriptionHyperlinks>
