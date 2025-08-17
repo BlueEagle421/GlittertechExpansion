@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -275,7 +276,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
     private Command_Action TeleportAllGizmo()
     {
-        var teleportablePawns = TeleportablePawns(true);
+        List<Pawn> teleportablePawns = [.. TeleportablePawns(true).Where(x => x.Map == parent.Map)];
         string toTeleport = "None".Translate();
 
         if (!teleportablePawns.NullOrEmpty())
@@ -329,7 +330,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
                     float distance = 0;
                     try
                     {
-                        distance = Find.WorldGrid.TraversalDistanceBetween(parent.Map.Tile, p.Map.Tile);
+                        distance = GetTwoMapDistance(parent.Map, p.Map);
                     }
                     catch { }
 
@@ -373,6 +374,36 @@ public class CompTelepad : CompInteractable, ITargetingSource
         }
 
         return [.. result.Where(x => CanBeTeleported(x, distanceCheck))];
+    }
+
+    private float GetTwoMapDistance(Map map1, Map map2)
+    {
+        int tile1 = map1.Tile;
+        if (TryGetPocketMapPlanetTile(map1, out var planetTile1))
+            tile1 = planetTile1;
+
+        int tile2 = map2.Tile;
+        if (TryGetPocketMapPlanetTile(map2, out var planetTile2))
+            tile2 = planetTile2;
+
+        return Find.WorldGrid.TraversalDistanceBetween(tile1, tile2);
+    }
+
+    private bool TryGetPocketMapPlanetTile(Map pocketMap, out PlanetTile planetTile)
+    {
+        planetTile = PlanetTile.Invalid;
+
+        if (!pocketMap.IsPocketMap)
+            return false;
+
+        foreach (Map map in Find.Maps)
+            if (map.ChildPocketMaps.Contains(pocketMap))
+            {
+                planetTile = map.Tile;
+                return true;
+            }
+
+        return false;
     }
 
     private List<Pawn> TeleportablePlanetPawns()
