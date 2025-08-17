@@ -15,7 +15,7 @@
         <extraDamages>
             <li>
                 <def>USH_ADP</def>
-                <amount>6</amount>
+                <amount>3</amount>
             </li>
         </extraDamages>
         <statOffsets>
