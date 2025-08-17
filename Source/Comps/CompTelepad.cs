@@ -12,7 +12,8 @@ public class CompProperties_Telepad : CompProperties_Interactable
     public int fuelConsumption = 5;
     public HediffDef hediffDef;
     public float hediffAddChance = 0.07f;
-    public float machineBreakChance = 0.005f;
+    public float mentalStateChance = 0.02f;
+    public float machineBreakChance = 0.01f;
 
     public CompProperties_Telepad() => compClass = typeof(CompTelepad);
 }
@@ -87,14 +88,13 @@ public class CompTelepad : CompInteractable, ITargetingSource
         _teleportSequence.Remove(toTel);
     }
 
-    private void Teleport(Pawn toTel, bool draft = false)
+    private void Teleport(Pawn toTel, bool preventNegativeEffects = false)
     {
         if (!CanBeTeleported(toTel))
             return;
 
-        TryToGiveNausea(toTel);
-
-        TryToBreakDownMachine();
+        if (!preventNegativeEffects)
+            DoTeleportationEffects(toTel);
 
         Interact(toTel, true);
 
@@ -103,6 +103,15 @@ public class CompTelepad : CompInteractable, ITargetingSource
         SoundDefOf.Psycast_Skip_Entry.PlayOneShot(parent);
         SkipUtility.SkipTo(toTel, parent.Position, parent.Map);
         SpawnFleckEffect(parent.Position);
+    }
+
+    private void DoTeleportationEffects(Pawn toTel)
+    {
+        TryGiveMentalState(toTel);
+
+        TryToGiveNausea(toTel);
+
+        TryToBreakDownMachine();
     }
 
     private void TryGiveComa(Pawn p, float distance)
@@ -131,6 +140,17 @@ public class CompTelepad : CompInteractable, ITargetingSource
             return 0;
 
         return Mathf.RoundToInt(Mathf.Min(distance * ticksPerTile, maxTicks));
+    }
+
+    private void TryGiveMentalState(Pawn p)
+    {
+        if (!p.RaceProps.IsFlesh)
+            return;
+
+        if (!Rand.Chance(PadProps.mentalStateChance))
+            return;
+
+        p.mindState.mentalStateHandler.TryStartMentalState(USH_DefOf.USH_WanderPsychoticTelepad, "USH_GE_TeleportReason".Translate());
     }
 
     private void TryToGiveNausea(Pawn p)
@@ -369,7 +389,7 @@ public class CompTelepad : CompInteractable, ITargetingSource
         AcceptanceReport acceptanceReport = CanBeTeleported(selPawn);
         FloatMenuOption floatMenuOption = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(ActivateOptionLabel, delegate
         {
-            Teleport(selPawn);
+            Teleport(selPawn, true);
         }), selPawn, parent);
         if (!acceptanceReport.Accepted)
         {

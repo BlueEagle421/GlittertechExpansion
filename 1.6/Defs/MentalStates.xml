@@ -14,6 +14,12 @@
         <stopsJobs>true</stopsJobs>
     </MentalStateDef>
 
+    <MentalStateDef ParentName="WanderPsychotic">
+        <defName>USH_WanderPsychoticTelepad</defName>
+        <minTicksBeforeRecovery>1000</minTicksBeforeRecovery>
+        <maxTicksBeforeRecovery>5000</maxTicksBeforeRecovery>
+    </MentalStateDef>
+
     <ThoughtDef>
         <defName>USH_Enlightenment</defName>
         <durationDays>3</durationDays>

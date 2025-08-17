@@ -76,6 +76,7 @@
   <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
   <USH_GE_NoTeleportablePawns>No teleport candidates</USH_GE_NoTeleportablePawns>
   <USH_GE_CommandChoosePawnToTeleport>Choose teleportation target</USH_GE_CommandChoosePawnToTeleport>
+  <USH_GE_TeleportReason>Caused by sudden position change.</USH_GE_TeleportReason>
 
   <USH_GE_NauseaMsg>The sudden position change gave {PAWN} telepad nausea</USH_GE_NauseaMsg>
   <USH_GE_ComaMsg>Coma duration: {0}</USH_GE_ComaMsg>

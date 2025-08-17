@@ -30,7 +30,7 @@ public static class PerplexIncidentUtility
         }
     }
 
-    public static void DoConfusionIncident(Pawn pawn)
+    public static void DoPerplexityIncident(Pawn pawn)
     {
         pawn.mindState.mentalStateHandler.TryStartMentalState(USH_DefOf.USH_PerplexedWandering);
     }

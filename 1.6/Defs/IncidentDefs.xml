@@ -29,7 +29,7 @@
 
     <IncidentDef>
         <defName>USH_PerplexIncident</defName>
-        <label>confused wandering</label>
+        <label>perplexed wandering</label>
         <category>Misc</category>
         <targetTags>
             <li>Map_PlayerHome</li>

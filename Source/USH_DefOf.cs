@@ -64,4 +64,5 @@ public static class USH_DefOf
     public static HediffDef USH_InstalledMemoryProjector;
     public static HediffDef USH_InstalledGlitterlink;
     public static StatDef USH_DrugToleranceGainRate;
+    public static MentalStateDef USH_WanderPsychoticTelepad;
 }

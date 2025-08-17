@@ -14,7 +14,7 @@ public class IncidentWorker_PerplexWandering : IncidentWorker
         if (!PerplexIncidentUtility.GetResearchers((Map)parms.target).TryRandomElement(out var result))
             return false;
 
-        PerplexIncidentUtility.DoConfusionIncident(result);
+        PerplexIncidentUtility.DoPerplexityIncident(result);
         return true;
     }
 }
