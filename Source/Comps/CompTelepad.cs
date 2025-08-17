@@ -11,7 +11,8 @@ public class CompProperties_Telepad : CompProperties_Interactable
 {
     public int fuelConsumption = 5;
     public HediffDef hediffDef;
-    public float hediffAddChance = 0.04f;
+    public float hediffAddChance = 0.07f;
+    public float machineBreakChance = 0.005f;
 
     public CompProperties_Telepad() => compClass = typeof(CompTelepad);
 }
@@ -93,6 +94,8 @@ public class CompTelepad : CompInteractable, ITargetingSource
 
         TryToGiveNausea(toTel);
 
+        TryToBreakDownMachine();
+
         Interact(toTel, true);
 
         _refuelableComp.ConsumeFuel(PadProps.fuelConsumption);
@@ -135,11 +138,22 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (!p.RaceProps.IsFlesh)
             return;
 
-        if (!Rand.Chance(0.07f))
+        if (!Rand.Chance(PadProps.hediffAddChance))
             return;
 
         p.health.AddHediff(USH_DefOf.USH_TelepadNausea);
         Messages.Message("USH_GE_NauseaMsg".Translate(p.Named("PAWN")), new LookTargets(p), MessageTypeDefOf.NegativeEvent, true);
+    }
+
+    private void TryToBreakDownMachine()
+    {
+        if (!Rand.Chance(PadProps.machineBreakChance))
+            return;
+
+        if (!parent.TryGetComp(out CompBreakdownable compBreakdownable))
+            return;
+
+        compBreakdownable.DoBreakdown();
     }
 
     private void TargetPawnToTeleport()

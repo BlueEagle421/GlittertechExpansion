@@ -87,7 +87,7 @@
                 </affectedDamageDefs>
             </li>
             <li Class="USH_GE.CompProperties_Telepad">
-                <fuelConsumption>2</fuelConsumption>
+                <fuelConsumption>3</fuelConsumption>
                 <activeTicks>1</activeTicks>
                 <cooldownTicks>0</cooldownTicks>
                 <ticksToActivate>60</ticksToActivate>

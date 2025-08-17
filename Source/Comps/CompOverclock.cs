@@ -20,8 +20,7 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
     public bool IsOverclocked;
     public CompProperties_Overclock OverclockProps => (CompProperties_Overclock)props;
 
-    private CompOverclockUpgrade _cellComp;
-    public CompOverclockUpgrade UpgradeLens => _cellComp;
+    public CompOverclockUpgrade UpgradeLens => ContainedThing?.TryGetComp<CompOverclockUpgrade>();
 
     protected ThingOwner innerContainer;
     public bool HasAnyContents => innerContainer.Count > 0;
@@ -49,8 +48,6 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
         base.PostSpawnSetup(respawningAfterLoad);
 
         innerContainer ??= new ThingOwner<Thing>(this, oneStackOnly: false);
-
-        _cellComp = ContainedThing?.TryGetComp<CompOverclockUpgrade>();
     }
 
     public override string TransformLabel(string label)
@@ -193,17 +190,15 @@ public class CompOverclock : ThingComp, IThingHolder, ISearchableContents
         Notify_UpgradeExtracted(null);
     }
 
-    public void Notify_UpgradeInstalled(Pawn doer)
+    public virtual void Notify_UpgradeInstalled(Pawn doer)
     {
-        _cellComp = ContainedThing?.TryGetComp<CompOverclockUpgrade>();
-
         _insertedSoundDef = DefDatabase<SoundDef>.GetNamedSilentFail(OverclockProps.insertedSoundDefName);
         _insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
     }
 
-    public void Notify_UpgradeExtracted(Pawn doer)
+    public virtual void Notify_UpgradeExtracted(Pawn doer)
     {
-        _cellComp = null;
+
     }
 
     public AcceptanceReport CanInstall()
