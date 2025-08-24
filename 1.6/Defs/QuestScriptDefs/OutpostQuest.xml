@@ -8,6 +8,7 @@
         <rootEarliestDay>45</rootEarliestDay>
         <minRefireDays>30</minRefireDays>
         <rootMinPoints>1000</rootMinPoints>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
         <questNameRules>
             <rulesStrings>
                 <li>questName->Ancient glittertech outpost</li>
@@ -18,7 +19,6 @@
                 <li>questDescription->An anonymous traveler has sent us a message reporting a heavily militarized (*Threat)ancient outpost(/Threat) that appears to contain mysterious glitterworld technologies. It’s unclear how the ancients acquired such valuable and rare glittertech, but they seem determined to defend it at all costs.\n\nThe outpost is protected by:\n(*Threat)[forces_description](/Threat)\n\nIt may also be (*Threat)filled with traps and anti-mech defenses.(/Threat)</li>
             </rulesStrings>
         </questDescriptionRules>
-
         <root Class="QuestNode_SubScript">
             <def>USH_GlittertechQuestBase</def>
             <parms>

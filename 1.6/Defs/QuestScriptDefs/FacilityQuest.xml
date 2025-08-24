@@ -8,6 +8,7 @@
         <rootEarliestDay>60</rootEarliestDay>
         <minRefireDays>60</minRefireDays>
         <rootMinPoints>1000</rootMinPoints>
+        <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
         <questNameRules>
             <rulesStrings>
                 <li>questName->Glitterworld research facility</li>
