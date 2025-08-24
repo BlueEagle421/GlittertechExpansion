@@ -9,6 +9,7 @@
         <minRefireDays>30</minRefireDays>
         <rootMinPoints>1000</rootMinPoints>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+        <everAcceptableInSpace>true</everAcceptableInSpace>
         <questNameRules>
             <rulesStrings>
                 <li>questName->Ancient glittertech outpost</li>

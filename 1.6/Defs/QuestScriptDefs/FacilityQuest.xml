@@ -9,6 +9,7 @@
         <minRefireDays>60</minRefireDays>
         <rootMinPoints>1000</rootMinPoints>
         <canOccurOnAllPlanetLayers>true</canOccurOnAllPlanetLayers>
+        <everAcceptableInSpace>true</everAcceptableInSpace>
         <questNameRules>
             <rulesStrings>
                 <li>questName->Glitterworld research facility</li>
