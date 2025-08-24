@@ -70,7 +70,7 @@
             </li>
             <li Class="USH_GE.CompProperties_NeuroclearConsole">
                 <maxRoomCellSize>225</maxRoomCellSize>
-                <fuelConsumption>2</fuelConsumption>
+                <fuelConsumption>1.5</fuelConsumption>
                 <hediffDefToRemove>Anesthetic</hediffDefToRemove>
                 <fleckDef>USH_DesensitizingCloud</fleckDef>
                 <soundDef>USH_Desensitize</soundDef>
