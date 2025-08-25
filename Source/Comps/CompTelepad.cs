@@ -410,7 +410,12 @@ public class CompTelepad : CompInteractable, ITargetingSource
         => [.. TeleportablePawns(false).Where(x => x.Map != parent.Map)];
 
     public override string CompInspectStringExtra()
-        => "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, PadProps.fuelConsumption);
+    {
+        if (!parent.Spawned)
+            return string.Empty;
+
+        return "USH_GE_FuelCost".Translate(_refuelableComp.Props.FuelLabel, PadProps.fuelConsumption);
+    }
 
     public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
     {
