@@ -133,7 +133,7 @@
         </recipeMaker>
     </ThingDef>
 
-    <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <RecipeDef ParentName="SurgeryInstallBodyPartArtificialBase">
         <defName>USH_InstallCryogenicNexus</defName>
         <label>install cryogenic nexus</label>
         <description>Install a cryogenic nexus.</description>
