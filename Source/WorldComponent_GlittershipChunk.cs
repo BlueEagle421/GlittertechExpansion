@@ -42,7 +42,16 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         _ticksToFire -= TICK_CHECK_INTERVAL;
 
         if (_ticksToFire <= 0)
-            FireEvent();
+        {
+            try
+            {
+                FireEvent();
+            }
+            catch (Exception e)
+            {
+                Log.Warning("For some reason the glitterworld debris event didn't fire. I know. I'm also disappointed. Here's the exception if your curious: " + e);
+            }
+        }
     }
 
     public bool FireEvent()
