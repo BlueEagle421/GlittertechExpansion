@@ -24,9 +24,8 @@
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <costList>
             <Steel>40</Steel>
-            <Plasteel>20</Plasteel>
-            <MedicineUltratech>3</MedicineUltratech>
-            <USH_Glittercore>3</USH_Glittercore>
+            <Plasteel>15</Plasteel>
+            <MedicineUltratech>4</MedicineUltratech>
             <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <statBases>

@@ -23,7 +23,6 @@
         <rotatable>false</rotatable>
         <costList>
             <Steel>80</Steel>
-            <Silver>50</Silver>
             <Plasteel>25</Plasteel>
             <Neutroamine>30</Neutroamine>
             <ComponentSpacer>2</ComponentSpacer>

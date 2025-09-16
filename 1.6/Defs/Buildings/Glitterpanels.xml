@@ -194,7 +194,6 @@
                 <statOffsets>
                     <USH_GlittertechDuration>-0.25</USH_GlittertechDuration>
                     <USH_GlittertechPowerStored>0.15</USH_GlittertechPowerStored>
-                    <WorkTableWorkSpeedFactor>0.35</WorkTableWorkSpeedFactor>
                 </statOffsets>
                 <maxSimultaneous>1</maxSimultaneous>
             </li>

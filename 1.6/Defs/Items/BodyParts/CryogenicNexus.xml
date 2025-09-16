@@ -118,12 +118,11 @@
             <Mass>0.1</Mass>
         </statBases>
         <costList>
-            <Neutroamine>60</Neutroamine>
+            <Neutroamine>24</Neutroamine>
             <MedicineUltratech>1</MedicineUltratech>
             <Uranium>50</Uranium>
             <Plasteel>20</Plasteel>
-            <ComponentSpacer>4</ComponentSpacer>
-            <USH_Glittercore>2</USH_Glittercore>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <recipeMaker>
             <researchPrerequisites>

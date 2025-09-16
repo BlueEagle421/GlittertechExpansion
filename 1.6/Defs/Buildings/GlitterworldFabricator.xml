@@ -22,10 +22,9 @@
         <rotatable>true</rotatable>
         <costList>
             <Steel>260</Steel>
-            <Silver>80</Silver>
-            <Plasteel>30</Plasteel>
+            <Plasteel>20</Plasteel>
             <MedicineUltratech>6</MedicineUltratech>
-            <ComponentSpacer>4</ComponentSpacer>
+            <ComponentSpacer>3</ComponentSpacer>
             <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <drawerType>MapMeshAndRealTime</drawerType>

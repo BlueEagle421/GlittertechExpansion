@@ -21,8 +21,7 @@
         <rotatable>false</rotatable>
         <costList>
             <Steel>260</Steel>
-            <Silver>120</Silver>
-            <Plasteel>60</Plasteel>
+            <Plasteel>30</Plasteel>
             <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <canOverlapZones>false</canOverlapZones>

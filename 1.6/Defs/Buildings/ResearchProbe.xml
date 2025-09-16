@@ -35,8 +35,7 @@
         <size>(1,1)</size>
         <costList>
             <Steel>100</Steel>
-            <Silver>80</Silver>
-            <Plasteel>15</Plasteel>
+            <Plasteel>10</Plasteel>
             <ComponentSpacer>1</ComponentSpacer>
             <USH_Glittercore>2</USH_Glittercore>
         </costList>

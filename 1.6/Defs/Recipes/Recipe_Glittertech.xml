@@ -706,7 +706,7 @@
                         <li>Neutroamine</li>
                     </thingDefs>
                 </filter>
-                <count>20</count>
+                <count>8</count>
             </li>
             <li>
                 <filter>
@@ -916,7 +916,6 @@
             </categories>
             <thingDefs>
                 <li>Plasteel</li>
-                <li>Silver</li>
                 <li>USH_Glitterheart</li>
             </thingDefs>
         </fixedIngredientFilter>
