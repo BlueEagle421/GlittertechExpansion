@@ -10,13 +10,6 @@ namespace USH_GE;
 
 public class WorldComponent_GlittershipChunk : WorldComponent
 {
-    public static WorldComponent_GlittershipChunk Instance { get; private set; }
-    public WorldComponent_GlittershipChunk(World world) : base(world)
-    {
-        Instance = this;
-        _ticksToFire = _tickDelayRange.RandomInRange;
-    }
-
     private IntRange _tickDelayRange = new(2500, 2500 * 3); //1 hour, 3 hours
     private int _ticksToFire;
     private int _ticksPassed;
@@ -24,6 +17,17 @@ public class WorldComponent_GlittershipChunk : WorldComponent
 
     private const int TICK_CHECK_INTERVAL = 2000;
     private const int THREAT_POINTS = 600;
+    public static WorldComponent_GlittershipChunk Instance { get; private set; }
+    public WorldComponent_GlittershipChunk(World world) : base(world)
+    {
+        if (Instance != null)
+        {
+            Log.Warning($"Duplicate {nameof(WorldComponent_GlittershipChunk)} detected. Ignoring.");
+            return;
+        }
+        Instance = this;
+        _ticksToFire = _tickDelayRange.RandomInRange;
+    }
 
     public override void WorldComponentTick()
     {
