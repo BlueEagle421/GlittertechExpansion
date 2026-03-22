@@ -15,9 +15,7 @@
       <li>
         <filter>
           <customSummary>hi-tech firearm</customSummary>
-          <categories>
-            <li>WeaponsRanged</li>
-          </categories>
+          <allowWithComp>USH_GE.CompOverclock</allowWithComp>
         </filter>
         <count>1</count>
       </li>
@@ -63,9 +61,6 @@
     </fixedIngredientFilter>
 
     <defaultIngredientFilter>
-      <categories>
-        <li>WeaponsRanged</li>
-      </categories>
       <allowWithComp>USH_GE.CompOverclock</allowWithComp>
     </defaultIngredientFilter>
 
