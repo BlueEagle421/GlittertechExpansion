@@ -37,12 +37,12 @@
 		</Reference>
 
 		<!-- Harmony -->
-		<Reference Include="../../../../../../steamapps/workshop/content/294100/2009463077/Current/Assemblies/0Harmony.dll">
+		<Reference Include="../Dependencies/0Harmony.dll">
 			<Private>False</Private>
 		</Reference>
 
 		<!-- VEF -->
-		<Reference Include="../../../../../../steamapps/workshop/content/294100/2023507013/1.6/Assemblies/VEF.dll">
+		<Reference Include="../Dependencies/VEF.dll">
 			<Private>False</Private>
 		</Reference>
 
